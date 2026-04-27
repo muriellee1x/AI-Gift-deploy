@@ -1,0 +1,4929 @@
+{
+  "id": "cb95e097-a93f-4ea2-9e00-0c9c6627db84",
+  "revision": 0,
+  "last_node_id": 726,
+  "last_link_id": 1305,
+  "nodes": [
+    {
+      "id": 525,
+      "type": "ResizeMask",
+      "pos": [
+        7866.1142578125,
+        6739.70849609375
+      ],
+      "size": [
+        270,
+        194
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 872
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 873
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 874
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            871
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResizeMask"
+      },
+      "widgets_values": [
+        512,
+        512,
+        false,
+        "nearest-exact",
+        "disabled"
+      ]
+    },
+    {
+      "id": 392,
+      "type": "MaskTransparentInOutNode",
+      "pos": [
+        8234.5087890625,
+        6756.82275390625
+      ],
+      "size": [
+        352.2076110839844,
+        78
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 560
+        },
+        {
+          "name": "input_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": 871
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            561
+          ]
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": [
+            577
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskTransparentInOutNode"
+      },
+      "widgets_values": [
+        10
+      ]
+    },
+    {
+      "id": 391,
+      "type": "FastGiftPostFX",
+      "pos": [
+        7466.24365234375,
+        7168.56982421875
+      ],
+      "size": [
+        270.728515625,
+        322
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 974
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            560
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FastGiftPostFX"
+      },
+      "widgets_values": [
+        true,
+        0.65,
+        0.75,
+        32,
+        4,
+        true,
+        2,
+        0,
+        false,
+        true,
+        0.25,
+        1
+      ]
+    },
+    {
+      "id": 524,
+      "type": "Key Protect Highlights Args (V2.3.6fixE2_clean)",
+      "pos": [
+        6938.59814453125,
+        6870.62109375
+      ],
+      "size": [
+        387.3501892089844,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ph_args",
+          "type": "KEY_PH_ARGS",
+          "links": [
+            870
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Key Protect Highlights Args (V2.3.6fixE2_clean)",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        0.75,
+        1,
+        0.1,
+        1
+      ]
+    },
+    {
+      "id": 398,
+      "type": "GetImageSize",
+      "pos": [
+        7010.88427734375,
+        7256.92041015625
+      ],
+      "size": [
+        308.5325012207031,
+        124
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 973
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            873
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            874
+          ]
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize"
+      },
+      "widgets_values": [
+        "width: 960, height: 960\n batch size: 241"
+      ]
+    },
+    {
+      "id": 371,
+      "type": "LoadImage",
+      "pos": [
+        7057.42333984375,
+        7467.03173828125
+      ],
+      "size": [
+        210,
+        437.70758056640625
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            590
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "BG.png",
+        "image"
+      ]
+    },
+    {
+      "id": 523,
+      "type": "Key Edge Args (V2.3.6fixE2_clean)",
+      "pos": [
+        6938.638671875,
+        6697.388671875
+      ],
+      "size": [
+        374.7818298339844,
+        107.4161376953125
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "edge_args",
+          "type": "KEY_EDGE_ARGS",
+          "links": [
+            869
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Key Edge Args (V2.3.6fixE2_clean)",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        -1,
+        0.02,
+        0
+      ]
+    },
+    {
+      "id": 557,
+      "type": "BAInputSlot",
+      "pos": [
+        4936.79296875,
+        6298.0224609375
+      ],
+      "size": [
+        270,
+        122
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_in",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "image_in",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "video_in",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": 981
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "BAInputSlot"
+      },
+      "widgets_values": [
+        "input_1",
+        "video"
+      ]
+    },
+    {
+      "id": 558,
+      "type": "BALoadVideo",
+      "pos": [
+        4806.244140625,
+        6476.6630859375
+      ],
+      "size": [
+        400,
+        524
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            972,
+            981
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BALoadVideo"
+      },
+      "widgets_values": {
+        "video_path": "wan2.2_00003 (2).mp4",
+        "upload": "image",
+        "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
+        "video-preview": ""
+      }
+    },
+    {
+      "id": 723,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        8677.6396484375,
+        6772.32470703125
+      ],
+      "size": [
+        555.3945922851562,
+        1505.0472412109375
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1243
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "BGOutput__",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "BGOutput___00005.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 30,
+            "workflow": "BGOutput___00005.png",
+            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/output/BGOutput___00005.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 393,
+      "type": "FastBottomFitOverlay",
+      "pos": [
+        8264.044921875,
+        6887.46435546875
+      ],
+      "size": [
+        306.8443298339844,
+        194
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "background_image",
+          "type": "IMAGE",
+          "link": 590
+        },
+        {
+          "name": "layer_image",
+          "type": "IMAGE",
+          "link": 561
+        },
+        {
+          "name": "layer_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": 577
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            1243
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "packed_image",
+          "type": "IMAGE",
+          "links": [
+            1241,
+            1244
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FastBottomFitOverlay"
+      },
+      "widgets_values": [
+        1,
+        true,
+        true,
+        0.2,
+        true
+      ]
+    },
+    {
+      "id": 724,
+      "type": "GetImageSize",
+      "pos": [
+        7983.58154296875,
+        7208.56884765625
+      ],
+      "size": [
+        140,
+        124
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1244
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            1245
+          ]
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize"
+      },
+      "widgets_values": [
+        "width: 1440, height: 720\n batch size: 241"
+      ]
+    },
+    {
+      "id": 726,
+      "type": "ttN int",
+      "pos": [
+        7876.3271484375,
+        7349.09228515625
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            1246
+          ]
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ttN int"
+      },
+      "widgets_values": [
+        1280
+      ]
+    },
+    {
+      "id": 725,
+      "type": "SimpleMath+",
+      "pos": [
+        8205.0927734375,
+        7213.49169921875
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "shape": 7,
+          "type": "*",
+          "link": 1245
+        },
+        {
+          "name": "b",
+          "shape": 7,
+          "type": "*",
+          "link": 1246
+        },
+        {
+          "name": "c",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1247
+          ]
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleMath+"
+      },
+      "widgets_values": [
+        "b-a"
+      ]
+    },
+    {
+      "id": 722,
+      "type": "ImagePadKJ",
+      "pos": [
+        8178.7646484375,
+        7470.40478515625
+      ],
+      "size": [
+        270,
+        262
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1241
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "target_width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "name": "target_height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "name": "top",
+          "type": "INT",
+          "widget": {
+            "name": "top"
+          },
+          "link": 1247
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            1242
+          ]
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImagePadKJ"
+      },
+      "widgets_values": [
+        0,
+        0,
+        560,
+        0,
+        0,
+        "color",
+        "0, 0, 0"
+      ]
+    },
+    {
+      "id": 527,
+      "type": "AILab_ColorInput",
+      "pos": [
+        6215.4267578125,
+        6936.20556640625
+      ],
+      "size": [
+        300,
+        82
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "color",
+          "type": "STRING",
+          "widget": {
+            "name": "color"
+          },
+          "link": 910
+        }
+      ],
+      "outputs": [
+        {
+          "name": "COLOR",
+          "type": "COLORCODE",
+          "links": [
+            909
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AILab_ColorInput"
+      },
+      "widgets_values": [
+        "green",
+        ""
+      ],
+      "color": "#2e3e57",
+      "bgcolor": "#4b5b73"
+    },
+    {
+      "id": 561,
+      "type": "VHS_GetImageCount",
+      "pos": [
+        5456.8466796875,
+        6591.60498046875
+      ],
+      "size": [
+        231.7255859375,
+        26
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 978
+        }
+      ],
+      "outputs": [
+        {
+          "name": "count",
+          "type": "INT",
+          "links": [
+            980
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_GetImageCount"
+      },
+      "widgets_values": {}
+    },
+    {
+      "id": 559,
+      "type": "BAGetVideoComponents",
+      "pos": [
+        5457.33544921875,
+        6442.2998046875
+      ],
+      "size": [
+        207.74276733398438,
+        66
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 972
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            973,
+            974,
+            975,
+            978,
+            1248
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BAGetVideoComponents"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 553,
+      "type": "SimpleMath+",
+      "pos": [
+        5756.03564453125,
+        6330.65625
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "shape": 7,
+          "type": "*",
+          "link": 980
+        },
+        {
+          "name": "b",
+          "shape": 7,
+          "type": "*",
+          "link": 912
+        },
+        {
+          "name": "c",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            914
+          ]
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleMath+"
+      },
+      "widgets_values": [
+        "a/b"
+      ]
+    },
+    {
+      "id": 548,
+      "type": "ImageFromBatch",
+      "pos": [
+        5799.6376953125,
+        6540.57275390625
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1248
+        },
+        {
+          "name": "batch_index",
+          "type": "INT",
+          "widget": {
+            "name": "batch_index"
+          },
+          "link": 914
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1249
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageFromBatch"
+      },
+      "widgets_values": [
+        50,
+        1
+      ]
+    },
+    {
+      "id": 554,
+      "type": "ttN int",
+      "pos": [
+        6221.435546875,
+        6770.916015625
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            912
+          ]
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ttN int",
+        "ttNnodeVersion": "1.0.0"
+      },
+      "widgets_values": [
+        2
+      ]
+    },
+    {
+      "id": 537,
+      "type": "RMBG",
+      "pos": [
+        5747.49755859375,
+        6703.4921875
+      ],
+      "size": [
+        340,
+        302
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1249
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1250
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "MASK_IMAGE",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RMBG"
+      },
+      "widgets_values": [
+        "RMBG-2.0",
+        1,
+        2048,
+        0,
+        0,
+        true,
+        false,
+        "Color",
+        "#222222"
+      ],
+      "color": "#222e40",
+      "bgcolor": "#364254"
+    },
+    {
+      "id": 550,
+      "type": "Show any to JSON [Crystools]",
+      "pos": [
+        6173.91455078125,
+        7233.0869140625
+      ],
+      "size": [
+        181.28768920898438,
+        76
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_value",
+          "shape": 7,
+          "type": "*",
+          "link": 906
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Show any to JSON [Crystools]"
+      }
+    },
+    {
+      "id": 547,
+      "type": "LayerUtility: GetMainColorsV2",
+      "pos": [
+        5811.24365234375,
+        7083.86279296875
+      ],
+      "size": [
+        270,
+        158
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1250
+        }
+      ],
+      "outputs": [
+        {
+          "name": "preview_image",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "color_1",
+          "type": "STRING",
+          "links": [
+            906,
+            910
+          ]
+        },
+        {
+          "name": "color_2",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "color_3",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "color_4",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "color_5",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerUtility: GetMainColorsV2"
+      },
+      "widgets_values": [
+        "lloyd"
+      ],
+      "color": "rgba(38, 73, 116, 0.7)"
+    },
+    {
+      "id": 522,
+      "type": "KeylightCoreHubV3",
+      "pos": [
+        7414.08251953125,
+        6616.44677734375
+      ],
+      "size": [
+        386.4146423339844,
+        326
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 975
+        },
+        {
+          "name": "sampler_args",
+          "shape": 7,
+          "type": "KEY_SAMPLER_ARGS",
+          "link": null
+        },
+        {
+          "name": "edge_args",
+          "shape": 7,
+          "type": "KEY_EDGE_ARGS",
+          "link": 869
+        },
+        {
+          "name": "spill_algo_args",
+          "shape": 7,
+          "type": "KEY_SPILL_ALGO_ARGS",
+          "link": null
+        },
+        {
+          "name": "ph_args",
+          "shape": 7,
+          "type": "KEY_PH_ARGS",
+          "link": 870
+        },
+        {
+          "name": "mm_args",
+          "shape": 7,
+          "type": "KEY_MM_ARGS",
+          "link": null
+        },
+        {
+          "name": "key_color",
+          "type": "COLORCODE",
+          "widget": {
+            "name": "key_color"
+          },
+          "link": 909
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            872
+          ]
+        },
+        {
+          "name": "mask_image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "image_rgba",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KeylightCoreHubV3",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        }
+      },
+      "widgets_values": [
+        "manual",
+        "#14fe1e",
+        "color",
+        "#000000",
+        1,
+        0.04,
+        0.2
+      ]
+    },
+    {
+      "id": 521,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        9289.1494140625,
+        6746.2978515625
+      ],
+      "size": [
+        555.3945922851562,
+        823.9063110351562
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1242
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "OpenClawOutput__",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "OpenClawOutput___00064.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 30,
+            "workflow": "OpenClawOutput___00064.png",
+            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/output/OpenClawOutput___00064.mp4"
+          }
+        }
+      }
+    }
+  ],
+  "links": [
+    [
+      560,
+      391,
+      0,
+      392,
+      0,
+      "IMAGE"
+    ],
+    [
+      561,
+      392,
+      0,
+      393,
+      1,
+      "IMAGE"
+    ],
+    [
+      577,
+      392,
+      1,
+      393,
+      2,
+      "MASK"
+    ],
+    [
+      590,
+      371,
+      0,
+      393,
+      0,
+      "IMAGE"
+    ],
+    [
+      869,
+      523,
+      0,
+      522,
+      2,
+      "KEY_EDGE_ARGS"
+    ],
+    [
+      870,
+      524,
+      0,
+      522,
+      4,
+      "KEY_PH_ARGS"
+    ],
+    [
+      871,
+      525,
+      0,
+      392,
+      1,
+      "MASK"
+    ],
+    [
+      872,
+      522,
+      1,
+      525,
+      0,
+      "MASK"
+    ],
+    [
+      873,
+      398,
+      0,
+      525,
+      1,
+      "INT"
+    ],
+    [
+      874,
+      398,
+      1,
+      525,
+      2,
+      "INT"
+    ],
+    [
+      906,
+      547,
+      1,
+      550,
+      0,
+      "*"
+    ],
+    [
+      909,
+      527,
+      0,
+      522,
+      6,
+      "COLORCODE"
+    ],
+    [
+      910,
+      547,
+      1,
+      527,
+      0,
+      "STRING"
+    ],
+    [
+      912,
+      554,
+      0,
+      553,
+      1,
+      "*"
+    ],
+    [
+      914,
+      553,
+      0,
+      548,
+      1,
+      "INT"
+    ],
+    [
+      972,
+      558,
+      0,
+      559,
+      0,
+      "VIDEO"
+    ],
+    [
+      973,
+      559,
+      0,
+      398,
+      0,
+      "IMAGE"
+    ],
+    [
+      974,
+      559,
+      0,
+      391,
+      0,
+      "IMAGE"
+    ],
+    [
+      975,
+      559,
+      0,
+      522,
+      0,
+      "IMAGE"
+    ],
+    [
+      978,
+      559,
+      0,
+      561,
+      0,
+      "IMAGE"
+    ],
+    [
+      980,
+      561,
+      0,
+      553,
+      0,
+      "*"
+    ],
+    [
+      981,
+      558,
+      0,
+      557,
+      2,
+      "VIDEO"
+    ],
+    [
+      1241,
+      393,
+      2,
+      722,
+      0,
+      "IMAGE"
+    ],
+    [
+      1242,
+      722,
+      0,
+      521,
+      0,
+      "IMAGE"
+    ],
+    [
+      1243,
+      393,
+      0,
+      723,
+      0,
+      "IMAGE"
+    ],
+    [
+      1244,
+      393,
+      2,
+      724,
+      0,
+      "IMAGE"
+    ],
+    [
+      1245,
+      724,
+      1,
+      725,
+      0,
+      "*"
+    ],
+    [
+      1246,
+      726,
+      0,
+      725,
+      1,
+      "*"
+    ],
+    [
+      1247,
+      725,
+      0,
+      722,
+      4,
+      "INT"
+    ],
+    [
+      1248,
+      559,
+      0,
+      548,
+      0,
+      "IMAGE"
+    ],
+    [
+      1249,
+      548,
+      0,
+      537,
+      0,
+      "IMAGE"
+    ],
+    [
+      1250,
+      537,
+      0,
+      547,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.45949729863572203,
+      "offset": [
+        -4779.631852404129,
+        -5725.846237577824
+      ]
+    },
+    "frontendVersion": "1.27.10",
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": [],
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false
+  },
+  "version": 0.4,
+  "ba_extra": {
+    "slot_info": {
+      "inputs": [],
+      "outputs": []
+    },
+    "slot_info_schema": {
+      "input": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "output": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    "ba_comfyui_version": "0.0.6",
+    "prompt": {
+      "371": {
+        "inputs": {
+          "image": "BG.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "加载图像"
+        }
+      },
+      "391": {
+        "inputs": {
+          "enable_bloom": true,
+          "bloom_threshold": 0.65,
+          "bloom_intensity": 0.75,
+          "bloom_radius": 32,
+          "bloom_downsample": 4,
+          "enable_ca": true,
+          "ca_amount": 2,
+          "ca_angle_deg": 0,
+          "ca_highlight_only": false,
+          "enable_sharpen": true,
+          "sharpen_amount": 0.25,
+          "sharpen_radius": 1,
+          "natural_saturation": 0.25,
+          "saturation": 1.05,
+          "contrast": 1.05,
+          "brightness": 0.05,
+          "image": [
+            "559",
+            0
+          ]
+        },
+        "class_type": "FastGiftPostFX",
+        "_meta": {
+          "title": "Fast Gift PostFX"
+        }
+      },
+      "392": {
+        "inputs": {
+          "transparent_frames": 10,
+          "images": [
+            "391",
+            0
+          ],
+          "input_mask": [
+            "525",
+            0
+          ]
+        },
+        "class_type": "MaskTransparentInOutNode",
+        "_meta": {
+          "title": "Mask Transparent In-Out (首尾透明过渡)"
+        }
+      },
+      "393": {
+        "inputs": {
+          "opacity": 1,
+          "clip_if_too_tall": true,
+          "enable_top_fade": true,
+          "top_fade_ratio": 0.2,
+          "enable_packed_output": true,
+          "background_image": [
+            "371",
+            0
+          ],
+          "layer_image": [
+            "392",
+            0
+          ],
+          "layer_mask": [
+            "392",
+            1
+          ]
+        },
+        "class_type": "FastBottomFitOverlay",
+        "_meta": {
+          "title": "Fast Bottom Fit Overlay (Packed)"
+        }
+      },
+      "398": {
+        "inputs": {
+          "image": [
+            "559",
+            0
+          ]
+        },
+        "class_type": "GetImageSize",
+        "_meta": {
+          "title": "Get Image Size"
+        }
+      },
+      "521": {
+        "inputs": {
+          "frame_rate": 30,
+          "loop_count": 0,
+          "filename_prefix": "OpenClawOutput__",
+          "format": "video/h264-mp4",
+          "pix_fmt": "yuv420p",
+          "crf": 19,
+          "save_metadata": true,
+          "trim_to_audio": false,
+          "pingpong": false,
+          "save_output": true,
+          "images": [
+            "722",
+            0
+          ]
+        },
+        "class_type": "VHS_VideoCombine",
+        "_meta": {
+          "title": "Video Combine 🎥🅥🅗🅢"
+        }
+      },
+      "522": {
+        "inputs": {
+          "key_mode": "manual",
+          "key_color": [
+            "527",
+            0
+          ],
+          "background_mode": "color",
+          "bg_color": "#000000",
+          "tolerance": 1,
+          "clip_black": 0.04,
+          "clip_white": 0.2,
+          "image": [
+            "559",
+            0
+          ],
+          "edge_args": [
+            "523",
+            0
+          ],
+          "ph_args": [
+            "524",
+            0
+          ]
+        },
+        "class_type": "KeylightCoreHubV3",
+        "_meta": {
+          "title": "Keylight Core"
+        }
+      },
+      "523": {
+        "inputs": {
+          "shrink_expand": -1,
+          "edge_soft": 0.02,
+          "defringe": 0
+        },
+        "class_type": "Key Edge Args (V2.3.6fixE2_clean)",
+        "_meta": {
+          "title": "Key Edge Args (V2.3.6fixE3_clean_final)"
+        }
+      },
+      "524": {
+        "inputs": {
+          "thr": 0.75,
+          "strength": 1,
+          "soft_width": 0.1,
+          "gamma": 1
+        },
+        "class_type": "Key Protect Highlights Args (V2.3.6fixE2_clean)",
+        "_meta": {
+          "title": "Key Protect Highlights Args (V2.3.6fixE3_clean_final)"
+        }
+      },
+      "525": {
+        "inputs": {
+          "width": [
+            "398",
+            0
+          ],
+          "height": [
+            "398",
+            1
+          ],
+          "keep_proportions": false,
+          "upscale_method": "nearest-exact",
+          "crop": "disabled",
+          "mask": [
+            "522",
+            1
+          ]
+        },
+        "class_type": "ResizeMask",
+        "_meta": {
+          "title": "Resize Mask"
+        }
+      },
+      "527": {
+        "inputs": {
+          "preset": "green",
+          "color": [
+            "547",
+            1
+          ]
+        },
+        "class_type": "AILab_ColorInput",
+        "_meta": {
+          "title": "颜色输入 (RMBG) 🎨"
+        }
+      },
+      "537": {
+        "inputs": {
+          "model": "RMBG-2.0",
+          "sensitivity": 1,
+          "process_res": 2048,
+          "mask_blur": 0,
+          "mask_offset": 0,
+          "invert_output": true,
+          "refine_foreground": false,
+          "background": "Color",
+          "background_color": "#222222",
+          "image": [
+            "548",
+            0
+          ]
+        },
+        "class_type": "RMBG",
+        "_meta": {
+          "title": "去除背景 (RMBG)"
+        }
+      },
+      "547": {
+        "inputs": {
+          "k_means_algorithm": "lloyd",
+          "image": [
+            "537",
+            0
+          ]
+        },
+        "class_type": "LayerUtility: GetMainColorsV2",
+        "_meta": {
+          "title": "图层工具：获取主颜色 V2"
+        }
+      },
+      "548": {
+        "inputs": {
+          "batch_index": [
+            "553",
+            0
+          ],
+          "length": 1,
+          "image": [
+            "559",
+            0
+          ]
+        },
+        "class_type": "ImageFromBatch",
+        "_meta": {
+          "title": "从批次获取图像"
+        }
+      },
+      "550": {
+        "inputs": {
+          "any_value": [
+            "547",
+            1
+          ]
+        },
+        "class_type": "Show any to JSON [Crystools]",
+        "_meta": {
+          "title": "🪛 Show any to JSON"
+        }
+      },
+      "553": {
+        "inputs": {
+          "value": "a/b",
+          "a": [
+            "561",
+            0
+          ],
+          "b": [
+            "554",
+            0
+          ]
+        },
+        "class_type": "SimpleMath+",
+        "_meta": {
+          "title": "🔧 Simple Math"
+        }
+      },
+      "554": {
+        "inputs": {
+          "int": 2
+        },
+        "class_type": "ttN int",
+        "_meta": {
+          "title": "int"
+        }
+      },
+      "557": {
+        "inputs": {
+          "variable_name": "input_1",
+          "input_type": "video",
+          "video_in": [
+            "558",
+            0
+          ]
+        },
+        "class_type": "BAInputSlot",
+        "_meta": {
+          "title": "BA Input Slot (Variable)"
+        }
+      },
+      "558": {
+        "inputs": {
+          "video_path": "wan2.2_00003 (2).mp4",
+          "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
+          "video-preview": ""
+        },
+        "class_type": "BALoadVideo",
+        "_meta": {
+          "title": "BA Load Video"
+        }
+      },
+      "559": {
+        "inputs": {
+          "video": [
+            "558",
+            0
+          ]
+        },
+        "class_type": "BAGetVideoComponents",
+        "_meta": {
+          "title": "BA Get Video Components"
+        }
+      },
+      "561": {
+        "inputs": {
+          "images": [
+            "559",
+            0
+          ]
+        },
+        "class_type": "VHS_GetImageCount",
+        "_meta": {
+          "title": "Get Image Count 🎥🅥🅗🅢"
+        }
+      },
+      "722": {
+        "inputs": {
+          "left": 0,
+          "right": 0,
+          "top": [
+            "725",
+            0
+          ],
+          "bottom": 0,
+          "extra_padding": 0,
+          "pad_mode": "color",
+          "color": "0, 0, 0",
+          "image": [
+            "393",
+            2
+          ]
+        },
+        "class_type": "ImagePadKJ",
+        "_meta": {
+          "title": "ImagePad KJ"
+        }
+      },
+      "723": {
+        "inputs": {
+          "frame_rate": 30,
+          "loop_count": 0,
+          "filename_prefix": "BGOutput__",
+          "format": "video/h264-mp4",
+          "pix_fmt": "yuv420p",
+          "crf": 19,
+          "save_metadata": true,
+          "trim_to_audio": false,
+          "pingpong": false,
+          "save_output": true,
+          "images": [
+            "393",
+            0
+          ]
+        },
+        "class_type": "VHS_VideoCombine",
+        "_meta": {
+          "title": "Video Combine 🎥🅥🅗🅢"
+        }
+      },
+      "724": {
+        "inputs": {
+          "image": [
+            "393",
+            2
+          ]
+        },
+        "class_type": "GetImageSize",
+        "_meta": {
+          "title": "Get Image Size"
+        }
+      },
+      "725": {
+        "inputs": {
+          "value": "b-a",
+          "a": [
+            "724",
+            1
+          ],
+          "b": [
+            "726",
+            0
+          ]
+        },
+        "class_type": "SimpleMath+",
+        "_meta": {
+          "title": "🔧 Simple Math"
+        }
+      },
+      "726": {
+        "inputs": {
+          "int": 1280
+        },
+        "class_type": "ttN int",
+        "_meta": {
+          "title": "int"
+        }
+      }
+    },
+    "r2l": [],
+    "venv_comfyui": null,
+    "service_name": "byteartist_comfyui_online",
+    "comfyui_commit": "51696e3fdcdfad657cb15854345fbcbbe70eef8d",
+    "ba_manager_commit": "3a95e3336d4067ea021e269661e0f22438e1c264",
+    "created_at": 1776843276557,
+    "node_info": {
+      "ResizeMask": {
+        "input": {
+          "required": {
+            "mask": [
+              "MASK"
+            ],
+            "width": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "display": "number"
+              }
+            ],
+            "height": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "display": "number"
+              }
+            ],
+            "keep_proportions": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "upscale_method": [
+              [
+                "nearest-exact",
+                "bilinear",
+                "area",
+                "bicubic",
+                "lanczos"
+              ]
+            ],
+            "crop": [
+              [
+                "disabled",
+                "center"
+              ]
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "mask",
+            "width",
+            "height",
+            "keep_proportions",
+            "upscale_method",
+            "crop"
+          ]
+        },
+        "output": [
+          "MASK",
+          "INT",
+          "INT"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "mask",
+          "width",
+          "height"
+        ],
+        "name": "ResizeMask",
+        "display_name": "Resize Mask",
+        "description": "\nResizes the mask or batch of masks to the specified width and height.\n",
+        "python_module": "custom_nodes.ComfyUI-KJNodes",
+        "category": "KJNodes/masking",
+        "output_node": false
+      },
+      "MaskTransparentInOutNode": {
+        "input": {
+          "required": {
+            "images": [
+              "IMAGE"
+            ],
+            "transparent_frames": [
+              "INT",
+              {
+                "default": 10,
+                "min": 0,
+                "max": 10000,
+                "step": 1,
+                "display": "number"
+              }
+            ]
+          },
+          "optional": {
+            "input_mask": [
+              "MASK"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "images",
+            "transparent_frames"
+          ],
+          "optional": [
+            "input_mask"
+          ]
+        },
+        "output": [
+          "IMAGE",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "images",
+          "masks"
+        ],
+        "name": "MaskTransparentInOutNode",
+        "display_name": "Mask Transparent In-Out (首尾透明过渡)",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-mask-blend",
+        "category": "遮罩/transitions",
+        "output_node": false
+      },
+      "FastGiftPostFX": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "enable_bloom": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "bloom_threshold": [
+              "FLOAT",
+              {
+                "default": 0.65,
+                "min": 0,
+                "max": 1,
+                "step": 0.01
+              }
+            ],
+            "bloom_intensity": [
+              "FLOAT",
+              {
+                "default": 0.35,
+                "min": 0,
+                "max": 3,
+                "step": 0.01
+              }
+            ],
+            "bloom_radius": [
+              "INT",
+              {
+                "default": 8,
+                "min": 0,
+                "max": 64,
+                "step": 1
+              }
+            ],
+            "bloom_downsample": [
+              "INT",
+              {
+                "default": 4,
+                "min": 1,
+                "max": 8,
+                "step": 1
+              }
+            ],
+            "enable_ca": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "ca_amount": [
+              "FLOAT",
+              {
+                "default": 2,
+                "min": 0,
+                "max": 20,
+                "step": 0.1
+              }
+            ],
+            "ca_angle_deg": [
+              "FLOAT",
+              {
+                "default": 0,
+                "min": -180,
+                "max": 180,
+                "step": 1
+              }
+            ],
+            "ca_highlight_only": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "enable_sharpen": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "sharpen_amount": [
+              "FLOAT",
+              {
+                "default": 0.2,
+                "min": 0,
+                "max": 2,
+                "step": 0.01
+              }
+            ],
+            "sharpen_radius": [
+              "INT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 8,
+                "step": 1
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "enable_bloom",
+            "bloom_threshold",
+            "bloom_intensity",
+            "bloom_radius",
+            "bloom_downsample",
+            "enable_ca",
+            "ca_amount",
+            "ca_angle_deg",
+            "ca_highlight_only",
+            "enable_sharpen",
+            "sharpen_amount",
+            "sharpen_radius"
+          ]
+        },
+        "output": [
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "IMAGE"
+        ],
+        "name": "FastGiftPostFX",
+        "display_name": "Fast Gift PostFX",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-GiftHelperSuite",
+        "category": "图像/后处理",
+        "output_node": false
+      },
+      "Key Protect Highlights Args (V2.3.6fixE2_clean)": {
+        "input": {
+          "required": {
+            "thr": [
+              "FLOAT",
+              {
+                "default": 0.75,
+                "min": 0,
+                "max": 1,
+                "step": 0.001
+              }
+            ],
+            "strength": [
+              "FLOAT",
+              {
+                "default": 0.7,
+                "min": 0,
+                "max": 1,
+                "step": 0.01
+              }
+            ],
+            "soft_width": [
+              "FLOAT",
+              {
+                "default": 0.2,
+                "min": 0,
+                "max": 1,
+                "step": 0.01
+              }
+            ],
+            "gamma": [
+              "FLOAT",
+              {
+                "default": 1.1,
+                "min": 0.1,
+                "max": 3,
+                "step": 0.01
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "thr",
+            "strength",
+            "soft_width",
+            "gamma"
+          ]
+        },
+        "output": [
+          "KEY_PH_ARGS"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "ph_args"
+        ],
+        "name": "Key Protect Highlights Args (V2.3.6fixE2_clean)",
+        "display_name": "Key Protect Highlights Args (V2.3.6fixE3_clean_final)",
+        "description": "",
+        "python_module": "custom_nodes.KeylightChromaKeyHub",
+        "category": "KeylightChromaKeyHub",
+        "output_node": false
+      },
+      "GetImageSize": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ]
+          },
+          "hidden": {
+            "unique_id": "UNIQUE_ID"
+          }
+        },
+        "input_order": {
+          "required": [
+            "image"
+          ],
+          "hidden": [
+            "unique_id"
+          ]
+        },
+        "output": [
+          "INT",
+          "INT",
+          "INT"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "width",
+          "height",
+          "batch_size"
+        ],
+        "name": "GetImageSize",
+        "display_name": "Get Image Size",
+        "description": "Returns width and height of the image, and passes it through unchanged.",
+        "python_module": "comfy_extras.nodes_images",
+        "category": "图像",
+        "output_node": false
+      },
+      "LoadImage": {
+        "input": {
+          "required": {
+            "image": [
+              [
+                "032a4a20-32ac-4904-8798-bb40b176e1e6.jpeg",
+                "05eb2e92-a039-4975-a0cf-e55f29b48197.jpeg",
+                "0c9187c9-3ea6-443a-af21-01cf62aeb06f.jpeg",
+                "0d2a2c7b-837d-4a13-a1c8-64a639c34303.jpeg",
+                "1.png",
+                "1084785a-2fdf-412a-9f28-c6e727aa1a01.jpeg",
+                "11.png",
+                "17c90877-5210-492e-b74c-a6b199b1a7a8.jpeg",
+                "1b3ca972-ed6e-420e-a1fd-6a2e205de495.jpeg",
+                "2.png",
+                "20260123-182236.png",
+                "20260123-182402.jpg",
+                "20260123-185903.png",
+                "20260123-185907.png",
+                "20260126-164622.jpg",
+                "20260129-155729.jpg",
+                "20260311181011893_15918.jpeg",
+                "20260408-125023.png",
+                "21ef0561-2ddc-4d09-ae7b-a346be452ad4.jpeg",
+                "235fd060-f71d-4d1d-bd46-470111188ee8.jpeg",
+                "27.png",
+                "29ef5df3-98d3-4859-a4d4-225d2106679c.jpeg",
+                "2bd8ccad-2aa6-484b-8cc2-da77e68fcfa5.jpeg",
+                "3 (1).png",
+                "3662f400-6880-4a17-a8bd-80fe33694275.jpeg",
+                "4 (1).png",
+                "4350db8e-9313-4116-a4be-dda1fcd97332.jpeg",
+                "45ef4bf2-92e6-4d48-ba80-f437b9a1efc7.jpeg",
+                "45f38028-7d89-489a-b4ae-c7f7c1d207c7.jpeg",
+                "4a480bdd-266a-4e19-b872-e155e02c2f77.jpeg",
+                "4d5df94c-8f7a-4e88-9157-c7a833df288c.jpeg",
+                "4e087e73-6772-4d7b-a8bc-7ff5c89facfd.jpeg",
+                "5 (1).png",
+                "55e14ab0-9310-4e9d-b088-4eec23ff1751.jpeg",
+                "560ff310-e2c3-496b-a301-056dcf2c66d2.jpeg",
+                "56f78a04-7d7a-4df6-9ef3-9aca184ce4f3.jpeg",
+                "5a8f7570-ac1d-491d-8f59-770dbf6602d4.jpeg",
+                "63f92f53-8f86-4f6f-8ddf-707954da0ac9.jpeg",
+                "6a3553a0-5481-4f20-9155-064ae29a9014.jpeg",
+                "6ca442d6-c49c-4296-adb7-bb8a94c0256f.jpeg",
+                "6d5a164e-dde8-4cd3-865a-649c42a28cba.jpeg",
+                "70b95cc7-8f86-43f9-bcad-708afc93f12a.jpeg",
+                "782fa43c-de4b-4a81-8529-e27f5b4ae40d.jpeg",
+                "7e427e99-be43-44be-bb3b-b63408f5b38d.jpeg",
+                "8.png",
+                "85d47248-49f5-4b46-af6f-7c81c4688528.jpeg",
+                "88b866c3-f96c-4ffd-89af-1f3cee7f98a6.jpeg",
+                "9061233b-4bf4-4f04-90ce-41bae5f64d36.jpeg",
+                "91d3b357-e222-4827-a5c9-e37154e68152.jpeg",
+                "93bc1613-0417-4456-9fab-36a11df43a74.jpeg"
+              ],
+              {
+                "image_upload": true
+              }
+            ],
+            "upload": [
+              "IMAGEUPLOAD",
+              {
+                "image_upload": true,
+                "imageInputName": "image"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image"
+          ]
+        },
+        "output": [
+          "IMAGE",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "IMAGE",
+          "MASK"
+        ],
+        "name": "LoadImage",
+        "display_name": "加载图像",
+        "description": "",
+        "python_module": "nodes",
+        "category": "图像",
+        "output_node": false
+      },
+      "Key Edge Args (V2.3.6fixE2_clean)": {
+        "input": {
+          "required": {
+            "shrink_expand": [
+              "FLOAT",
+              {
+                "default": 0,
+                "min": -5,
+                "max": 5,
+                "step": 1
+              }
+            ],
+            "edge_soft": [
+              "FLOAT",
+              {
+                "default": 0.08,
+                "min": 0,
+                "max": 1,
+                "step": 0.01
+              }
+            ],
+            "defringe": [
+              "FLOAT",
+              {
+                "default": 0.07,
+                "min": 0,
+                "max": 1,
+                "step": 0.01
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "shrink_expand",
+            "edge_soft",
+            "defringe"
+          ]
+        },
+        "output": [
+          "KEY_EDGE_ARGS"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "edge_args"
+        ],
+        "name": "Key Edge Args (V2.3.6fixE2_clean)",
+        "display_name": "Key Edge Args (V2.3.6fixE3_clean_final)",
+        "description": "",
+        "python_module": "custom_nodes.KeylightChromaKeyHub",
+        "category": "KeylightChromaKeyHub",
+        "output_node": false
+      },
+      "BAInputSlot": {
+        "input": {
+          "required": {
+            "variable_name": [
+              "STRING",
+              {
+                "default": "input_1",
+                "multiline": false
+              }
+            ],
+            "input_type": [
+              [
+                "text",
+                "image",
+                "video"
+              ],
+              {
+                "default": "text"
+              }
+            ]
+          },
+          "optional": {
+            "text_in": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "image_in": [
+              "IMAGE"
+            ],
+            "video_in": [
+              "VIDEO",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "variable_name",
+            "input_type"
+          ],
+          "optional": [
+            "text_in",
+            "image_in",
+            "video_in"
+          ]
+        },
+        "output": [],
+        "output_is_list": [],
+        "output_name": [],
+        "name": "BAInputSlot",
+        "display_name": "BA Input Slot (Variable)",
+        "description": "",
+        "python_module": "custom_nodes.comfyui-webhook-node",
+        "category": "api-bridge",
+        "output_node": false
+      },
+      "BALoadVideo": {
+        "input": {
+          "required": {
+            "video_path": [
+              [
+                "2026-03-23_18-13-47_ByteArtist (1).mp4",
+                "2026-04-01_20-38-32_ByteArtist.mp4",
+                "2026-04-14_14-33-29_ByteArtist_1.mp4",
+                "2026-04-14_18-16-18_ByteArtist_1.mp4",
+                "70eb54e6-e95d-41c8-abd5-bcd1ed23ef37.mp4",
+                "AnimateDiff_00009 (1).mp4",
+                "AnimateDiff_00017.mp4",
+                "AnimateDiff_00029 (1).mp4",
+                "AnimateDiff_01706.mp4",
+                "AnimateDiff_01713.mp4",
+                "ComfyUI_00007_ (4).mp4",
+                "ComfyUI_00008_ (5).mp4",
+                "ComfyUI_00011_ (4).mp4",
+                "ComfyUI_00013_ (5).mp4",
+                "ComfyUI_00015_ (4).mp4",
+                "ComfyUI_00018_ (1).mp4",
+                "ComfyUI_00019_.mp4",
+                "OpenClawOutput___00002_.mp4",
+                "OpenClawOutput___00051.mp4",
+                "under layer.mp4",
+                "upper starglow tint.mp4",
+                "vfx1-mask.mp4",
+                "vfx1.mp4",
+                "vfx2-mask.mp4",
+                "vfx2.mp4",
+                "vfx3-mask.mp4",
+                "vfx3.mp4",
+                "video-1776781293797-xaucph.mp4",
+                "wan2.2_00003 (2).mp4",
+                "wan2.2_00006.mp4",
+                "wan2.2_00029.mp4",
+                "蓝色勿忘我.mp4",
+                "顶层特效90.mp4"
+              ],
+              {
+                "video_upload": true
+              }
+            ],
+            "upload": [
+              "IMAGEUPLOAD",
+              {
+                "video_upload": true,
+                "imageInputName": "video_path"
+              }
+            ]
+          },
+          "optional": {}
+        },
+        "input_order": {
+          "required": [
+            "video_path"
+          ],
+          "optional": []
+        },
+        "output": [
+          "VIDEO"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "video"
+        ],
+        "name": "BALoadVideo",
+        "display_name": "BA Load Video",
+        "description": "",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "BA/视频",
+        "output_node": false
+      },
+      "VHS_VideoCombine": {
+        "input": {
+          "required": {
+            "images": [
+              "IMAGE"
+            ],
+            "frame_rate": [
+              "FLOAT",
+              {
+                "default": 8,
+                "min": 1,
+                "step": 1,
+                "widgetType": "VHSFLOAT"
+              }
+            ],
+            "loop_count": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "widgetType": "VHSINT"
+              }
+            ],
+            "filename_prefix": [
+              "STRING",
+              {
+                "default": "AnimateDiff"
+              }
+            ],
+            "format": [
+              [
+                "image/gif",
+                "image/webp",
+                "video/16bit-png",
+                "video/8bit-png",
+                "video/ProRes",
+                "video/av1-webm",
+                "video/ffmpeg-gif",
+                "video/ffv1-mkv",
+                "video/h264-mp4",
+                "video/h265-mp4",
+                "video/nvenc_av1-mp4",
+                "video/nvenc_h264-mp4",
+                "video/nvenc_hevc-mp4",
+                "video/webm"
+              ],
+              {
+                "formats": {
+                  "video/ProRes": [
+                    [
+                      "profile",
+                      [
+                        "lt",
+                        "standard",
+                        "hq",
+                        "4444",
+                        "4444xq"
+                      ],
+                      {
+                        "default": "hq"
+                      }
+                    ]
+                  ],
+                  "video/av1-webm": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p10le",
+                        "yuv420p"
+                      ]
+                    ],
+                    [
+                      "crf",
+                      "INT",
+                      {
+                        "default": 23,
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "input_color_depth",
+                      [
+                        "8bit",
+                        "16bit"
+                      ]
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/ffmpeg-gif": [
+                    [
+                      "dither",
+                      [
+                        "bayer",
+                        "heckbert",
+                        "floyd_steinberg",
+                        "sierra2",
+                        "sierra2_4a",
+                        "sierra3",
+                        "burkes",
+                        "atkinson",
+                        "none"
+                      ],
+                      {
+                        "default": "sierra2_4a"
+                      },
+                      "[0:v] split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse=dither=$val"
+                    ]
+                  ],
+                  "video/ffv1-mkv": [
+                    [
+                      "level",
+                      [
+                        "0",
+                        "1",
+                        "3"
+                      ],
+                      {
+                        "default": "3"
+                      }
+                    ],
+                    [
+                      "coder",
+                      [
+                        "0",
+                        "1",
+                        "2"
+                      ],
+                      {
+                        "default": "1"
+                      }
+                    ],
+                    [
+                      "context",
+                      [
+                        "0",
+                        "1"
+                      ],
+                      {
+                        "default": "1"
+                      }
+                    ],
+                    [
+                      "gop_size",
+                      "INT",
+                      {
+                        "default": 1,
+                        "min": 1,
+                        "max": 300,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "slices",
+                      [
+                        "4",
+                        "6",
+                        "9",
+                        "12",
+                        "16",
+                        "20",
+                        "24",
+                        "30"
+                      ],
+                      {
+                        "default": "16"
+                      }
+                    ],
+                    [
+                      "slicecrc",
+                      [
+                        "0",
+                        "1"
+                      ],
+                      {
+                        "default": "1"
+                      }
+                    ],
+                    [
+                      "pix_fmt",
+                      [
+                        "bgra",
+                        "rgba64le",
+                        "yuv420p",
+                        "yuv422p",
+                        "yuv444p",
+                        "yuva420p",
+                        "yuva422p",
+                        "yuva444p",
+                        "yuv420p10le",
+                        "yuv422p10le",
+                        "yuv444p10le",
+                        "yuv420p12le",
+                        "yuv422p12le",
+                        "yuv444p12le",
+                        "yuv420p14le",
+                        "yuv422p14le",
+                        "yuv444p14le",
+                        "yuv420p16le",
+                        "yuv422p16le",
+                        "yuv444p16le",
+                        "gray",
+                        "gray10le",
+                        "gray12le",
+                        "gray16le"
+                      ],
+                      {
+                        "default": "bgra"
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "trim_to_audio",
+                      "BOOLEAN",
+                      {
+                        "default": false
+                      }
+                    ]
+                  ],
+                  "video/h264-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "yuv420p10le"
+                      ]
+                    ],
+                    [
+                      "crf",
+                      "INT",
+                      {
+                        "default": 19,
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "trim_to_audio",
+                      "BOOLEAN",
+                      {
+                        "default": false
+                      }
+                    ]
+                  ],
+                  "video/h265-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p10le",
+                        "yuv420p"
+                      ]
+                    ],
+                    [
+                      "crf",
+                      "INT",
+                      {
+                        "default": 22,
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/nvenc_av1-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "p010le"
+                      ]
+                    ],
+                    [
+                      "bitrate",
+                      "INT",
+                      {
+                        "default": 10,
+                        "min": 1,
+                        "max": 999,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "megabit",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/nvenc_h264-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "p010le"
+                      ]
+                    ],
+                    [
+                      "bitrate",
+                      "INT",
+                      {
+                        "default": 10,
+                        "min": 1,
+                        "max": 999,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "megabit",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/nvenc_hevc-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "p010le"
+                      ]
+                    ],
+                    [
+                      "bitrate",
+                      "INT",
+                      {
+                        "default": 10,
+                        "min": 1,
+                        "max": 999,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "megabit",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/webm": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "yuva420p"
+                      ]
+                    ],
+                    [
+                      "crf",
+                      "INT",
+                      {
+                        "default": 20,
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "trim_to_audio",
+                      "BOOLEAN",
+                      {
+                        "default": false
+                      }
+                    ]
+                  ],
+                  "image/webp": [
+                    [
+                      "lossless",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ]
+                }
+              }
+            ],
+            "pingpong": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "save_output": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ]
+          },
+          "optional": {
+            "audio": [
+              "AUDIO"
+            ],
+            "meta_batch": [
+              "VHS_BatchManager"
+            ],
+            "vae": [
+              "VAE"
+            ]
+          },
+          "hidden": {
+            "prompt": "PROMPT",
+            "extra_pnginfo": "EXTRA_PNGINFO",
+            "unique_id": "UNIQUE_ID"
+          }
+        },
+        "input_order": {
+          "required": [
+            "images",
+            "frame_rate",
+            "loop_count",
+            "filename_prefix",
+            "format",
+            "pingpong",
+            "save_output"
+          ],
+          "optional": [
+            "audio",
+            "meta_batch",
+            "vae"
+          ],
+          "hidden": [
+            "prompt",
+            "extra_pnginfo",
+            "unique_id"
+          ]
+        },
+        "output": [
+          "VHS_FILENAMES"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "Filenames"
+        ],
+        "name": "VHS_VideoCombine",
+        "display_name": "Video Combine 🎥🅥🅗🅢",
+        "description": "Combine an image sequence into a video",
+        "python_module": "custom_nodes.ComfyUI-VideoHelperSuite",
+        "category": "Video Helper Suite 🎥🅥🅗🅢",
+        "output_node": true
+      },
+      "FastBottomFitOverlay": {
+        "input": {
+          "required": {
+            "background_image": [
+              "IMAGE"
+            ],
+            "layer_image": [
+              "IMAGE"
+            ],
+            "opacity": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 0.01
+              }
+            ],
+            "clip_if_too_tall": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "enable_top_fade": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "top_fade_ratio": [
+              "FLOAT",
+              {
+                "default": 0.08,
+                "min": 0,
+                "max": 0.5,
+                "step": 0.005
+              }
+            ],
+            "enable_packed_output": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ]
+          },
+          "optional": {
+            "layer_mask": [
+              "MASK"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "background_image",
+            "layer_image",
+            "opacity",
+            "clip_if_too_tall",
+            "enable_top_fade",
+            "top_fade_ratio",
+            "enable_packed_output"
+          ],
+          "optional": [
+            "layer_mask"
+          ]
+        },
+        "output": [
+          "IMAGE",
+          "MASK",
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "image",
+          "mask",
+          "packed_image"
+        ],
+        "name": "FastBottomFitOverlay",
+        "display_name": "Fast Bottom Fit Overlay (Packed)",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-GiftHelperSuite",
+        "category": "图像/composite",
+        "output_node": false
+      },
+      "ttN int": {
+        "input": {
+          "required": {
+            "int": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 18446744073709552000
+              }
+            ]
+          },
+          "hidden": {
+            "ttNnodeVersion": "1.0.0"
+          }
+        },
+        "input_order": {
+          "required": [
+            "int"
+          ],
+          "hidden": [
+            "ttNnodeVersion"
+          ]
+        },
+        "output": [
+          "INT",
+          "FLOAT",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "int",
+          "float",
+          "text"
+        ],
+        "name": "ttN int",
+        "display_name": "int",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI_tinyterraNodes",
+        "category": "🌏 tinyterra/util",
+        "output_node": false
+      },
+      "SimpleMath+": {
+        "input": {
+          "optional": {
+            "a": [
+              "*",
+              {
+                "default": 0
+              }
+            ],
+            "b": [
+              "*",
+              {
+                "default": 0
+              }
+            ],
+            "c": [
+              "*",
+              {
+                "default": 0
+              }
+            ]
+          },
+          "required": {
+            "value": [
+              "STRING",
+              {
+                "multiline": false,
+                "default": ""
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "optional": [
+            "a",
+            "b",
+            "c"
+          ],
+          "required": [
+            "value"
+          ]
+        },
+        "output": [
+          "INT",
+          "FLOAT"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "INT",
+          "FLOAT"
+        ],
+        "name": "SimpleMath+",
+        "display_name": "🔧 Simple Math",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI_essentials",
+        "category": "essentials/utilities",
+        "output_node": false
+      },
+      "ImagePadKJ": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "left": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "right": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "top": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "bottom": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "extra_padding": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "pad_mode": [
+              [
+                "edge",
+                "edge_pixel",
+                "color",
+                "pillarbox_blur"
+              ]
+            ],
+            "color": [
+              "STRING",
+              {
+                "default": "0, 0, 0",
+                "tooltip": "Color as RGB values in range 0-255 or 0.0-1.0, or color name or hex code"
+              }
+            ]
+          },
+          "optional": {
+            "mask": [
+              "MASK"
+            ],
+            "target_width": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "forceInput": true
+              }
+            ],
+            "target_height": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "left",
+            "right",
+            "top",
+            "bottom",
+            "extra_padding",
+            "pad_mode",
+            "color"
+          ],
+          "optional": [
+            "mask",
+            "target_width",
+            "target_height"
+          ]
+        },
+        "output": [
+          "IMAGE",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "images",
+          "masks"
+        ],
+        "name": "ImagePadKJ",
+        "display_name": "ImagePad KJ",
+        "description": "Pad the input image and optionally mask with the specified padding.",
+        "python_module": "custom_nodes.ComfyUI-KJNodes",
+        "category": "KJNodes/图像",
+        "output_node": false
+      },
+      "AILab_ColorInput": {
+        "input": {
+          "required": {
+            "preset": [
+              [
+                "black",
+                "white",
+                "red",
+                "green",
+                "blue",
+                "yellow",
+                "cyan",
+                "magenta",
+                "gray",
+                "silver",
+                "maroon",
+                "olive",
+                "purple",
+                "teal",
+                "navy",
+                "orange",
+                "pink",
+                "brown",
+                "violet",
+                "indigo",
+                "light_gray",
+                "dark_gray",
+                "light_blue",
+                "dark_blue",
+                "light_green",
+                "dark_green"
+              ]
+            ],
+            "color": [
+              "STRING",
+              {
+                "default": "",
+                "placeholder": "Enter color code (e.g. #FF0000 or #F00)"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "preset",
+            "color"
+          ]
+        },
+        "output": [
+          "COLORCODE"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "COLOR"
+        ],
+        "name": "AILab_ColorInput",
+        "display_name": "颜色输入 (RMBG) 🎨",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-RMBG",
+        "category": "🧪AILab/🛠️UTIL/🔄IO",
+        "output_node": false
+      },
+      "VHS_GetImageCount": {
+        "input": {
+          "required": {
+            "images": [
+              "IMAGE"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "images"
+          ]
+        },
+        "output": [
+          "INT"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "count"
+        ],
+        "name": "VHS_GetImageCount",
+        "display_name": "Get Image Count 🎥🅥🅗🅢",
+        "description": "Return the number of images in an input as an INT",
+        "python_module": "custom_nodes.ComfyUI-VideoHelperSuite",
+        "category": "Video Helper Suite 🎥🅥🅗🅢/图像",
+        "output_node": false
+      },
+      "BAGetVideoComponents": {
+        "input": {
+          "required": {
+            "video": [
+              "VIDEO",
+              {
+                "tooltip": "The video to extract components from."
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "video"
+          ]
+        },
+        "output": [
+          "IMAGE",
+          "AUDIO",
+          "FLOAT"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "images",
+          "audio",
+          "fps"
+        ],
+        "name": "BAGetVideoComponents",
+        "display_name": "BA Get Video Components",
+        "description": "Extracts all components from a video: frames, audio, and framerate.",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "图像/视频",
+        "output_node": false
+      },
+      "ImageFromBatch": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "batch_index": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 4095
+              }
+            ],
+            "length": [
+              "INT",
+              {
+                "default": 1,
+                "min": 1,
+                "max": 4096
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "batch_index",
+            "length"
+          ]
+        },
+        "output": [
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "IMAGE"
+        ],
+        "name": "ImageFromBatch",
+        "display_name": "从批次获取图像",
+        "description": "",
+        "python_module": "comfy_extras.nodes_images",
+        "category": "图像/批处理",
+        "output_node": false
+      },
+      "RMBG": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE",
+              {
+                "tooltip": "Input image to be processed for background removal."
+              }
+            ],
+            "model": [
+              [
+                "RMBG-2.0",
+                "INSPYRENET",
+                "BEN",
+                "BEN2"
+              ],
+              {
+                "tooltip": "Select the background removal model to use (RMBG-2.0, INSPYRENET, BEN)."
+              }
+            ]
+          },
+          "optional": {
+            "sensitivity": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "tooltip": "Adjust the strength of mask detection (higher values result in more aggressive detection)."
+              }
+            ],
+            "process_res": [
+              "INT",
+              {
+                "default": 1024,
+                "min": 256,
+                "max": 2048,
+                "step": 8,
+                "tooltip": "Set the processing resolution (higher values require more VRAM and may increase processing time)."
+              }
+            ],
+            "mask_blur": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 64,
+                "step": 1,
+                "tooltip": "Specify the amount of blur to apply to the mask edges (0 for no blur, higher values for more blur)."
+              }
+            ],
+            "mask_offset": [
+              "INT",
+              {
+                "default": 0,
+                "min": -64,
+                "max": 64,
+                "step": 1,
+                "tooltip": "Adjust the mask boundary (positive values expand the mask, negative values shrink it)."
+              }
+            ],
+            "invert_output": [
+              "BOOLEAN",
+              {
+                "default": false,
+                "tooltip": "Enable to invert both the image and mask output (useful for certain effects)."
+              }
+            ],
+            "refine_foreground": [
+              "BOOLEAN",
+              {
+                "default": false,
+                "tooltip": "Use Fast Foreground Colour Estimation to optimize transparent background"
+              }
+            ],
+            "background": [
+              [
+                "Alpha",
+                "Color"
+              ],
+              {
+                "default": "Alpha",
+                "tooltip": "Choose output type: Alpha (transparent) or Color (custom background color)."
+              }
+            ],
+            "background_color": [
+              "COLORCODE",
+              {
+                "default": "#222222",
+                "tooltip": "Pick background color (supports alpha, use color picker)."
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "model"
+          ],
+          "optional": [
+            "sensitivity",
+            "process_res",
+            "mask_blur",
+            "mask_offset",
+            "invert_output",
+            "refine_foreground",
+            "background",
+            "background_color"
+          ]
+        },
+        "output": [
+          "IMAGE",
+          "MASK",
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "IMAGE",
+          "MASK",
+          "MASK_IMAGE"
+        ],
+        "name": "RMBG",
+        "display_name": "去除背景 (RMBG)",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-RMBG",
+        "category": "🧪AILab/🧽RMBG",
+        "output_node": false
+      },
+      "Show any to JSON [Crystools]": {
+        "input": {
+          "required": {},
+          "optional": {
+            "any_value": [
+              "*"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [],
+          "optional": [
+            "any_value"
+          ]
+        },
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "string"
+        ],
+        "name": "Show any to JSON [Crystools]",
+        "display_name": "🪛 Show any to JSON",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Crystools",
+        "category": "crystools 🪛/Debugger",
+        "output_node": true
+      },
+      "LayerUtility: GetMainColorsV2": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "k_means_algorithm": [
+              [
+                "lloyd",
+                "elkan"
+              ]
+            ]
+          },
+          "optional": {}
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "k_means_algorithm"
+          ],
+          "optional": []
+        },
+        "output": [
+          "IMAGE",
+          "STRING",
+          "STRING",
+          "STRING",
+          "STRING",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "preview_image",
+          "color_1",
+          "color_2",
+          "color_3",
+          "color_4",
+          "color_5"
+        ],
+        "name": "LayerUtility: GetMainColorsV2",
+        "display_name": "图层工具：获取主颜色 V2",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI_LayerStyle",
+        "category": "😺dzNodes/LayerUtility",
+        "output_node": false
+      },
+      "KeylightCoreHubV3": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "key_mode": [
+              [
+                "auto",
+                "manual"
+              ],
+              {
+                "default": "auto"
+              }
+            ],
+            "key_color": [
+              "COLORCODE",
+              {
+                "default": "#00FF00"
+              }
+            ],
+            "background_mode": [
+              [
+                "alpha",
+                "color",
+                "soft_color"
+              ],
+              {
+                "default": "alpha"
+              }
+            ],
+            "bg_color": [
+              "COLORCODE",
+              {
+                "default": "#000000"
+              }
+            ],
+            "tolerance": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 2,
+                "step": 0.01
+              }
+            ],
+            "clip_black": [
+              "FLOAT",
+              {
+                "default": -0.02,
+                "min": -1,
+                "max": 1,
+                "step": 0.001
+              }
+            ],
+            "clip_white": [
+              "FLOAT",
+              {
+                "default": 0.3,
+                "min": 0,
+                "max": 2,
+                "step": 0.001
+              }
+            ]
+          },
+          "optional": {
+            "sampler_args": [
+              "KEY_SAMPLER_ARGS"
+            ],
+            "edge_args": [
+              "KEY_EDGE_ARGS"
+            ],
+            "spill_algo_args": [
+              "KEY_SPILL_ALGO_ARGS"
+            ],
+            "ph_args": [
+              "KEY_PH_ARGS"
+            ],
+            "mm_args": [
+              "KEY_MM_ARGS"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "key_mode",
+            "key_color",
+            "background_mode",
+            "bg_color",
+            "tolerance",
+            "clip_black",
+            "clip_white"
+          ],
+          "optional": [
+            "sampler_args",
+            "edge_args",
+            "spill_algo_args",
+            "ph_args",
+            "mm_args"
+          ]
+        },
+        "output": [
+          "IMAGE",
+          "MASK",
+          "IMAGE",
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "image",
+          "mask",
+          "mask_image",
+          "image_rgba"
+        ],
+        "name": "KeylightCoreHubV3",
+        "display_name": "Keylight Core",
+        "description": "",
+        "python_module": "custom_nodes.KeylightChromaKeyHub",
+        "category": "KeylightChromaKeyHub",
+        "output_node": false
+      }
+    },
+    "custom_node_versions": [
+      {
+        "path": "custom_nodes/ComfyUI-KJNodes",
+        "git_url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+        "git_commit": "16a335c8c40b1b3eef8b770022276004d5bea66b",
+        "node_types": [
+          "ResizeMask",
+          "ImagePadKJ"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-mask-blend",
+        "git_url": "https://github.com/muriellee1x/ComfyUI-mask-blend.git",
+        "git_commit": "ddaa25a52dd91fbfd08ff80f590a0b45a2ddbd1a",
+        "node_types": [
+          "MaskTransparentInOutNode"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-GiftHelperSuite",
+        "git_url": "https://github.com/lingziwyh/ComfyUI-GiftHelperSuite.git",
+        "git_commit": "7503a4574c11c3f51d3e06f19e81182729fbd8d3",
+        "node_types": [
+          "FastGiftPostFX",
+          "FastBottomFitOverlay"
+        ]
+      },
+      {
+        "path": "custom_nodes/KeylightChromaKeyHub",
+        "git_url": "https://github.com/Eden123321/KeylightChromaKeyHub.git",
+        "git_commit": "f6aab32f0176495a144dff70f32ecba6c79648db",
+        "node_types": [
+          "Key Protect Highlights Args (V2.3.6fixE2_clean)",
+          "Key Edge Args (V2.3.6fixE2_clean)",
+          "KeylightCoreHubV3"
+        ]
+      },
+      {
+        "path": "custom_nodes/comfyui-webhook-node",
+        "git_url": "https://github.com/Eden123321/comfyui-webhook-node.git",
+        "git_commit": "3c0fbea3e358bb66a41069622dbc9f88f8c5f8d6",
+        "node_types": [
+          "BAInputSlot"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-VideoHelperSuite",
+        "git_url": "https://code.byted.org/lab-cv/ComfyUI-VideoHelperSuite.git",
+        "git_commit": "011bd1a7c8581bc38cdb2b36e86c1a3c67966dec",
+        "node_types": [
+          "VHS_VideoCombine",
+          "VHS_GetImageCount"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI_tinyterraNodes",
+        "git_url": "https://github.com/TinyTerra/ComfyUI_tinyterraNodes.git",
+        "git_commit": "c669e6cff81ba44cce91c9eee3236c1a64725394",
+        "node_types": [
+          "ttN int"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI_essentials",
+        "git_url": "https://code.byted.org/ies/ComfyUI_essentials.git",
+        "git_commit": "c7f432e7147c660abcff14d4e44e3076d4491f43",
+        "node_types": [
+          "SimpleMath+"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-RMBG",
+        "git_url": "https://github.com/1038lab/ComfyUI-RMBG.git",
+        "git_commit": "a1ca256ce5ef3d2d990935415bad76c4269aa80d",
+        "node_types": [
+          "AILab_ColorInput",
+          "RMBG"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Crystools",
+        "git_url": "https://github.com/crystian/ComfyUI-Crystools.git",
+        "git_commit": "2af9ccf0a29c6910e6fcbdd7d2fe96f9bde44eed",
+        "node_types": [
+          "Show any to JSON [Crystools]"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI_LayerStyle",
+        "git_url": "https://github.com/chflame163/ComfyUI_LayerStyle.git",
+        "git_commit": "d94bef1ee5ed3656f5ff1bb2830a4ffd94f40935",
+        "node_types": [
+          "LayerUtility: GetMainColorsV2"
+        ]
+      }
+    ],
+    "pip_freeze": [
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.4.2.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/python_dotenv-1.2.1.dist-info due to invalid metadata entry 'name'",
+      "absl-py==2.3.1",
+      "accelerate==1.10.1",
+      "addict==2.4.0",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "albucore==0.0.24",
+      "albumentations==2.0.8",
+      "alembic==1.18.4",
+      "altgraph==0.17.4",
+      "annotated-doc==0.0.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "basicsr==1.4.2",
+      "bcrypt==5.0.0",
+      "beautifulsoup4==4.14.3",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "blend_modes==2.2.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "build==1.4.1",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-pydev==0.0.20",
+      "byted-wandb==0.13.90",
+      "byted_automl_plugin==0.1.3",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_lighten_validator==0.2.14",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.uploader==0.4.0a15",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "chromadb==1.5.5",
+      "click==8.1.7",
+      "clip-interrogator==0.6.0",
+      "cmake==4.1.0",
+      "color-matcher==0.6.0",
+      "coloredlogs==15.0.1",
+      "colour-science==0.4.7",
+      "comfy-kitchen==0.2.7",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui-workflow-templates-core==0.3.88",
+      "comfyui-workflow-templates-media-api==0.3.39",
+      "comfyui-workflow-templates-media-image==0.3.55",
+      "comfyui-workflow-templates-media-other==0.3.80",
+      "comfyui-workflow-templates-media-video==0.3.38",
+      "comfyui_frontend_package==1.27.10",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==46.0.7",
+      "cstr @ git+https://github.com/ltdrdata/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
+      "cuda-bindings==12.9.4",
+      "cuda-pathfinder==1.3.3",
+      "cupy-cuda12x==13.6.0",
+      "cycler==0.12.1",
+      "Cython==3.2.1",
+      "dataclasses-json==0.6.7",
+      "ddt==1.7.2",
+      "decorator==5.2.1",
+      "decord==0.6.0",
+      "deepdiff==8.6.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "dill==0.4.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "docutils==0.22.4",
+      "durationpy==0.10",
+      "easydict==1.13",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "et_xmlfile==2.0.0",
+      "fairscale==0.4.13",
+      "fastapi==0.117.1",
+      "fastrlock==0.8.3",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "filetype==1.2.0",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "ftfy==6.3.1",
+      "future==1.0.0",
+      "fvcore==0.1.5.post20221221",
+      "gdown==5.2.1",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "google==3.0.0",
+      "googleapis-common-protos==1.73.0",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "groundingdino-py==0.4.0",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httptools==0.7.1",
+      "httpx==0.25.2",
+      "httpx-sse==0.4.3",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "hydra-core==1.3.2",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "imageio-ffmpeg==0.6.0",
+      "img2texture @ git+https://github.com/ltdrdata/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
+      "importlib_metadata==8.7.0",
+      "importlib_resources==6.5.2",
+      "iniconfig==2.0.0",
+      "insightface==0.7.3",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "joblib==1.5.2",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "jsonpatch==1.33",
+      "jsonpointer==3.0.0",
+      "jsonschema==4.26.0",
+      "jsonschema-specifications==2025.9.1",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "kubernetes==35.0.0",
+      "langchain==0.3.25",
+      "langchain-community==0.3.24",
+      "langchain-core==0.3.64",
+      "langchain-ollama==0.3.3",
+      "langchain-openai==0.3.21",
+      "langchain-text-splitters==0.3.8",
+      "langsmith==0.3.45",
+      "lark==1.3.0",
+      "lazy_loader==0.4",
+      "litelama==0.1.7",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "loguru==0.7.3",
+      "lz4==3.1.10",
+      "Mako==1.3.10",
+      "Markdown==3.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "marshmallow==3.26.1",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "mmh3==5.2.1",
+      "moviepy==1.0.3",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "mss==10.1.0",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-ml-py==13.590.48",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvshmem-cu12==3.4.5",
+      "nvidia-nvtx-cu12==12.6.77",
+      "oauthlib==3.3.1",
+      "objprint==0.3.0",
+      "ollama==0.6.0",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime==1.23.2",
+      "onnxruntime-gpu==1.22.0",
+      "open_clip_torch==3.2.0",
+      "openai==1.109.1",
+      "opencv-contrib-python==4.13.0.90",
+      "opencv-python==4.11.0.86",
+      "opencv-python-headless==4.13.0.90",
+      "openpyxl==3.1.2",
+      "opentelemetry-api==1.40.0",
+      "opentelemetry-exporter-otlp-proto-common==1.40.0",
+      "opentelemetry-exporter-otlp-proto-grpc==1.40.0",
+      "opentelemetry-proto==1.40.0",
+      "opentelemetry-sdk==1.40.0",
+      "opentelemetry-semantic-conventions==0.61b0",
+      "orderly-set==5.5.0",
+      "orjson==3.11.3",
+      "overrides==7.7.0",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "pathtools==0.1.2",
+      "peft==0.17.1",
+      "piexif==1.1.3",
+      "pilgram==2.0.0",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "pixeloe==0.1.4",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "pooch==1.8.2",
+      "portalocker==3.2.0",
+      "prettytable==3.16.0",
+      "proglog==0.1.12",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pybase64==1.4.3",
+      "pycocotools==2.0.11",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pycryptodomex==3.23.0",
+      "pydantic==2.11.9",
+      "pydantic-settings==2.14.0",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "PyMatting==1.1.14",
+      "pynvml==13.0.1",
+      "pyope==0.2.2",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "PyPika==0.51.1",
+      "pyproject_hooks==1.2.0",
+      "PySocks==1.7.1",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-dotenv==1.2.2",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "referencing==0.37.0",
+      "regex==2025.9.18",
+      "rembg==2.0.69",
+      "requests==2.31.0",
+      "requests-oauthlib==2.0.0",
+      "requests-toolbelt==1.0.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rfc3986==1.5.0",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rpds-py==0.30.0",
+      "rsa==4.9.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "SAM-2 @ git+https://github.com/facebookresearch/sam2@2b90b9f5ceec907a1c18123530e92e794ad901a4",
+      "schedule==1.2.2",
+      "scikit-image==0.25.2",
+      "scikit-learn==1.7.2",
+      "scipy==1.16.2",
+      "segment-anything==1.0",
+      "semantic-version==2.10.0",
+      "sentence-transformers==5.3.0",
+      "sentencepiece==0.2.1",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "simsimd==6.5.3",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "soundfile==0.13.1",
+      "soupsieve==2.8.3",
+      "spandrel==0.4.1",
+      "SQLAlchemy==2.0.48",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "stringzilla==4.2.3",
+      "supervision==0.6.0",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tb-nightly==2.21.0a20251023",
+      "tenacity==8.5.0",
+      "tensorboard-data-server==0.7.2",
+      "termcolor==3.1.0",
+      "threadpoolctl==3.6.0",
+      "thriftpy2==0.4.20",
+      "tifffile==2025.10.16",
+      "tiktoken==0.12.0",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "transparent-background==1.3.4",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typer-slim==0.24.0",
+      "typing-inspect==0.9.0",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "uvloop==0.22.1",
+      "viztracer==0.16.3",
+      "volcengine==1.0.218",
+      "volcengine-python-sdk==5.0.12",
+      "watchdog==6.0.0",
+      "watchfiles==1.1.1",
+      "wcwidth==0.2.14",
+      "websocket-client==1.9.0",
+      "websockets==15.0.1",
+      "Werkzeug==3.1.3",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "xlrd==2.0.1",
+      "yacs==0.1.8",
+      "yapf==0.43.0",
+      "yarl==1.11.1",
+      "yt-dlp==2026.3.17",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstandard==0.23.0",
+      "zstd==1.5.7.2"
+    ],
+    "preserve_pip_freeze": [
+      "accelerate==1.10.1",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "altgraph==0.17.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-pydev==0.0.20",
+      "byted-wandb==0.13.90",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "click==8.1.7",
+      "cmake==4.1.0",
+      "coloredlogs==15.0.1",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==46.0.7",
+      "cycler==0.12.1",
+      "decorator==5.2.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "fastapi==0.117.1",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "fvcore==0.1.5.post20221221",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httpx==0.25.2",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "importlib_metadata==8.7.0",
+      "iniconfig==2.0.0",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "lark==1.3.0",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "lz4==3.1.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvtx-cu12==12.6.77",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime-gpu==1.22.0",
+      "openai==1.109.1",
+      "opencv-python==4.11.0.86",
+      "orjson==3.11.3",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "peft==0.17.1",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "portalocker==3.2.0",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pydantic==2.11.9",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "pyope==0.2.2",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "regex==2025.9.18",
+      "requests==2.31.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rsa==4.9.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "schedule==1.2.2",
+      "scipy==1.16.2",
+      "semantic-version==2.10.0",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "spandrel==0.4.1",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tenacity==8.5.0",
+      "termcolor==3.1.0",
+      "thriftpy2==0.4.20",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "volcengine-python-sdk==5.0.12",
+      "websockets==15.0.1",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "yacs==0.1.8",
+      "yarl==1.11.1",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstd==1.5.7.2"
+    ],
+    "device_info": {
+      "cudaVersion": "12.6",
+      "gpuName": "NVIDIA L20",
+      "system": "Linux",
+      "version": "#5.4.143.bsk.8 SMP Debian 5.4.143.bsk.8 Wed Jul 20 08:43:36 UTC ",
+      "cuda_version": "12.6",
+      "gpu_name": "NVIDIA L20",
+      "xpu_num": "1"
+    },
+    "base_image": "aip_image_factory/custom.image.combo_infer:nvidia_seed4_infer-20251006-215922",
+    "comfy_args": {
+      "--listen": "fd02::33:0:0:b78",
+      "--port": "9001"
+    },
+    "comfyui_tag": "release_0.3.65",
+    "ba_combo": "588008921034165554",
+    "workflow_name": "花花-Dolly",
+    "workflow_id": "603344952671365803:87",
+    "config_id": "616250090482341329",
+    "workflow_version_id": "616250090499118545",
+    "workflow_identity": "603344952671365803:87"
+  }
+}

@@ -1,0 +1,5271 @@
+{
+  "id": "cb95e097-a93f-4ea2-9e00-0c9c6627db84",
+  "revision": 0,
+  "last_node_id": 637,
+  "last_link_id": 1103,
+  "nodes": [
+    {
+      "id": 552,
+      "type": "JimengAPIClient",
+      "pos": [
+        10174.504805111721,
+        6250.749497299907
+      ],
+      "size": [
+        291.14946853919355,
+        141.030284534801
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "client",
+          "type": "JIMENG_CLIENT",
+          "links": [
+            923
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JimengAPIClient",
+        "cnr_id": "ComfyUI-Jimeng-API",
+        "ver": "e6a3fe5fe52f1f62c52746fbb7e6059a4ec034f9"
+      },
+      "widgets_values": [
+        "c66779c0-66ff-45eb-bbed-1e18e0a007e5",
+        "",
+        "Custom",
+        "ep-20260413115647-997n9"
+      ]
+    },
+    {
+      "id": 556,
+      "type": "BASaveVideo",
+      "pos": [
+        10613.800696432456,
+        6166.129488654851
+      ],
+      "size": [
+        1105.509920572825,
+        1203.509920572825
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 928
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "BASaveVideo"
+      },
+      "widgets_values": [
+        "OpenClawOutput__",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 568,
+      "type": "TextInput",
+      "pos": [
+        5314.270821980119,
+        8951.535418423326
+      ],
+      "size": [
+        657,
+        392
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1010
+          ]
+        }
+      ],
+      "title": "0.5-1k",
+      "properties": {
+        "Node name for S&R": "TextInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"text\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "6 秒视频提示词生成规范（结构信息已给定 · 强执行版）\n\n输入\n\n尾帧构图类型\n主体位置\n遮挡关系\n纵深结构\n画面氛围关键词\n风格关键词\n\n生成目标\n\n基于已给定结构信息，生成一条完整 6 秒中文视频提示词。\n\n不得重新分析结构\n不得修改构图逻辑\n不得新增元素\n不得改变主体数量与形态\n不得改变空间布局\n\n输出限制\n\n只输出一条中文提示词\n禁止解释、分析、标题、小节、编号、Markdown\n\n——————————————\n\n一、结构执行原则（不得推翻输入）\n\n构图类型、主体位置、遮挡关系、纵深结构全部以输入为准。\n\n不得重新判断\n不得优化构图\n不得调整视觉重心\n\n尾帧主体即画面唯一视觉核心。\n\n——————————————\n\n二、运镜方式判定（必须二选一）\n\n优先判断是否满足环绕条件：\n\n主体具有明确三维体量\n未被强遮挡包裹\n空间允许产生轻微视差\n环绕不破坏构图稳定\n\n满足以上条件 → 必须选择环绕\n\n提示词中必须出现：\n“环绕” 或 “绕拍” 或 “轨道环绕” 或 “环绕旋转”\n\n仅当出现以下情况才允许选择推进：\n\n纵深结构强烈\n主体贴附硬质结构\n多核心分散构图\n环绕会破坏稳定性\n\n不得混用两种方式\n不得中途改变运动逻辑\n\n——————————————\n\n三、空间连续性规则\n\n前序场景必须为尾帧同一空间的近距离延伸。\n\n只允许使用尾帧已有元素。\n\n不得新增人物、文字或关键物体。\n\n相机始终处于尾帧近场范围。\n\n运动必须连续、平滑。\n\n6 秒末帧必须：\n\n完全清晰\n无遮挡\n严格对齐尾帧构图与主体位置\n\n——————————————\n\n四、氛围与风格整合规则（强化版）\n\n提示词前半句必须形成完整风格表达，不得拆散。\n\n必须包含三类信息中的至少两类：\n\n情绪氛围\n风格质感\n光影或空气特征\n\n不得堆砌形容词\n不得出现孤立修辞词\n\n——————————————\n\n五、动态限制\n\n动态仅限尾帧已有微动态。\n\n不得制造新视觉焦点。\n\n不得夸大弱存在元素。\n\n不得改变主体状态。\n\n不得出现“低速”、“缓慢”这种类型的字样\n\n六、新增阶段：旋转路径稳定约束（必须加入）\n\n当采用环绕方式时，必须遵守以下规则：\n\n1）单方向原则\n\n旋转必须选择一个方向后持续完成。\n不得在中途改变旋转方向。\n不得出现反向回摆。\n\n2）单弧段原则\n\n旋转只能完成一次连续弧线运动。\n不得超过尾帧目标角度。\n不得出现超过后再修正。\n\n3）提前减速原则\n\n在接近尾帧构图时必须自然减速。\n通过减速完成精准对齐。\n不得通过反向修正实现对齐。\n\n4）禁止补偿机制\n\n不得出现：\n\n先超过目标 → 再反向转回\n先加速 → 再急停\n先大幅旋转 → 再小幅纠正\n\n只允许：\n\n平滑进入 → 平滑减速 → 平滑定格\n\n——————————————\n\n最终输出模板（严格选一）\n\nA（推进）\n氛围与风格整体表达 + 同空间近景简述 + 微动态 + 相机稳定推进至尾帧 + 末帧清晰定格严格对齐尾帧。\n\nB（环绕）\n氛围与风格整体表达 + 同空间近景简述 + 相机环绕主体旋转并回到尾帧构图 + 微动态 （不写“回到尾帧构图”，“居于画面中心”类似的说法，仅写“旋转至尾帧构图”即可）。镜头沿着单一方向环绕主题，一次性完成对齐并稳定定格（一定要加上这句话）。"
+      ]
+    },
+    {
+      "id": 569,
+      "type": "TextInput",
+      "pos": [
+        5306.560861042619,
+        8034.458788784654
+      ],
+      "size": [
+        657,
+        392
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            952
+          ]
+        }
+      ],
+      "title": "低价运镜方式",
+      "properties": {
+        "Node name for S&R": "TextInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"text\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "低价版运镜判断规范（独立空间版）\n\n输入\n\n尾帧参考图（视频第6秒最后一帧）\n\n总目标\n\n基于尾帧结构进行内部结构分析与运镜判定\n最终只输出一个完整的运镜方式描述\n\n不输出结构分析\n不输出判断过程\n不输出类别名称\n不输出时间轴分段\n不输出编号或解释\n\n————————————————————\n\n阶段一：尾帧结构分析（内部执行，不输出）\n\n分析内容包括：\n\n主体\n主体位置\n体量关系\n构图类型\n视角关系\n空间层级\n遮挡关系\n空间纵深\n整体空间气质\n\n不得推理画面外信息。\n\n————————————————————\n\n阶段二：主体独立性判断（核心判断）\n\n首先判断主体在空间中的存在状态。\n\n若主体呈 单体独立存在，则具备环绕基础。\n\n独立存在指：\n\n主体未贴附墙面或背景\n主体未被结构包裹\n主体不是平面装饰元素\n主体不是背景的一部分\n\n典型独立主体包括：\n\n桌面物体\n雕塑\n食物\n产品\n单体摆件\n动物或人物主体\n\n若主体属于 环境结构的一部分，则不具备环绕基础，例如：\n\n建筑立面\n墙面装饰\n壁画\n嵌入式结构\n贴附平面的物体\n\n若主体不具备独立存在状态\n→ 直接判定为不可环绕结构。\n\n————————————————————\n\n阶段三：环绕空间判断\n\n在主体具备独立性的前提下，进一步判断是否存在可环绕空间。\n\n满足以下任一情况，即可认为存在环绕空间：\n\n主体四周存在留白区域\n主体未紧贴画面边缘\n主体周围不存在强遮挡结构\n相机可在主体周围产生轻微视差变化\n\n若主体被明显结构限制，例如：\n\n紧贴墙面\n背靠结构\n空间单侧开放\n主体被环境包围\n\n则判定为环绕空间不足。\n\n————————————————————\n\n阶段四：运镜方式收敛（仅两种）\n\n若同时满足：\n\n主体独立存在\n且\n存在可环绕空间\n\n→ 输出环绕方式\n\n否则\n→ 输出稳定推进方式\n\n不得混合两种方式\n不得中途改变逻辑\n\n————————————————————\n\n最终输出规则（保持不变）\n\n输出必须为一个完整自然段运镜描述，包含：\n\n镜头起始位置\n镜头运动方式\n镜头与主体的空间关系\n空间如何在运动中变化\n如何自然稳定到尾帧构图\n整体气质保持一致\n\n最终运镜方式必须严格为以下之一：\n\n相机稳定推进至尾帧\n\n或\n\n相机环绕主体旋转并回到尾帧构图\n\n不得出现分析语气\n不得出现判断语气\n不得出现规则说明\n不得出现方式名称\n\n必须直接描述镜头如何运动，以完整自然段形式输出。"
+      ]
+    },
+    {
+      "id": 570,
+      "type": "TextInput",
+      "pos": [
+        5183.604806355119,
+        7644.617205532701
+      ],
+      "size": [
+        657,
+        392
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            951
+          ]
+        }
+      ],
+      "title": "高价运镜方式",
+      "properties": {
+        "Node name for S&R": "TextInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"text\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "优化版运镜判断 PE（提高局部到整体比例）\n\n输入\n\n尾帧参考图（视频第 6 秒最后一帧）\n\n总目标\n\n基于尾帧结构进行内部结构分析与运镜判定\n最终只输出一个完整的运镜方式描述\n\n不输出结构分析\n不输出判断过程\n不输出类别名称\n不输出时间轴分段\n不输出编号或解释\n\n——————————————\n\n阶段一：尾帧结构分析（内部执行，不输出）\n\n分析内容包括：\n\n主体\n位置\n体量关系\n构图类型\n视角\n空间层级\n遮挡关系\n动线元素\n空间纵深\n整体空间气质\n\n不得推理画面外信息。\n\n——————————————\n\n阶段二：动线主导性评估（最高优先级）\n\n规则保持不变。\n\n若同时满足主导性与视觉权重\n→ 采用沿路径进入主体方式。\n\n——————————————\n\n阶段三：局部到整体触发判断（放宽版）\n\n当动线未通过时，优先判断是否适合局部到整体展开。\n\n【结构触发条件（满足任意一项即可进入下一步）】\n\n存在前景遮挡元素（不要求强遮挡）\n\n或\n\n存在近中远层级区分（允许中等层级差，不要求强对比）\n\n或\n\n主体并非充满画面，周围仍有可展开空间\n\n或\n\n画面存在明显空间方向（横向 / 纵向 / 纵深方向）\n\n———\n\n【辅助确认条件（满足任意一项即可成立）】\n\n主体不是画面唯一贴边元素\n\n主体被环境部分包围\n\n构图存在视觉中心\n\n空间在逻辑上可以被逐步揭示\n\n只要：\n\n结构触发 ≥1\n且\n辅助确认 ≥1\n\n即可采用局部到整体方式。\n\n不得再设置“直接进入俯视全景”的提前跳转。\n\n——————————————\n\n阶段四：俯视全景方式（兜底）\n\n仅当以下情况同时出现时才允许使用：\n\n画面极度扁平\n无层级差\n无遮挡\n主体几乎占满画面\n空间无展开方向\n\n否则优先使用局部到整体。\n\n——————————————\n\n阶段五：运镜方式选择（优先级微调）\n\n第一优先\n动线通过 → 路径进入\n\n第二优先\n满足局部到整体 → 局部展开\n\n第三优先\n仅在极端扁平场景下 → 俯视全景\n\n不得混用方式\n不得中途改变逻辑\n\n——————————————\n\n最终输出规则（保持不变）\n\n输出必须是一个完整的运镜方式描述，包含：\n\n镜头起始视角\n镜头运动方式\n与主体的关系\n空间如何展开或收束\n如何自然稳定到尾帧构图\n整体氛围与风格如何保持一致\n\n不得出现：\n\n分析语气\n判断语气\n规则说明\n方式名称\n\n必须直接描述镜头如何运动，以完整自然段形式输出。"
+      ]
+    },
+    {
+      "id": 571,
+      "type": "TextInput",
+      "pos": [
+        5318.238595417619,
+        8497.216837795884
+      ],
+      "size": [
+        657,
+        392
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1009
+          ]
+        }
+      ],
+      "title": "1-2k",
+      "properties": {
+        "Node name for S&R": "TextInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"text\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "视频生成执行规范（基于既定运镜方案）\n\n输入\n\n尾帧参考图\n既定运镜方案（由上一阶段输出的完整运镜方式）\n\n生成目标\n\n结合尾帧画面内容与既定运镜方案，生成完整 6 秒视频提示词。\n\n不得重新分析运镜方式\n不得修改既定运镜逻辑\n不得替换运动类型\n必须严格按照输入的运镜方案执行\n\n提示词中必须包含：\n\n整体风格基调\n主体视觉特征简述\n空间氛围表达\n运镜执行过程\n收束方式\n\n输出结构（强制）\n\n最终只输出两段正文：\n\n0–3s：\n3–6s：\n\n不得输出标题、解释、分析过程、列表或编号。\n\n——————————————\n\n核心生成原则\n\n一、风格表达必须完整\n\n正文中必须自然融入：\n\n整体视觉气质（如宁静、梦幻、冷峻、温暖、电影感等）\n主体材质与状态简述\n空间层级与空气氛围表达\n\n要求：\n\n表达简洁\n不堆砌形容词\n不重复结构分析\n不改变主体设定\n不新增元素\n不扩展世界观\n\n——————————————\n\n二、运镜执行规则（不再判断，仅执行）\n\n运镜方式完全以输入的既定运镜方案为准。\n\n不得：\n\n重新分析动线\n重新选择运镜类型\n替换为其他运动方式\n改变视角逻辑\n\n必须：\n\n将既定运镜方案合理拆分为 0–3s 与 3–6s 两个阶段\n保持空间一致性\n保持运动连续性\n保持尾帧对齐逻辑\n\n若既定方案为跟随式运动：\n\n必须保持单一跟随对象\n不得中途更换\n不得扩大弱元素权重\n运动幅度克制\n\n若既定方案为视角切换式运动：\n\n必须严格执行视角过渡逻辑\n过渡自然平滑\n不得制造强视差\n不得跳出尾帧近场范围\n\n——————————————\n\n三、镜头开场关联与审美约束\n\n0–3s 开场画面必须与尾帧主体存在明确关联。\n\n允许：\n\n主体局部开场（具备美感的结构、材质或光影细节）\n环境关联元素开场（具有氛围或空间表现力）\n\n禁止：\n\n从污渍、水渍、脏痕起步\n从无构图价值的角落起步\n从画面最低视觉权重区域起步\n从破坏氛围的现实细节起步\n\n开场元素必须：\n\n具备光影美感或材质表现力\n具备空间层级合理性\n属于视觉主层级或构图合理区域\n\n——————————————\n\n四、遮挡规则\n\n只有当尾帧画面本身明确存在：\n\n尘光\n薄雾\n光点\n逆光晕\n\n才允许使用遮挡。\n\n若使用，正文必须写：\n\n“（元素）短暂遮挡镜头”\n并紧接写明：\n“遮挡后画面重新清晰并精准对齐主体”\n\n最后一帧必须完全清晰无遮挡。\n\n——————————————\n\n五、运镜强制限制\n\n全片时长 6 秒\n全程小范围运镜\n机位始终处于尾帧近场范围\n禁止出现数值单位\n禁止新增人物或文字\n不改变主体形态\n不改变场景布局\n不得夸大弱存在元素\n6 秒末尾必须严格对齐尾帧构图与主体位置\n镜头运动必须连续平滑\n不得出现“缓慢”、“这种”类型的字样"
+      ]
+    },
+    {
+      "id": 574,
+      "type": "LazySwitchKJ",
+      "pos": [
+        6085.371407917619,
+        7776.912127407701
+      ],
+      "size": [
+        350,
+        156
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "on_false",
+          "name": "on_false",
+          "type": "*",
+          "link": 951
+        },
+        {
+          "label": "on_true",
+          "name": "on_true",
+          "type": "*",
+          "link": 952
+        },
+        {
+          "label": "switch",
+          "name": "switch",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "switch"
+          },
+          "link": 953
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            956
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LazySwitchKJ",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 579,
+      "type": "BAIfElse",
+      "pos": [
+        6122.391915730119,
+        6353.886919888169
+      ],
+      "size": [
+        350,
+        114
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "boolean",
+          "name": "boolean",
+          "type": "*",
+          "link": 960
+        },
+        {
+          "label": "on_true",
+          "name": "on_true",
+          "type": "*",
+          "link": 961
+        },
+        {
+          "label": "on_false",
+          "name": "on_false",
+          "type": "*",
+          "link": 1100
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "shape": 6,
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            970
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BAIfElse",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 582,
+      "type": "LoadImage",
+      "pos": [
+        3347.957345417619,
+        6631.456499966294
+      ],
+      "size": [
+        880,
+        790
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            1016,
+            1021
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "蘑菇小屋 温暖氛围(3).png",
+        "image"
+      ]
+    },
+    {
+      "id": 583,
+      "type": "StringCompare",
+      "pos": [
+        5455.063790730119,
+        5177.802081020982
+      ],
+      "size": [
+        400,
+        676
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "string_a",
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 1101
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "slot_index": 0,
+          "links": [
+            960
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringCompare",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"BOOLEAN\"],\"uiHeightMap\":{\"string_a\":114.65625,\"string_b\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "Equal",
+        true
+      ]
+    },
+    {
+      "id": 587,
+      "type": "BAInputSlot",
+      "pos": [
+        3380.192696980119,
+        5865.821123989732
+      ],
+      "size": [
+        350,
+        234
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "text_in",
+          "name": "text_in",
+          "shape": 7,
+          "type": "STRING",
+          "link": 968
+        },
+        {
+          "label": "image_in",
+          "name": "image_in",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "video_in",
+          "name": "video_in",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "BAInputSlot",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "input_1",
+        "text"
+      ]
+    },
+    {
+      "id": 588,
+      "type": "BANodeLLMText",
+      "pos": [
+        6689.897775105119,
+        5069.418291958482
+      ],
+      "size": [
+        458,
+        1244
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 969
+        },
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 970
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result/positive",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            963
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BANodeLLMText",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"result/positive\",\"negative\"],\"uiHeightMap\":{\"prompt\":240.65625,\"system_prompt\":240.65625,\"text-view-height-0-0\":82,\"text-view-height-1-0\":82}}"
+      },
+      "widgets_values": [
+        "提示词反推",
+        "GPT-5.1",
+        2000,
+        0.7,
+        "",
+        "你是“价效判定器”。\n\n你的任务是根据用户输入，在「K+」「K-」「无价效」三者中进行处理，并输出结果。\n\n规则\n1. 直接输出规则（最高优先级）\n\n若输入为：\n\nK+ → 输出：K+\nK- → 输出：K-\n\n2. 无价效判断规则\n\n若输入为：\n\n无价效\n\n则根据以下规则判断并输出：\n\n判断标准\nK-\n\n满足：\n\n聚焦单体,场景简单,主体单一且明确。\n画面尺度:中景景为主,背景简单。\n元素数量:1个核心主体+少量点缀(不喧宾夺主)。\n构图重点:突出主体轮廓与质感,信息一眼读懂。\n\n→ 输出：K-\n\nK+\n\n满足：\n\n聚焦几个主体组合成的小场景,景别中远景,内容更丰富。\n画面尺度:中景/中远景,允许有明确的前景-主体-背景层次。\n元素数量:主体由>1个物体组合而成+环境信息补足氛围。均场景更复杂、材质变化、光影氛围叙事更完善,图像\"有故事\"。\n构图重点:主次分明、视觉路径清晰(主体最抢眼,其它为支支撑)。\n\n→ 输出：K+\n\n冲突规则\n\n若无法明确判断：\n\n→ 输出：K-\n\n输出规则（必须遵守）\n\n只输出：\n\nK+\nK-\n\n不得解释，不得添加任何字符",
+        false
+      ]
+    },
+    {
+      "id": 592,
+      "type": "Switch any [Crystools]",
+      "pos": [
+        7699.367501667619,
+        6291.640948208482
+      ],
+      "size": [
+        350,
+        156
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "on_true",
+          "name": "on_true",
+          "type": "*",
+          "link": 974
+        },
+        {
+          "label": "on_false",
+          "name": "on_false",
+          "type": "*",
+          "link": 975
+        },
+        {
+          "label": "boolean",
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "boolean"
+          },
+          "link": 976
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            1020
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Switch any [Crystools]",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 594,
+      "type": "ttN int",
+      "pos": [
+        7253.189767292619,
+        5976.579180630357
+      ],
+      "size": [
+        350,
+        450
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            975
+          ]
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "slot_index": 1,
+          "links": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ttN int",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"int\",\"float\"],\"uiHeightMap\":{\"text-view-height-0-0\":82,\"text-view-height-1-0\":82}}",
+        "ttNnodeVersion": "1.0.0"
+      },
+      "widgets_values": [
+        768
+      ]
+    },
+    {
+      "id": 595,
+      "type": "ttN int",
+      "pos": [
+        7248.819650105119,
+        6279.785723599107
+      ],
+      "size": [
+        350,
+        182
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            974
+          ]
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "slot_index": 1,
+          "links": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ttN int",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"int\",\"float\"]}",
+        "ttNnodeVersion": "1.0.0"
+      },
+      "widgets_values": [
+        1024
+      ]
+    },
+    {
+      "id": 615,
+      "type": "BAReroute",
+      "pos": [
+        5441.416329792619,
+        7258.292437466294
+      ],
+      "size": [
+        140,
+        26
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "shape": 7,
+          "type": "*",
+          "link": 987
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            947,
+            954,
+            969,
+            1018
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BAReroute"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 622,
+      "type": "EmptyImage",
+      "pos": [
+        7436.586251667619,
+        7612.436907681138
+      ],
+      "size": [
+        350,
+        648
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 1005
+        },
+        {
+          "label": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 1006
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            1091
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyImage",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 626,
+      "type": "LazySwitchKJ",
+      "pos": [
+        6146.660470417619,
+        8671.004198940904
+      ],
+      "size": [
+        350,
+        156
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "on_false",
+          "name": "on_false",
+          "type": "*",
+          "link": 1009
+        },
+        {
+          "label": "on_true",
+          "name": "on_true",
+          "type": "*",
+          "link": 1010
+        },
+        {
+          "label": "switch",
+          "name": "switch",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "switch"
+          },
+          "link": 1011
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            949
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LazySwitchKJ",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 631,
+      "type": "BAInputSlot",
+      "pos": [
+        3768.255196980119,
+        5862.666582974107
+      ],
+      "size": [
+        350,
+        234
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "text_in",
+          "name": "text_in",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "label": "image_in",
+          "name": "image_in",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1016
+        },
+        {
+          "label": "video_in",
+          "name": "video_in",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "BAInputSlot",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "input_2",
+        "image"
+      ]
+    },
+    {
+      "id": 634,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        4453.739083698869,
+        6860.770464810044
+      ],
+      "size": [
+        270,
+        360
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1021
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            987
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        "nearest-exact",
+        "resize",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu"
+      ]
+    },
+    {
+      "id": 577,
+      "type": "RegexExtract",
+      "pos": [
+        4411.911935261369,
+        4588.019854458482
+      ],
+      "size": [
+        400,
+        832
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 958
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1100,
+            1101
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RegexExtract",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"string\":114.65625,\"regex_pattern\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "",
+        "K[+-]",
+        "First Match",
+        true,
+        false,
+        false,
+        1
+      ]
+    },
+    {
+      "id": 591,
+      "type": "RegexReplace",
+      "pos": [
+        4420.520310710999,
+        5658.621099146764
+      ],
+      "size": [
+        400,
+        960.0000000000001
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "string",
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 973
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1098
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RegexReplace",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"string\":114.65625,\"regex_pattern\":114.65625,\"replace\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "",
+        "K[+-][，,/]?\\s*",
+        " ",
+        true,
+        false,
+        false,
+        0
+      ]
+    },
+    {
+      "id": 575,
+      "type": "BANodeLLMText",
+      "pos": [
+        6556.284260519782,
+        6440.056187493367
+      ],
+      "size": [
+        400,
+        992
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 954
+        },
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 955
+        },
+        {
+          "label": "system_prompt",
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 956
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result/positive",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1099
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BANodeLLMText",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"result/positive\",\"negative\"],\"uiHeightMap\":{\"prompt\":114.65625,\"system_prompt\":114.65625,\"text-view-height-0-0\":82,\"text-view-height-1-0\":82}}"
+      },
+      "widgets_values": [
+        "提示词反推",
+        "豆包1.8",
+        2000,
+        0.7,
+        "",
+        "",
+        false
+      ]
+    },
+    {
+      "id": 589,
+      "type": "StringFunction|pysssss",
+      "pos": [
+        6530.562814167619,
+        7381.674151333482
+      ],
+      "size": [
+        415,
+        990.0000000000001
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "text_b",
+          "name": "text_b",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "text_b"
+          },
+          "link": 1098
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            955
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"text_a\":114.65625,\"text_b\":114.65625,\"text_c\":114.65625,\"text-view-height-0-0\":82,\"text-view-height-1-0\":82}}"
+      },
+      "widgets_values": [
+        "append",
+        "no",
+        "请基于输入的景观尾帧图像，按照既定结构生成一段运镜描述文本。\n\n结合以下用户输入，对“镜头运动方式与节奏”进行编排描述：\n",
+        "",
+        "\n\n【约束规则】\n\n1. 图像中已经确定的内容（包括场景类型、地形结构、主体位置、前中远景关系、色彩与氛围）不得被改变或重新设定，所有描述必须严格贴合图像最终画面\n\n2. 用户输入仅可影响以下内容：\n   - 镜头运动方式（推进、平移、轻微环绕、拉远等）\n   - 运镜节奏（缓慢、停顿、先后变化）\n   - 视角展开顺序（先前景、再主体、再远景等）\n\n3. 用户输入中如包含对“场景内容”的修改（如改变天气、时间、地形、建筑、植被等），必须忽略，不得体现在结果中\n\n4. 用户输入中如包含不合理或过强的运镜方式（如高速飞行、大幅跳跃、复杂轨迹运动等），必须自动弱化或转译为平滑、连续、可执行的镜头运动（如缓慢推进、轻微平移等）\n\n5. 运镜必须保持连续、平稳，不得出现突变、闪切或瞬间跳跃\n\n6. 镜头始终基于当前画面空间内部展开，不得脱离场景或进入不可见空间\n\n7. 若用户未提供任何输入内容，或输入为空，则完全忽略用户输入，使用默认运镜逻辑进行生成",
+        [
+          "请基于输入的景观尾帧图像，按照既定结构生成一段运镜描述文本。\n\n结合以下用户输入，对“镜头运动方式与节奏”进行编排描述：\n \n\n【约束规则】\n\n1. 图像中已经确定的内容（包括场景类型、地形结构、主体位置、前中远景关系、色彩与氛围）不得被改变或重新设定，所有描述必须严格贴合图像最终画面\n\n2. 用户输入仅可影响以下内容：\n   - 镜头运动方式（推进、平移、轻微环绕、拉远等）\n   - 运镜节奏（缓慢、停顿、先后变化）\n   - 视角展开顺序（先前景、再主体、再远景等）\n\n3. 用户输入中如包含对“场景内容”的修改（如改变天气、时间、地形、建筑、植被等），必须忽略，不得体现在结果中\n\n4. 用户输入中如包含不合理或过强的运镜方式（如高速飞行、大幅跳跃、复杂轨迹运动等），必须自动弱化或转译为平滑、连续、可执行的镜头运动（如缓慢推进、轻微平移等）\n\n5. 运镜必须保持连续、平稳，不得出现突变、闪切或瞬间跳跃\n\n6. 镜头始终基于当前画面空间内部展开，不得脱离场景或进入不可见空间\n\n7. 若用户未提供任何输入内容，或输入为空，则完全忽略用户输入，使用默认运镜逻辑进行生成"
+        ]
+      ]
+    },
+    {
+      "id": 614,
+      "type": "TextInput",
+      "pos": [
+        6596.969102646734,
+        8499.999891162412
+      ],
+      "size": [
+        350,
+        392
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1099
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            948
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"text\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "分析输入的尾帧图像，判断最合适的运镜方式，输出一段用于生成视频的提示词。"
+      ]
+    },
+    {
+      "id": 585,
+      "type": "TextInput",
+      "pos": [
+        6101.917736806007,
+        5597.209946188014
+      ],
+      "size": [
+        350,
+        392
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            961
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"text\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "无价效"
+      ]
+    },
+    {
+      "id": 555,
+      "type": "JimengSeedance2",
+      "pos": [
+        10149.668888490756,
+        6809.826799558477
+      ],
+      "size": [
+        400,
+        476
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "client",
+          "type": "JIMENG_CLIENT",
+          "link": 923
+        },
+        {
+          "label": "参考图片 1",
+          "name": "ref_images.ref_image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "参考视频 1",
+          "name": "ref_videos.ref_video_1",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
+        },
+        {
+          "label": "参考音频 1",
+          "name": "ref_audios.ref_audio_1",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "first_frame_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1091
+        },
+        {
+          "name": "last_frame_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1092
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 1093
+        },
+        {
+          "label": "参考视频 2",
+          "name": "ref_videos.ref_video_2",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
+        },
+        {
+          "label": "参考音频 2",
+          "name": "ref_audios.ref_audio_2",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            928
+          ]
+        },
+        {
+          "name": "last_frame",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JimengSeedance2",
+        "cnr_id": "ComfyUI-Jimeng-API",
+        "ver": "8cd6b9f716d172b53413943739c2d0f1a3e99fdd"
+      },
+      "widgets_values": [
+        "doubao-seedance-2-0-260128",
+        "兔兔在开心的跳舞",
+        true,
+        802564937,
+        "randomize",
+        "1080p",
+        "adaptive",
+        false,
+        6,
+        true,
+        false,
+        1,
+        "Jimeng/Video/Batch/Seedance",
+        false,
+        false
+      ]
+    },
+    {
+      "id": 627,
+      "type": "BAReroute",
+      "pos": [
+        6075.740469406821,
+        8337.252626757527
+      ],
+      "size": [
+        140,
+        30
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "input",
+          "name": "input",
+          "shape": 7,
+          "type": "*",
+          "link": 1012
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            953,
+            1011,
+            1102
+          ]
+        }
+      ],
+      "title": "价效判断",
+      "properties": {
+        "Node name for S&R": "BAReroute",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[],\"slotType\":\"BOOLEAN\"}"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 624,
+      "type": "TextInput",
+      "pos": [
+        3324.402657917619,
+        6165.533282192857
+      ],
+      "size": [
+        875,
+        392
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            958,
+            968,
+            973
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"uiHeightMap\":{\"text\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "K-"
+      ]
+    },
+    {
+      "id": 633,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        8290.820626667619,
+        6265.281084927232
+      ],
+      "size": [
+        270,
+        360
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1018
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 1019
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 1020
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1092,
+            1103
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            1005
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            1006
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest-exact",
+        "crop",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu"
+      ]
+    },
+    {
+      "id": 637,
+      "type": "SaveImage",
+      "pos": [
+        8789.89360620231,
+        6271.876813012058
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1103
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 572,
+      "type": "BANodeLLMText",
+      "pos": [
+        6113.577046923556,
+        8946.34907334522
+      ],
+      "size": [
+        394.788261752351,
+        393.40507422285737
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 947
+        },
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 948
+        },
+        {
+          "label": "system_prompt",
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 949
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result/positive",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            1093
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BANodeLLMText",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"result/positive\",\"negative\"],\"uiHeightMap\":{\"prompt\":114.65625,\"system_prompt\":114.65625,\"text-view-height-0-0\":82,\"text-view-height-1-0\":82}}"
+      },
+      "widgets_values": [
+        "提示词反推",
+        "GPT-5.1",
+        2000,
+        0.7,
+        "",
+        "",
+        false
+      ]
+    },
+    {
+      "id": 593,
+      "type": "ttN int",
+      "pos": [
+        7694.121090228659,
+        5626.054742909401
+      ],
+      "size": [
+        350,
+        450
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            1019
+          ]
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "slot_index": 1,
+          "links": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ttN int",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"int\",\"float\"],\"uiHeightMap\":{\"text-view-height-0-0\":82,\"text-view-height-1-0\":82}}",
+        "ttNnodeVersion": "1.0.0"
+      },
+      "widgets_values": [
+        1024
+      ]
+    },
+    {
+      "id": 580,
+      "type": "StringCompare",
+      "pos": [
+        7096.077462605119,
+        6651.525225552232
+      ],
+      "size": [
+        400,
+        676
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "string_a",
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 963
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "slot_index": 0,
+          "links": [
+            976,
+            1012
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringCompare",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"BOOLEAN\"],\"uiHeightMap\":{\"string_a\":114.65625,\"string_b\":114.65625,\"text-view-height-0-0\":82}}"
+      },
+      "widgets_values": [
+        "",
+        "K-",
+        "Equal",
+        true
+      ]
+    },
+    {
+      "id": 636,
+      "type": "ShowText|pysssss",
+      "pos": [
+        11934.786391959602,
+        6187.048229126462
+      ],
+      "size": [
+        200.36503279613862,
+        92.8599905108149
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1102
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        true
+      ]
+    }
+  ],
+  "links": [
+    [
+      923,
+      552,
+      0,
+      555,
+      0,
+      "JIMENG_CLIENT"
+    ],
+    [
+      928,
+      555,
+      0,
+      556,
+      0,
+      "VIDEO"
+    ],
+    [
+      947,
+      615,
+      0,
+      572,
+      0,
+      "IMAGE"
+    ],
+    [
+      948,
+      614,
+      0,
+      572,
+      1,
+      "STRING"
+    ],
+    [
+      949,
+      626,
+      0,
+      572,
+      2,
+      "STRING"
+    ],
+    [
+      951,
+      570,
+      0,
+      574,
+      0,
+      "STRING"
+    ],
+    [
+      952,
+      569,
+      0,
+      574,
+      1,
+      "STRING"
+    ],
+    [
+      953,
+      627,
+      0,
+      574,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      954,
+      615,
+      0,
+      575,
+      0,
+      "IMAGE"
+    ],
+    [
+      955,
+      589,
+      0,
+      575,
+      1,
+      "STRING"
+    ],
+    [
+      956,
+      574,
+      0,
+      575,
+      2,
+      "STRING"
+    ],
+    [
+      958,
+      624,
+      0,
+      577,
+      0,
+      "STRING"
+    ],
+    [
+      960,
+      583,
+      0,
+      579,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      961,
+      585,
+      0,
+      579,
+      1,
+      "STRING"
+    ],
+    [
+      963,
+      588,
+      0,
+      580,
+      0,
+      "STRING"
+    ],
+    [
+      968,
+      624,
+      0,
+      587,
+      0,
+      "STRING"
+    ],
+    [
+      969,
+      615,
+      0,
+      588,
+      0,
+      "IMAGE"
+    ],
+    [
+      970,
+      579,
+      0,
+      588,
+      1,
+      "STRING"
+    ],
+    [
+      973,
+      624,
+      0,
+      591,
+      0,
+      "STRING"
+    ],
+    [
+      974,
+      595,
+      0,
+      592,
+      0,
+      "INT"
+    ],
+    [
+      975,
+      594,
+      0,
+      592,
+      1,
+      "INT"
+    ],
+    [
+      976,
+      580,
+      0,
+      592,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      987,
+      634,
+      0,
+      615,
+      0,
+      "IMAGE"
+    ],
+    [
+      1005,
+      633,
+      1,
+      622,
+      0,
+      "INT"
+    ],
+    [
+      1006,
+      633,
+      2,
+      622,
+      1,
+      "INT"
+    ],
+    [
+      1009,
+      571,
+      0,
+      626,
+      0,
+      "STRING"
+    ],
+    [
+      1010,
+      568,
+      0,
+      626,
+      1,
+      "STRING"
+    ],
+    [
+      1011,
+      627,
+      0,
+      626,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      1012,
+      580,
+      0,
+      627,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      1016,
+      582,
+      0,
+      631,
+      1,
+      "IMAGE"
+    ],
+    [
+      1018,
+      615,
+      0,
+      633,
+      0,
+      "IMAGE"
+    ],
+    [
+      1019,
+      593,
+      0,
+      633,
+      2,
+      "INT"
+    ],
+    [
+      1020,
+      592,
+      0,
+      633,
+      3,
+      "INT"
+    ],
+    [
+      1021,
+      582,
+      0,
+      634,
+      0,
+      "IMAGE"
+    ],
+    [
+      1091,
+      622,
+      0,
+      555,
+      4,
+      "IMAGE"
+    ],
+    [
+      1092,
+      633,
+      0,
+      555,
+      5,
+      "IMAGE"
+    ],
+    [
+      1093,
+      572,
+      0,
+      555,
+      6,
+      "STRING"
+    ],
+    [
+      1098,
+      591,
+      0,
+      589,
+      0,
+      "STRING"
+    ],
+    [
+      1099,
+      575,
+      0,
+      614,
+      0,
+      "STRING"
+    ],
+    [
+      1100,
+      577,
+      0,
+      579,
+      2,
+      "STRING"
+    ],
+    [
+      1101,
+      577,
+      0,
+      583,
+      0,
+      "STRING"
+    ],
+    [
+      1102,
+      627,
+      0,
+      636,
+      0,
+      "STRING"
+    ],
+    [
+      1103,
+      633,
+      0,
+      637,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 15,
+      "title": "Seedance 2.0",
+      "bounding": [
+        10098.795876924589,
+        6048.308087295598,
+        1665.7546055283929,
+        1487.707225187902
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "_ba_id": "zmm28nTc7LMsPHSowCXIt"
+    },
+    {
+      "id": 16,
+      "title": "Image",
+      "bounding": [
+        7084.352853230119,
+        7481.232684048326,
+        782.6202392578125,
+        862.6380004882812
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": false
+      },
+      "_ba_id": "l5cz2jovz3pIL-BYLrEct"
+    },
+    {
+      "id": 17,
+      "title": "视频提示词推理",
+      "bounding": [
+        4968.634103230119,
+        7466.811541470201,
+        2049.513916015625,
+        1912.575439453125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": false
+      },
+      "_ba_id": "P3Xhruv3QqtUObCLyyeZ1"
+    },
+    {
+      "id": 18,
+      "title": "Group",
+      "bounding": [
+        4979.885568073869,
+        6571.600176724107,
+        2693.50244140625,
+        821.4471435546875
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": false
+      },
+      "_ba_id": "Pl1VbBCyCucCEOUHijZ-t"
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.313842837672101,
+      "offset": [
+        -2484.398451527223,
+        -5065.827459283569
+      ]
+    },
+    "frontendVersion": "1.42.11",
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": [],
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false
+  },
+  "version": 0.4,
+  "ba_extra": {
+    "slot_info": {
+      "inputs": [],
+      "outputs": []
+    },
+    "slot_info_schema": {
+      "input": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "output": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    "ba_comfyui_version": "0.0.6",
+    "prompt": {
+      "552": {
+        "inputs": {
+          "new_api_key": "c66779c0-66ff-45eb-bbed-1e18e0a007e5",
+          "new_key_name": "",
+          "key_name": "Custom",
+          "endpoint_id": "ep-20260413115647-997n9"
+        },
+        "class_type": "JimengAPIClient",
+        "_meta": {
+          "title": "火山方舟 API 客户端"
+        }
+      },
+      "555": {
+        "inputs": {
+          "model_version": "doubao-seedance-2-0-260128",
+          "prompt": [
+            "572",
+            0
+          ],
+          "enable_random_seed": true,
+          "seed": 802564937,
+          "resolution": "1080p",
+          "aspect_ratio": "adaptive",
+          "auto_duration": false,
+          "duration": 6,
+          "generate_audio": true,
+          "enable_web_search": false,
+          "generation_count": 1,
+          "filename_prefix": "Jimeng/Video/Batch/Seedance",
+          "save_last_frame_batch": false,
+          "non_blocking": false,
+          "client": [
+            "552",
+            0
+          ],
+          "first_frame_image": [
+            "622",
+            0
+          ],
+          "last_frame_image": [
+            "633",
+            0
+          ]
+        },
+        "class_type": "JimengSeedance2",
+        "_meta": {
+          "title": "视频生成（Seedance 2.0）"
+        }
+      },
+      "556": {
+        "inputs": {
+          "filename_prefix": "OpenClawOutput__",
+          "format": "auto",
+          "codec": "auto",
+          "video-preview": "",
+          "video": [
+            "555",
+            0
+          ]
+        },
+        "class_type": "BASaveVideo",
+        "_meta": {
+          "title": "BA Save Video"
+        }
+      },
+      "568": {
+        "inputs": {
+          "text": "6 秒视频提示词生成规范（结构信息已给定 · 强执行版）\n\n输入\n\n尾帧构图类型\n主体位置\n遮挡关系\n纵深结构\n画面氛围关键词\n风格关键词\n\n生成目标\n\n基于已给定结构信息，生成一条完整 6 秒中文视频提示词。\n\n不得重新分析结构\n不得修改构图逻辑\n不得新增元素\n不得改变主体数量与形态\n不得改变空间布局\n\n输出限制\n\n只输出一条中文提示词\n禁止解释、分析、标题、小节、编号、Markdown\n\n——————————————\n\n一、结构执行原则（不得推翻输入）\n\n构图类型、主体位置、遮挡关系、纵深结构全部以输入为准。\n\n不得重新判断\n不得优化构图\n不得调整视觉重心\n\n尾帧主体即画面唯一视觉核心。\n\n——————————————\n\n二、运镜方式判定（必须二选一）\n\n优先判断是否满足环绕条件：\n\n主体具有明确三维体量\n未被强遮挡包裹\n空间允许产生轻微视差\n环绕不破坏构图稳定\n\n满足以上条件 → 必须选择环绕\n\n提示词中必须出现：\n“环绕” 或 “绕拍” 或 “轨道环绕” 或 “环绕旋转”\n\n仅当出现以下情况才允许选择推进：\n\n纵深结构强烈\n主体贴附硬质结构\n多核心分散构图\n环绕会破坏稳定性\n\n不得混用两种方式\n不得中途改变运动逻辑\n\n——————————————\n\n三、空间连续性规则\n\n前序场景必须为尾帧同一空间的近距离延伸。\n\n只允许使用尾帧已有元素。\n\n不得新增人物、文字或关键物体。\n\n相机始终处于尾帧近场范围。\n\n运动必须连续、平滑。\n\n6 秒末帧必须：\n\n完全清晰\n无遮挡\n严格对齐尾帧构图与主体位置\n\n——————————————\n\n四、氛围与风格整合规则（强化版）\n\n提示词前半句必须形成完整风格表达，不得拆散。\n\n必须包含三类信息中的至少两类：\n\n情绪氛围\n风格质感\n光影或空气特征\n\n不得堆砌形容词\n不得出现孤立修辞词\n\n——————————————\n\n五、动态限制\n\n动态仅限尾帧已有微动态。\n\n不得制造新视觉焦点。\n\n不得夸大弱存在元素。\n\n不得改变主体状态。\n\n不得出现“低速”、“缓慢”这种类型的字样\n\n六、新增阶段：旋转路径稳定约束（必须加入）\n\n当采用环绕方式时，必须遵守以下规则：\n\n1）单方向原则\n\n旋转必须选择一个方向后持续完成。\n不得在中途改变旋转方向。\n不得出现反向回摆。\n\n2）单弧段原则\n\n旋转只能完成一次连续弧线运动。\n不得超过尾帧目标角度。\n不得出现超过后再修正。\n\n3）提前减速原则\n\n在接近尾帧构图时必须自然减速。\n通过减速完成精准对齐。\n不得通过反向修正实现对齐。\n\n4）禁止补偿机制\n\n不得出现：\n\n先超过目标 → 再反向转回\n先加速 → 再急停\n先大幅旋转 → 再小幅纠正\n\n只允许：\n\n平滑进入 → 平滑减速 → 平滑定格\n\n——————————————\n\n最终输出模板（严格选一）\n\nA（推进）\n氛围与风格整体表达 + 同空间近景简述 + 微动态 + 相机稳定推进至尾帧 + 末帧清晰定格严格对齐尾帧。\n\nB（环绕）\n氛围与风格整体表达 + 同空间近景简述 + 相机环绕主体旋转并回到尾帧构图 + 微动态 （不写“回到尾帧构图”，“居于画面中心”类似的说法，仅写“旋转至尾帧构图”即可）。镜头沿着单一方向环绕主题，一次性完成对齐并稳定定格（一定要加上这句话）。"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "0.5-1k"
+        }
+      },
+      "569": {
+        "inputs": {
+          "text": "低价版运镜判断规范（独立空间版）\n\n输入\n\n尾帧参考图（视频第6秒最后一帧）\n\n总目标\n\n基于尾帧结构进行内部结构分析与运镜判定\n最终只输出一个完整的运镜方式描述\n\n不输出结构分析\n不输出判断过程\n不输出类别名称\n不输出时间轴分段\n不输出编号或解释\n\n————————————————————\n\n阶段一：尾帧结构分析（内部执行，不输出）\n\n分析内容包括：\n\n主体\n主体位置\n体量关系\n构图类型\n视角关系\n空间层级\n遮挡关系\n空间纵深\n整体空间气质\n\n不得推理画面外信息。\n\n————————————————————\n\n阶段二：主体独立性判断（核心判断）\n\n首先判断主体在空间中的存在状态。\n\n若主体呈 单体独立存在，则具备环绕基础。\n\n独立存在指：\n\n主体未贴附墙面或背景\n主体未被结构包裹\n主体不是平面装饰元素\n主体不是背景的一部分\n\n典型独立主体包括：\n\n桌面物体\n雕塑\n食物\n产品\n单体摆件\n动物或人物主体\n\n若主体属于 环境结构的一部分，则不具备环绕基础，例如：\n\n建筑立面\n墙面装饰\n壁画\n嵌入式结构\n贴附平面的物体\n\n若主体不具备独立存在状态\n→ 直接判定为不可环绕结构。\n\n————————————————————\n\n阶段三：环绕空间判断\n\n在主体具备独立性的前提下，进一步判断是否存在可环绕空间。\n\n满足以下任一情况，即可认为存在环绕空间：\n\n主体四周存在留白区域\n主体未紧贴画面边缘\n主体周围不存在强遮挡结构\n相机可在主体周围产生轻微视差变化\n\n若主体被明显结构限制，例如：\n\n紧贴墙面\n背靠结构\n空间单侧开放\n主体被环境包围\n\n则判定为环绕空间不足。\n\n————————————————————\n\n阶段四：运镜方式收敛（仅两种）\n\n若同时满足：\n\n主体独立存在\n且\n存在可环绕空间\n\n→ 输出环绕方式\n\n否则\n→ 输出稳定推进方式\n\n不得混合两种方式\n不得中途改变逻辑\n\n————————————————————\n\n最终输出规则（保持不变）\n\n输出必须为一个完整自然段运镜描述，包含：\n\n镜头起始位置\n镜头运动方式\n镜头与主体的空间关系\n空间如何在运动中变化\n如何自然稳定到尾帧构图\n整体气质保持一致\n\n最终运镜方式必须严格为以下之一：\n\n相机稳定推进至尾帧\n\n或\n\n相机环绕主体旋转并回到尾帧构图\n\n不得出现分析语气\n不得出现判断语气\n不得出现规则说明\n不得出现方式名称\n\n必须直接描述镜头如何运动，以完整自然段形式输出。"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "低价运镜方式"
+        }
+      },
+      "570": {
+        "inputs": {
+          "text": "优化版运镜判断 PE（提高局部到整体比例）\n\n输入\n\n尾帧参考图（视频第 6 秒最后一帧）\n\n总目标\n\n基于尾帧结构进行内部结构分析与运镜判定\n最终只输出一个完整的运镜方式描述\n\n不输出结构分析\n不输出判断过程\n不输出类别名称\n不输出时间轴分段\n不输出编号或解释\n\n——————————————\n\n阶段一：尾帧结构分析（内部执行，不输出）\n\n分析内容包括：\n\n主体\n位置\n体量关系\n构图类型\n视角\n空间层级\n遮挡关系\n动线元素\n空间纵深\n整体空间气质\n\n不得推理画面外信息。\n\n——————————————\n\n阶段二：动线主导性评估（最高优先级）\n\n规则保持不变。\n\n若同时满足主导性与视觉权重\n→ 采用沿路径进入主体方式。\n\n——————————————\n\n阶段三：局部到整体触发判断（放宽版）\n\n当动线未通过时，优先判断是否适合局部到整体展开。\n\n【结构触发条件（满足任意一项即可进入下一步）】\n\n存在前景遮挡元素（不要求强遮挡）\n\n或\n\n存在近中远层级区分（允许中等层级差，不要求强对比）\n\n或\n\n主体并非充满画面，周围仍有可展开空间\n\n或\n\n画面存在明显空间方向（横向 / 纵向 / 纵深方向）\n\n———\n\n【辅助确认条件（满足任意一项即可成立）】\n\n主体不是画面唯一贴边元素\n\n主体被环境部分包围\n\n构图存在视觉中心\n\n空间在逻辑上可以被逐步揭示\n\n只要：\n\n结构触发 ≥1\n且\n辅助确认 ≥1\n\n即可采用局部到整体方式。\n\n不得再设置“直接进入俯视全景”的提前跳转。\n\n——————————————\n\n阶段四：俯视全景方式（兜底）\n\n仅当以下情况同时出现时才允许使用：\n\n画面极度扁平\n无层级差\n无遮挡\n主体几乎占满画面\n空间无展开方向\n\n否则优先使用局部到整体。\n\n——————————————\n\n阶段五：运镜方式选择（优先级微调）\n\n第一优先\n动线通过 → 路径进入\n\n第二优先\n满足局部到整体 → 局部展开\n\n第三优先\n仅在极端扁平场景下 → 俯视全景\n\n不得混用方式\n不得中途改变逻辑\n\n——————————————\n\n最终输出规则（保持不变）\n\n输出必须是一个完整的运镜方式描述，包含：\n\n镜头起始视角\n镜头运动方式\n与主体的关系\n空间如何展开或收束\n如何自然稳定到尾帧构图\n整体氛围与风格如何保持一致\n\n不得出现：\n\n分析语气\n判断语气\n规则说明\n方式名称\n\n必须直接描述镜头如何运动，以完整自然段形式输出。"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "高价运镜方式"
+        }
+      },
+      "571": {
+        "inputs": {
+          "text": "视频生成执行规范（基于既定运镜方案）\n\n输入\n\n尾帧参考图\n既定运镜方案（由上一阶段输出的完整运镜方式）\n\n生成目标\n\n结合尾帧画面内容与既定运镜方案，生成完整 6 秒视频提示词。\n\n不得重新分析运镜方式\n不得修改既定运镜逻辑\n不得替换运动类型\n必须严格按照输入的运镜方案执行\n\n提示词中必须包含：\n\n整体风格基调\n主体视觉特征简述\n空间氛围表达\n运镜执行过程\n收束方式\n\n输出结构（强制）\n\n最终只输出两段正文：\n\n0–3s：\n3–6s：\n\n不得输出标题、解释、分析过程、列表或编号。\n\n——————————————\n\n核心生成原则\n\n一、风格表达必须完整\n\n正文中必须自然融入：\n\n整体视觉气质（如宁静、梦幻、冷峻、温暖、电影感等）\n主体材质与状态简述\n空间层级与空气氛围表达\n\n要求：\n\n表达简洁\n不堆砌形容词\n不重复结构分析\n不改变主体设定\n不新增元素\n不扩展世界观\n\n——————————————\n\n二、运镜执行规则（不再判断，仅执行）\n\n运镜方式完全以输入的既定运镜方案为准。\n\n不得：\n\n重新分析动线\n重新选择运镜类型\n替换为其他运动方式\n改变视角逻辑\n\n必须：\n\n将既定运镜方案合理拆分为 0–3s 与 3–6s 两个阶段\n保持空间一致性\n保持运动连续性\n保持尾帧对齐逻辑\n\n若既定方案为跟随式运动：\n\n必须保持单一跟随对象\n不得中途更换\n不得扩大弱元素权重\n运动幅度克制\n\n若既定方案为视角切换式运动：\n\n必须严格执行视角过渡逻辑\n过渡自然平滑\n不得制造强视差\n不得跳出尾帧近场范围\n\n——————————————\n\n三、镜头开场关联与审美约束\n\n0–3s 开场画面必须与尾帧主体存在明确关联。\n\n允许：\n\n主体局部开场（具备美感的结构、材质或光影细节）\n环境关联元素开场（具有氛围或空间表现力）\n\n禁止：\n\n从污渍、水渍、脏痕起步\n从无构图价值的角落起步\n从画面最低视觉权重区域起步\n从破坏氛围的现实细节起步\n\n开场元素必须：\n\n具备光影美感或材质表现力\n具备空间层级合理性\n属于视觉主层级或构图合理区域\n\n——————————————\n\n四、遮挡规则\n\n只有当尾帧画面本身明确存在：\n\n尘光\n薄雾\n光点\n逆光晕\n\n才允许使用遮挡。\n\n若使用，正文必须写：\n\n“（元素）短暂遮挡镜头”\n并紧接写明：\n“遮挡后画面重新清晰并精准对齐主体”\n\n最后一帧必须完全清晰无遮挡。\n\n——————————————\n\n五、运镜强制限制\n\n全片时长 6 秒\n全程小范围运镜\n机位始终处于尾帧近场范围\n禁止出现数值单位\n禁止新增人物或文字\n不改变主体形态\n不改变场景布局\n不得夸大弱存在元素\n6 秒末尾必须严格对齐尾帧构图与主体位置\n镜头运动必须连续平滑\n不得出现“缓慢”、“这种”类型的字样"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "1-2k"
+        }
+      },
+      "572": {
+        "inputs": {
+          "feature": "提示词反推",
+          "model": "GPT-5.1",
+          "max_tokens": 2000,
+          "temperature": 0.7,
+          "prompt": [
+            "614",
+            0
+          ],
+          "system_prompt": [
+            "626",
+            0
+          ],
+          "thinking": false,
+          "images": [
+            "615",
+            0
+          ]
+        },
+        "class_type": "BANodeLLMText",
+        "_meta": {
+          "title": "BA LLM Text"
+        }
+      },
+      "574": {
+        "inputs": {
+          "switch": [
+            "627",
+            0
+          ],
+          "on_false": [
+            "570",
+            0
+          ],
+          "on_true": [
+            "569",
+            0
+          ]
+        },
+        "class_type": "LazySwitchKJ",
+        "_meta": {
+          "title": "Lazy Switch KJ"
+        }
+      },
+      "575": {
+        "inputs": {
+          "feature": "提示词反推",
+          "model": "豆包1.8",
+          "max_tokens": 2000,
+          "temperature": 0.7,
+          "prompt": [
+            "589",
+            0
+          ],
+          "system_prompt": [
+            "574",
+            0
+          ],
+          "thinking": false,
+          "images": [
+            "615",
+            0
+          ]
+        },
+        "class_type": "BANodeLLMText",
+        "_meta": {
+          "title": "BA LLM Text"
+        }
+      },
+      "577": {
+        "inputs": {
+          "string": [
+            "624",
+            0
+          ],
+          "regex_pattern": "K[+-]",
+          "mode": "First Match",
+          "case_insensitive": true,
+          "multiline": false,
+          "dotall": false,
+          "group_index": 1
+        },
+        "class_type": "RegexExtract",
+        "_meta": {
+          "title": "正则表达式提取"
+        }
+      },
+      "579": {
+        "inputs": {
+          "boolean": [
+            "583",
+            0
+          ],
+          "on_true": [
+            "585",
+            0
+          ],
+          "on_false": [
+            "577",
+            0
+          ]
+        },
+        "class_type": "BAIfElse",
+        "_meta": {
+          "title": "BA IfElse"
+        }
+      },
+      "580": {
+        "inputs": {
+          "string_a": [
+            "588",
+            0
+          ],
+          "string_b": "K-",
+          "mode": "Equal",
+          "case_sensitive": true
+        },
+        "class_type": "StringCompare",
+        "_meta": {
+          "title": "比较"
+        }
+      },
+      "582": {
+        "inputs": {
+          "image": "蘑菇小屋 温暖氛围(3).png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "加载图像"
+        }
+      },
+      "583": {
+        "inputs": {
+          "string_a": [
+            "577",
+            0
+          ],
+          "string_b": "",
+          "mode": "Equal",
+          "case_sensitive": true
+        },
+        "class_type": "StringCompare",
+        "_meta": {
+          "title": "比较"
+        }
+      },
+      "585": {
+        "inputs": {
+          "text": "无价效"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "Text Input"
+        }
+      },
+      "587": {
+        "inputs": {
+          "variable_name": "input_1",
+          "input_type": "text",
+          "text_in": [
+            "624",
+            0
+          ]
+        },
+        "class_type": "BAInputSlot",
+        "_meta": {
+          "title": "BA Input Slot (Variable)"
+        }
+      },
+      "588": {
+        "inputs": {
+          "feature": "提示词反推",
+          "model": "GPT-5.1",
+          "max_tokens": 2000,
+          "temperature": 0.7,
+          "prompt": [
+            "579",
+            0
+          ],
+          "system_prompt": "你是“价效判定器”。\n\n你的任务是根据用户输入，在「K+」「K-」「无价效」三者中进行处理，并输出结果。\n\n规则\n1. 直接输出规则（最高优先级）\n\n若输入为：\n\nK+ → 输出：K+\nK- → 输出：K-\n\n2. 无价效判断规则\n\n若输入为：\n\n无价效\n\n则根据以下规则判断并输出：\n\n判断标准\nK-\n\n满足：\n\n聚焦单体,场景简单,主体单一且明确。\n画面尺度:中景景为主,背景简单。\n元素数量:1个核心主体+少量点缀(不喧宾夺主)。\n构图重点:突出主体轮廓与质感,信息一眼读懂。\n\n→ 输出：K-\n\nK+\n\n满足：\n\n聚焦几个主体组合成的小场景,景别中远景,内容更丰富。\n画面尺度:中景/中远景,允许有明确的前景-主体-背景层次。\n元素数量:主体由>1个物体组合而成+环境信息补足氛围。均场景更复杂、材质变化、光影氛围叙事更完善,图像\"有故事\"。\n构图重点:主次分明、视觉路径清晰(主体最抢眼,其它为支支撑)。\n\n→ 输出：K+\n\n冲突规则\n\n若无法明确判断：\n\n→ 输出：K-\n\n输出规则（必须遵守）\n\n只输出：\n\nK+\nK-\n\n不得解释，不得添加任何字符",
+          "thinking": false,
+          "images": [
+            "615",
+            0
+          ]
+        },
+        "class_type": "BANodeLLMText",
+        "_meta": {
+          "title": "BA LLM Text"
+        }
+      },
+      "589": {
+        "inputs": {
+          "action": "append",
+          "tidy_tags": "no",
+          "text_a": "请基于输入的景观尾帧图像，按照既定结构生成一段运镜描述文本。\n\n结合以下用户输入，对“镜头运动方式与节奏”进行编排描述：\n",
+          "text_b": [
+            "591",
+            0
+          ],
+          "text_c": "\n\n【约束规则】\n\n1. 图像中已经确定的内容（包括场景类型、地形结构、主体位置、前中远景关系、色彩与氛围）不得被改变或重新设定，所有描述必须严格贴合图像最终画面\n\n2. 用户输入仅可影响以下内容：\n   - 镜头运动方式（推进、平移、轻微环绕、拉远等）\n   - 运镜节奏（缓慢、停顿、先后变化）\n   - 视角展开顺序（先前景、再主体、再远景等）\n\n3. 用户输入中如包含对“场景内容”的修改（如改变天气、时间、地形、建筑、植被等），必须忽略，不得体现在结果中\n\n4. 用户输入中如包含不合理或过强的运镜方式（如高速飞行、大幅跳跃、复杂轨迹运动等），必须自动弱化或转译为平滑、连续、可执行的镜头运动（如缓慢推进、轻微平移等）\n\n5. 运镜必须保持连续、平稳，不得出现突变、闪切或瞬间跳跃\n\n6. 镜头始终基于当前画面空间内部展开，不得脱离场景或进入不可见空间\n\n7. 若用户未提供任何输入内容，或输入为空，则完全忽略用户输入，使用默认运镜逻辑进行生成",
+          "result": {
+            "__value__": [
+              "请基于输入的景观尾帧图像，按照既定结构生成一段运镜描述文本。\n\n结合以下用户输入，对“镜头运动方式与节奏”进行编排描述：\n \n\n【约束规则】\n\n1. 图像中已经确定的内容（包括场景类型、地形结构、主体位置、前中远景关系、色彩与氛围）不得被改变或重新设定，所有描述必须严格贴合图像最终画面\n\n2. 用户输入仅可影响以下内容：\n   - 镜头运动方式（推进、平移、轻微环绕、拉远等）\n   - 运镜节奏（缓慢、停顿、先后变化）\n   - 视角展开顺序（先前景、再主体、再远景等）\n\n3. 用户输入中如包含对“场景内容”的修改（如改变天气、时间、地形、建筑、植被等），必须忽略，不得体现在结果中\n\n4. 用户输入中如包含不合理或过强的运镜方式（如高速飞行、大幅跳跃、复杂轨迹运动等），必须自动弱化或转译为平滑、连续、可执行的镜头运动（如缓慢推进、轻微平移等）\n\n5. 运镜必须保持连续、平稳，不得出现突变、闪切或瞬间跳跃\n\n6. 镜头始终基于当前画面空间内部展开，不得脱离场景或进入不可见空间\n\n7. 若用户未提供任何输入内容，或输入为空，则完全忽略用户输入，使用默认运镜逻辑进行生成"
+            ]
+          }
+        },
+        "class_type": "StringFunction|pysssss",
+        "_meta": {
+          "title": "String Function 🐍"
+        }
+      },
+      "591": {
+        "inputs": {
+          "string": [
+            "624",
+            0
+          ],
+          "regex_pattern": "K[+-][，,/]?\\s*",
+          "replace": " ",
+          "case_insensitive": true,
+          "multiline": false,
+          "dotall": false,
+          "count": 0
+        },
+        "class_type": "RegexReplace",
+        "_meta": {
+          "title": "正则表达式替换"
+        }
+      },
+      "592": {
+        "inputs": {
+          "boolean": [
+            "580",
+            0
+          ],
+          "on_true": [
+            "595",
+            0
+          ],
+          "on_false": [
+            "594",
+            0
+          ]
+        },
+        "class_type": "Switch any [Crystools]",
+        "_meta": {
+          "title": "🪛 Switch any"
+        }
+      },
+      "593": {
+        "inputs": {
+          "int": 1024
+        },
+        "class_type": "ttN int",
+        "_meta": {
+          "title": "int"
+        }
+      },
+      "594": {
+        "inputs": {
+          "int": 768
+        },
+        "class_type": "ttN int",
+        "_meta": {
+          "title": "int"
+        }
+      },
+      "595": {
+        "inputs": {
+          "int": 1024
+        },
+        "class_type": "ttN int",
+        "_meta": {
+          "title": "int"
+        }
+      },
+      "614": {
+        "inputs": {
+          "text": [
+            "575",
+            0
+          ]
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "Text Input"
+        }
+      },
+      "615": {
+        "inputs": {
+          "input": [
+            "634",
+            0
+          ]
+        },
+        "class_type": "BAReroute",
+        "_meta": {
+          "title": "Reroute"
+        }
+      },
+      "622": {
+        "inputs": {
+          "width": [
+            "633",
+            1
+          ],
+          "height": [
+            "633",
+            2
+          ],
+          "batch_size": 1,
+          "color": 0
+        },
+        "class_type": "EmptyImage",
+        "_meta": {
+          "title": "空图像"
+        }
+      },
+      "624": {
+        "inputs": {
+          "text": "K-"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "Text Input"
+        }
+      },
+      "626": {
+        "inputs": {
+          "switch": [
+            "627",
+            0
+          ],
+          "on_false": [
+            "571",
+            0
+          ],
+          "on_true": [
+            "568",
+            0
+          ]
+        },
+        "class_type": "LazySwitchKJ",
+        "_meta": {
+          "title": "Lazy Switch KJ"
+        }
+      },
+      "627": {
+        "inputs": {
+          "input": [
+            "580",
+            0
+          ]
+        },
+        "class_type": "BAReroute",
+        "_meta": {
+          "title": "价效判断"
+        }
+      },
+      "631": {
+        "inputs": {
+          "variable_name": "input_2",
+          "input_type": "image",
+          "image_in": [
+            "582",
+            0
+          ]
+        },
+        "class_type": "BAInputSlot",
+        "_meta": {
+          "title": "BA Input Slot (Variable)"
+        }
+      },
+      "633": {
+        "inputs": {
+          "width": [
+            "593",
+            0
+          ],
+          "height": [
+            "592",
+            0
+          ],
+          "upscale_method": "nearest-exact",
+          "keep_proportion": "crop",
+          "pad_color": "0, 0, 0",
+          "crop_position": "center",
+          "divisible_by": 2,
+          "device": "cpu",
+          "image": [
+            "615",
+            0
+          ]
+        },
+        "class_type": "ImageResizeKJv2",
+        "_meta": {
+          "title": "Resize Image v2"
+        }
+      },
+      "634": {
+        "inputs": {
+          "width": 1024,
+          "height": 1024,
+          "upscale_method": "nearest-exact",
+          "keep_proportion": "resize",
+          "pad_color": "0, 0, 0",
+          "crop_position": "center",
+          "divisible_by": 2,
+          "device": "cpu",
+          "image": [
+            "582",
+            0
+          ]
+        },
+        "class_type": "ImageResizeKJv2",
+        "_meta": {
+          "title": "Resize Image v2"
+        }
+      },
+      "636": {
+        "inputs": {
+          "text_0": true,
+          "text": [
+            "627",
+            0
+          ]
+        },
+        "class_type": "ShowText|pysssss",
+        "_meta": {
+          "title": "Show Text 🐍"
+        }
+      },
+      "637": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "633",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "保存图像"
+        }
+      }
+    },
+    "r2l": [],
+    "venv_comfyui": null,
+    "service_name": "byteartist_comfyui_online",
+    "comfyui_commit": "8f374716ee98d378d403ebc61250e091ecd3a25c",
+    "ba_manager_commit": "3a95e3336d4067ea021e269661e0f22438e1c264",
+    "created_at": 1776853659944,
+    "node_info": {
+      "JimengAPIClient": {
+        "input": {
+          "required": {
+            "new_api_key": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": false
+              }
+            ],
+            "new_key_name": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": false
+              }
+            ],
+            "key_name": [
+              "COMBO",
+              {
+                "multiselect": false,
+                "options": [
+                  "Custom"
+                ]
+              }
+            ],
+            "endpoint_id": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": false
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "new_api_key",
+            "new_key_name",
+            "key_name",
+            "endpoint_id"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "JIMENG_CLIENT"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "client"
+        ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
+        "name": "JimengAPIClient",
+        "display_name": "火山方舟 API 客户端",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Jimeng-Enhanced",
+        "category": "即梦AI",
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": null,
+        "essentials_category": null,
+        "has_intermediate_output": false,
+        "origin_display_name": "Jimeng API Client"
+      },
+      "BASaveVideo": {
+        "input": {
+          "required": {
+            "video": [
+              "VIDEO",
+              {
+                "tooltip": "The video to save."
+              }
+            ],
+            "filename_prefix": [
+              "STRING",
+              {
+                "default": "video/ComfyUI",
+                "tooltip": "The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."
+              }
+            ],
+            "format": [
+              [
+                "auto",
+                "mp4"
+              ],
+              {
+                "default": "auto",
+                "tooltip": "The format to save the video as."
+              }
+            ],
+            "codec": [
+              [
+                "auto",
+                "h264"
+              ],
+              {
+                "default": "auto",
+                "tooltip": "The codec to use for the video."
+              }
+            ]
+          },
+          "hidden": {
+            "prompt": "PROMPT",
+            "extra_pnginfo": "EXTRA_PNGINFO"
+          }
+        },
+        "input_order": {
+          "required": [
+            "video",
+            "filename_prefix",
+            "format",
+            "codec"
+          ],
+          "hidden": [
+            "prompt",
+            "extra_pnginfo"
+          ]
+        },
+        "is_input_list": false,
+        "output": [],
+        "output_is_list": [],
+        "output_name": [],
+        "name": "BASaveVideo",
+        "display_name": "BA Save Video",
+        "description": "Saves the input images to your ComfyUI output directory.",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "BA/视频",
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "BA Save Video"
+      },
+      "TextInput": {
+        "input": {
+          "required": {
+            "text": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "text"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "TextInput",
+        "display_name": "Text Input",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Byteartist-Node",
+        "category": "byteartist/llm",
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "Text Input"
+      },
+      "LazySwitchKJ": {
+        "input": {
+          "required": {
+            "switch": [
+              "BOOLEAN"
+            ],
+            "on_false": [
+              "*",
+              {
+                "lazy": true
+              }
+            ],
+            "on_true": [
+              "*",
+              {
+                "lazy": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "switch",
+            "on_false",
+            "on_true"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "*"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "*"
+        ],
+        "name": "LazySwitchKJ",
+        "display_name": "Lazy Switch KJ",
+        "description": "Controls flow of execution based on a boolean switch.",
+        "python_module": "custom_nodes.ComfyUI-KJNodes",
+        "category": "KJNodes/misc",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "Lazy Switch KJ"
+      },
+      "BAIfElse": {
+        "input": {
+          "required": {
+            "boolean": [
+              "*"
+            ],
+            "on_true": [
+              "*",
+              {
+                "lazy": true
+              }
+            ],
+            "on_false": [
+              "*",
+              {
+                "lazy": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "boolean",
+            "on_true",
+            "on_false"
+          ]
+        },
+        "is_input_list": true,
+        "output": [
+          "*"
+        ],
+        "output_is_list": [
+          true
+        ],
+        "output_name": [
+          "output"
+        ],
+        "name": "BAIfElse",
+        "display_name": "BA IfElse",
+        "description": "",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "byteartist/universal/逻辑",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "BA IfElse"
+      },
+      "LoadImage": {
+        "input": {
+          "required": {
+            "image": [
+              [
+                "032a4a20-32ac-4904-8798-bb40b176e1e6.jpeg",
+                "05eb2e92-a039-4975-a0cf-e55f29b48197.jpeg",
+                "0c9187c9-3ea6-443a-af21-01cf62aeb06f.jpeg",
+                "0d2a2c7b-837d-4a13-a1c8-64a639c34303.jpeg",
+                "1.png",
+                "1084785a-2fdf-412a-9f28-c6e727aa1a01.jpeg",
+                "11.png",
+                "17c90877-5210-492e-b74c-a6b199b1a7a8.jpeg",
+                "1b3ca972-ed6e-420e-a1fd-6a2e205de495.jpeg",
+                "2.png",
+                "20260123-182236.png",
+                "20260123-182402.jpg",
+                "20260123-185903.png",
+                "20260123-185907.png",
+                "20260126-164622.jpg",
+                "20260129-155729.jpg",
+                "20260311181011893_15918.jpeg",
+                "20260408-125023.png",
+                "21ef0561-2ddc-4d09-ae7b-a346be452ad4.jpeg",
+                "235fd060-f71d-4d1d-bd46-470111188ee8.jpeg",
+                "27.png",
+                "29ef5df3-98d3-4859-a4d4-225d2106679c.jpeg",
+                "2bd8ccad-2aa6-484b-8cc2-da77e68fcfa5.jpeg",
+                "3 (1).png",
+                "3662f400-6880-4a17-a8bd-80fe33694275.jpeg",
+                "4 (1).png",
+                "4350db8e-9313-4116-a4be-dda1fcd97332.jpeg",
+                "45ef4bf2-92e6-4d48-ba80-f437b9a1efc7.jpeg",
+                "45f38028-7d89-489a-b4ae-c7f7c1d207c7.jpeg",
+                "4a480bdd-266a-4e19-b872-e155e02c2f77.jpeg",
+                "4d5df94c-8f7a-4e88-9157-c7a833df288c.jpeg",
+                "4e087e73-6772-4d7b-a8bc-7ff5c89facfd.jpeg",
+                "5 (1).png",
+                "55e14ab0-9310-4e9d-b088-4eec23ff1751.jpeg",
+                "560ff310-e2c3-496b-a301-056dcf2c66d2.jpeg",
+                "56f78a04-7d7a-4df6-9ef3-9aca184ce4f3.jpeg",
+                "5a8f7570-ac1d-491d-8f59-770dbf6602d4.jpeg",
+                "63f92f53-8f86-4f6f-8ddf-707954da0ac9.jpeg",
+                "6a3553a0-5481-4f20-9155-064ae29a9014.jpeg",
+                "6ca442d6-c49c-4296-adb7-bb8a94c0256f.jpeg",
+                "6d5a164e-dde8-4cd3-865a-649c42a28cba.jpeg",
+                "70b95cc7-8f86-43f9-bcad-708afc93f12a.jpeg",
+                "782fa43c-de4b-4a81-8529-e27f5b4ae40d.jpeg",
+                "7e427e99-be43-44be-bb3b-b63408f5b38d.jpeg",
+                "8.png",
+                "85d47248-49f5-4b46-af6f-7c81c4688528.jpeg",
+                "88b866c3-f96c-4ffd-89af-1f3cee7f98a6.jpeg",
+                "9061233b-4bf4-4f04-90ce-41bae5f64d36.jpeg",
+                "91d3b357-e222-4827-a5c9-e37154e68152.jpeg",
+                "93bc1613-0417-4456-9fab-36a11df43a74.jpeg"
+              ],
+              {
+                "image_upload": true
+              }
+            ],
+            "upload": [
+              "IMAGEUPLOAD",
+              {
+                "image_upload": true,
+                "imageInputName": "image"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "IMAGE",
+          "MASK"
+        ],
+        "name": "LoadImage",
+        "display_name": "加载图像",
+        "description": "",
+        "python_module": "nodes",
+        "category": "图像",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [
+          "load image",
+          "open image",
+          "import image",
+          "image input",
+          "upload image",
+          "read image",
+          "image loader"
+        ],
+        "essentials_category": "Basics",
+        "origin_display_name": "Load Image"
+      },
+      "StringCompare": {
+        "input": {
+          "required": {
+            "string_a": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ],
+            "string_b": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ],
+            "mode": [
+              "COMBO",
+              {
+                "multiselect": false,
+                "options": [
+                  "Starts With",
+                  "Ends With",
+                  "Equal"
+                ]
+              }
+            ],
+            "case_sensitive": [
+              "BOOLEAN",
+              {
+                "advanced": true,
+                "default": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "string_a",
+            "string_b",
+            "mode",
+            "case_sensitive"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "BOOLEAN"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "BOOLEAN"
+        ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
+        "name": "StringCompare",
+        "display_name": "比较",
+        "description": "",
+        "python_module": "comfy_extras.nodes_string",
+        "category": "工具/字符串",
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "Compare",
+          "text match",
+          "string equals",
+          "starts with",
+          "ends with"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false,
+        "origin_display_name": "Text Compare"
+      },
+      "BAInputSlot": {
+        "input": {
+          "required": {
+            "variable_name": [
+              "STRING",
+              {
+                "default": "input_1",
+                "multiline": false
+              }
+            ],
+            "input_type": [
+              [
+                "text",
+                "image",
+                "video"
+              ],
+              {
+                "default": "text"
+              }
+            ]
+          },
+          "optional": {
+            "text_in": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "image_in": [
+              "IMAGE"
+            ],
+            "video_in": [
+              "VIDEO",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "variable_name",
+            "input_type"
+          ],
+          "optional": [
+            "text_in",
+            "image_in",
+            "video_in"
+          ]
+        },
+        "is_input_list": false,
+        "output": [],
+        "output_is_list": [],
+        "output_name": [],
+        "name": "BAInputSlot",
+        "display_name": "BA Input Slot (Variable)",
+        "description": "",
+        "python_module": "custom_nodes.comfyui-webhook-node",
+        "category": "api-bridge",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "BA Input Slot (Variable)"
+      },
+      "BANodeLLMText": {
+        "input": {
+          "required": {
+            "feature": [
+              [
+                "提示词反推",
+                "灵感扩写",
+                "正反提示词"
+              ],
+              {
+                "default": "提示词反推",
+                "tooltip": "功能名称"
+              }
+            ],
+            "model": [
+              [
+                "豆包2.0-pro",
+                "豆包2.0-lite",
+                "豆包1.8-251228",
+                "豆包1.8",
+                "豆包1.6-251015",
+                "豆包1.6",
+                "豆包1.6 Vision",
+                "豆包1.6-flash",
+                "豆包1.5 pro",
+                "step-3.5-flash",
+                "Qwen3",
+                "Qwen3-omni-flash",
+                "kimi-k2.5",
+                "kimi-k2-0905-preview",
+                "DeepSeek-V3",
+                "DeepSeek-R1",
+                "GPT-5.1",
+                "GPT-5.1-Chat",
+                "GPT-5-Chat",
+                "GPT-4o",
+                "GPT-4.1",
+                "GPT-4.1mini",
+                "gemini-2.5 pro(深度思考)",
+                "gemini-2.5 pro priority(深度思考)",
+                "gemini-2.5 flash(回复更快)",
+                "Gemini-3-flash(降至2.5)",
+                "Gemini-3(降至2.5)",
+                "Seedream-PE-250815"
+              ],
+              {
+                "default": "豆包2.0-pro",
+                "tooltip": "模型名称"
+              }
+            ],
+            "max_tokens": [
+              "INT",
+              {
+                "default": 2000,
+                "min": 1,
+                "max": 4096,
+                "step": 1
+              }
+            ],
+            "temperature": [
+              "FLOAT",
+              {
+                "default": 0.7,
+                "min": 0,
+                "max": 2,
+                "step": 0.01
+              }
+            ]
+          },
+          "optional": {
+            "images": [
+              "IMAGE",
+              {
+                "tooltip": "图片",
+                "forceInput": true
+              }
+            ],
+            "prompt": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "dynamicPrompts": true,
+                "tooltip": "提示词"
+              }
+            ],
+            "system_prompt": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "dynamicPrompts": true,
+                "tooltip": "系统指令"
+              }
+            ],
+            "thinking": [
+              "BOOLEAN",
+              {
+                "default": false,
+                "tooltip": "是否思考"
+              }
+            ]
+          },
+          "hidden": {
+            "node_id": "UNIQUE_ID"
+          }
+        },
+        "input_order": {
+          "required": [
+            "feature",
+            "model",
+            "max_tokens",
+            "temperature"
+          ],
+          "optional": [
+            "images",
+            "prompt",
+            "system_prompt",
+            "thinking"
+          ],
+          "hidden": [
+            "node_id"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "STRING",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "result/positive",
+          "negative"
+        ],
+        "name": "BANodeLLMText",
+        "display_name": "BA LLM Text",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Byteartist-Node",
+        "category": "byteartist/llm",
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "BA LLM Text"
+      },
+      "Switch any [Crystools]": {
+        "input": {
+          "required": {
+            "on_true": [
+              "*",
+              {
+                "lazy": true
+              }
+            ],
+            "on_false": [
+              "*",
+              {
+                "lazy": true
+              }
+            ],
+            "boolean": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "on_true",
+            "on_false",
+            "boolean"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "*"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "*"
+        ],
+        "name": "Switch any [Crystools]",
+        "display_name": "🪛 Switch any",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Crystools",
+        "category": "crystools 🪛/开关",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "🪛 Switch any"
+      },
+      "ttN int": {
+        "input": {
+          "required": {
+            "int": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 18446744073709552000
+              }
+            ]
+          },
+          "hidden": {
+            "ttNnodeVersion": "1.0.0"
+          }
+        },
+        "input_order": {
+          "required": [
+            "int"
+          ],
+          "hidden": [
+            "ttNnodeVersion"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "INT",
+          "FLOAT",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "int",
+          "float",
+          "text"
+        ],
+        "name": "ttN int",
+        "display_name": "int",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI_tinyterraNodes",
+        "category": "🌏 tinyterra/util",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "int"
+      },
+      "BAReroute": {
+        "input": {
+          "required": {},
+          "optional": {
+            "input": [
+              "*",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [],
+          "optional": [
+            "input"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "*"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "output"
+        ],
+        "name": "BAReroute",
+        "display_name": "Reroute",
+        "description": "",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "byteartist/universal",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "Reroute"
+      },
+      "EmptyImage": {
+        "input": {
+          "required": {
+            "width": [
+              "INT",
+              {
+                "default": 512,
+                "min": 1,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "height": [
+              "INT",
+              {
+                "default": 512,
+                "min": 1,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "batch_size": [
+              "INT",
+              {
+                "default": 1,
+                "min": 1,
+                "max": 4096
+              }
+            ],
+            "color": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16777215,
+                "step": 1,
+                "display": "color"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "width",
+            "height",
+            "batch_size",
+            "color"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "IMAGE"
+        ],
+        "name": "EmptyImage",
+        "display_name": "空图像",
+        "description": "",
+        "python_module": "nodes",
+        "category": "图像",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "EmptyImage"
+      },
+      "ImageResizeKJv2": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "width": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "height": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "upscale_method": [
+              [
+                "nearest-exact",
+                "bilinear",
+                "area",
+                "bicubic",
+                "lanczos"
+              ]
+            ],
+            "keep_proportion": [
+              [
+                "stretch",
+                "resize",
+                "pad",
+                "pad_edge",
+                "pad_edge_pixel",
+                "crop",
+                "pillarbox_blur",
+                "total_pixels"
+              ],
+              {
+                "default": false
+              }
+            ],
+            "pad_color": [
+              "STRING",
+              {
+                "default": "0, 0, 0",
+                "tooltip": "Color to use for padding."
+              }
+            ],
+            "crop_position": [
+              [
+                "center",
+                "top",
+                "bottom",
+                "left",
+                "right"
+              ],
+              {
+                "default": "center"
+              }
+            ],
+            "divisible_by": [
+              "INT",
+              {
+                "default": 2,
+                "min": 0,
+                "max": 512,
+                "step": 1
+              }
+            ]
+          },
+          "optional": {
+            "mask": [
+              "MASK"
+            ],
+            "device": [
+              [
+                "cpu",
+                "gpu"
+              ]
+            ]
+          },
+          "hidden": {
+            "unique_id": "UNIQUE_ID"
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "width",
+            "height",
+            "upscale_method",
+            "keep_proportion",
+            "pad_color",
+            "crop_position",
+            "divisible_by"
+          ],
+          "optional": [
+            "mask",
+            "device"
+          ],
+          "hidden": [
+            "unique_id"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "INT",
+          "INT",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "IMAGE",
+          "width",
+          "height",
+          "mask"
+        ],
+        "name": "ImageResizeKJv2",
+        "display_name": "Resize Image v2",
+        "description": "\nResizes the image to the specified width and height.  \nSize can be retrieved from the input.\n\nKeep proportions keeps the aspect ratio of the image, by  \nhighest dimension.  \n",
+        "python_module": "custom_nodes.ComfyUI-KJNodes",
+        "category": "KJNodes/图像",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "Resize Image v2"
+      },
+      "RegexExtract": {
+        "input": {
+          "required": {
+            "string": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ],
+            "regex_pattern": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ],
+            "mode": [
+              "COMBO",
+              {
+                "multiselect": false,
+                "options": [
+                  "First Match",
+                  "All Matches",
+                  "First Group",
+                  "All Groups"
+                ]
+              }
+            ],
+            "case_insensitive": [
+              "BOOLEAN",
+              {
+                "advanced": true,
+                "default": true
+              }
+            ],
+            "multiline": [
+              "BOOLEAN",
+              {
+                "advanced": true,
+                "default": false
+              }
+            ],
+            "dotall": [
+              "BOOLEAN",
+              {
+                "advanced": true,
+                "default": false
+              }
+            ],
+            "group_index": [
+              "INT",
+              {
+                "advanced": true,
+                "default": 1,
+                "min": 0,
+                "max": 100
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "string",
+            "regex_pattern",
+            "mode",
+            "case_insensitive",
+            "multiline",
+            "dotall",
+            "group_index"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
+        "name": "RegexExtract",
+        "display_name": "正则表达式提取",
+        "description": "",
+        "python_module": "comfy_extras.nodes_string",
+        "category": "工具/字符串",
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "Regex Extract",
+          "regex",
+          "pattern extract",
+          "text parser",
+          "parse text"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false,
+        "origin_display_name": "Text Extract Substring"
+      },
+      "RegexReplace": {
+        "input": {
+          "required": {
+            "string": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ],
+            "regex_pattern": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ],
+            "replace": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ]
+          },
+          "optional": {
+            "case_insensitive": [
+              "BOOLEAN",
+              {
+                "advanced": true,
+                "default": true
+              }
+            ],
+            "multiline": [
+              "BOOLEAN",
+              {
+                "advanced": true,
+                "default": false
+              }
+            ],
+            "dotall": [
+              "BOOLEAN",
+              {
+                "tooltip": "When enabled, the dot (.) character will match any character including newline characters. When disabled, dots won't match newlines.",
+                "advanced": true,
+                "default": false
+              }
+            ],
+            "count": [
+              "INT",
+              {
+                "tooltip": "Maximum number of replacements to make. Set to 0 to replace all occurrences (default). Set to 1 to replace only the first match, 2 for the first two matches, etc.",
+                "advanced": true,
+                "default": 0,
+                "min": 0,
+                "max": 100
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "string",
+            "regex_pattern",
+            "replace"
+          ],
+          "optional": [
+            "case_insensitive",
+            "multiline",
+            "dotall",
+            "count"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
+        "name": "RegexReplace",
+        "display_name": "正则表达式替换",
+        "description": "使用正则表达式模式查找和替换文本。",
+        "python_module": "comfy_extras.nodes_string",
+        "category": "工具/字符串",
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "Regex Replace",
+          "regex",
+          "pattern replace",
+          "regex replace",
+          "substitution"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false,
+        "origin_display_name": "Text Replace (Regex)"
+      },
+      "StringFunction|pysssss": {
+        "input": {
+          "required": {
+            "action": [
+              [
+                "append",
+                "replace"
+              ],
+              {}
+            ],
+            "tidy_tags": [
+              [
+                "yes",
+                "no"
+              ],
+              {}
+            ]
+          },
+          "optional": {
+            "text_a": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": false
+              }
+            ],
+            "text_b": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": false
+              }
+            ],
+            "text_c": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": false
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "action",
+            "tidy_tags"
+          ],
+          "optional": [
+            "text_a",
+            "text_b",
+            "text_c"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "StringFunction|pysssss",
+        "display_name": "String Function 🐍",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Custom-Scripts",
+        "category": "工具",
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "String Function 🐍"
+      },
+      "JimengSeedance2": {
+        "input": {
+          "required": {
+            "client": [
+              "JIMENG_CLIENT",
+              {}
+            ],
+            "model_version": [
+              "STRING",
+              {
+                "default": "doubao-seedance-2-0-260128",
+                "multiline": false
+              }
+            ],
+            "prompt": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true
+              }
+            ],
+            "enable_random_seed": [
+              "BOOLEAN",
+              {
+                "tooltip": "On=Enabled, Off=Disabled",
+                "default": true
+              }
+            ],
+            "seed": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 4294967295
+              }
+            ],
+            "resolution": [
+              "COMBO",
+              {
+                "default": "720p",
+                "multiselect": false,
+                "options": [
+                  "480p",
+                  "720p",
+                  "1080p"
+                ]
+              }
+            ],
+            "aspect_ratio": [
+              "COMBO",
+              {
+                "default": "adaptive",
+                "multiselect": false,
+                "options": [
+                  "adaptive",
+                  "16:9",
+                  "4:3",
+                  "1:1",
+                  "3:4",
+                  "9:16",
+                  "21:9"
+                ]
+              }
+            ],
+            "auto_duration": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "duration": [
+              "INT",
+              {
+                "default": 5,
+                "min": 4,
+                "max": 15,
+                "display": "number"
+              }
+            ],
+            "generate_audio": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "enable_web_search": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "generation_count": [
+              "INT",
+              {
+                "default": 1,
+                "min": 1
+              }
+            ],
+            "filename_prefix": [
+              "STRING",
+              {
+                "default": "Jimeng/Video/Batch/Seedance",
+                "multiline": false
+              }
+            ],
+            "save_last_frame_batch": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "non_blocking": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "ref_images": [
+              "COMFY_AUTOGROW_V3",
+              {
+                "template": {
+                  "input": {
+                    "required": {},
+                    "optional": {
+                      "ref_image": [
+                        "IMAGE",
+                        {}
+                      ]
+                    }
+                  },
+                  "names": [
+                    "ref_image_1",
+                    "ref_image_2",
+                    "ref_image_3",
+                    "ref_image_4",
+                    "ref_image_5",
+                    "ref_image_6",
+                    "ref_image_7",
+                    "ref_image_8",
+                    "ref_image_9"
+                  ],
+                  "min": 1
+                }
+              }
+            ],
+            "ref_videos": [
+              "COMFY_AUTOGROW_V3",
+              {
+                "template": {
+                  "input": {
+                    "required": {},
+                    "optional": {
+                      "ref_video": [
+                        "VIDEO",
+                        {}
+                      ]
+                    }
+                  },
+                  "names": [
+                    "ref_video_1",
+                    "ref_video_2",
+                    "ref_video_3"
+                  ],
+                  "min": 1
+                }
+              }
+            ],
+            "ref_audios": [
+              "COMFY_AUTOGROW_V3",
+              {
+                "template": {
+                  "input": {
+                    "required": {},
+                    "optional": {
+                      "ref_audio": [
+                        "AUDIO",
+                        {}
+                      ]
+                    }
+                  },
+                  "names": [
+                    "ref_audio_1",
+                    "ref_audio_2",
+                    "ref_audio_3"
+                  ],
+                  "min": 1
+                }
+              }
+            ]
+          },
+          "optional": {
+            "first_frame_image": [
+              "IMAGE",
+              {}
+            ],
+            "last_frame_image": [
+              "IMAGE",
+              {}
+            ]
+          },
+          "hidden": {
+            "auth_token_comfy_org": [
+              "AUTH_TOKEN_COMFY_ORG"
+            ],
+            "api_key_comfy_org": [
+              "API_KEY_COMFY_ORG"
+            ],
+            "unique_id": [
+              "UNIQUE_ID"
+            ],
+            "prompt": [
+              "PROMPT"
+            ],
+            "extra_pnginfo": [
+              "EXTRA_PNGINFO"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "client",
+            "model_version",
+            "prompt",
+            "enable_random_seed",
+            "seed",
+            "resolution",
+            "aspect_ratio",
+            "auto_duration",
+            "duration",
+            "generate_audio",
+            "enable_web_search",
+            "generation_count",
+            "filename_prefix",
+            "save_last_frame_batch",
+            "non_blocking",
+            "ref_images",
+            "ref_videos",
+            "ref_audios"
+          ],
+          "optional": [
+            "first_frame_image",
+            "last_frame_image"
+          ],
+          "hidden": [
+            "auth_token_comfy_org",
+            "api_key_comfy_org",
+            "unique_id",
+            "prompt",
+            "extra_pnginfo"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "VIDEO",
+          "IMAGE",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "video",
+          "last_frame",
+          "response"
+        ],
+        "output_tooltips": [
+          null,
+          null,
+          null
+        ],
+        "output_matchtypes": null,
+        "name": "JimengSeedance2",
+        "display_name": "视频生成（Seedance 2.0）",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Jimeng-Enhanced",
+        "category": "即梦AI",
+        "output_node": true,
+        "deprecated": false,
+        "experimental": true,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": null,
+        "essentials_category": null,
+        "has_intermediate_output": false,
+        "origin_display_name": "Jimeng Seedance 2.0"
+      },
+      "SaveImage": {
+        "input": {
+          "required": {
+            "images": [
+              "IMAGE",
+              {
+                "tooltip": "The images to save."
+              }
+            ],
+            "filename_prefix": [
+              "STRING",
+              {
+                "default": "ComfyUI",
+                "tooltip": "The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."
+              }
+            ]
+          },
+          "hidden": {
+            "prompt": "PROMPT",
+            "extra_pnginfo": "EXTRA_PNGINFO"
+          }
+        },
+        "input_order": {
+          "required": [
+            "images",
+            "filename_prefix"
+          ],
+          "hidden": [
+            "prompt",
+            "extra_pnginfo"
+          ]
+        },
+        "is_input_list": false,
+        "output": [],
+        "output_is_list": [],
+        "output_name": [],
+        "name": "SaveImage",
+        "display_name": "保存图像",
+        "description": "将输入图像保存到您的ComfyUI输出目录。",
+        "python_module": "nodes",
+        "category": "图像",
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": [
+          "save",
+          "save image",
+          "export image",
+          "output image",
+          "write image",
+          "download"
+        ],
+        "essentials_category": "Basics",
+        "origin_display_name": "Save Image"
+      },
+      "ShowText|pysssss": {
+        "input": {
+          "required": {
+            "text": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ]
+          },
+          "hidden": {
+            "unique_id": "UNIQUE_ID",
+            "extra_pnginfo": "EXTRA_PNGINFO"
+          }
+        },
+        "input_order": {
+          "required": [
+            "text"
+          ],
+          "hidden": [
+            "unique_id",
+            "extra_pnginfo"
+          ]
+        },
+        "is_input_list": true,
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          true
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "ShowText|pysssss",
+        "display_name": "Show Text 🐍",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Custom-Scripts",
+        "category": "工具",
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": [],
+        "origin_display_name": "Show Text 🐍"
+      }
+    },
+    "custom_node_versions": [
+      {
+        "path": "custom_nodes/ComfyUI-Jimeng-Enhanced",
+        "git_url": "https://github.com/Eden123321/ComfyUI-Jimeng-Enhanced.git",
+        "git_commit": "487d90c1d9ecec6e3a79b3e240e219584a4f7d72",
+        "node_types": [
+          "JimengAPIClient",
+          "JimengSeedance2"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Byteartist-Node",
+        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Byteartist-Node.git",
+        "git_commit": "e3acbc8b47c03e777799176e04099c6d391bb8e4",
+        "node_types": [
+          "TextInput",
+          "BANodeLLMText"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-KJNodes",
+        "git_url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+        "git_commit": "16a335c8c40b1b3eef8b770022276004d5bea66b",
+        "node_types": [
+          "LazySwitchKJ",
+          "ImageResizeKJv2"
+        ]
+      },
+      {
+        "path": "custom_nodes/comfyui-webhook-node",
+        "git_url": "https://github.com/Eden123321/comfyui-webhook-node.git",
+        "git_commit": "3c0fbea3e358bb66a41069622dbc9f88f8c5f8d6",
+        "node_types": [
+          "BAInputSlot"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Crystools",
+        "git_url": "https://github.com/crystian/ComfyUI-Crystools.git",
+        "git_commit": "2af9ccf0a29c6910e6fcbdd7d2fe96f9bde44eed",
+        "node_types": [
+          "Switch any [Crystools]"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI_tinyterraNodes",
+        "git_url": "https://github.com/TinyTerra/ComfyUI_tinyterraNodes.git",
+        "git_commit": "c669e6cff81ba44cce91c9eee3236c1a64725394",
+        "node_types": [
+          "ttN int"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Custom-Scripts",
+        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Custom-Scripts.git",
+        "git_commit": "d49b6c569fb2fc4a220b81db14fd4daba46c959a",
+        "node_types": [
+          "StringFunction|pysssss",
+          "ShowText|pysssss"
+        ]
+      }
+    ],
+    "pip_freeze": [
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.4.2.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/python_dotenv-1.2.1.dist-info due to invalid metadata entry 'name'",
+      "absl-py==2.3.1",
+      "accelerate==1.10.1",
+      "addict==2.4.0",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "albucore==0.0.24",
+      "albumentations==2.0.8",
+      "alembic==1.18.4",
+      "altgraph==0.17.4",
+      "annotated-doc==0.0.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "basicsr==1.4.2",
+      "bcrypt==5.0.0",
+      "beautifulsoup4==4.14.3",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "blake3==1.0.8",
+      "blend_modes==2.2.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "build==1.4.1",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-pydev==0.0.20",
+      "byted-wandb==0.13.90",
+      "byted_automl_plugin==0.1.3",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_lighten_validator==0.2.14",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.uploader==0.4.0a15",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "chromadb==1.5.5",
+      "click==8.1.7",
+      "clip-interrogator==0.6.0",
+      "cmake==4.1.0",
+      "color-matcher==0.6.0",
+      "coloredlogs==15.0.1",
+      "colour-science==0.4.7",
+      "comfy-aimdo==0.2.12",
+      "comfy-kitchen==0.2.8",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui-workflow-templates-core==0.3.206",
+      "comfyui-workflow-templates-media-api==0.3.69",
+      "comfyui-workflow-templates-media-image==0.3.125",
+      "comfyui-workflow-templates-media-other==0.3.174",
+      "comfyui-workflow-templates-media-video==0.3.77",
+      "comfyui_frontend_package==1.42.11",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==46.0.7",
+      "cstr @ git+https://github.com/ltdrdata/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
+      "cuda-bindings==12.9.4",
+      "cuda-pathfinder==1.3.3",
+      "cupy-cuda12x==13.6.0",
+      "cycler==0.12.1",
+      "Cython==3.2.1",
+      "dataclasses-json==0.6.7",
+      "ddt==1.7.2",
+      "decorator==5.2.1",
+      "decord==0.6.0",
+      "deepdiff==8.6.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "dill==0.4.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "docutils==0.22.4",
+      "durationpy==0.10",
+      "easydict==1.13",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "et_xmlfile==2.0.0",
+      "fairscale==0.4.13",
+      "fastapi==0.117.1",
+      "fastrlock==0.8.3",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "filetype==1.2.0",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "ftfy==6.3.1",
+      "future==1.0.0",
+      "fvcore==0.1.5.post20221221",
+      "gdown==5.2.1",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "glfw==2.10.0",
+      "google==3.0.0",
+      "googleapis-common-protos==1.73.0",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "groundingdino-py==0.4.0",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httptools==0.7.1",
+      "httpx==0.25.2",
+      "httpx-sse==0.4.3",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "hydra-core==1.3.2",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "imageio-ffmpeg==0.6.0",
+      "img2texture @ git+https://github.com/ltdrdata/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
+      "importlib_metadata==8.7.0",
+      "importlib_resources==6.5.2",
+      "iniconfig==2.0.0",
+      "insightface==0.7.3",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "joblib==1.5.2",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "jsonpatch==1.33",
+      "jsonpointer==3.0.0",
+      "jsonschema==4.26.0",
+      "jsonschema-specifications==2025.9.1",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "kubernetes==35.0.0",
+      "langchain==0.3.25",
+      "langchain-community==0.3.24",
+      "langchain-core==0.3.64",
+      "langchain-ollama==0.3.3",
+      "langchain-openai==0.3.21",
+      "langchain-text-splitters==0.3.8",
+      "langsmith==0.3.45",
+      "lark==1.3.0",
+      "lazy_loader==0.4",
+      "litelama==0.1.7",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "loguru==0.7.3",
+      "lz4==3.1.10",
+      "Mako==1.3.10",
+      "Markdown==3.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "marshmallow==3.26.1",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "mmh3==5.2.1",
+      "moviepy==1.0.3",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "mss==10.1.0",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-ml-py==13.590.48",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvshmem-cu12==3.4.5",
+      "nvidia-nvtx-cu12==12.6.77",
+      "oauthlib==3.3.1",
+      "objprint==0.3.0",
+      "ollama==0.6.0",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime==1.23.2",
+      "onnxruntime-gpu==1.22.0",
+      "open_clip_torch==3.2.0",
+      "openai==1.109.1",
+      "opencv-contrib-python==4.13.0.90",
+      "opencv-python==4.11.0.86",
+      "opencv-python-headless==4.13.0.90",
+      "openpyxl==3.1.2",
+      "opentelemetry-api==1.40.0",
+      "opentelemetry-exporter-otlp-proto-common==1.40.0",
+      "opentelemetry-exporter-otlp-proto-grpc==1.40.0",
+      "opentelemetry-proto==1.40.0",
+      "opentelemetry-sdk==1.40.0",
+      "opentelemetry-semantic-conventions==0.61b0",
+      "orderly-set==5.5.0",
+      "orjson==3.11.3",
+      "overrides==7.7.0",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "pathtools==0.1.2",
+      "peft==0.17.1",
+      "piexif==1.1.3",
+      "pilgram==2.0.0",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "pixeloe==0.1.4",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "pooch==1.8.2",
+      "portalocker==3.2.0",
+      "prettytable==3.16.0",
+      "proglog==0.1.12",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pybase64==1.4.3",
+      "pycocotools==2.0.11",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pycryptodomex==3.23.0",
+      "pydantic==2.11.9",
+      "pydantic-settings==2.14.0",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "PyMatting==1.1.14",
+      "pynvml==13.0.1",
+      "pyope==0.2.2",
+      "PyOpenGL==3.1.10",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "PyPika==0.51.1",
+      "pyproject_hooks==1.2.0",
+      "PySocks==1.7.1",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-dotenv==1.2.2",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "referencing==0.37.0",
+      "regex==2025.9.18",
+      "rembg==2.0.69",
+      "requests==2.31.0",
+      "requests-oauthlib==2.0.0",
+      "requests-toolbelt==1.0.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rfc3986==1.5.0",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rpds-py==0.30.0",
+      "rsa==4.9.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "SAM-2 @ git+https://github.com/facebookresearch/sam2@2b90b9f5ceec907a1c18123530e92e794ad901a4",
+      "schedule==1.2.2",
+      "scikit-image==0.25.2",
+      "scikit-learn==1.7.2",
+      "scipy==1.16.2",
+      "segment-anything==1.0",
+      "semantic-version==2.10.0",
+      "sentence-transformers==5.3.0",
+      "sentencepiece==0.2.1",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "simpleeval==1.0.7",
+      "simsimd==6.5.3",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "soundfile==0.13.1",
+      "soupsieve==2.8.3",
+      "spandrel==0.4.1",
+      "SQLAlchemy==2.0.48",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "stringzilla==4.2.3",
+      "supervision==0.6.0",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tb-nightly==2.21.0a20251023",
+      "tenacity==8.5.0",
+      "tensorboard-data-server==0.7.2",
+      "termcolor==3.1.0",
+      "threadpoolctl==3.6.0",
+      "thriftpy2==0.4.20",
+      "tifffile==2025.10.16",
+      "tiktoken==0.12.0",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "transparent-background==1.3.4",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typer-slim==0.24.0",
+      "typing-inspect==0.9.0",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "uvloop==0.22.1",
+      "viztracer==0.16.3",
+      "volcengine==1.0.218",
+      "volcengine-python-sdk==5.0.12",
+      "watchdog==6.0.0",
+      "watchfiles==1.1.1",
+      "wcwidth==0.2.14",
+      "websocket-client==1.9.0",
+      "websockets==15.0.1",
+      "Werkzeug==3.1.3",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "xlrd==2.0.1",
+      "yacs==0.1.8",
+      "yapf==0.43.0",
+      "yarl==1.11.1",
+      "yt-dlp==2026.3.17",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstandard==0.23.0",
+      "zstd==1.5.7.2"
+    ],
+    "preserve_pip_freeze": [
+      "accelerate==1.10.1",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "altgraph==0.17.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-pydev==0.0.20",
+      "byted-wandb==0.13.90",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "click==8.1.7",
+      "cmake==4.1.0",
+      "coloredlogs==15.0.1",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==46.0.7",
+      "cycler==0.12.1",
+      "decorator==5.2.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "fastapi==0.117.1",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "fvcore==0.1.5.post20221221",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httpx==0.25.2",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "importlib_metadata==8.7.0",
+      "iniconfig==2.0.0",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "lark==1.3.0",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "lz4==3.1.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvtx-cu12==12.6.77",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime-gpu==1.22.0",
+      "openai==1.109.1",
+      "opencv-python==4.11.0.86",
+      "orjson==3.11.3",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "peft==0.17.1",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "portalocker==3.2.0",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pydantic==2.11.9",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "pyope==0.2.2",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "regex==2025.9.18",
+      "requests==2.31.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rsa==4.9.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "schedule==1.2.2",
+      "scipy==1.16.2",
+      "semantic-version==2.10.0",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "spandrel==0.4.1",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tenacity==8.5.0",
+      "termcolor==3.1.0",
+      "thriftpy2==0.4.20",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "volcengine-python-sdk==5.0.12",
+      "websockets==15.0.1",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "yacs==0.1.8",
+      "yarl==1.11.1",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstd==1.5.7.2"
+    ],
+    "device_info": {
+      "cudaVersion": "12.6",
+      "gpuName": "NVIDIA L20",
+      "system": "Linux",
+      "version": "#5.4.143.bsk.8 SMP Debian 5.4.143.bsk.8 Wed Jul 20 08:43:36 UTC ",
+      "cuda_version": "12.6",
+      "gpu_name": "NVIDIA L20",
+      "xpu_num": "1"
+    },
+    "base_image": "aip_image_factory/custom.image.combo_infer:nvidia_seed4_infer-20251006-215922",
+    "comfy_args": {
+      "--listen": "fd02::33:0:0:b78",
+      "--port": "9001"
+    },
+    "comfyui_tag": "v0.19.1",
+    "ba_combo": "588008921034165554",
+    "workflow_name": "花花-Dolly",
+    "workflow_id": "603344952671365803:91",
+    "config_id": "616267511138129361",
+    "workflow_version_id": "616267511154906577",
+    "workflow_identity": "603344952671365803:91"
+  }
+}

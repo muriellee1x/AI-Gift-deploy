@@ -1,0 +1,3327 @@
+{
+  "id": "cb95e097-a93f-4ea2-9e00-0c9c6627db84",
+  "revision": 0,
+  "last_node_id": 542,
+  "last_link_id": 962,
+  "nodes": [
+    {
+      "id": 537,
+      "type": "BAInputSlot",
+      "pos": [
+        6336.4091796875,
+        7669.21728515625
+      ],
+      "size": [
+        270,
+        122
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_in",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "image_in",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "video_in",
+          "shape": 7,
+          "type": "STRING",
+          "link": 954
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "BAInputSlot"
+      },
+      "widgets_values": [
+        "input_1",
+        "video"
+      ]
+    },
+    {
+      "id": 536,
+      "type": "BAGetVideoComponents",
+      "pos": [
+        7160.9619140625,
+        7783.21630859375
+      ],
+      "size": [
+        216.2876953125,
+        66
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 952
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            953
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BAGetVideoComponents"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 528,
+      "type": "LoadImage",
+      "pos": [
+        6837.54345703125,
+        7751.2353515625
+      ],
+      "size": [
+        265.4956970214844,
+        528.4071655273438
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            879
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "BG.png",
+        "image"
+      ]
+    },
+    {
+      "id": 531,
+      "type": "MaskTransparentInOutNode",
+      "pos": [
+        7433.423828125,
+        7800.806640625
+      ],
+      "size": [
+        352.2076110839844,
+        78
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 884
+        },
+        {
+          "name": "input_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            882
+          ]
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": [
+            883
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskTransparentInOutNode"
+      },
+      "widgets_values": [
+        10
+      ]
+    },
+    {
+      "id": 539,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        8784.962890625,
+        7854.5302734375
+      ],
+      "size": [
+        555.3945922851562,
+        1505.0472022162544
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 958
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "BGOutput__",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "BGOutput___00022.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 30,
+            "workflow": "BGOutput___00022.png",
+            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/output/BGOutput___00022.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 532,
+      "type": "FastBottomFitOverlay",
+      "pos": [
+        7440.38134765625,
+        8033.99267578125
+      ],
+      "size": [
+        306.8443298339844,
+        194
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "background_image",
+          "type": "IMAGE",
+          "link": 879
+        },
+        {
+          "name": "layer_image",
+          "type": "IMAGE",
+          "link": 882
+        },
+        {
+          "name": "layer_mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": 883
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            958
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "packed_image",
+          "type": "IMAGE",
+          "links": [
+            957,
+            959
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FastBottomFitOverlay"
+      },
+      "widgets_values": [
+        1,
+        true,
+        true,
+        0.2,
+        true
+      ]
+    },
+    {
+      "id": 538,
+      "type": "ImagePadKJ",
+      "pos": [
+        8346.25390625,
+        8070.72998046875
+      ],
+      "size": [
+        270,
+        262
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 957
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "target_width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "name": "target_height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "name": "top",
+          "type": "INT",
+          "widget": {
+            "name": "top"
+          },
+          "link": 962
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            956
+          ]
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImagePadKJ"
+      },
+      "widgets_values": [
+        0,
+        0,
+        560,
+        0,
+        0,
+        "color",
+        "0, 0, 0"
+      ]
+    },
+    {
+      "id": 540,
+      "type": "GetImageSize",
+      "pos": [
+        7769.33154296875,
+        8305.3984375
+      ],
+      "size": [
+        140,
+        124
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 959
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            960
+          ]
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 542,
+      "type": "ttN int",
+      "pos": [
+        7635.033203125,
+        8438.3046875
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            961
+          ]
+        },
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ttN int",
+        "ttNnodeVersion": "1.0.0"
+      },
+      "widgets_values": [
+        1280
+      ]
+    },
+    {
+      "id": 541,
+      "type": "SimpleMath+",
+      "pos": [
+        8001.62646484375,
+        8180.3515625
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "shape": 7,
+          "type": "*",
+          "link": 960
+        },
+        {
+          "name": "b",
+          "shape": 7,
+          "type": "*",
+          "link": 961
+        },
+        {
+          "name": "c",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            962
+          ]
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleMath+"
+      },
+      "widgets_values": [
+        "b-a"
+      ]
+    },
+    {
+      "id": 534,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        9413.025390625,
+        7863.7822265625
+      ],
+      "size": [
+        555.3945922851562,
+        823.9063042534722
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 956
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "OpenClawOutput__",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "OpenClawOutput___00074.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 30,
+            "workflow": "OpenClawOutput___00074.png",
+            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/output/OpenClawOutput___00074.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 530,
+      "type": "FastGiftPostFX",
+      "pos": [
+        7126.662109375,
+        7919.09228515625
+      ],
+      "size": [
+        270.728515625,
+        418
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 953
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            884
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FastGiftPostFX"
+      },
+      "widgets_values": [
+        true,
+        0.7,
+        0.35,
+        32,
+        4,
+        true,
+        2,
+        0,
+        false,
+        true,
+        0.2,
+        1,
+        0.25,
+        1.05,
+        1.05,
+        0.05
+      ]
+    },
+    {
+      "id": 535,
+      "type": "BALoadVideo",
+      "pos": [
+        6214.75927734375,
+        7854.44091796875
+      ],
+      "size": [
+        400,
+        524
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            952,
+            954
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BALoadVideo"
+      },
+      "widgets_values": {
+        "video_path": "_00693.mp4",
+        "upload": "image",
+        "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
+        "video-preview": ""
+      }
+    }
+  ],
+  "links": [
+    [
+      879,
+      528,
+      0,
+      532,
+      0,
+      "IMAGE"
+    ],
+    [
+      882,
+      531,
+      0,
+      532,
+      1,
+      "IMAGE"
+    ],
+    [
+      883,
+      531,
+      1,
+      532,
+      2,
+      "MASK"
+    ],
+    [
+      884,
+      530,
+      0,
+      531,
+      0,
+      "IMAGE"
+    ],
+    [
+      952,
+      535,
+      0,
+      536,
+      0,
+      "VIDEO"
+    ],
+    [
+      953,
+      536,
+      0,
+      530,
+      0,
+      "IMAGE"
+    ],
+    [
+      954,
+      535,
+      0,
+      537,
+      2,
+      "VIDEO"
+    ],
+    [
+      956,
+      538,
+      0,
+      534,
+      0,
+      "IMAGE"
+    ],
+    [
+      957,
+      532,
+      2,
+      538,
+      0,
+      "IMAGE"
+    ],
+    [
+      958,
+      532,
+      0,
+      539,
+      0,
+      "IMAGE"
+    ],
+    [
+      959,
+      532,
+      2,
+      540,
+      0,
+      "IMAGE"
+    ],
+    [
+      960,
+      540,
+      1,
+      541,
+      0,
+      "*"
+    ],
+    [
+      961,
+      542,
+      0,
+      541,
+      1,
+      "*"
+    ],
+    [
+      962,
+      541,
+      0,
+      538,
+      4,
+      "INT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6727499949326113,
+      "offset": [
+        -5953.935158407698,
+        -7420.697309518425
+      ]
+    },
+    "frontendVersion": "1.42.11",
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": [],
+    "VHS_MetadataImage": true,
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreviewrate": 0,
+    "VHS_latentpreview": false
+  },
+  "version": 0.4,
+  "ba_extra": {
+    "slot_info": {
+      "inputs": [],
+      "outputs": []
+    },
+    "slot_info_schema": {
+      "input": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "output": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    "ba_comfyui_version": "0.0.6",
+    "prompt": {
+      "528": {
+        "inputs": {
+          "image": "BG.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "加载图像"
+        }
+      },
+      "530": {
+        "inputs": {
+          "enable_bloom": true,
+          "bloom_threshold": 0.7,
+          "bloom_intensity": 0.35,
+          "bloom_radius": 32,
+          "bloom_downsample": 4,
+          "enable_ca": true,
+          "ca_amount": 2,
+          "ca_angle_deg": 0,
+          "ca_highlight_only": false,
+          "enable_sharpen": true,
+          "sharpen_amount": 0.2,
+          "sharpen_radius": 1,
+          "natural_saturation": 0.25,
+          "saturation": 1.05,
+          "contrast": 1.05,
+          "brightness": 0.05,
+          "image": [
+            "536",
+            0
+          ]
+        },
+        "class_type": "FastGiftPostFX",
+        "_meta": {
+          "title": "Fast Gift PostFX"
+        }
+      },
+      "531": {
+        "inputs": {
+          "transparent_frames": 10,
+          "images": [
+            "530",
+            0
+          ]
+        },
+        "class_type": "MaskTransparentInOutNode",
+        "_meta": {
+          "title": "Mask Transparent In-Out (首尾透明过渡)"
+        }
+      },
+      "532": {
+        "inputs": {
+          "opacity": 1,
+          "clip_if_too_tall": true,
+          "enable_top_fade": true,
+          "top_fade_ratio": 0.2,
+          "enable_packed_output": true,
+          "background_image": [
+            "528",
+            0
+          ],
+          "layer_image": [
+            "531",
+            0
+          ],
+          "layer_mask": [
+            "531",
+            1
+          ]
+        },
+        "class_type": "FastBottomFitOverlay",
+        "_meta": {
+          "title": "Fast Bottom Fit Overlay (Packed)"
+        }
+      },
+      "534": {
+        "inputs": {
+          "frame_rate": 30,
+          "loop_count": 0,
+          "filename_prefix": "OpenClawOutput__",
+          "format": "video/h264-mp4",
+          "pix_fmt": "yuv420p",
+          "crf": 19,
+          "save_metadata": true,
+          "trim_to_audio": false,
+          "pingpong": false,
+          "save_output": true,
+          "images": [
+            "538",
+            0
+          ]
+        },
+        "class_type": "VHS_VideoCombine",
+        "_meta": {
+          "title": "Video Combine 🎥🅥🅗🅢"
+        }
+      },
+      "535": {
+        "inputs": {
+          "video_path": "_00693.mp4",
+          "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
+          "video-preview": ""
+        },
+        "class_type": "BALoadVideo",
+        "_meta": {
+          "title": "BA Load Video"
+        }
+      },
+      "536": {
+        "inputs": {
+          "video": [
+            "535",
+            0
+          ]
+        },
+        "class_type": "BAGetVideoComponents",
+        "_meta": {
+          "title": "BA Get Video Components"
+        }
+      },
+      "537": {
+        "inputs": {
+          "variable_name": "input_1",
+          "input_type": "video",
+          "video_in": [
+            "535",
+            0
+          ]
+        },
+        "class_type": "BAInputSlot",
+        "_meta": {
+          "title": "BA Input Slot (Variable)"
+        }
+      },
+      "538": {
+        "inputs": {
+          "left": 0,
+          "right": 0,
+          "top": [
+            "541",
+            0
+          ],
+          "bottom": 0,
+          "extra_padding": 0,
+          "pad_mode": "color",
+          "color": "0, 0, 0",
+          "image": [
+            "532",
+            2
+          ]
+        },
+        "class_type": "ImagePadKJ",
+        "_meta": {
+          "title": "ImagePad KJ"
+        }
+      },
+      "539": {
+        "inputs": {
+          "frame_rate": 30,
+          "loop_count": 0,
+          "filename_prefix": "BGOutput__",
+          "format": "video/h264-mp4",
+          "pix_fmt": "yuv420p",
+          "crf": 19,
+          "save_metadata": true,
+          "trim_to_audio": false,
+          "pingpong": false,
+          "save_output": true,
+          "images": [
+            "532",
+            0
+          ]
+        },
+        "class_type": "VHS_VideoCombine",
+        "_meta": {
+          "title": "Video Combine 🎥🅥🅗🅢"
+        }
+      },
+      "540": {
+        "inputs": {
+          "image": [
+            "532",
+            2
+          ]
+        },
+        "class_type": "GetImageSize",
+        "_meta": {
+          "title": "获取图像尺寸"
+        }
+      },
+      "541": {
+        "inputs": {
+          "value": "b-a",
+          "a": [
+            "540",
+            1
+          ],
+          "b": [
+            "542",
+            0
+          ]
+        },
+        "class_type": "SimpleMath+",
+        "_meta": {
+          "title": "🔧 Simple Math"
+        }
+      },
+      "542": {
+        "inputs": {
+          "int": 1280
+        },
+        "class_type": "ttN int",
+        "_meta": {
+          "title": "int"
+        }
+      }
+    },
+    "r2l": [],
+    "venv_comfyui": null,
+    "service_name": "byteartist_comfyui_online",
+    "comfyui_commit": "8f374716ee98d378d403ebc61250e091ecd3a25c",
+    "ba_manager_commit": "2574227cebe88123547312f66be00f2e154750d1",
+    "created_at": 1776931037658,
+    "node_info": {
+      "BAInputSlot": {
+        "input": {
+          "required": {
+            "variable_name": [
+              "STRING",
+              {
+                "default": "input_1",
+                "multiline": false
+              }
+            ],
+            "input_type": [
+              [
+                "text",
+                "image",
+                "video"
+              ],
+              {
+                "default": "text"
+              }
+            ]
+          },
+          "optional": {
+            "text_in": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "image_in": [
+              "IMAGE"
+            ],
+            "video_in": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "variable_name",
+            "input_type"
+          ],
+          "optional": [
+            "text_in",
+            "image_in",
+            "video_in"
+          ]
+        },
+        "is_input_list": false,
+        "output": [],
+        "output_is_list": [],
+        "output_name": [],
+        "name": "BAInputSlot",
+        "display_name": "BA Input Slot (Variable)",
+        "description": "",
+        "python_module": "custom_nodes.comfyui-webhook-node-latest",
+        "category": "api-bridge",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "BAGetVideoComponents": {
+        "input": {
+          "required": {
+            "video": [
+              "VIDEO",
+              {
+                "tooltip": "The video to extract components from."
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "video"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "AUDIO",
+          "FLOAT"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "images",
+          "audio",
+          "fps"
+        ],
+        "name": "BAGetVideoComponents",
+        "display_name": "BA Get Video Components",
+        "description": "Extracts all components from a video: frames, audio, and framerate.",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "图像/视频",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "LoadImage": {
+        "input": {
+          "required": {
+            "image": [
+              [
+                "1.2.png",
+                "20260129-155729.jpg",
+                "20260212-204745.png",
+                "20260212-204755.png",
+                "20260309165554114_96184.jpeg",
+                "20260311181011893_15918.jpeg",
+                "20260408-125023.png",
+                "20260415-153808.jpg",
+                "20260415-210909.jpg",
+                "20260421-205911.png",
+                "20260421-222056.jpg",
+                "20260421-222101.jpg",
+                "3-3.jpg",
+                "4.jpg",
+                "BG.png",
+                "Batch_Task_606108672489225715_ComfyUI_00017_.png",
+                "Batch_Task_608128607369357098_ComfyUI_00004_.png",
+                "ComfyUI_00002_ (7).png",
+                "ComfyUI_00002_ (8).png",
+                "ComfyUI_00002_ (9).png",
+                "ComfyUI_00003_ (6).png",
+                "ComfyUI_00004_.png",
+                "ComfyUI_00005_ (5).png",
+                "ComfyUI_00006_ (5).png",
+                "ComfyUI_00007_ (9).png",
+                "ComfyUI_00009_ (7).png",
+                "ComfyUI_00035_ (3).png",
+                "ComfyUI_00036_ (3).png",
+                "ComfyUI_00045_ (5).png",
+                "ComfyUI_00048_ (3).png",
+                "ComfyUI_00159_.png",
+                "ComfyUI_00169_.png",
+                "ComfyUI_temp_openj_00001_.png",
+                "F2K编辑-20260414215250_00001_.png",
+                "example.png",
+                "generated-1776865942590-3qi8ld.png",
+                "icon mask1.png",
+                "icon mask2.png",
+                "image (36).png",
+                "image (47).png",
+                "image (48).png",
+                "image (49).png",
+                "image (50).png",
+                "image (51).png",
+                "image (56).png",
+                "image (58).png",
+                "image (64).png",
+                "image (67).png",
+                "image (68).png",
+                "image (69).png"
+              ],
+              {
+                "image_upload": true
+              }
+            ],
+            "upload": [
+              "IMAGEUPLOAD",
+              {
+                "image_upload": true,
+                "imageInputName": "image"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "IMAGE",
+          "MASK"
+        ],
+        "name": "LoadImage",
+        "display_name": "加载图像",
+        "description": "",
+        "python_module": "nodes",
+        "category": "图像",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [
+          "load image",
+          "open image",
+          "import image",
+          "image input",
+          "upload image",
+          "read image",
+          "image loader"
+        ],
+        "essentials_category": "Basics"
+      },
+      "MaskTransparentInOutNode": {
+        "input": {
+          "required": {
+            "images": [
+              "IMAGE"
+            ],
+            "transparent_frames": [
+              "INT",
+              {
+                "default": 10,
+                "min": 0,
+                "max": 10000,
+                "step": 1,
+                "display": "number"
+              }
+            ]
+          },
+          "optional": {
+            "input_mask": [
+              "MASK"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "images",
+            "transparent_frames"
+          ],
+          "optional": [
+            "input_mask"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "images",
+          "masks"
+        ],
+        "name": "MaskTransparentInOutNode",
+        "display_name": "Mask Transparent In-Out (首尾透明过渡)",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-mask-blend",
+        "category": "遮罩/transitions",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "VHS_VideoCombine": {
+        "input": {
+          "required": {
+            "images": [
+              "IMAGE"
+            ],
+            "frame_rate": [
+              "FLOAT",
+              {
+                "default": 8,
+                "min": 1,
+                "step": 1,
+                "widgetType": "VHSFLOAT"
+              }
+            ],
+            "loop_count": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "widgetType": "VHSINT"
+              }
+            ],
+            "filename_prefix": [
+              "STRING",
+              {
+                "default": "AnimateDiff"
+              }
+            ],
+            "format": [
+              [
+                "image/gif",
+                "image/webp",
+                "video/16bit-png",
+                "video/8bit-png",
+                "video/ProRes",
+                "video/av1-webm",
+                "video/ffmpeg-gif",
+                "video/ffv1-mkv",
+                "video/h264-mp4",
+                "video/h265-mp4",
+                "video/nvenc_av1-mp4",
+                "video/nvenc_h264-mp4",
+                "video/nvenc_hevc-mp4",
+                "video/webm"
+              ],
+              {
+                "formats": {
+                  "video/ProRes": [
+                    [
+                      "profile",
+                      [
+                        "lt",
+                        "standard",
+                        "hq",
+                        "4444",
+                        "4444xq"
+                      ],
+                      {
+                        "default": "hq"
+                      }
+                    ]
+                  ],
+                  "video/av1-webm": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p10le",
+                        "yuv420p"
+                      ]
+                    ],
+                    [
+                      "crf",
+                      "INT",
+                      {
+                        "default": 23,
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "input_color_depth",
+                      [
+                        "8bit",
+                        "16bit"
+                      ]
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/ffmpeg-gif": [
+                    [
+                      "dither",
+                      [
+                        "bayer",
+                        "heckbert",
+                        "floyd_steinberg",
+                        "sierra2",
+                        "sierra2_4a",
+                        "sierra3",
+                        "burkes",
+                        "atkinson",
+                        "none"
+                      ],
+                      {
+                        "default": "sierra2_4a"
+                      },
+                      "[0:v] split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse=dither=$val"
+                    ]
+                  ],
+                  "video/ffv1-mkv": [
+                    [
+                      "level",
+                      [
+                        "0",
+                        "1",
+                        "3"
+                      ],
+                      {
+                        "default": "3"
+                      }
+                    ],
+                    [
+                      "coder",
+                      [
+                        "0",
+                        "1",
+                        "2"
+                      ],
+                      {
+                        "default": "1"
+                      }
+                    ],
+                    [
+                      "context",
+                      [
+                        "0",
+                        "1"
+                      ],
+                      {
+                        "default": "1"
+                      }
+                    ],
+                    [
+                      "gop_size",
+                      "INT",
+                      {
+                        "default": 1,
+                        "min": 1,
+                        "max": 300,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "slices",
+                      [
+                        "4",
+                        "6",
+                        "9",
+                        "12",
+                        "16",
+                        "20",
+                        "24",
+                        "30"
+                      ],
+                      {
+                        "default": "16"
+                      }
+                    ],
+                    [
+                      "slicecrc",
+                      [
+                        "0",
+                        "1"
+                      ],
+                      {
+                        "default": "1"
+                      }
+                    ],
+                    [
+                      "pix_fmt",
+                      [
+                        "rgba64le",
+                        "bgra",
+                        "yuv420p",
+                        "yuv422p",
+                        "yuv444p",
+                        "yuva420p",
+                        "yuva422p",
+                        "yuva444p",
+                        "yuv420p10le",
+                        "yuv422p10le",
+                        "yuv444p10le",
+                        "yuv420p12le",
+                        "yuv422p12le",
+                        "yuv444p12le",
+                        "yuv420p14le",
+                        "yuv422p14le",
+                        "yuv444p14le",
+                        "yuv420p16le",
+                        "yuv422p16le",
+                        "yuv444p16le",
+                        "gray",
+                        "gray10le",
+                        "gray12le",
+                        "gray16le"
+                      ],
+                      {
+                        "default": "rgba64le"
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "trim_to_audio",
+                      "BOOLEAN",
+                      {
+                        "default": false
+                      }
+                    ]
+                  ],
+                  "video/h264-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "yuv420p10le"
+                      ]
+                    ],
+                    [
+                      "crf",
+                      "INT",
+                      {
+                        "default": 19,
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "trim_to_audio",
+                      "BOOLEAN",
+                      {
+                        "default": false
+                      }
+                    ]
+                  ],
+                  "video/h265-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p10le",
+                        "yuv420p"
+                      ]
+                    ],
+                    [
+                      "crf",
+                      "INT",
+                      {
+                        "default": 22,
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/nvenc_av1-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "p010le"
+                      ]
+                    ],
+                    [
+                      "bitrate",
+                      "INT",
+                      {
+                        "default": 10,
+                        "min": 1,
+                        "max": 999,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "megabit",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/nvenc_h264-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "p010le"
+                      ]
+                    ],
+                    [
+                      "bitrate",
+                      "INT",
+                      {
+                        "default": 10,
+                        "min": 1,
+                        "max": 999,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "megabit",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/nvenc_hevc-mp4": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "p010le"
+                      ]
+                    ],
+                    [
+                      "bitrate",
+                      "INT",
+                      {
+                        "default": 10,
+                        "min": 1,
+                        "max": 999,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "megabit",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ],
+                  "video/webm": [
+                    [
+                      "pix_fmt",
+                      [
+                        "yuv420p",
+                        "yuva420p"
+                      ]
+                    ],
+                    [
+                      "crf",
+                      "INT",
+                      {
+                        "default": 20,
+                        "min": 0,
+                        "max": 100,
+                        "step": 1
+                      }
+                    ],
+                    [
+                      "save_metadata",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ],
+                    [
+                      "trim_to_audio",
+                      "BOOLEAN",
+                      {
+                        "default": false
+                      }
+                    ]
+                  ],
+                  "image/webp": [
+                    [
+                      "lossless",
+                      "BOOLEAN",
+                      {
+                        "default": true
+                      }
+                    ]
+                  ]
+                }
+              }
+            ],
+            "pingpong": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "save_output": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ]
+          },
+          "optional": {
+            "audio": [
+              "AUDIO"
+            ],
+            "meta_batch": [
+              "VHS_BatchManager"
+            ],
+            "vae": [
+              "VAE"
+            ]
+          },
+          "hidden": {
+            "prompt": "PROMPT",
+            "extra_pnginfo": "EXTRA_PNGINFO",
+            "unique_id": "UNIQUE_ID"
+          }
+        },
+        "input_order": {
+          "required": [
+            "images",
+            "frame_rate",
+            "loop_count",
+            "filename_prefix",
+            "format",
+            "pingpong",
+            "save_output"
+          ],
+          "optional": [
+            "audio",
+            "meta_batch",
+            "vae"
+          ],
+          "hidden": [
+            "prompt",
+            "extra_pnginfo",
+            "unique_id"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "VHS_FILENAMES"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "Filenames"
+        ],
+        "name": "VHS_VideoCombine",
+        "display_name": "Video Combine 🎥🅥🅗🅢",
+        "description": "Combine an image sequence into a video",
+        "python_module": "custom_nodes.ComfyUI-VideoHelperSuite",
+        "category": "Video Helper Suite 🎥🅥🅗🅢",
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "FastBottomFitOverlay": {
+        "input": {
+          "required": {
+            "background_image": [
+              "IMAGE"
+            ],
+            "layer_image": [
+              "IMAGE"
+            ],
+            "opacity": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 0.01
+              }
+            ],
+            "clip_if_too_tall": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "enable_top_fade": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "top_fade_ratio": [
+              "FLOAT",
+              {
+                "default": 0.08,
+                "min": 0,
+                "max": 0.5,
+                "step": 0.005
+              }
+            ],
+            "enable_packed_output": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ]
+          },
+          "optional": {
+            "layer_mask": [
+              "MASK"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "background_image",
+            "layer_image",
+            "opacity",
+            "clip_if_too_tall",
+            "enable_top_fade",
+            "top_fade_ratio",
+            "enable_packed_output"
+          ],
+          "optional": [
+            "layer_mask"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "MASK",
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "image",
+          "mask",
+          "packed_image"
+        ],
+        "name": "FastBottomFitOverlay",
+        "display_name": "Fast Bottom Fit Overlay (Packed)",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-GiftHelperSuite",
+        "category": "图像/composite",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "ImagePadKJ": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "left": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "right": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "top": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "bottom": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "extra_padding": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "pad_mode": [
+              [
+                "edge",
+                "edge_pixel",
+                "color",
+                "pillarbox_blur"
+              ]
+            ],
+            "color": [
+              "STRING",
+              {
+                "default": "0, 0, 0",
+                "tooltip": "Color as RGB values in range 0-255, separated by commas."
+              }
+            ]
+          },
+          "optional": {
+            "mask": [
+              "MASK"
+            ],
+            "target_width": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "forceInput": true
+              }
+            ],
+            "target_height": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "left",
+            "right",
+            "top",
+            "bottom",
+            "extra_padding",
+            "pad_mode",
+            "color"
+          ],
+          "optional": [
+            "mask",
+            "target_width",
+            "target_height"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "images",
+          "masks"
+        ],
+        "name": "ImagePadKJ",
+        "display_name": "ImagePad KJ",
+        "description": "Pad the input image and optionally mask with the specified padding.",
+        "python_module": "custom_nodes.ComfyUI-KJNodes",
+        "category": "KJNodes/图像",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "GetImageSize": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE",
+              {}
+            ]
+          },
+          "hidden": {
+            "unique_id": [
+              "UNIQUE_ID"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image"
+          ],
+          "hidden": [
+            "unique_id"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "INT",
+          "INT",
+          "INT"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "width",
+          "height",
+          "batch_size"
+        ],
+        "output_tooltips": [
+          null,
+          null,
+          null
+        ],
+        "output_matchtypes": null,
+        "name": "GetImageSize",
+        "display_name": "获取图像尺寸",
+        "description": "返回图像的宽度和高度，并原样传递图像。",
+        "python_module": "comfy_extras.nodes_images",
+        "category": "图像",
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "dimensions",
+          "resolution",
+          "image info"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false
+      },
+      "ttN int": {
+        "input": {
+          "required": {
+            "int": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 18446744073709552000
+              }
+            ]
+          },
+          "hidden": {
+            "ttNnodeVersion": "1.0.0"
+          }
+        },
+        "input_order": {
+          "required": [
+            "int"
+          ],
+          "hidden": [
+            "ttNnodeVersion"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "INT",
+          "FLOAT",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "int",
+          "float",
+          "text"
+        ],
+        "name": "ttN int",
+        "display_name": "int",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI_tinyterraNodes",
+        "category": "🌏 tinyterra/util",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "SimpleMath+": {
+        "input": {
+          "optional": {
+            "a": [
+              "*",
+              {
+                "default": 0
+              }
+            ],
+            "b": [
+              "*",
+              {
+                "default": 0
+              }
+            ],
+            "c": [
+              "*",
+              {
+                "default": 0
+              }
+            ]
+          },
+          "required": {
+            "value": [
+              "STRING",
+              {
+                "multiline": false,
+                "default": ""
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "optional": [
+            "a",
+            "b",
+            "c"
+          ],
+          "required": [
+            "value"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "INT",
+          "FLOAT"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "INT",
+          "FLOAT"
+        ],
+        "name": "SimpleMath+",
+        "display_name": "🔧 Simple Math",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI_essentials",
+        "category": "essentials/utilities",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "FastGiftPostFX": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "enable_bloom": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "bloom_threshold": [
+              "FLOAT",
+              {
+                "default": 0.65,
+                "min": 0,
+                "max": 1,
+                "step": 0.01
+              }
+            ],
+            "bloom_intensity": [
+              "FLOAT",
+              {
+                "default": 0.35,
+                "min": 0,
+                "max": 3,
+                "step": 0.01
+              }
+            ],
+            "bloom_radius": [
+              "INT",
+              {
+                "default": 8,
+                "min": 0,
+                "max": 64,
+                "step": 1
+              }
+            ],
+            "bloom_downsample": [
+              "INT",
+              {
+                "default": 4,
+                "min": 1,
+                "max": 8,
+                "step": 1
+              }
+            ],
+            "enable_ca": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "ca_amount": [
+              "FLOAT",
+              {
+                "default": 2,
+                "min": 0,
+                "max": 20,
+                "step": 0.1
+              }
+            ],
+            "ca_angle_deg": [
+              "FLOAT",
+              {
+                "default": 0,
+                "min": -180,
+                "max": 180,
+                "step": 1
+              }
+            ],
+            "ca_highlight_only": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "enable_sharpen": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "sharpen_amount": [
+              "FLOAT",
+              {
+                "default": 0.2,
+                "min": 0,
+                "max": 2,
+                "step": 0.01
+              }
+            ],
+            "sharpen_radius": [
+              "INT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 8,
+                "step": 1
+              }
+            ],
+            "natural_saturation": [
+              "FLOAT",
+              {
+                "default": 0,
+                "min": -1,
+                "max": 2,
+                "step": 0.01
+              }
+            ],
+            "saturation": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 3,
+                "step": 0.01
+              }
+            ],
+            "contrast": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 3,
+                "step": 0.01
+              }
+            ],
+            "brightness": [
+              "FLOAT",
+              {
+                "default": 0,
+                "min": -1,
+                "max": 1,
+                "step": 0.01
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "enable_bloom",
+            "bloom_threshold",
+            "bloom_intensity",
+            "bloom_radius",
+            "bloom_downsample",
+            "enable_ca",
+            "ca_amount",
+            "ca_angle_deg",
+            "ca_highlight_only",
+            "enable_sharpen",
+            "sharpen_amount",
+            "sharpen_radius",
+            "natural_saturation",
+            "saturation",
+            "contrast",
+            "brightness"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "IMAGE"
+        ],
+        "name": "FastGiftPostFX",
+        "display_name": "Fast Gift PostFX",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-GiftHelperSuite",
+        "category": "图像/后处理",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "BALoadVideo": {
+        "input": {
+          "required": {
+            "video_path": [
+              [
+                "2026-03-17_21-13-55_ByteArtist_1.mp4",
+                "2026-03-17_21-42-35_ByteArtist.mp4",
+                "2026-03-20_19-25-17_ByteArtist.mp4",
+                "2026-04-14_18-16-18_ByteArtist_1.mp4",
+                "2月12日(2).mp4",
+                "70eb54e6-e95d-41c8-abd5-bcd1ed23ef37 (1).mp4",
+                "AnimateDiff_00007 (4).mp4",
+                "AnimateDiff_00028 (1).mp4",
+                "AnimateDiff_01706.mp4",
+                "AnimateDiff_01713.mp4",
+                "Clipboard - 2026-03-03 17.42.17.mp4",
+                "ComfyUI_00015_ (4) (2).mp4",
+                "ComfyUI_00015_ (4).mp4",
+                "ComfyUI_00018_ (1).mp4",
+                "ComfyUI_00020_ (4).mp4",
+                "ComfyUI_00021_ (2).mp4",
+                "LTX-2_00011.mp4",
+                "LTX-2_00014.mp4",
+                "LTX-2_00021 (1).mp4",
+                "LTX-2_00028.mp4",
+                "LTX-2_00030.mp4",
+                "LTX-2_00031.mp4",
+                "LTX-2_00033.mp4",
+                "OpenClawOutput___00001_.mp4",
+                "OpenClawOutput___00002_.mp4",
+                "Seedance2_00002_.mp4",
+                "_00693.mp4",
+                "back.mp4",
+                "front.mp4",
+                "furong.mp4",
+                "guihua.mp4",
+                "hehua.mp4",
+                "https___internal-api-drive-stream.larkoffice (10).mp4",
+                "https___internal-api-drive-stream.larkoffice (14).mp4",
+                "https___internal-api-drive-stream.larkoffice (15).mp4",
+                "lanhua.mp4",
+                "meihua.mp4",
+                "mudan.mp4",
+                "output.mp4",
+                "shancha.mp4",
+                "shiliu.mp4",
+                "shuixian.mp4",
+                "taohua.mp4",
+                "under layer.mp4",
+                "upper starglow tint.mp4",
+                "vfx1-mask.mp4",
+                "vfx1.mp4",
+                "vfx2-mask.mp4",
+                "vfx2.mp4",
+                "vfx3-mask.mp4"
+              ],
+              {
+                "video_upload": true
+              }
+            ],
+            "upload": [
+              "IMAGEUPLOAD",
+              {
+                "video_upload": true,
+                "imageInputName": "video_path"
+              }
+            ]
+          },
+          "optional": {}
+        },
+        "input_order": {
+          "required": [
+            "video_path"
+          ],
+          "optional": []
+        },
+        "is_input_list": false,
+        "output": [
+          "VIDEO"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "video"
+        ],
+        "name": "BALoadVideo",
+        "display_name": "BA Load Video",
+        "description": "",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "BA/视频",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      }
+    },
+    "custom_node_versions": [
+      {
+        "path": "custom_nodes/comfyui-webhook-node-latest",
+        "git_url": "https://github.com/Doki21yy/comfyui-webhook-node-latest.git",
+        "git_commit": "ddcba27136952af6349913cf9c8b555233118782",
+        "node_types": [
+          "BAInputSlot"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-mask-blend",
+        "git_url": "https://github.com/muriellee1x/ComfyUI-mask-blend.git",
+        "git_commit": "ddaa25a52dd91fbfd08ff80f590a0b45a2ddbd1a",
+        "node_types": [
+          "MaskTransparentInOutNode"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-VideoHelperSuite",
+        "git_url": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git",
+        "git_commit": "993082e4f2473bf4acaf06f51e33877a7eb38960",
+        "node_types": [
+          "VHS_VideoCombine"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-GiftHelperSuite",
+        "git_url": "https://github.com/lingziwyh/ComfyUI-GiftHelperSuite.git",
+        "git_commit": "6952ea612ed9e16660dd1c73fd67078948c8634e",
+        "node_types": [
+          "FastBottomFitOverlay",
+          "FastGiftPostFX"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-KJNodes",
+        "git_url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+        "git_commit": "b1fffd33ba8b14cb4900e2c557f4a2ba0b340ff5",
+        "node_types": [
+          "ImagePadKJ"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI_tinyterraNodes",
+        "git_url": "https://github.com/TinyTerra/ComfyUI_tinyterraNodes.git",
+        "git_commit": "c669e6cff81ba44cce91c9eee3236c1a64725394",
+        "node_types": [
+          "ttN int"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI_essentials",
+        "git_url": "https://code.byted.org/ies/ComfyUI_essentials.git",
+        "git_commit": "c7f432e7147c660abcff14d4e44e3076d4491f43",
+        "node_types": [
+          "SimpleMath+"
+        ]
+      }
+    ],
+    "pip_freeze": [
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.4.2.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/python_dotenv-1.2.1.dist-info due to invalid metadata entry 'name'",
+      "absl-py==2.3.1",
+      "accelerate==1.10.1",
+      "addict==2.4.0",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "albucore==0.0.24",
+      "albumentations==2.0.8",
+      "alembic==1.18.4",
+      "altgraph==0.17.4",
+      "annotated-doc==0.0.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "basicsr==1.4.2",
+      "bcrypt==5.0.0",
+      "beautifulsoup4==4.14.3",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "blake3==1.0.8",
+      "blend_modes==2.2.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "build==1.4.1",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-wandb==0.13.90",
+      "byted_automl_plugin==0.1.3",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_lighten_validator==0.2.14",
+      "byted_pydev==0.0.20",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.uploader==0.4.0a15",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "chromadb==1.5.5",
+      "click==8.1.7",
+      "clip-interrogator==0.6.0",
+      "cmake==4.1.0",
+      "color-matcher==0.5.0",
+      "coloredlogs==15.0.1",
+      "colorlog==6.10.1",
+      "colour-science==0.4.7",
+      "comfy-aimdo==0.2.12",
+      "comfy-kitchen==0.2.8",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui-workflow-templates-core==0.3.206",
+      "comfyui-workflow-templates-media-api==0.3.69",
+      "comfyui-workflow-templates-media-image==0.3.125",
+      "comfyui-workflow-templates-media-other==0.3.174",
+      "comfyui-workflow-templates-media-video==0.3.77",
+      "comfyui_frontend_package==1.42.11",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==39.0.2",
+      "cstr @ git+https://github.com/ltdrdata/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
+      "cuda-bindings==12.9.4",
+      "cuda-pathfinder==1.3.3",
+      "cupy-cuda12x==12.3.0",
+      "cupy-wheel==12.3.0",
+      "cycler==0.12.1",
+      "Cython==3.2.1",
+      "dataclasses-json==0.6.7",
+      "ddt==1.7.2",
+      "decorator==5.2.1",
+      "decord==0.6.0",
+      "deepdiff==8.6.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "dill==0.4.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "docutils==0.22.4",
+      "durationpy==0.10",
+      "easydict==1.13",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "embreex==2.17.7.post7",
+      "et_xmlfile==2.0.0",
+      "fairscale==0.4.13",
+      "fastapi==0.117.1",
+      "fastrlock==0.8.3",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "filetype==1.2.0",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "ftfy==6.3.1",
+      "future==1.0.0",
+      "fvcore==0.1.5.post20221221",
+      "gdown==5.2.1",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "glfw==2.10.0",
+      "google==3.0.0",
+      "googleapis-common-protos==1.73.0",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "groundingdino-py==0.4.0",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httptools==0.7.1",
+      "httpx==0.25.2",
+      "httpx-sse==0.4.3",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "hydra-core==1.3.2",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "imageio-ffmpeg==0.6.0",
+      "img2texture @ git+https://github.com/ltdrdata/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
+      "importlib_metadata==8.7.0",
+      "importlib_resources==6.5.2",
+      "iniconfig==2.0.0",
+      "insightface==0.7.3",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "joblib==1.5.2",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "jsonpatch==1.33",
+      "jsonpointer==3.0.0",
+      "jsonschema==4.26.0",
+      "jsonschema-specifications==2025.9.1",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "kubernetes==35.0.0",
+      "langchain==0.3.25",
+      "langchain-community==0.3.24",
+      "langchain-core==0.3.64",
+      "langchain-ollama==0.3.3",
+      "langchain-openai==0.3.21",
+      "langchain-text-splitters==0.3.8",
+      "langsmith==0.3.45",
+      "lark==1.3.0",
+      "lazy_loader==0.4",
+      "litelama==0.1.7",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "loguru==0.7.3",
+      "lxml==6.0.2",
+      "lz4==3.1.10",
+      "Mako==1.3.10",
+      "manifold3d==3.3.2",
+      "mapbox_earcut==2.0.0",
+      "Markdown==3.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "marshmallow==3.26.1",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "mediapipe==0.10.32",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "mmh3==5.2.1",
+      "moviepy==1.0.3",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "mss==10.1.0",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-ml-py==13.590.48",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvshmem-cu12==3.4.5",
+      "nvidia-nvtx-cu12==12.6.77",
+      "oauthlib==3.3.1",
+      "objprint==0.3.0",
+      "ollama==0.6.0",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime==1.23.2",
+      "onnxruntime-gpu==1.22.0",
+      "open_clip_torch==3.3.0",
+      "openai==1.109.1",
+      "opencv-contrib-python==4.13.0.90",
+      "opencv-python==4.11.0.86",
+      "opencv-python-headless==4.13.0.90",
+      "openpyxl==3.1.2",
+      "opentelemetry-api==1.40.0",
+      "opentelemetry-exporter-otlp-proto-common==1.40.0",
+      "opentelemetry-exporter-otlp-proto-grpc==1.40.0",
+      "opentelemetry-proto==1.40.0",
+      "opentelemetry-sdk==1.40.0",
+      "opentelemetry-semantic-conventions==0.61b0",
+      "orderly-set==5.5.0",
+      "orjson==3.11.3",
+      "overrides==7.7.0",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "pathtools==0.1.2",
+      "peft==0.17.1",
+      "piexif==1.1.3",
+      "pilgram==2.0.0",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "pixeloe==0.1.4",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "pooch==1.8.2",
+      "portalocker==3.2.0",
+      "prettytable==3.16.0",
+      "proglog==0.1.12",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pybase64==1.4.3",
+      "pycocotools==2.0.11",
+      "pycollada==0.9.3",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pycryptodomex==3.23.0",
+      "pydantic==2.11.9",
+      "pydantic-settings==2.14.0",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "PyMatting==1.1.15",
+      "pynvml==13.0.1",
+      "pyope==0.2.2",
+      "PyOpenGL==3.1.10",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "PyPika==0.51.1",
+      "pyproject_hooks==1.2.0",
+      "PySocks==1.7.1",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-dotenv==1.2.2",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "referencing==0.37.0",
+      "regex==2025.9.18",
+      "rembg==2.0.69",
+      "requests==2.31.0",
+      "requests-oauthlib==2.0.0",
+      "requests-toolbelt==1.0.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rfc3986==1.5.0",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rpds-py==0.30.0",
+      "rsa==4.9.1",
+      "rtree==1.4.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "SAM-2 @ git+https://github.com/facebookresearch/sam2@2b90b9f5ceec907a1c18123530e92e794ad901a4",
+      "schedule==1.2.2",
+      "scikit-image==0.25.2",
+      "scikit-learn==1.7.2",
+      "scipy==1.16.2",
+      "segment-anything==1.0",
+      "semantic-version==2.10.0",
+      "sentence-transformers==5.3.0",
+      "sentencepiece==0.2.1",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shapely==2.1.2",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "simpleeval==1.0.7",
+      "simsimd==6.5.3",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "sounddevice==0.5.5",
+      "soundfile==0.13.1",
+      "soupsieve==2.8.3",
+      "spandrel==0.4.1",
+      "SQLAlchemy==2.0.48",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "stringzilla==4.2.3",
+      "supervision==0.6.0",
+      "svg.path==7.0",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tb-nightly==2.21.0a20251023",
+      "tenacity==8.5.0",
+      "tensorboard-data-server==0.7.2",
+      "termcolor==3.1.0",
+      "threadpoolctl==3.6.0",
+      "thriftpy2==0.4.20",
+      "tifffile==2025.10.16",
+      "tiktoken==0.12.0",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "transparent-background==1.3.4",
+      "trimesh==4.11.2",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typer-slim==0.24.0",
+      "typing-inspect==0.9.0",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "uvloop==0.22.1",
+      "vhacdx==0.0.10",
+      "viztracer==0.16.3",
+      "volcengine==1.0.218",
+      "volcengine-python-sdk==5.0.24",
+      "watchdog==6.0.0",
+      "watchfiles==1.1.1",
+      "wcwidth==0.2.14",
+      "websocket-client==1.9.0",
+      "websockets==15.0.1",
+      "Werkzeug==3.1.3",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "xlrd==2.0.1",
+      "xxhash==3.6.0",
+      "yacs==0.1.8",
+      "yapf==0.43.0",
+      "yarl==1.11.1",
+      "yt-dlp==2026.1.31",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstandard==0.23.0",
+      "zstd==1.5.7.2"
+    ],
+    "preserve_pip_freeze": [
+      "accelerate==1.10.1",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "altgraph==0.17.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-wandb==0.13.90",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_pydev==0.0.20",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "click==8.1.7",
+      "cmake==4.1.0",
+      "coloredlogs==15.0.1",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==39.0.2",
+      "cycler==0.12.1",
+      "decorator==5.2.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "fastapi==0.117.1",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "fvcore==0.1.5.post20221221",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httpx==0.25.2",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "importlib_metadata==8.7.0",
+      "iniconfig==2.0.0",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "lark==1.3.0",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "lz4==3.1.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvtx-cu12==12.6.77",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime-gpu==1.22.0",
+      "openai==1.109.1",
+      "opencv-python==4.11.0.86",
+      "orjson==3.11.3",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "peft==0.17.1",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "portalocker==3.2.0",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pydantic==2.11.9",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "pyope==0.2.2",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "regex==2025.9.18",
+      "requests==2.31.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rsa==4.9.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "schedule==1.2.2",
+      "scipy==1.16.2",
+      "semantic-version==2.10.0",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "spandrel==0.4.1",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tenacity==8.5.0",
+      "termcolor==3.1.0",
+      "thriftpy2==0.4.20",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "websockets==15.0.1",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "yacs==0.1.8",
+      "yarl==1.11.1",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstd==1.5.7.2"
+    ],
+    "device_info": {
+      "cudaVersion": "12.6",
+      "gpuName": "NVIDIA L20",
+      "system": "Linux",
+      "version": "#5.4.143.bsk.8 SMP Debian 5.4.143.bsk.8 Wed Jul 20 08:43:36 UTC ",
+      "cuda_version": "12.6",
+      "gpu_name": "NVIDIA L20",
+      "xpu_num": "1"
+    },
+    "base_image": "aip_image_factory/custom.image.combo_infer:nvidia_seed4_infer-20251006-215922",
+    "comfy_args": {
+      "--listen": "fd02::5c:0:0:347",
+      "--port": "9001"
+    },
+    "comfyui_tag": "v0.19.1",
+    "ba_combo": "588008921034165554",
+    "workflow_name": "花花",
+    "workflow_id": "616397328353352847:1",
+    "config_id": "616397328386907279",
+    "workflow_version_id": "616397328403684495",
+    "workflow_identity": "616397328353352847:1"
+  }
+}

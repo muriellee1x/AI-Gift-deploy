@@ -1,0 +1,4407 @@
+{
+  "id": "202a97e5-2f63-46a1-b1cc-3c4fc044c193",
+  "revision": 0,
+  "last_node_id": 135,
+  "last_link_id": 220,
+  "nodes": [
+    {
+      "id": 16,
+      "type": "Seed4DITLoader",
+      "pos": [
+        -706.0235595703125,
+        793.8880004882812
+      ],
+      "size": [
+        350,
+        254
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "slot_index": 0,
+          "links": [
+            12
+          ]
+        },
+        {
+          "name": "pipe_config",
+          "type": "SEED_PIPE_CONFIG",
+          "slot_index": 1,
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4DITLoader",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "v4.0_s_edit_6nfe",
+        "cuda:0"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "Seed4VAELoader",
+      "pos": [
+        -708.2944946289062,
+        1116.203369140625
+      ],
+      "size": [
+        350,
+        176
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "vae_model",
+          "type": "SEED_VAE_MODEL",
+          "slot_index": 0,
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4VAELoader",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "v4.0_s_edit_6nfe",
+        "cuda:0"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "Seed4ApplyLora",
+      "pos": [
+        -746.3778686523438,
+        1553.374267578125
+      ],
+      "size": [
+        350,
+        358
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "dit_model",
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "link": 12
+        },
+        {
+          "label": "lora_info",
+          "name": "lora_info",
+          "type": "ADAPTER",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "slot_index": 0,
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4ApplyLora",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        true,
+        false,
+        1,
+        32,
+        "base_model.model"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "TextInput",
+      "pos": [
+        -2432.123779296875,
+        776.8286743164062
+      ],
+      "size": [
+        332.2552185058594,
+        773.4186401367188
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "title": "System Prompt",
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "# 人物全身提示词 System Prompt\n\n```text\n你是一个专门为图像生成模型撰写“人物全身图像提示词”的系统提示词助手。你的唯一任务，是根据用户输入的风格关键词、身份关键词、气质关键词或少量补充描述，自动推理并生成一段可直接用于生成人物全身图的中文提示词。\n\n你的输出目标不是解释风格，也不是给建议，而是直接写出最终提示词。你必须把零散关键词扩展成完整、细节丰富、风格统一、材质明确、层次清晰的人物造型描述。\n\n一、总任务\n1. 用户通常只会输入几个风格词，例如：粉红梦幻、洛丽塔、中式、教师、学生、未来感，也可能输入更宽泛或更细分的词，例如：国风神话、复古名媛、蒸汽朋克、哥特贵族、花艺梦幻、男团舞台、经典绅装、精灵仙子、冰雪蓝银、新中式街头、民族异域等。\n2. 你要先理解这些关键词对应的视觉方向，再自动补全完整人物设定，包括：触发词、全身图、瞳孔颜色、妆容细节、发型发色、头饰或首饰、服装材质、服装结构、纹理刺绣、下装、鞋履、背景与光效。\n3. 输出必须是单段中文提示词，不要分点，不要解释，不要添加前后说明，不要说“建议”“可以”“如下”，不要暴露推理过程。\n\n二、输出硬性格式\n输出必须严格遵循以下信息顺序，写成一个完整长句：\n触发词（w+boy 或 w+girl） + 人物全身图 + 瞳孔颜色 + 妆容（仅女生详细写） + 发型与发色 + 头饰/耳饰/颈饰/手饰/特殊配件 + 服装（从内到外、从上到下写清材质、版型、纹理、结构、装饰） + 鞋履 + 纯黑色背景，轻微逆光，金色轮廓光。\n人物姿态必须固定为标准 A-pose，双臂自然下垂并与身体略微分开，禁止任何挥手、奔跑、叉腰、抬手、转身、跳跃、战斗、舞蹈或其他动作性姿势。\n\n三、性别与妆容规则\n1. 如果用户明确提到男生、少年、男性、男团、绅士、王子、学长、男教师、男学生等，使用 w+boy。\n2. 如果用户明确提到女生、少女、女性、千金、洛丽塔、花仙子、公主、女教师、女学生、姐姐等，使用 w+girl。\n3. 如果用户没有明确说性别，则按风格语义推断：\n   - 默认优先 w+girl 的风格：粉红梦幻、洛丽塔、花艺梦幻、甜美轻奢、复古名媛、晚宴礼服、冰雪蓝银、紫粉蝶翼、精灵仙子、旗袍、国风神话、敦煌壁画感。\n   - 默认优先 w+boy 的风格：教师、经典绅装、欧式正装、男团舞台、高定男装、街头机能、未来工装、新中式男装、古风男装、蒸汽朋克男装。\n   - 学生、中式、未来感这类中性词，如果没有更多信息，则选择与整体造型最自洽的性别；仍然模糊时默认 w+girl。\n4. 女生面部妆容只允许写眼妆、唇妆、腮红这三类内容；重点写眼妆和唇妆，可按需补充腮红，禁止写脸上亮片、脸部涂鸦、贴面装饰、面部贴钻或其他超出这三类的面妆内容。\n5. 男生不要写任何妆容相关提示词，只写瞳孔颜色、发型、发色、气质与服装。\n\n四、风格关键词到视觉决策规则\n你必须从用户关键词中选出一个“主风格”，必要时再选一个“辅风格”。主风格决定服装廓形和主要材质，辅风格只能影响配色、纹样、局部装饰或单一配件，不能破坏整体风格统一。\n\n1. 粉红梦幻 / 花艺梦幻 / 甜美轻奢\n视觉锚点：粉色、奶白、浅绿、浅金、雾感色调。\n材质：薄纱、欧根纱、雪纺、珠光缎面、柔和细闪、珍珠、羽毛、立体布艺花。\n女生妆容：浅粉或蜜桃调眼妆、柔和卧蚕、淡粉或豆沙唇、水润或半哑光唇妆、自然腮红。\n发型：浅金、蜜糖棕、雾粉棕、灰紫色长卷发或半扎发，也可搭配花环、蝴蝶结、珍珠发饰。\n配饰：珍珠链、花环、羽毛肩饰、细链手饰、花朵耳饰。\n服装：收腰、花朵点缀、轻盈裙摆、多层纱裙、柔软荷叶边、缎带装饰。\n\n2. 洛丽塔\n视觉锚点：米白、奶油粉、浅金、樱花粉、少量酒红或浅灰作点缀。\n材质：暗纹提花、蕾丝、缎面、网纱、珍珠、蝴蝶结织带。\n女生妆容：浅棕或浅粉眼妆、弱化眼尾、淡粉腮红、哑光粉唇或豆沙唇。\n发型：浅金长卷发、双马尾、长卷发、带细碎刘海或齐刘海。\n配饰：宽檐帽、发箍、兔耳、choker、珍珠项链、长手套、头纱、小礼帽。\n服装：鱼骨收腰、泡泡袖、蛋糕裙、多层蕾丝花边、长袜或提花袜、蝴蝶结鞋、圆头高跟鞋。\n\n3. 中式总类\n通用锚点：立领、盘扣、缎面、锦缎、刺绣、流苏、玉饰、花卉纹、卷草纹、云纹、龙纹、瑞兽纹。\n需要根据细分方向继续决策：\n   - 旗袍 / 民国名媛：修身旗袍、披帛、盘发、水滴耳饰、缎面或提花面料、花卉刺绣、哑光高跟鞋。\n   - 新中式：立领上衣、长衫、盘扣、玉佩、流苏、短外套或长开衫、刺绣纹样、偏现代裤装或短靴。\n   - 国风神话 / 敦煌壁画感：高发髻、花钿、宝冠、步摇、飘带、鎏金装饰、宝石镶嵌、抹胸或挂脖结构、轻纱长裙、层叠金饰。\n   - 古风仙侠：长袍、交领、宽袖、束腰、护腕、护甲、披风、银饰、玉石、云纹锦缎、长靴。\n   - 新中式街头：中式立领内搭加现代短夹克、刺绣图腾、中国结、链条、皮带、阔腿裤或工装裤、皮靴。\n中式女生妆容：浅棕、浅橘或水红调眼妆，唇妆以豆沙粉、柔红、浅水红或正红为主，可补充轻微腮红。\n\n4. 学生 / 学院 / 制服\n视觉锚点：清爽、规整、年轻、克制。\n材质：白衬衫、针织马甲、绞花毛衣、制服外套、西装料、徽章织带。\n配色：藏青、深棕、米白、酒红、灰、校徽红金、格纹领带色。\n发型：整洁短发、自然刘海、低马尾、半扎发、顺直发。\n配饰：校徽、胸条、领带、细框眼镜、简洁腕表；不要堆砌夸张珠宝。\n服装：内搭白衬衫，外搭针织马甲或毛衣，再加制服西装外套；下装可为百褶裙、直筒西裤、及膝袜、皮鞋。\n女生妆容：很轻，突出清透自然，眼妆和唇妆都要克制。\n\n5. 教师 / 知性职业 / 成熟学院派\n视觉锚点：成熟、克制、职业化、知性、稳重。\n配色：深棕、黑、灰、酒红、米白、深蓝等低饱和色。\n材质：衬衫、西装、毛呢、暗纹提花、缎面领结、长款大衣。\n发型：整洁短发、低盘发、半束发、微卷短发，不要太夸张。\n配饰：领带、领结、领带夹、细框眼镜、腕表、小型胸针；减少过多珠宝。\n服装：强调层次和正式感，如衬衫+马甲+西装外套+长大衣，或衬衫+针织开衫+长裙/西裤。\n如果是女生教师，妆容应知性克制，眼妆细腻、唇妆低饱和但有质感。\n\n6. 未来感 / 赛博 / 机能 / 科技 / 未来都市\n视觉锚点：银白、浅蓝、冷灰、冰银、少量荧光色点缀。\n材质：皮质、金属、镭射、拼接面料、功能性织物、亮面涂层、拉链、扣件、链条、铆钉。\n发型：浅金、银灰、冷白金、雾蓝灰短发或利落长发，可搭配凌乱碎刘海或未来感结构发型。\n配饰：护目镜、机械耳饰、金属项圈、多层链条、腰带扣件、肩带、工装挂带。\n服装：短款机能马甲、露腰或分层结构、工装裤、阔腿裤、带口袋和绑带的下装、厚底鞋或机能靴。\n女生妆容：冷调眼妆、清冷唇色或低饱和玫瑰色唇妆，可补充轻微腮红。\n\n7. 复古名媛 / 晚宴礼服 / 欧式礼服\n视觉锚点：香槟金、银灰、黑金、酒红、珍珠白。\n材质：缎面、提花、亮片、珠绣、丝绒、长手套、礼帽或头纱。\n女生妆容：复古眼妆、细长眼线、红唇或水光唇，腮红克制。\n发型：复古波浪短发、盘发、长卷发、法式盘发。\n配饰：珍珠叠链、水滴耳坠、礼帽、面纱、胸针、腕饰、长手套。\n服装：鱼尾、抹胸、挂脖、收腰、拖尾、荷叶边、立体花、亮片刺绣、提花长裙。\n男装可延展为燕尾礼服、马甲、怀表链、领结、礼帽、手杖式贵气感。\n\n8. 冰雪蓝银 / 梦幻精灵 / 紫粉蝶翼\n视觉锚点：银白、冰蓝、雾紫、浅粉紫、幻彩渐变。\n材质：轻纱、雪纺、偏光薄纱、细闪、亮片、水钻、冰晶质感、蝶翼结构。\n女生妆容：银粉调或浅紫调眼妆、浅粉或冷调唇妆、轻柔腮红。\n发型：银白长发、浅金长发、浅紫长发、精灵感半扎发、大卷发。\n配饰：水晶、雪花、蝴蝶、星月、翅膀、宝石头饰。\n服装：多层薄纱蓬裙、轻盈披纱、冰纹刺绣、蝶翼披肩、渐变裙摆。\n\n9. 蒸汽朋克 / 哥特贵族 / 摇滚金属\n视觉锚点：黑、棕、酒红、古铜、深紫、墨绿。\n材质：丝绒、皮革、蕾丝、金属、铜质结构件、束腰、铆钉、锁链。\n发型：深棕、黑色、灰紫色短发或盘发，偏锋利或华丽。\n配饰：礼帽、单片镜、机械眼镜、十字、链条、臂环、金属胸针、齿轮元素。\n服装：束腰、立领、马甲、长外套、燕尾、皮裙、金属片拼接、结构性肩部设计。\n女生妆容：眼妆可加深、眼尾可上挑，唇色可偏莓果、酒红、暗红。\n\n10. 高定舞台 / 男团造型 / 华丽表演服"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "AIPStringInput",
+      "pos": [
+        -1227.2738037109375,
+        763.3642578125
+      ],
+      "size": [
+        456.3225402832031,
+        202.4142303466797
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 49
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            16,
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AIPStringInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[],\"string\":114}"
+      },
+      "widgets_values": [
+        "w+girl，人物全身图。浅灰色瞳孔，浅粉色眼妆，淡粉色腮红，水红色哑光唇妆+银灰色长卷发，中分刘海，发间带自然微卷层次+银质镂空钻石头冠，头冠两侧缀透明蝉翼形银边饰件，头纱为带细闪的浅白色薄纱，水滴形钻饰耳坠，多层银链配星形钻坠项链，长及上臂的同礼服花纹白色缎面长手套，手套缀银质钻饰链，手指戴细银链连指戒+抹胸款银白色缎面礼服，衣身满绣银灰色复古卷草纹，腰线处堆叠三层不规则荷叶边裙摆，礼服拖尾满铺同系列刺绣，布料带细碎闪片，纯黑色背景，轻微逆光，金色轮廓光。\n"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "Seed4RemoteT2ITextEncoder",
+      "pos": [
+        -1209.40234375,
+        1027.203125
+      ],
+      "size": [
+        446.68145751953125,
+        410.9041442871094
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embeddings",
+          "type": "EMBEDDINGS",
+          "slot_index": 0,
+          "links": [
+            17
+          ]
+        },
+        {
+          "name": "binary_var_names",
+          "type": "EMBEDDING_NAMES",
+          "slot_index": 1,
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4RemoteT2ITextEncoder",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"negative_prompt\":114,\"output_preview_names\":[],\"prompt\":114}"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "vg_seed4_textencoder"
+      ]
+    },
+    {
+      "id": 107,
+      "type": "BANodeLLMText",
+      "pos": [
+        -2198.88818359375,
+        2223.4208984375
+      ],
+      "size": [
+        351.8016357421875,
+        723.067626953125
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 190
+        },
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 184
+        },
+        {
+          "label": "system_prompt",
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 174
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result/positive",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            186
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BANodeLLMText",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"result/positive\"],\"prompt\":114,\"system_prompt\":114,\"text-view-height-0-0\":82}"
+      },
+      "widgets_values": [
+        "提示词反推",
+        "豆包2.0-pro",
+        2000,
+        0.7,
+        "",
+        "",
+        false
+      ]
+    },
+    {
+      "id": 105,
+      "type": "ImageMerge",
+      "pos": [
+        -1815.628173828125,
+        2215.607421875
+      ],
+      "size": [
+        351.15478515625,
+        307.99951171875
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image1",
+          "name": "image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 191
+        },
+        {
+          "label": "image2",
+          "name": "image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image3",
+          "name": "image3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image4",
+          "name": "image4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image5",
+          "name": "image5",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image6",
+          "name": "image6",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image7",
+          "name": "image7",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image8",
+          "name": "image8",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image9",
+          "name": "image9",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image10",
+          "name": "image10",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image11",
+          "name": "image11",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "image12",
+          "name": "image12",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            171
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageMerge",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 106,
+      "type": "Seed4RemoteVaeEncoder",
+      "pos": [
+        -1342.169921875,
+        2244.455322265625
+      ],
+      "size": [
+        350,
+        210
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "tensors",
+          "name": "tensors",
+          "type": "IMAGE",
+          "link": 171
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latents",
+          "type": "LATENTS",
+          "slot_index": 0,
+          "links": [
+            166
+          ]
+        },
+        {
+          "name": "binary_var_names",
+          "type": "LATENT_NAMES",
+          "slot_index": 1,
+          "links": [
+            167
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4RemoteVaeEncoder",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "JPEG",
+        "vg_seed4_vae"
+      ]
+    },
+    {
+      "id": 102,
+      "type": "Seed4VAELoader",
+      "pos": [
+        -955.0120239257812,
+        2587.563720703125
+      ],
+      "size": [
+        350,
+        184
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "vae_model",
+          "type": "SEED_VAE_MODEL",
+          "slot_index": 0,
+          "links": [
+            165
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4VAELoader",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "v4.0_s_edit_6nfe",
+        "cuda:0"
+      ]
+    },
+    {
+      "id": 115,
+      "type": "AIPStringInput",
+      "pos": [
+        -1350.867431640625,
+        2510.734375
+      ],
+      "size": [
+        391.8102111816406,
+        91.724365234375
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            168,
+            178
+          ]
+        }
+      ],
+      "title": "Edit Prompt",
+      "properties": {
+        "Node name for S&R": "AIPStringInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"STRING\"],\"string\":114,\"text-view-height-0-0\":82}"
+      },
+      "widgets_values": [
+        "严格保持图1的造型、服饰不变，帮我把图1的人物全身照变成正面大头照。"
+      ]
+    },
+    {
+      "id": 108,
+      "type": "Seed4ApplyLora",
+      "pos": [
+        -926.8343505859375,
+        2840.228515625
+      ],
+      "size": [
+        444,
+        366
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "dit_model",
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "link": 175
+        },
+        {
+          "label": "lora_info",
+          "name": "lora_info",
+          "type": "ADAPTER",
+          "link": 176
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "slot_index": 0,
+          "links": [
+            164
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4ApplyLora",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        true,
+        false,
+        1,
+        32,
+        "base_model.model"
+      ]
+    },
+    {
+      "id": 118,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -1819.20458984375,
+        2595.853515625
+      ],
+      "size": [
+        362.5075988769531,
+        184.930908203125
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 186
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            187,
+            188
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "w+girl，人物大头照。冷灰紫色瞳孔，冷调高定舞台妆，眼周以紫蓝偏光与微金属质感晕染，睫毛根根分明清晰上扬，眼线利落拉长，下眼睑轻微提亮突出卧蚕，冷玫瑰调少量横向晕染腮红，带玻璃感的冷玫瑰光泽唇，冷黑偏蓝紫挑染高束马尾，发根利落紧致，头顶发丝有轻微分束感，刘海与鬓角少量碎发自然垂落，贴合头型的黑银金属发箍与点缀细碎水晶和微小几何金属片的细窄发带，修长不对称黑银金属链坠配紫蓝水晶耳饰，多层宝石choker与水晶坠链，内层细黑金属颈圈、外层叠加银色链条与切面紫蓝宝石、中央小型水晶坠垂落锁骨上方，硬质切面感黑银金属胸甲拼接深紫镜面亮片抹胸，胸口中央嵌带金属框的巨大心形紫蓝发光能量核心，肩部有简洁利落的黑银金属结构片，纯黑色背景，轻微逆光，金色轮廓光。"
+      ]
+    },
+    {
+      "id": 119,
+      "type": "BAReroute",
+      "pos": [
+        -2473.441162109375,
+        2210.511962890625
+      ],
+      "size": [
+        140,
+        26
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "shape": 7,
+          "type": "*",
+          "link": 189
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            190,
+            191
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BAReroute"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 112,
+      "type": "Seed4RemoteEditTextEncoder",
+      "pos": [
+        -492.5545654296875,
+        2262.532470703125
+      ],
+      "size": [
+        652,
+        1194
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "input1",
+          "name": "input1",
+          "type": "STRING",
+          "widget": {
+            "name": "input1"
+          },
+          "link": 187
+        },
+        {
+          "label": "edit",
+          "name": "edit",
+          "type": "STRING",
+          "widget": {
+            "name": "edit"
+          },
+          "link": 178
+        },
+        {
+          "label": "output",
+          "name": "output",
+          "type": "STRING",
+          "widget": {
+            "name": "output"
+          },
+          "link": 188
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embeddings",
+          "type": "EMBEDDINGS",
+          "slot_index": 0,
+          "links": [
+            162
+          ]
+        },
+        {
+          "name": "binary_var_names",
+          "type": "EMBEDDING_NAMES",
+          "slot_index": 1,
+          "links": [
+            163
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4RemoteEditTextEncoder",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"edit\":114,\"negative_prompt\":114,\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "",
+        "",
+        "vg_seed4_textencoder",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 117,
+      "type": "Seed4LoRALoader",
+      "pos": [
+        -1395.3729248046875,
+        2867.805908203125
+      ],
+      "size": [
+        409,
+        236
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ADAPTER",
+          "type": "ADAPTER",
+          "slot_index": 0,
+          "links": [
+            176
+          ]
+        }
+      ],
+      "title": "Seed4 Lora Loader(测试用，需要替换为业务自己的LORA)",
+      "properties": {
+        "Node name for S&R": "Seed4LoRALoader",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "ultimateW8000@v10.safetensors",
+        "",
+        "torch.bfloat16"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "Seed4LoRALoader",
+      "pos": [
+        -1153.2484130859375,
+        1571.650390625
+      ],
+      "size": [
+        350,
+        228
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ADAPTER",
+          "type": "ADAPTER",
+          "slot_index": 0,
+          "links": [
+            11
+          ]
+        }
+      ],
+      "title": "加载lora",
+      "properties": {
+        "Node name for S&R": "Seed4LoRALoader",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "ultimateW8000@v10.safetensors",
+        "",
+        "torch.bfloat16"
+      ]
+    },
+    {
+      "id": 103,
+      "type": "Seed4Sampler",
+      "pos": [
+        230.40542602539062,
+        2242.54931640625
+      ],
+      "size": [
+        622.7313842773438,
+        1194.439208984375
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "pipe_config",
+          "name": "pipe_config",
+          "type": "SEED_PIPE_CONFIG",
+          "link": 161
+        },
+        {
+          "label": "embeddings",
+          "name": "embeddings",
+          "type": "EMBEDDINGS",
+          "link": 162
+        },
+        {
+          "label": "embedding_binary_var_name",
+          "name": "embedding_binary_var_name",
+          "type": "EMBEDDING_NAMES",
+          "link": 163
+        },
+        {
+          "label": "dit_model",
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "link": 164
+        },
+        {
+          "label": "vae_model",
+          "name": "vae_model",
+          "type": "SEED_VAE_MODEL",
+          "link": 165
+        },
+        {
+          "label": "latents",
+          "name": "latents",
+          "shape": 7,
+          "type": "LATENTS",
+          "link": 166
+        },
+        {
+          "label": "latent_binary_var_name",
+          "name": "latent_binary_var_name",
+          "shape": 7,
+          "type": "LATENT_NAMES",
+          "link": 167
+        },
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 168
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            220
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4Sampler",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[],\"prompt\":114}"
+      },
+      "widgets_values": [
+        "edit",
+        "",
+        2048,
+        2048,
+        538633567267756,
+        "randomize",
+        1.15,
+        3,
+        0.7,
+        3.5,
+        1.5,
+        0.98,
+        0.98,
+        3.5,
+        1,
+        0.6,
+        1,
+        6,
+        0.5
+      ]
+    },
+    {
+      "id": 134,
+      "type": "ImageStitch",
+      "pos": [
+        1066.4560546875,
+        1140.0601806640625
+      ],
+      "size": [
+        270,
+        150
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 220
+        },
+        {
+          "name": "image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 219
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            214
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageStitch"
+      },
+      "widgets_values": [
+        "right",
+        true,
+        0,
+        "white"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "Seed4Sampler",
+      "pos": [
+        -162.8419647216797,
+        795.0634155273438
+      ],
+      "size": [
+        987,
+        1292
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "pipe_config",
+          "name": "pipe_config",
+          "type": "SEED_PIPE_CONFIG",
+          "link": 13
+        },
+        {
+          "label": "embeddings",
+          "name": "embeddings",
+          "type": "EMBEDDINGS",
+          "link": 17
+        },
+        {
+          "label": "embedding_binary_var_name",
+          "name": "embedding_binary_var_name",
+          "type": "EMBEDDING_NAMES",
+          "link": 18
+        },
+        {
+          "label": "dit_model",
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "link": 14
+        },
+        {
+          "label": "vae_model",
+          "name": "vae_model",
+          "type": "SEED_VAE_MODEL",
+          "link": 15
+        },
+        {
+          "label": "latents",
+          "name": "latents",
+          "shape": 7,
+          "type": "LATENTS",
+          "link": null
+        },
+        {
+          "label": "latent_binary_var_name",
+          "name": "latent_binary_var_name",
+          "shape": 7,
+          "type": "LATENT_NAMES",
+          "link": null
+        },
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            189,
+            219
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4Sampler",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[],\"prompt\":114}"
+      },
+      "widgets_values": [
+        "t2i",
+        "",
+        3640,
+        2048,
+        343483044552610,
+        "randomize",
+        1.15,
+        3,
+        0.7,
+        3.5,
+        1.5,
+        0.98,
+        0.98,
+        3.5,
+        1,
+        0.6,
+        1,
+        6,
+        0.5
+      ]
+    },
+    {
+      "id": 19,
+      "type": "BANodeLLMText",
+      "pos": [
+        -2054.7265625,
+        745.11376953125
+      ],
+      "size": [
+        390.7704162597656,
+        282
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 23
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result/positive",
+          "type": "STRING",
+          "links": [
+            45
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BANodeLLMText"
+      },
+      "widgets_values": [
+        "灵感扩写",
+        "GPT-5.1",
+        2000,
+        0.7,
+        "",
+        "",
+        false
+      ]
+    },
+    {
+      "id": 22,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -2068.4140625,
+        1244.265625
+      ],
+      "size": [
+        712.0452880859375,
+        330.8719177246094
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            49,
+            184
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "9头身比例，单人全身图， 纯黑色背景。w+girl 人物全身图，冷灰紫色瞳孔，冷调高定舞台妆，眼周以紫蓝偏光与微金属质感晕染，睫毛根根分明清晰上扬，眼线利落拉长但不过度夸张，下眼睑轻微提亮突出卧蚕，腮红以冷玫瑰调少量横向晕染，唇部为带玻璃感的冷玫瑰光泽，轮廓饱满清晰，发型为高束感长发与局部散落碎发结合，发根利落紧致，头顶高马尾向后梳起，发丝在舞台风吹后形成轻微分束感，发色为冷黑偏蓝紫挑染，在光线下形成清晰光泽切面，刘海与鬓角有少量碎发自然垂落勾勒脸部轮廓，头饰为贴合头型的黑银金属发箍与细窄发带组合，发带上点缀细碎水晶与微小几何金属片，耳饰为修长的不对称黑银金属链坠与紫蓝水晶耳坠，颈部佩戴多层宝石 choker 与水晶坠链，最内层为细黑金属颈圈，外层叠加银色链条与切面紫蓝宝石，中央一枚小型水晶坠垂落锁骨上方，锁骨线条与肩颈结构清晰露出，上身服装为 K/DA 式高级女团战斗舞台礼服，上半身主结构为硬质切面感黑银金属胸甲，胸甲以多面体几何切面构成，边缘有细窄银色描边与暗刻纹理，中间拼接深紫镜面亮片抹胸，亮片呈细密鱼鳞状排布，在灯光下形成高反射光泽，胸口中央嵌有一枚巨大的心形能量核心，内部仿若透明水晶包裹着流动的紫蓝光线，外围环绕精细金属框与微小符号刻纹，像舞台礼物的主触发装置；肩部采用简洁利落的黑银金属结构片，紧贴肩线略向外延伸，形成轻微装甲感而不过度夸张，腋下与侧身以柔软黑色弹力面料衔接，保证舞台动作的舒适度；腰部以高收束黑银金属腰封紧紧勾勒腰线，腰封表面有纵向切面与细致雕刻纹路，点缀少量紫蓝宝石嵌饰与细链条，腰封下缘连接不对称高开衩长裙与半透明薄纱拖摆，长裙主体为深紫偏黑的高密度面料，左侧为高开衩设计露出大腿与高筒靴线条，裙身表面有低调金属线条压纹与细小几何刺绣，右侧裙摆较长自然垂落，外层覆盖多片半透明黑紫渐变薄纱，纱片边缘带有细微金属线织边与零星水晶点缀，行走与舞动时可形成明显跟随与流动感；双臂裸露，手腕佩戴细窄黑银金属手镯与手背晶体链，手背上有由几何金属片与小型紫蓝水晶连接成的链状结构，顺着指骨延伸，形成精致的机械感饰件；腰侧悬垂一束黑银链条与紫蓝水晶流苏，从腰封侧面垂落至大腿中部，随着动作轻微摆动，形成软硬材质反差；腿部线条修长，搭配黑色高筒舞台长靴，靴面为硬挺皮质与金属拼接，整体贴合小腿和大腿下部，靴筒上有锋利感银色金属线条勾勒出几何分割结构，局部嵌有细碎水晶与小型切面宝石，靴尖略尖，鞋跟为稳定的高跟结构，鞋底带舞台厚底设计，整体饰件控制在精致高密度路线，耳坠、锁骨链、肩部结构片、手背晶体链与腰侧流苏都具备明确的软硬材质反差，在舞台光下形成利落高光，皮肤为瓷感光滑质地，porcelain smooth skin，适合近景与特写镜头读取五官与表情，人物保持标准 A-pose，双臂自然下垂并与身体略微分开，站姿稳定笔直，multi-layered costume with contrasting soft and hard materials，ornate surface detailing with embroidery and gemstone inlay，cinematic stylized lighting，3D次世代卡通渲染，8K高分辨率，超精细细节，纯黑色背景，轻微逆光，金色轮廓光。9头身比例，单人全身图，正面标准A-pose，全身露出脚。"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "TextInput",
+      "pos": [
+        -2061.61962890625,
+        1087.1026611328125
+      ],
+      "size": [
+        286.4007568359375,
+        106.3861312866211
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            47
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "9头身比例，单人全身图， 纯黑色背景。"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "Text Concatenate",
+      "pos": [
+        -1631.6961669921875,
+        780.2186279296875
+      ],
+      "size": [
+        270,
+        142
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "shape": 7,
+          "type": "STRING",
+          "link": 47
+        },
+        {
+          "name": "text_b",
+          "shape": 7,
+          "type": "STRING",
+          "link": 45
+        },
+        {
+          "name": "text_c",
+          "shape": 7,
+          "type": "STRING",
+          "link": 46
+        },
+        {
+          "name": "text_d",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "true"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "TextInput",
+      "pos": [
+        -1637.6103515625,
+        1074.12548828125
+      ],
+      "size": [
+        286.4007568359375,
+        106.3861312866211
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "9头身比例，单人全身图，正面标准A-pose，全身露出脚。"
+      ]
+    },
+    {
+      "id": 109,
+      "type": "Seed4DITLoader",
+      "pos": [
+        -961.6292724609375,
+        2262.9169921875
+      ],
+      "size": [
+        350,
+        262
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "slot_index": 0,
+          "links": [
+            175
+          ]
+        },
+        {
+          "name": "pipe_config",
+          "type": "SEED_PIPE_CONFIG",
+          "slot_index": 1,
+          "links": [
+            161
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4DITLoader",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "v4.0_s_edit_6nfe",
+        "cuda:0"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "TextInput",
+      "pos": [
+        -2870.634033203125,
+        748.756591796875
+      ],
+      "size": [
+        381.01470947265625,
+        681.3328857421875
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "title": "UserPrompt",
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "韩流虚拟顶级女团的主舞台 center，整体是高辨识度的都市未来感女偶像造型，脸部轮廓利落精致，额头、眼部、鼻梁与唇部结构保持清晰，适合近景与特写镜头读取。发型为高束感长发与局部散落碎发结合，发丝具有舞台风吹后的轻微分束感，发根利落，发尾带柔顺弧度，便于镜头推进时形成光泽切面。妆面偏冷调高定舞台妆，眼周带微金属与紫蓝偏光，睫毛清晰上扬，唇部是带玻璃感的冷玫瑰光泽。服装以 K/DA 式高级女团战斗舞台礼服为核心，上身为硬质切面感黑银结构胸甲与深紫镜面亮片抹胸拼接，胸口嵌有一枚巨大的心形能量核心，像舞台礼物的主触发装置；颈部是多层宝石 choker 与水晶坠链，肩颈线条完整露出，方便特写时读取呼吸与表情。腰部采用高收束金属腰封，向下延展为不对称高开衩长裙与半透明薄纱拖摆，外层纱片在动作时可形成明显跟随；腿部搭配高筒舞台长靴，鞋面有锋利金属线条和细碎水晶嵌饰。整体饰件控制在精致高密度路线：耳坠、锁骨链、肩部结构片、手背晶体链、腰侧悬垂流苏都具备明确的软硬材质反差，光下能形成利落高光，不遮挡五官，不削弱中心偶像识别度。porcelain smooth skin, full body standing pose, multi-layered costume with contrasting soft and hard materials, ornate surface detailing with embroidery and gemstone inlay, cinematic stylized lighting, 3D次世代卡通渲染，8K高分辨率，超精细细节，纯黑色背景。"
+      ]
+    },
+    {
+      "id": 114,
+      "type": "AIPStringInput",
+      "pos": [
+        -2625.4580078125,
+        2316.390869140625
+      ],
+      "size": [
+        391.89215087890625,
+        698.7239379882812
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            174
+          ]
+        }
+      ],
+      "title": "PE System Prompt",
+      "properties": {
+        "Node name for S&R": "AIPStringInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[],\"string\":114}"
+      },
+      "widgets_values": [
+        "# 面部大头照提示词 System Prompt\n\n```text\n你是一个专门为图像生成模型撰写“人物面部大头照提示词”的系统提示词助手。\n\n你的任务不是重新设计一个新人物，而是根据用户提供的两项输入：\n1. 一张人物全身图；\n2. 一段该人物的全身提示词；\n\n将这两项信息综合理解后，稳定改写为“同一个人物”的面部大头照提示词。\n\n你的核心目标是保证一致性。你必须把输入中的全身人物设定，筛选、裁剪、压缩为只描写头部及其附近区域的大头照提示词，保留同一人物最关键的身份锚点，删除不属于近景镜头的信息。\n\n一、总任务\n1. 用户输入的是一张全身图和一段全身人物提示词，你需要输出这个人物对应的大头照提示词。\n2. 输出必须体现这是同一个人物，不能随意换妆、换发色、换瞳色、换头饰、换服装风格。\n3. 你不是自由创作，而是“筛选和改写”。重点是从全身提示词中筛出头部与肩颈附近真正有用的信息，并结合用户提供的全身图做一致性校验。\n4. 输出只能描述头部及附近区域，不要描述下半身内容，不要描述鞋子、袜子、裙摆、裤腿、腰部以下装饰、脚饰、腿饰、下摆、拖尾、背后大面积结构。\n\n二、输入信息的使用规则\n你会同时接收两种信息源：\n\n1. 全身图\n作用：\n- 用来识别这是同一个人物。\n- 用来确认头部、发型、发色、瞳色、妆容风格、头饰、耳饰、项链、领口、肩线、肩部装饰等近景可见信息。\n- 用来判断哪些元素在大头照构图中真的应该被保留。\n\n2. 全身提示词\n作用：\n- 提供完整的人物设定和全身造型细节。\n- 你需要从中筛选出适合头肩近景的信息。\n- 不能把整段全身提示词照搬到大头照里，必须压缩和裁剪。\n\n三、一致性优先级\n你必须按以下优先级保留信息：\n\n第一优先级：人物身份硬锚点\n- 触发词，如 `w+girl`、`w+boy`\n- 瞳孔颜色\n- 发色\n- 发型主结构\n- 刘海、分缝、束发方式、卷度、盘发方式\n- 头部主配饰，如发冠、帽子、头纱、兔耳、花环、护目镜、额饰\n\n第二优先级：面部与颈部锚点\n- 女生的眼妆、唇妆、腮红\n- 男生若无明确妆容，则不主动补妆\n- 耳饰\n- 项链、choker、颈饰\n- 眼镜、镜链\n\n第三优先级：近景可见服装锚点\n- 领口\n- 肩线\n- 抹胸上缘\n- 挂脖结构\n- 立领、翻领、驳领\n- 领肩附近的刺绣、镶边、珠饰、肩饰\n- 头肩构图内清晰可见的上装颜色、材质、结构\n\n低优先级或默认删除：\n- 腰部以下全部内容\n- 裙摆、裤装、鞋袜\n- 腰封、腿环、脚链、脚饰\n- 拖尾、长披帛下摆、裙摆层数\n- 背后大翅膀、身后大型装置、全身飘带\n- 大多数手套、手链、戒指、腕饰\n- 远离脸部且不属于头肩构图的信息\n\n四、改写总原则\n1. 将全身提示词中的“人物全身图”改写为“人物大头照”。\n2. 保留原始触发词，不要擅自把 `w+girl` 改成 `w+boy`，也不要反过来改。\n3. 保留同一人物的瞳色、发色、发型结构、主头饰、耳饰、颈饰与上装可见部分。\n4. 删除所有与头肩近景无关的信息。\n5. 不允许为了“更好看”而额外新增输入里没有的人脸核心设定。\n6. 不允许把原本全身提示词里很长的服装描述机械搬运到大头照里。\n7. 大头照提示词的重点是：面部、发型、头饰、耳颈饰、领口与肩部可见服装。\n\n五、图片与文字冲突时的处理规则\n1. 如果全身提示词与图片中头肩区域的可见信息略有冲突，以图片中可见的头肩信息为优先。\n2. 但如果图片无法清楚判断某项细节，可以回退使用全身提示词中的对应信息。\n3. 不得凭空新增图片和全身提示词都没有明确支持的关键设定。\n4. 尤其不能随意更改：\n- 瞳色\n- 发色\n- 发型大结构\n- 主头饰类型\n- 主要服装风格\n\n六、女生与男生的不同规则\n1. 女生\n- 必须写妆容。\n- 妆容至少包含眼妆和唇妆，通常可补充腮红。\n- 妆容要继承全身提示词中的原始风格，不要改变色相逻辑。\n- 例如全身是浅粉哑光唇，就不要改成深酒红唇；全身是浅棕自然眼妆，就不要改成夸张烟熏。\n\n2. 男生\n- 默认不展开妆容。\n- 通常只写瞳孔颜色、发型、头饰、颈饰、上装可见部分。\n- 只有当输入里明确存在男生舞台妆、暗黑妆、视觉系妆等强设定时，才可轻微写妆容。\n\n七、发型改写规则\n1. 发型必须保留：\n- 发色\n- 长短\n- 卷直\n- 刘海或分缝\n- 盘发、半束、低马尾、高髻、双髻、碎发等结构信息\n2. 如果全身提示词写得很长，可以压缩，但不能改变结构本身。\n3. 如果大头照里无法看见长发全长，不要再写“及腰”“齐地”等全身尺度词，改写成适合近景的说法，如“大波浪长发”“银白长卷发”“深棕低盘发”。\n\n八、配饰筛选规则\n只保留头部和颈部附近的配饰：\n- 头饰\n- 发饰\n- 冠饰\n- 面纱\n- 额饰\n- 护目镜\n- 耳饰\n- 眼镜与镜链\n- 项链\n- choker\n- 领口附近可见吊坠\n- 肩部可见装饰\n\n默认删除：\n- 手镯\n- 臂钏\n- 戒指\n- 腰链\n- 腿饰\n- 脚饰\n- 腰封以下挂件\n- 全身式身体链\n\n如果全身提示词配饰过多，只保留最靠近脸、最能代表同一人物的 1 到 4 个关键配饰。\n\n九、服装改写规则\n1. 服装只能写到大头照构图中应当可见的部分。\n2. 只保留以下信息：\n- 领口形制\n- 肩部形制\n- 上衣上缘\n- 外套领型\n- 肩部刺绣、肩饰、珠饰、包边\n- 与脸部风格强绑定的上身可见元素\n3. 服装写法要压缩成“颜色 + 材质 + 结构 + 一个关键装饰点”的近景表达。\n4. 禁止继续展开：\n- 裙摆层数\n- 裙摆花边\n- 下装版型\n- 裤腿细节\n- 鞋子\n- 袜子\n- 大面积下摆纹样\n- 腰线以下刺绣细节\n\n十、输出结构\n你输出的最终提示词必须严格按照以下顺序组织：\n触发词 + 人物大头照 + 瞳孔颜色 + 妆容 + 发型 + 配饰/装饰 + 服装 + 纯黑色背景，轻微逆光，金色轮廓光。\n\n其中：\n- 女生通常完整写“瞳孔颜色 + 眼妆 + 唇妆 + 腮红 + 发型 + 配饰 + 上身可见服装”。\n- 男生通常写“瞳孔颜色 + 发型 + 配饰 + 上身可见服装”。\n\n十一、语言风格要求\n1. 输出必须是单段中文提示词。\n2. 不要分点，不要解释，不要换行，不要编号。\n3. 使用高密度、可直接用于图像生成的描述语言。\n4. 多写具体视觉名词，少写空泛评价词。\n5. 不要写故事、动作、背景剧情、情绪说明。\n6. 不要出现“根据图片”“根据提示词”“我为你生成”等元描述。\n7. 除最终提示词外，禁止输出任何其他内容。\n\n十二、质量自检规则\n输出前，必须隐式自检以下内容：\n1. 是否仍然是同一个人物。\n2. 是否保留了瞳色、发色、发型和主头饰等关键锚点。\n3. 是否删除了腰部以下内容。\n4. 是否没有写鞋袜、裤腿、裙摆、腿饰、脚饰等无关信息。\n5. 女生是否写了眼妆和唇妆。\n6. 服装是否只写到头肩近景可见范围。\n7. 结尾是否严格为：纯黑色背景，轻微逆光，金色轮廓光。\n\n十三、最终模板\n你实际输出时，应接近以下结构，但必须根据输入内容填入真实细节，不能机械复读模板：\n`w+girl/w+boy，人物大头照。瞳孔颜色，女生则补充眼妆、唇妆与必要腮红，发色与发型，头饰/耳饰/项链/choker/眼镜等可见配饰，领口与肩部附近可见的服装颜色、材质、结构和局部装饰，纯黑色背景，轻微逆光，金色轮廓光。`\n\n十四、执行要求\n收到用户输入后，直接输出最终大头照提示词。\n不要解释。\n不要复述任务。\n不要输出分析过程。\n不要输出多版本。\n不要输出任何附加说明。\n```"
+      ]
+    },
+    {
+      "id": 135,
+      "type": "SaveImage",
+      "pos": [
+        1441.2197265625,
+        1137.6845703125
+      ],
+      "size": [
+        1095.7833251953125,
+        753.1405029296875
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 214
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    }
+  ],
+  "links": [
+    [
+      11,
+      14,
+      0,
+      12,
+      1,
+      "ADAPTER"
+    ],
+    [
+      12,
+      16,
+      0,
+      12,
+      0,
+      "SEED_DIT_MODEL"
+    ],
+    [
+      13,
+      16,
+      1,
+      10,
+      0,
+      "SEED_PIPE_CONFIG"
+    ],
+    [
+      14,
+      12,
+      0,
+      10,
+      3,
+      "SEED_DIT_MODEL"
+    ],
+    [
+      15,
+      15,
+      0,
+      10,
+      4,
+      "SEED_VAE_MODEL"
+    ],
+    [
+      16,
+      11,
+      0,
+      13,
+      0,
+      "STRING"
+    ],
+    [
+      17,
+      13,
+      0,
+      10,
+      1,
+      "EMBEDDINGS"
+    ],
+    [
+      18,
+      13,
+      1,
+      10,
+      2,
+      "EMBEDDING_NAMES"
+    ],
+    [
+      19,
+      11,
+      0,
+      10,
+      7,
+      "STRING"
+    ],
+    [
+      22,
+      20,
+      0,
+      19,
+      2,
+      "STRING"
+    ],
+    [
+      23,
+      18,
+      0,
+      19,
+      1,
+      "STRING"
+    ],
+    [
+      35,
+      25,
+      0,
+      22,
+      0,
+      "STRING"
+    ],
+    [
+      45,
+      19,
+      0,
+      25,
+      1,
+      "STRING"
+    ],
+    [
+      46,
+      26,
+      0,
+      25,
+      2,
+      "STRING"
+    ],
+    [
+      47,
+      27,
+      0,
+      25,
+      0,
+      "STRING"
+    ],
+    [
+      49,
+      22,
+      0,
+      11,
+      0,
+      "STRING"
+    ],
+    [
+      161,
+      109,
+      1,
+      103,
+      0,
+      "SEED_PIPE_CONFIG"
+    ],
+    [
+      162,
+      112,
+      0,
+      103,
+      1,
+      "EMBEDDINGS"
+    ],
+    [
+      163,
+      112,
+      1,
+      103,
+      2,
+      "EMBEDDING_NAMES"
+    ],
+    [
+      164,
+      108,
+      0,
+      103,
+      3,
+      "SEED_DIT_MODEL"
+    ],
+    [
+      165,
+      102,
+      0,
+      103,
+      4,
+      "SEED_VAE_MODEL"
+    ],
+    [
+      166,
+      106,
+      0,
+      103,
+      5,
+      "LATENTS"
+    ],
+    [
+      167,
+      106,
+      1,
+      103,
+      6,
+      "LATENT_NAMES"
+    ],
+    [
+      168,
+      115,
+      0,
+      103,
+      7,
+      "STRING"
+    ],
+    [
+      171,
+      105,
+      0,
+      106,
+      0,
+      "IMAGE"
+    ],
+    [
+      174,
+      114,
+      0,
+      107,
+      2,
+      "STRING"
+    ],
+    [
+      175,
+      109,
+      0,
+      108,
+      0,
+      "SEED_DIT_MODEL"
+    ],
+    [
+      176,
+      117,
+      0,
+      108,
+      1,
+      "ADAPTER"
+    ],
+    [
+      178,
+      115,
+      0,
+      112,
+      1,
+      "STRING"
+    ],
+    [
+      184,
+      22,
+      0,
+      107,
+      1,
+      "STRING"
+    ],
+    [
+      186,
+      107,
+      0,
+      118,
+      0,
+      "STRING"
+    ],
+    [
+      187,
+      118,
+      0,
+      112,
+      0,
+      "STRING"
+    ],
+    [
+      188,
+      118,
+      0,
+      112,
+      2,
+      "STRING"
+    ],
+    [
+      189,
+      10,
+      0,
+      119,
+      0,
+      "*"
+    ],
+    [
+      190,
+      119,
+      0,
+      107,
+      0,
+      "IMAGE"
+    ],
+    [
+      191,
+      119,
+      0,
+      105,
+      0,
+      "IMAGE"
+    ],
+    [
+      214,
+      134,
+      0,
+      135,
+      0,
+      "IMAGE"
+    ],
+    [
+      219,
+      10,
+      0,
+      134,
+      1,
+      "IMAGE"
+    ],
+    [
+      220,
+      103,
+      0,
+      134,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "seedream4.0",
+      "bounding": [
+        -1250.398193359375,
+        697.5480346679688,
+        2145.094482421875,
+        1416.8963623046875
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "_ba_id": "jUztd9i4wYm7Lskzxmphz"
+    },
+    {
+      "id": 1,
+      "title": "lora加载",
+      "bounding": [
+        -1195.0296630859375,
+        1464.1727294921875,
+        922,
+        478
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "_ba_id": "k_A0SH4teXdCraHUbsgUn"
+    },
+    {
+      "id": 3,
+      "title": "提示词推理",
+      "bounding": [
+        -2462.63037109375,
+        687.6546630859375,
+        1163.2523193359375,
+        944.2653198242188
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "_ba_id": "rBUcO8NEcV8gWOrBQB188"
+    },
+    {
+      "id": 9,
+      "title": "编辑生成大头照",
+      "bounding": [
+        -2686.363037109375,
+        2155.02197265625,
+        3576.802001953125,
+        1355.855224609375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "_ba_id": "a86G9uqSI3uwDOmf2Dd1p"
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.18260271200151107,
+      "offset": [
+        8752.597631664468,
+        777.4416157109512
+      ]
+    },
+    "frontendVersion": "1.21.7"
+  },
+  "version": 0.4,
+  "ba_extra": {
+    "slot_info": {
+      "inputs": [],
+      "outputs": []
+    },
+    "slot_info_schema": {
+      "input": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "output": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    "ba_comfyui_version": "0.0.6",
+    "prompt": {
+      "10": {
+        "inputs": {
+          "process_type": "t2i",
+          "prompt": [
+            "11",
+            0
+          ],
+          "height": 3640,
+          "width": 2048,
+          "seed": 343483044552610,
+          "max_shift": 1.15,
+          "guidance_scale": 3,
+          "cfg_rescale_factor": 0.7,
+          "single_edit_guidance_weight": 3.5,
+          "single_edit_guidance_weight_image": 1.5,
+          "single_min_cfg_time": 0.98,
+          "single_max_cfg_time": 0.98,
+          "multi_edit_guidance_weight": 3.5,
+          "multi_edit_guidance_weight_image": 1,
+          "multi_min_cfg_time": 0.6,
+          "multi_max_cfg_time": 1,
+          "steps": 6,
+          "denoise_strength": 0.5,
+          "pipe_config": [
+            "16",
+            1
+          ],
+          "embeddings": [
+            "13",
+            0
+          ],
+          "embedding_binary_var_name": [
+            "13",
+            1
+          ],
+          "dit_model": [
+            "12",
+            0
+          ],
+          "vae_model": [
+            "15",
+            0
+          ]
+        },
+        "class_type": "Seed4Sampler",
+        "_meta": {
+          "title": "Seed4 Sampler"
+        }
+      },
+      "11": {
+        "inputs": {
+          "string": [
+            "22",
+            0
+          ]
+        },
+        "class_type": "AIPStringInput",
+        "_meta": {
+          "title": "AIPStringInput"
+        }
+      },
+      "12": {
+        "inputs": {
+          "use_lora": true,
+          "fuse_lora": false,
+          "lora_weight": 1,
+          "transformer_scale": 32,
+          "prefix": "base_model.model",
+          "dit_model": [
+            "16",
+            0
+          ],
+          "lora_info": [
+            "14",
+            0
+          ]
+        },
+        "class_type": "Seed4ApplyLora",
+        "_meta": {
+          "title": "Seed4 Apply Lora"
+        }
+      },
+      "13": {
+        "inputs": {
+          "prompt": [
+            "11",
+            0
+          ],
+          "negative_prompt": "",
+          "req_key": "vg_seed4_textencoder"
+        },
+        "class_type": "Seed4RemoteT2ITextEncoder",
+        "_meta": {
+          "title": "Seed4 T2I Text Encoder(Remote)"
+        }
+      },
+      "14": {
+        "inputs": {
+          "local_lora_name": "ultimateW8000@v10.safetensors",
+          "extra_lora_name": "",
+          "dtype": "torch.bfloat16"
+        },
+        "class_type": "Seed4LoRALoader",
+        "_meta": {
+          "title": "加载lora"
+        }
+      },
+      "15": {
+        "inputs": {
+          "model_config": "v4.0_s_edit_6nfe",
+          "device": "cuda:0"
+        },
+        "class_type": "Seed4VAELoader",
+        "_meta": {
+          "title": "Seed4 VAE Loader"
+        }
+      },
+      "16": {
+        "inputs": {
+          "model_config": "v4.0_s_edit_6nfe",
+          "device": "cuda:0"
+        },
+        "class_type": "Seed4DITLoader",
+        "_meta": {
+          "title": "Seed4 DiT Loader"
+        }
+      },
+      "18": {
+        "inputs": {
+          "text": "韩流虚拟顶级女团的主舞台 center，整体是高辨识度的都市未来感女偶像造型，脸部轮廓利落精致，额头、眼部、鼻梁与唇部结构保持清晰，适合近景与特写镜头读取。发型为高束感长发与局部散落碎发结合，发丝具有舞台风吹后的轻微分束感，发根利落，发尾带柔顺弧度，便于镜头推进时形成光泽切面。妆面偏冷调高定舞台妆，眼周带微金属与紫蓝偏光，睫毛清晰上扬，唇部是带玻璃感的冷玫瑰光泽。服装以 K/DA 式高级女团战斗舞台礼服为核心，上身为硬质切面感黑银结构胸甲与深紫镜面亮片抹胸拼接，胸口嵌有一枚巨大的心形能量核心，像舞台礼物的主触发装置；颈部是多层宝石 choker 与水晶坠链，肩颈线条完整露出，方便特写时读取呼吸与表情。腰部采用高收束金属腰封，向下延展为不对称高开衩长裙与半透明薄纱拖摆，外层纱片在动作时可形成明显跟随；腿部搭配高筒舞台长靴，鞋面有锋利金属线条和细碎水晶嵌饰。整体饰件控制在精致高密度路线：耳坠、锁骨链、肩部结构片、手背晶体链、腰侧悬垂流苏都具备明确的软硬材质反差，光下能形成利落高光，不遮挡五官，不削弱中心偶像识别度。porcelain smooth skin, full body standing pose, multi-layered costume with contrasting soft and hard materials, ornate surface detailing with embroidery and gemstone inlay, cinematic stylized lighting, 3D次世代卡通渲染，8K高分辨率，超精细细节，纯黑色背景。"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "UserPrompt"
+        }
+      },
+      "19": {
+        "inputs": {
+          "feature": "灵感扩写",
+          "model": "GPT-5.1",
+          "max_tokens": 2000,
+          "temperature": 0.7,
+          "prompt": [
+            "18",
+            0
+          ],
+          "system_prompt": [
+            "20",
+            0
+          ],
+          "thinking": false
+        },
+        "class_type": "BANodeLLMText",
+        "_meta": {
+          "title": "BA LLM Text"
+        }
+      },
+      "20": {
+        "inputs": {
+          "text": "# 人物全身提示词 System Prompt\n\n```text\n你是一个专门为图像生成模型撰写“人物全身图像提示词”的系统提示词助手。你的唯一任务，是根据用户输入的风格关键词、身份关键词、气质关键词或少量补充描述，自动推理并生成一段可直接用于生成人物全身图的中文提示词。\n\n你的输出目标不是解释风格，也不是给建议，而是直接写出最终提示词。你必须把零散关键词扩展成完整、细节丰富、风格统一、材质明确、层次清晰的人物造型描述。\n\n一、总任务\n1. 用户通常只会输入几个风格词，例如：粉红梦幻、洛丽塔、中式、教师、学生、未来感，也可能输入更宽泛或更细分的词，例如：国风神话、复古名媛、蒸汽朋克、哥特贵族、花艺梦幻、男团舞台、经典绅装、精灵仙子、冰雪蓝银、新中式街头、民族异域等。\n2. 你要先理解这些关键词对应的视觉方向，再自动补全完整人物设定，包括：触发词、全身图、瞳孔颜色、妆容细节、发型发色、头饰或首饰、服装材质、服装结构、纹理刺绣、下装、鞋履、背景与光效。\n3. 输出必须是单段中文提示词，不要分点，不要解释，不要添加前后说明，不要说“建议”“可以”“如下”，不要暴露推理过程。\n\n二、输出硬性格式\n输出必须严格遵循以下信息顺序，写成一个完整长句：\n触发词（w+boy 或 w+girl） + 人物全身图 + 瞳孔颜色 + 妆容（仅女生详细写） + 发型与发色 + 头饰/耳饰/颈饰/手饰/特殊配件 + 服装（从内到外、从上到下写清材质、版型、纹理、结构、装饰） + 鞋履 + 纯黑色背景，轻微逆光，金色轮廓光。\n人物姿态必须固定为标准 A-pose，双臂自然下垂并与身体略微分开，禁止任何挥手、奔跑、叉腰、抬手、转身、跳跃、战斗、舞蹈或其他动作性姿势。\n\n三、性别与妆容规则\n1. 如果用户明确提到男生、少年、男性、男团、绅士、王子、学长、男教师、男学生等，使用 w+boy。\n2. 如果用户明确提到女生、少女、女性、千金、洛丽塔、花仙子、公主、女教师、女学生、姐姐等，使用 w+girl。\n3. 如果用户没有明确说性别，则按风格语义推断：\n   - 默认优先 w+girl 的风格：粉红梦幻、洛丽塔、花艺梦幻、甜美轻奢、复古名媛、晚宴礼服、冰雪蓝银、紫粉蝶翼、精灵仙子、旗袍、国风神话、敦煌壁画感。\n   - 默认优先 w+boy 的风格：教师、经典绅装、欧式正装、男团舞台、高定男装、街头机能、未来工装、新中式男装、古风男装、蒸汽朋克男装。\n   - 学生、中式、未来感这类中性词，如果没有更多信息，则选择与整体造型最自洽的性别；仍然模糊时默认 w+girl。\n4. 女生面部妆容只允许写眼妆、唇妆、腮红这三类内容；重点写眼妆和唇妆，可按需补充腮红，禁止写脸上亮片、脸部涂鸦、贴面装饰、面部贴钻或其他超出这三类的面妆内容。\n5. 男生不要写任何妆容相关提示词，只写瞳孔颜色、发型、发色、气质与服装。\n\n四、风格关键词到视觉决策规则\n你必须从用户关键词中选出一个“主风格”，必要时再选一个“辅风格”。主风格决定服装廓形和主要材质，辅风格只能影响配色、纹样、局部装饰或单一配件，不能破坏整体风格统一。\n\n1. 粉红梦幻 / 花艺梦幻 / 甜美轻奢\n视觉锚点：粉色、奶白、浅绿、浅金、雾感色调。\n材质：薄纱、欧根纱、雪纺、珠光缎面、柔和细闪、珍珠、羽毛、立体布艺花。\n女生妆容：浅粉或蜜桃调眼妆、柔和卧蚕、淡粉或豆沙唇、水润或半哑光唇妆、自然腮红。\n发型：浅金、蜜糖棕、雾粉棕、灰紫色长卷发或半扎发，也可搭配花环、蝴蝶结、珍珠发饰。\n配饰：珍珠链、花环、羽毛肩饰、细链手饰、花朵耳饰。\n服装：收腰、花朵点缀、轻盈裙摆、多层纱裙、柔软荷叶边、缎带装饰。\n\n2. 洛丽塔\n视觉锚点：米白、奶油粉、浅金、樱花粉、少量酒红或浅灰作点缀。\n材质：暗纹提花、蕾丝、缎面、网纱、珍珠、蝴蝶结织带。\n女生妆容：浅棕或浅粉眼妆、弱化眼尾、淡粉腮红、哑光粉唇或豆沙唇。\n发型：浅金长卷发、双马尾、长卷发、带细碎刘海或齐刘海。\n配饰：宽檐帽、发箍、兔耳、choker、珍珠项链、长手套、头纱、小礼帽。\n服装：鱼骨收腰、泡泡袖、蛋糕裙、多层蕾丝花边、长袜或提花袜、蝴蝶结鞋、圆头高跟鞋。\n\n3. 中式总类\n通用锚点：立领、盘扣、缎面、锦缎、刺绣、流苏、玉饰、花卉纹、卷草纹、云纹、龙纹、瑞兽纹。\n需要根据细分方向继续决策：\n   - 旗袍 / 民国名媛：修身旗袍、披帛、盘发、水滴耳饰、缎面或提花面料、花卉刺绣、哑光高跟鞋。\n   - 新中式：立领上衣、长衫、盘扣、玉佩、流苏、短外套或长开衫、刺绣纹样、偏现代裤装或短靴。\n   - 国风神话 / 敦煌壁画感：高发髻、花钿、宝冠、步摇、飘带、鎏金装饰、宝石镶嵌、抹胸或挂脖结构、轻纱长裙、层叠金饰。\n   - 古风仙侠：长袍、交领、宽袖、束腰、护腕、护甲、披风、银饰、玉石、云纹锦缎、长靴。\n   - 新中式街头：中式立领内搭加现代短夹克、刺绣图腾、中国结、链条、皮带、阔腿裤或工装裤、皮靴。\n中式女生妆容：浅棕、浅橘或水红调眼妆，唇妆以豆沙粉、柔红、浅水红或正红为主，可补充轻微腮红。\n\n4. 学生 / 学院 / 制服\n视觉锚点：清爽、规整、年轻、克制。\n材质：白衬衫、针织马甲、绞花毛衣、制服外套、西装料、徽章织带。\n配色：藏青、深棕、米白、酒红、灰、校徽红金、格纹领带色。\n发型：整洁短发、自然刘海、低马尾、半扎发、顺直发。\n配饰：校徽、胸条、领带、细框眼镜、简洁腕表；不要堆砌夸张珠宝。\n服装：内搭白衬衫，外搭针织马甲或毛衣，再加制服西装外套；下装可为百褶裙、直筒西裤、及膝袜、皮鞋。\n女生妆容：很轻，突出清透自然，眼妆和唇妆都要克制。\n\n5. 教师 / 知性职业 / 成熟学院派\n视觉锚点：成熟、克制、职业化、知性、稳重。\n配色：深棕、黑、灰、酒红、米白、深蓝等低饱和色。\n材质：衬衫、西装、毛呢、暗纹提花、缎面领结、长款大衣。\n发型：整洁短发、低盘发、半束发、微卷短发，不要太夸张。\n配饰：领带、领结、领带夹、细框眼镜、腕表、小型胸针；减少过多珠宝。\n服装：强调层次和正式感，如衬衫+马甲+西装外套+长大衣，或衬衫+针织开衫+长裙/西裤。\n如果是女生教师，妆容应知性克制，眼妆细腻、唇妆低饱和但有质感。\n\n6. 未来感 / 赛博 / 机能 / 科技 / 未来都市\n视觉锚点：银白、浅蓝、冷灰、冰银、少量荧光色点缀。\n材质：皮质、金属、镭射、拼接面料、功能性织物、亮面涂层、拉链、扣件、链条、铆钉。\n发型：浅金、银灰、冷白金、雾蓝灰短发或利落长发，可搭配凌乱碎刘海或未来感结构发型。\n配饰：护目镜、机械耳饰、金属项圈、多层链条、腰带扣件、肩带、工装挂带。\n服装：短款机能马甲、露腰或分层结构、工装裤、阔腿裤、带口袋和绑带的下装、厚底鞋或机能靴。\n女生妆容：冷调眼妆、清冷唇色或低饱和玫瑰色唇妆，可补充轻微腮红。\n\n7. 复古名媛 / 晚宴礼服 / 欧式礼服\n视觉锚点：香槟金、银灰、黑金、酒红、珍珠白。\n材质：缎面、提花、亮片、珠绣、丝绒、长手套、礼帽或头纱。\n女生妆容：复古眼妆、细长眼线、红唇或水光唇，腮红克制。\n发型：复古波浪短发、盘发、长卷发、法式盘发。\n配饰：珍珠叠链、水滴耳坠、礼帽、面纱、胸针、腕饰、长手套。\n服装：鱼尾、抹胸、挂脖、收腰、拖尾、荷叶边、立体花、亮片刺绣、提花长裙。\n男装可延展为燕尾礼服、马甲、怀表链、领结、礼帽、手杖式贵气感。\n\n8. 冰雪蓝银 / 梦幻精灵 / 紫粉蝶翼\n视觉锚点：银白、冰蓝、雾紫、浅粉紫、幻彩渐变。\n材质：轻纱、雪纺、偏光薄纱、细闪、亮片、水钻、冰晶质感、蝶翼结构。\n女生妆容：银粉调或浅紫调眼妆、浅粉或冷调唇妆、轻柔腮红。\n发型：银白长发、浅金长发、浅紫长发、精灵感半扎发、大卷发。\n配饰：水晶、雪花、蝴蝶、星月、翅膀、宝石头饰。\n服装：多层薄纱蓬裙、轻盈披纱、冰纹刺绣、蝶翼披肩、渐变裙摆。\n\n9. 蒸汽朋克 / 哥特贵族 / 摇滚金属\n视觉锚点：黑、棕、酒红、古铜、深紫、墨绿。\n材质：丝绒、皮革、蕾丝、金属、铜质结构件、束腰、铆钉、锁链。\n发型：深棕、黑色、灰紫色短发或盘发，偏锋利或华丽。\n配饰：礼帽、单片镜、机械眼镜、十字、链条、臂环、金属胸针、齿轮元素。\n服装：束腰、立领、马甲、长外套、燕尾、皮裙、金属片拼接、结构性肩部设计。\n女生妆容：眼妆可加深、眼尾可上挑，唇色可偏莓果、酒红、暗红。\n\n10. 高定舞台 / 男团造型 / 华丽表演服"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "System Prompt"
+        }
+      },
+      "22": {
+        "inputs": {
+          "text_0": "9头身比例，单人全身图， 纯黑色背景。w+girl 人物全身图，冷灰紫色瞳孔，冷调高定舞台妆，眼周以紫蓝偏光与微金属质感晕染，睫毛根根分明清晰上扬，眼线利落拉长但不过度夸张，下眼睑轻微提亮突出卧蚕，腮红以冷玫瑰调少量横向晕染，唇部为带玻璃感的冷玫瑰光泽，轮廓饱满清晰，发型为高束感长发与局部散落碎发结合，发根利落紧致，头顶高马尾向后梳起，发丝在舞台风吹后形成轻微分束感，发色为冷黑偏蓝紫挑染，在光线下形成清晰光泽切面，刘海与鬓角有少量碎发自然垂落勾勒脸部轮廓，头饰为贴合头型的黑银金属发箍与细窄发带组合，发带上点缀细碎水晶与微小几何金属片，耳饰为修长的不对称黑银金属链坠与紫蓝水晶耳坠，颈部佩戴多层宝石 choker 与水晶坠链，最内层为细黑金属颈圈，外层叠加银色链条与切面紫蓝宝石，中央一枚小型水晶坠垂落锁骨上方，锁骨线条与肩颈结构清晰露出，上身服装为 K/DA 式高级女团战斗舞台礼服，上半身主结构为硬质切面感黑银金属胸甲，胸甲以多面体几何切面构成，边缘有细窄银色描边与暗刻纹理，中间拼接深紫镜面亮片抹胸，亮片呈细密鱼鳞状排布，在灯光下形成高反射光泽，胸口中央嵌有一枚巨大的心形能量核心，内部仿若透明水晶包裹着流动的紫蓝光线，外围环绕精细金属框与微小符号刻纹，像舞台礼物的主触发装置；肩部采用简洁利落的黑银金属结构片，紧贴肩线略向外延伸，形成轻微装甲感而不过度夸张，腋下与侧身以柔软黑色弹力面料衔接，保证舞台动作的舒适度；腰部以高收束黑银金属腰封紧紧勾勒腰线，腰封表面有纵向切面与细致雕刻纹路，点缀少量紫蓝宝石嵌饰与细链条，腰封下缘连接不对称高开衩长裙与半透明薄纱拖摆，长裙主体为深紫偏黑的高密度面料，左侧为高开衩设计露出大腿与高筒靴线条，裙身表面有低调金属线条压纹与细小几何刺绣，右侧裙摆较长自然垂落，外层覆盖多片半透明黑紫渐变薄纱，纱片边缘带有细微金属线织边与零星水晶点缀，行走与舞动时可形成明显跟随与流动感；双臂裸露，手腕佩戴细窄黑银金属手镯与手背晶体链，手背上有由几何金属片与小型紫蓝水晶连接成的链状结构，顺着指骨延伸，形成精致的机械感饰件；腰侧悬垂一束黑银链条与紫蓝水晶流苏，从腰封侧面垂落至大腿中部，随着动作轻微摆动，形成软硬材质反差；腿部线条修长，搭配黑色高筒舞台长靴，靴面为硬挺皮质与金属拼接，整体贴合小腿和大腿下部，靴筒上有锋利感银色金属线条勾勒出几何分割结构，局部嵌有细碎水晶与小型切面宝石，靴尖略尖，鞋跟为稳定的高跟结构，鞋底带舞台厚底设计，整体饰件控制在精致高密度路线，耳坠、锁骨链、肩部结构片、手背晶体链与腰侧流苏都具备明确的软硬材质反差，在舞台光下形成利落高光，皮肤为瓷感光滑质地，porcelain smooth skin，适合近景与特写镜头读取五官与表情，人物保持标准 A-pose，双臂自然下垂并与身体略微分开，站姿稳定笔直，multi-layered costume with contrasting soft and hard materials，ornate surface detailing with embroidery and gemstone inlay，cinematic stylized lighting，3D次世代卡通渲染，8K高分辨率，超精细细节，纯黑色背景，轻微逆光，金色轮廓光。9头身比例，单人全身图，正面标准A-pose，全身露出脚。",
+          "text": [
+            "25",
+            0
+          ]
+        },
+        "class_type": "ShowText|pysssss",
+        "_meta": {
+          "title": "Show Text 🐍"
+        }
+      },
+      "25": {
+        "inputs": {
+          "delimiter": "",
+          "clean_whitespace": "true",
+          "text_a": [
+            "27",
+            0
+          ],
+          "text_b": [
+            "19",
+            0
+          ],
+          "text_c": [
+            "26",
+            0
+          ]
+        },
+        "class_type": "Text Concatenate",
+        "_meta": {
+          "title": "Text Concatenate"
+        }
+      },
+      "26": {
+        "inputs": {
+          "text": "9头身比例，单人全身图，正面标准A-pose，全身露出脚。"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "Text Input"
+        }
+      },
+      "27": {
+        "inputs": {
+          "text": "9头身比例，单人全身图， 纯黑色背景。"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "Text Input"
+        }
+      },
+      "102": {
+        "inputs": {
+          "model_config": "v4.0_s_edit_6nfe",
+          "device": "cuda:0"
+        },
+        "class_type": "Seed4VAELoader",
+        "_meta": {
+          "title": "Seed4 VAE Loader"
+        }
+      },
+      "103": {
+        "inputs": {
+          "process_type": "edit",
+          "prompt": [
+            "115",
+            0
+          ],
+          "height": 2048,
+          "width": 2048,
+          "seed": 538633567267756,
+          "max_shift": 1.15,
+          "guidance_scale": 3,
+          "cfg_rescale_factor": 0.7,
+          "single_edit_guidance_weight": 3.5,
+          "single_edit_guidance_weight_image": 1.5,
+          "single_min_cfg_time": 0.98,
+          "single_max_cfg_time": 0.98,
+          "multi_edit_guidance_weight": 3.5,
+          "multi_edit_guidance_weight_image": 1,
+          "multi_min_cfg_time": 0.6,
+          "multi_max_cfg_time": 1,
+          "steps": 6,
+          "denoise_strength": 0.5,
+          "pipe_config": [
+            "109",
+            1
+          ],
+          "embeddings": [
+            "112",
+            0
+          ],
+          "embedding_binary_var_name": [
+            "112",
+            1
+          ],
+          "dit_model": [
+            "108",
+            0
+          ],
+          "vae_model": [
+            "102",
+            0
+          ],
+          "latents": [
+            "106",
+            0
+          ],
+          "latent_binary_var_name": [
+            "106",
+            1
+          ]
+        },
+        "class_type": "Seed4Sampler",
+        "_meta": {
+          "title": "Seed4 Sampler"
+        }
+      },
+      "105": {
+        "inputs": {
+          "concat": false,
+          "image1": [
+            "119",
+            0
+          ]
+        },
+        "class_type": "ImageMerge",
+        "_meta": {
+          "title": "ImageMerge"
+        }
+      },
+      "106": {
+        "inputs": {
+          "format": "JPEG",
+          "req_key": "vg_seed4_vae",
+          "tensors": [
+            "105",
+            0
+          ]
+        },
+        "class_type": "Seed4RemoteVaeEncoder",
+        "_meta": {
+          "title": "Seed4 VAE Encoder(Remote)"
+        }
+      },
+      "107": {
+        "inputs": {
+          "feature": "提示词反推",
+          "model": "豆包2.0-pro",
+          "max_tokens": 2000,
+          "temperature": 0.7,
+          "prompt": [
+            "22",
+            0
+          ],
+          "system_prompt": [
+            "114",
+            0
+          ],
+          "thinking": false,
+          "images": [
+            "119",
+            0
+          ]
+        },
+        "class_type": "BANodeLLMText",
+        "_meta": {
+          "title": "BA LLM Text"
+        }
+      },
+      "108": {
+        "inputs": {
+          "use_lora": true,
+          "fuse_lora": false,
+          "lora_weight": 1,
+          "transformer_scale": 32,
+          "prefix": "base_model.model",
+          "dit_model": [
+            "109",
+            0
+          ],
+          "lora_info": [
+            "117",
+            0
+          ]
+        },
+        "class_type": "Seed4ApplyLora",
+        "_meta": {
+          "title": "Seed4 Apply Lora"
+        }
+      },
+      "109": {
+        "inputs": {
+          "model_config": "v4.0_s_edit_6nfe",
+          "device": "cuda:0"
+        },
+        "class_type": "Seed4DITLoader",
+        "_meta": {
+          "title": "Seed4 DiT Loader"
+        }
+      },
+      "112": {
+        "inputs": {
+          "input1": [
+            "118",
+            0
+          ],
+          "edit": [
+            "115",
+            0
+          ],
+          "output": [
+            "118",
+            0
+          ],
+          "negative_prompt": "",
+          "req_key": "vg_seed4_textencoder",
+          "input2": "",
+          "input3": "",
+          "input4": "",
+          "input5": "",
+          "input6": ""
+        },
+        "class_type": "Seed4RemoteEditTextEncoder",
+        "_meta": {
+          "title": "Seed4 Edit Text Encoder(Remote)"
+        }
+      },
+      "114": {
+        "inputs": {
+          "string": "# 面部大头照提示词 System Prompt\n\n```text\n你是一个专门为图像生成模型撰写“人物面部大头照提示词”的系统提示词助手。\n\n你的任务不是重新设计一个新人物，而是根据用户提供的两项输入：\n1. 一张人物全身图；\n2. 一段该人物的全身提示词；\n\n将这两项信息综合理解后，稳定改写为“同一个人物”的面部大头照提示词。\n\n你的核心目标是保证一致性。你必须把输入中的全身人物设定，筛选、裁剪、压缩为只描写头部及其附近区域的大头照提示词，保留同一人物最关键的身份锚点，删除不属于近景镜头的信息。\n\n一、总任务\n1. 用户输入的是一张全身图和一段全身人物提示词，你需要输出这个人物对应的大头照提示词。\n2. 输出必须体现这是同一个人物，不能随意换妆、换发色、换瞳色、换头饰、换服装风格。\n3. 你不是自由创作，而是“筛选和改写”。重点是从全身提示词中筛出头部与肩颈附近真正有用的信息，并结合用户提供的全身图做一致性校验。\n4. 输出只能描述头部及附近区域，不要描述下半身内容，不要描述鞋子、袜子、裙摆、裤腿、腰部以下装饰、脚饰、腿饰、下摆、拖尾、背后大面积结构。\n\n二、输入信息的使用规则\n你会同时接收两种信息源：\n\n1. 全身图\n作用：\n- 用来识别这是同一个人物。\n- 用来确认头部、发型、发色、瞳色、妆容风格、头饰、耳饰、项链、领口、肩线、肩部装饰等近景可见信息。\n- 用来判断哪些元素在大头照构图中真的应该被保留。\n\n2. 全身提示词\n作用：\n- 提供完整的人物设定和全身造型细节。\n- 你需要从中筛选出适合头肩近景的信息。\n- 不能把整段全身提示词照搬到大头照里，必须压缩和裁剪。\n\n三、一致性优先级\n你必须按以下优先级保留信息：\n\n第一优先级：人物身份硬锚点\n- 触发词，如 `w+girl`、`w+boy`\n- 瞳孔颜色\n- 发色\n- 发型主结构\n- 刘海、分缝、束发方式、卷度、盘发方式\n- 头部主配饰，如发冠、帽子、头纱、兔耳、花环、护目镜、额饰\n\n第二优先级：面部与颈部锚点\n- 女生的眼妆、唇妆、腮红\n- 男生若无明确妆容，则不主动补妆\n- 耳饰\n- 项链、choker、颈饰\n- 眼镜、镜链\n\n第三优先级：近景可见服装锚点\n- 领口\n- 肩线\n- 抹胸上缘\n- 挂脖结构\n- 立领、翻领、驳领\n- 领肩附近的刺绣、镶边、珠饰、肩饰\n- 头肩构图内清晰可见的上装颜色、材质、结构\n\n低优先级或默认删除：\n- 腰部以下全部内容\n- 裙摆、裤装、鞋袜\n- 腰封、腿环、脚链、脚饰\n- 拖尾、长披帛下摆、裙摆层数\n- 背后大翅膀、身后大型装置、全身飘带\n- 大多数手套、手链、戒指、腕饰\n- 远离脸部且不属于头肩构图的信息\n\n四、改写总原则\n1. 将全身提示词中的“人物全身图”改写为“人物大头照”。\n2. 保留原始触发词，不要擅自把 `w+girl` 改成 `w+boy`，也不要反过来改。\n3. 保留同一人物的瞳色、发色、发型结构、主头饰、耳饰、颈饰与上装可见部分。\n4. 删除所有与头肩近景无关的信息。\n5. 不允许为了“更好看”而额外新增输入里没有的人脸核心设定。\n6. 不允许把原本全身提示词里很长的服装描述机械搬运到大头照里。\n7. 大头照提示词的重点是：面部、发型、头饰、耳颈饰、领口与肩部可见服装。\n\n五、图片与文字冲突时的处理规则\n1. 如果全身提示词与图片中头肩区域的可见信息略有冲突，以图片中可见的头肩信息为优先。\n2. 但如果图片无法清楚判断某项细节，可以回退使用全身提示词中的对应信息。\n3. 不得凭空新增图片和全身提示词都没有明确支持的关键设定。\n4. 尤其不能随意更改：\n- 瞳色\n- 发色\n- 发型大结构\n- 主头饰类型\n- 主要服装风格\n\n六、女生与男生的不同规则\n1. 女生\n- 必须写妆容。\n- 妆容至少包含眼妆和唇妆，通常可补充腮红。\n- 妆容要继承全身提示词中的原始风格，不要改变色相逻辑。\n- 例如全身是浅粉哑光唇，就不要改成深酒红唇；全身是浅棕自然眼妆，就不要改成夸张烟熏。\n\n2. 男生\n- 默认不展开妆容。\n- 通常只写瞳孔颜色、发型、头饰、颈饰、上装可见部分。\n- 只有当输入里明确存在男生舞台妆、暗黑妆、视觉系妆等强设定时，才可轻微写妆容。\n\n七、发型改写规则\n1. 发型必须保留：\n- 发色\n- 长短\n- 卷直\n- 刘海或分缝\n- 盘发、半束、低马尾、高髻、双髻、碎发等结构信息\n2. 如果全身提示词写得很长，可以压缩，但不能改变结构本身。\n3. 如果大头照里无法看见长发全长，不要再写“及腰”“齐地”等全身尺度词，改写成适合近景的说法，如“大波浪长发”“银白长卷发”“深棕低盘发”。\n\n八、配饰筛选规则\n只保留头部和颈部附近的配饰：\n- 头饰\n- 发饰\n- 冠饰\n- 面纱\n- 额饰\n- 护目镜\n- 耳饰\n- 眼镜与镜链\n- 项链\n- choker\n- 领口附近可见吊坠\n- 肩部可见装饰\n\n默认删除：\n- 手镯\n- 臂钏\n- 戒指\n- 腰链\n- 腿饰\n- 脚饰\n- 腰封以下挂件\n- 全身式身体链\n\n如果全身提示词配饰过多，只保留最靠近脸、最能代表同一人物的 1 到 4 个关键配饰。\n\n九、服装改写规则\n1. 服装只能写到大头照构图中应当可见的部分。\n2. 只保留以下信息：\n- 领口形制\n- 肩部形制\n- 上衣上缘\n- 外套领型\n- 肩部刺绣、肩饰、珠饰、包边\n- 与脸部风格强绑定的上身可见元素\n3. 服装写法要压缩成“颜色 + 材质 + 结构 + 一个关键装饰点”的近景表达。\n4. 禁止继续展开：\n- 裙摆层数\n- 裙摆花边\n- 下装版型\n- 裤腿细节\n- 鞋子\n- 袜子\n- 大面积下摆纹样\n- 腰线以下刺绣细节\n\n十、输出结构\n你输出的最终提示词必须严格按照以下顺序组织：\n触发词 + 人物大头照 + 瞳孔颜色 + 妆容 + 发型 + 配饰/装饰 + 服装 + 纯黑色背景，轻微逆光，金色轮廓光。\n\n其中：\n- 女生通常完整写“瞳孔颜色 + 眼妆 + 唇妆 + 腮红 + 发型 + 配饰 + 上身可见服装”。\n- 男生通常写“瞳孔颜色 + 发型 + 配饰 + 上身可见服装”。\n\n十一、语言风格要求\n1. 输出必须是单段中文提示词。\n2. 不要分点，不要解释，不要换行，不要编号。\n3. 使用高密度、可直接用于图像生成的描述语言。\n4. 多写具体视觉名词，少写空泛评价词。\n5. 不要写故事、动作、背景剧情、情绪说明。\n6. 不要出现“根据图片”“根据提示词”“我为你生成”等元描述。\n7. 除最终提示词外，禁止输出任何其他内容。\n\n十二、质量自检规则\n输出前，必须隐式自检以下内容：\n1. 是否仍然是同一个人物。\n2. 是否保留了瞳色、发色、发型和主头饰等关键锚点。\n3. 是否删除了腰部以下内容。\n4. 是否没有写鞋袜、裤腿、裙摆、腿饰、脚饰等无关信息。\n5. 女生是否写了眼妆和唇妆。\n6. 服装是否只写到头肩近景可见范围。\n7. 结尾是否严格为：纯黑色背景，轻微逆光，金色轮廓光。\n\n十三、最终模板\n你实际输出时，应接近以下结构，但必须根据输入内容填入真实细节，不能机械复读模板：\n`w+girl/w+boy，人物大头照。瞳孔颜色，女生则补充眼妆、唇妆与必要腮红，发色与发型，头饰/耳饰/项链/choker/眼镜等可见配饰，领口与肩部附近可见的服装颜色、材质、结构和局部装饰，纯黑色背景，轻微逆光，金色轮廓光。`\n\n十四、执行要求\n收到用户输入后，直接输出最终大头照提示词。\n不要解释。\n不要复述任务。\n不要输出分析过程。\n不要输出多版本。\n不要输出任何附加说明。\n```"
+        },
+        "class_type": "AIPStringInput",
+        "_meta": {
+          "title": "PE System Prompt"
+        }
+      },
+      "115": {
+        "inputs": {
+          "string": "严格保持图1的造型、服饰不变，帮我把图1的人物全身照变成正面大头照。"
+        },
+        "class_type": "AIPStringInput",
+        "_meta": {
+          "title": "Edit Prompt"
+        }
+      },
+      "117": {
+        "inputs": {
+          "local_lora_name": "ultimateW8000@v10.safetensors",
+          "extra_lora_name": "",
+          "dtype": "torch.bfloat16"
+        },
+        "class_type": "Seed4LoRALoader",
+        "_meta": {
+          "title": "Seed4 Lora Loader(测试用，需要替换为业务自己的LORA)"
+        }
+      },
+      "118": {
+        "inputs": {
+          "text_0": "w+girl，人物大头照。冷灰紫色瞳孔，冷调高定舞台妆，眼周以紫蓝偏光与微金属质感晕染，睫毛根根分明清晰上扬，眼线利落拉长，下眼睑轻微提亮突出卧蚕，冷玫瑰调少量横向晕染腮红，带玻璃感的冷玫瑰光泽唇，冷黑偏蓝紫挑染高束马尾，发根利落紧致，头顶发丝有轻微分束感，刘海与鬓角少量碎发自然垂落，贴合头型的黑银金属发箍与点缀细碎水晶和微小几何金属片的细窄发带，修长不对称黑银金属链坠配紫蓝水晶耳饰，多层宝石choker与水晶坠链，内层细黑金属颈圈、外层叠加银色链条与切面紫蓝宝石、中央小型水晶坠垂落锁骨上方，硬质切面感黑银金属胸甲拼接深紫镜面亮片抹胸，胸口中央嵌带金属框的巨大心形紫蓝发光能量核心，肩部有简洁利落的黑银金属结构片，纯黑色背景，轻微逆光，金色轮廓光。",
+          "text": [
+            "107",
+            0
+          ]
+        },
+        "class_type": "ShowText|pysssss",
+        "_meta": {
+          "title": "Show Text 🐍"
+        }
+      },
+      "119": {
+        "inputs": {
+          "input": [
+            "10",
+            0
+          ]
+        },
+        "class_type": "BAReroute",
+        "_meta": {
+          "title": "Reroute"
+        }
+      },
+      "134": {
+        "inputs": {
+          "direction": "right",
+          "match_image_size": true,
+          "spacing_width": 0,
+          "spacing_color": "white",
+          "image1": [
+            "103",
+            0
+          ],
+          "image2": [
+            "10",
+            0
+          ]
+        },
+        "class_type": "ImageStitch",
+        "_meta": {
+          "title": "Image Stitch"
+        }
+      },
+      "135": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "134",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "保存图像"
+        }
+      }
+    },
+    "r2l": [],
+    "venv_comfyui": null,
+    "service_name": "byteartist_comfyui_online",
+    "comfyui_commit": "866f6cdab4bd5de95ee6296d1b418c455f67f929",
+    "ba_manager_commit": "2574227cebe88123547312f66be00f2e154750d1",
+    "created_at": 1776858609776,
+    "node_info": {
+      "Seed4DITLoader": {
+        "input": {
+          "required": {
+            "model_config": [
+              [
+                "v4.0_s_edit_25nfe",
+                "v4.0_s_edit_6nfe"
+              ]
+            ],
+            "device": [
+              [
+                "cuda:0"
+              ]
+            ]
+          },
+          "optional": {}
+        },
+        "input_order": {
+          "required": [
+            "model_config",
+            "device"
+          ],
+          "optional": []
+        },
+        "output": [
+          "SEED_DIT_MODEL",
+          "SEED_PIPE_CONFIG"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "dit_model",
+          "pipe_config"
+        ],
+        "name": "Seed4DITLoader",
+        "display_name": "Seed4 DiT Loader",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 DiT Loader"
+      },
+      "Seed4VAELoader": {
+        "input": {
+          "required": {
+            "model_config": [
+              [
+                "v4.0_s_edit_25nfe",
+                "v4.0_s_edit_6nfe"
+              ]
+            ],
+            "device": [
+              [
+                "cuda:0"
+              ]
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "model_config",
+            "device"
+          ]
+        },
+        "output": [
+          "SEED_VAE_MODEL"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "vae_model"
+        ],
+        "name": "Seed4VAELoader",
+        "display_name": "Seed4 VAE Loader",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 VAE Loader"
+      },
+      "Seed4ApplyLora": {
+        "input": {
+          "required": {
+            "dit_model": [
+              "SEED_DIT_MODEL"
+            ],
+            "use_lora": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "fuse_lora": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "lora_info": [
+              "ADAPTER"
+            ],
+            "lora_weight": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 100,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "transformer_scale": [
+              "FLOAT",
+              {
+                "default": 32,
+                "min": -100000,
+                "max": 100000,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "prefix": [
+              "STRING",
+              {
+                "default": "base_model.model"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "dit_model",
+            "use_lora",
+            "fuse_lora",
+            "lora_info",
+            "lora_weight",
+            "transformer_scale",
+            "prefix"
+          ]
+        },
+        "output": [
+          "SEED_DIT_MODEL"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "dit_model"
+        ],
+        "name": "Seed4ApplyLora",
+        "display_name": "Seed4 Apply Lora",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 Apply Lora"
+      },
+      "TextInput": {
+        "input": {
+          "required": {
+            "text": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "text"
+          ]
+        },
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "TextInput",
+        "display_name": "Text Input",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Byteartist-Node",
+        "category": "byteartist/llm",
+        "output_node": false,
+        "origin_display_name": "Text Input"
+      },
+      "AIPStringInput": {
+        "input": {
+          "required": {
+            "string": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "string"
+          ]
+        },
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "AIPStringInput",
+        "display_name": "AIPStringInput",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Aip-Aigc",
+        "category": "IC-AIP-AIGC/DataTypeUtils",
+        "output_node": false,
+        "origin_display_name": "AIPStringInput"
+      },
+      "Seed4RemoteT2ITextEncoder": {
+        "input": {
+          "required": {
+            "prompt": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": true
+              }
+            ],
+            "negative_prompt": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": true
+              }
+            ],
+            "req_key": [
+              "STRING",
+              {
+                "default": "vg_seed4_textencoder"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "prompt",
+            "negative_prompt",
+            "req_key"
+          ]
+        },
+        "output": [
+          "EMBEDDINGS",
+          "EMBEDDING_NAMES"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "embeddings",
+          "binary_var_names"
+        ],
+        "name": "Seed4RemoteT2ITextEncoder",
+        "display_name": "Seed4 T2I Text Encoder(Remote)",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 T2I Text Encoder(Remote)"
+      },
+      "BANodeLLMText": {
+        "input": {
+          "required": {
+            "feature": [
+              [
+                "提示词反推",
+                "灵感扩写",
+                "正反提示词"
+              ],
+              {
+                "default": "提示词反推",
+                "tooltip": "功能名称"
+              }
+            ],
+            "model": [
+              [
+                "豆包2.0-pro",
+                "豆包2.0-lite",
+                "豆包1.8-251228",
+                "豆包1.8",
+                "豆包1.6-251015",
+                "豆包1.6",
+                "豆包1.6 Vision",
+                "豆包1.6-flash",
+                "豆包1.5 pro",
+                "step-3.5-flash",
+                "Qwen3",
+                "Qwen3-omni-flash",
+                "kimi-k2.5",
+                "kimi-k2-0905-preview",
+                "DeepSeek-V3",
+                "DeepSeek-R1",
+                "GPT-5.1",
+                "GPT-5.1-Chat",
+                "GPT-5-Chat",
+                "GPT-4o",
+                "GPT-4.1",
+                "GPT-4.1mini",
+                "gemini-2.5 pro(深度思考)",
+                "gemini-2.5 pro priority(深度思考)",
+                "gemini-2.5 flash(回复更快)",
+                "Gemini-3-flash(降至2.5)",
+                "Gemini-3(降至2.5)",
+                "Seedream-PE-250815"
+              ],
+              {
+                "default": "豆包2.0-pro",
+                "tooltip": "模型名称"
+              }
+            ],
+            "max_tokens": [
+              "INT",
+              {
+                "default": 2000,
+                "min": 1,
+                "max": 4096,
+                "step": 1
+              }
+            ],
+            "temperature": [
+              "FLOAT",
+              {
+                "default": 0.7,
+                "min": 0,
+                "max": 2,
+                "step": 0.01
+              }
+            ]
+          },
+          "optional": {
+            "images": [
+              "IMAGE",
+              {
+                "tooltip": "图片",
+                "forceInput": true
+              }
+            ],
+            "prompt": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "dynamicPrompts": true,
+                "tooltip": "提示词"
+              }
+            ],
+            "system_prompt": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "dynamicPrompts": true,
+                "tooltip": "系统指令"
+              }
+            ],
+            "thinking": [
+              "BOOLEAN",
+              {
+                "default": false,
+                "tooltip": "是否思考"
+              }
+            ]
+          },
+          "hidden": {
+            "node_id": "UNIQUE_ID"
+          }
+        },
+        "input_order": {
+          "required": [
+            "feature",
+            "model",
+            "max_tokens",
+            "temperature"
+          ],
+          "optional": [
+            "images",
+            "prompt",
+            "system_prompt",
+            "thinking"
+          ],
+          "hidden": [
+            "node_id"
+          ]
+        },
+        "output": [
+          "STRING",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "result/positive",
+          "negative"
+        ],
+        "name": "BANodeLLMText",
+        "display_name": "BA LLM Text",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Byteartist-Node",
+        "category": "byteartist/llm",
+        "output_node": false,
+        "origin_display_name": "BA LLM Text"
+      },
+      "ImageMerge": {
+        "input": {
+          "required": {
+            "concat": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ]
+          },
+          "optional": {
+            "image1": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image2": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image3": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image4": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image5": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image6": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image7": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image8": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image9": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image10": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image11": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ],
+            "image12": [
+              "IMAGE",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "concat"
+          ],
+          "optional": [
+            "image1",
+            "image2",
+            "image3",
+            "image4",
+            "image5",
+            "image6",
+            "image7",
+            "image8",
+            "image9",
+            "image10",
+            "image11",
+            "image12"
+          ]
+        },
+        "output": [
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "IMAGE"
+        ],
+        "name": "ImageMerge",
+        "display_name": "ImageMerge",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Aip-Aigc",
+        "category": "IC-AIP-AIGC/ImageUtils",
+        "output_node": false,
+        "origin_display_name": "ImageMerge"
+      },
+      "Seed4RemoteVaeEncoder": {
+        "input": {
+          "required": {
+            "tensors": [
+              "IMAGE"
+            ],
+            "format": [
+              [
+                "JPEG",
+                "PNG"
+              ]
+            ],
+            "req_key": [
+              "STRING",
+              {
+                "default": "vg_seed4_vae"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "tensors",
+            "format",
+            "req_key"
+          ]
+        },
+        "output": [
+          "LATENTS",
+          "LATENT_NAMES"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "latents",
+          "binary_var_names"
+        ],
+        "name": "Seed4RemoteVaeEncoder",
+        "display_name": "Seed4 VAE Encoder(Remote)",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 VAE Encoder(Remote)"
+      },
+      "ShowText|pysssss": {
+        "input": {
+          "required": {
+            "text": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ]
+          },
+          "hidden": {
+            "unique_id": "UNIQUE_ID",
+            "extra_pnginfo": "EXTRA_PNGINFO"
+          }
+        },
+        "input_order": {
+          "required": [
+            "text"
+          ],
+          "hidden": [
+            "unique_id",
+            "extra_pnginfo"
+          ]
+        },
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          true
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "ShowText|pysssss",
+        "display_name": "Show Text 🐍",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Custom-Scripts",
+        "category": "工具",
+        "output_node": true,
+        "origin_display_name": "Show Text 🐍"
+      },
+      "BAReroute": {
+        "input": {
+          "required": {},
+          "optional": {
+            "input": [
+              "*",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [],
+          "optional": [
+            "input"
+          ]
+        },
+        "output": [
+          "*"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "output"
+        ],
+        "name": "BAReroute",
+        "display_name": "Reroute",
+        "description": "",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "byteartist/universal",
+        "output_node": false,
+        "origin_display_name": "Reroute"
+      },
+      "Seed4RemoteEditTextEncoder": {
+        "input": {
+          "required": {
+            "input1": [
+              "STRING"
+            ],
+            "edit": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": true
+              }
+            ],
+            "output": [
+              "STRING"
+            ],
+            "negative_prompt": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": true
+              }
+            ],
+            "req_key": [
+              "STRING",
+              {
+                "default": "vg_seed4_textencoder"
+              }
+            ]
+          },
+          "optional": {
+            "input2": [
+              "STRING"
+            ],
+            "input3": [
+              "STRING"
+            ],
+            "input4": [
+              "STRING"
+            ],
+            "input5": [
+              "STRING"
+            ],
+            "input6": [
+              "STRING"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "input1",
+            "edit",
+            "output",
+            "negative_prompt",
+            "req_key"
+          ],
+          "optional": [
+            "input2",
+            "input3",
+            "input4",
+            "input5",
+            "input6"
+          ]
+        },
+        "output": [
+          "EMBEDDINGS",
+          "EMBEDDING_NAMES"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "embeddings",
+          "binary_var_names"
+        ],
+        "name": "Seed4RemoteEditTextEncoder",
+        "display_name": "Seed4 Edit Text Encoder(Remote)",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 Edit Text Encoder(Remote)"
+      },
+      "Seed4LoRALoader": {
+        "input": {
+          "required": {
+            "local_lora_name": [
+              [
+                "w_lora_seedream@v7.safetensors",
+                "Qwen-Image-Lightning-4steps-V1.0.safetensors",
+                "插画风格seed4测试@v1.0.safetensors",
+                "ultimateW8000@v10.safetensors",
+                "w_lora_seedream@v4.safetensors",
+                "古风面具2.safetensors",
+                "全网首发 | 龙贺新春_V_2.0.safetensors",
+                "WAN22万能运镜.safetensors",
+                "IDPhoto@V1.0 119.safetensors",
+                "OWT_V01_000000500_low_noise.safetensors",
+                "第一视角与一键打标@v10.safetensors",
+                "ultimateW@v6.safetensors",
+                "是毛团子啊！可爱化动物模型_SD 1.5_871.safetensors",
+                "FastWan_T2V_14B_480p_lora_rank_128_bf16@v1.0.safetensors",
+                "wlow02@v1.safetensors",
+                "w_lora2@v8.safetensors",
+                "curiousMerge25D.safetensors",
+                "wlow03@v2.safetensors",
+                "去除人物seed4@v10.safetensors",
+                "GIFT99_lora_v1_000010250_low_noise@1.0.safetensors",
+                "樱桃@v3.safetensors",
+                "emproject@v5.safetensors",
+                "BoomFirework_Wan22_14b_i2v_detailed_low_noise.safetensors",
+                "0616LU_Datacard_seedv1@v5.safetensors",
+                "3.0L_idlora/zq.new_aug/h20-fa3-stable/H20-FA3-zjz/0/amei3.same/final/lora_model/pytorch_lora_weights.safetensors",
+                "flashlight_lora_edit3.0.safetensors",
+                "老课本seed4ad豆包zh简@v5.safetensors",
+                "lora.pth",
+                "edit43@v10.safetensors",
+                "emproject@v3.safetensors",
+                "ultimateW@v5.safetensors",
+                "YunaV3.safetensors",
+                "w_lora2@v10.safetensors",
+                "樱桃@v2.safetensors",
+                "shanzhagao128dim-epoch-000010.safetensors",
+                "w_lora2@v7.safetensors",
+                "ZlingH090302@v4.safetensors",
+                "JZCG022-Citywalker.safetensors",
+                "ym0924_1@v8.safetensors",
+                "FLUX-KR3D-01@V1.0.safetensors",
+                "Qwen-Rapid-AIO-SFW-v11.safetensors",
+                "wlow03@v5.safetensors",
+                "Qwen-盲盒手办设计_v2@1.0.safetensors",
+                "w_lora_seedream@v2.safetensors",
+                "sam_vit_b_01ec64.pth",
+                "百变pose_edit@v8.safetensors",
+                "w_lora_seedream@v10.safetensors",
+                "直播活动节点类按钮@v7.safetensors",
+                "456@v10.safetensors",
+                "紫霞仙子4_0v8@v1.safetensors"
+              ]
+            ]
+          },
+          "optional": {
+            "extra_lora_name": [
+              "STRING",
+              {
+                "default": ""
+              }
+            ],
+            "dtype": [
+              [
+                "torch.bfloat16",
+                "torch.float16",
+                "torch.float32"
+              ],
+              {
+                "default": "torch.bfloat16"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "local_lora_name"
+          ],
+          "optional": [
+            "extra_lora_name",
+            "dtype"
+          ]
+        },
+        "output": [
+          "ADAPTER"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "ADAPTER"
+        ],
+        "name": "Seed4LoRALoader",
+        "display_name": "Seed4 Lora Loader",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 Lora Loader"
+      },
+      "Seed4Sampler": {
+        "input": {
+          "required": {
+            "process_type": [
+              [
+                "edit",
+                "t2i"
+              ]
+            ],
+            "prompt": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": true
+              }
+            ],
+            "height": [
+              "INT",
+              {
+                "default": 2048,
+                "min": 1024,
+                "max": 4096,
+                "step": 8
+              }
+            ],
+            "width": [
+              "INT",
+              {
+                "default": 2048,
+                "min": 1024,
+                "max": 4096,
+                "step": 8
+              }
+            ],
+            "seed": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 18446744073709552000
+              }
+            ],
+            "max_shift": [
+              "FLOAT",
+              {
+                "default": 1.15,
+                "min": 0,
+                "max": 4,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "guidance_scale": [
+              "FLOAT",
+              {
+                "default": 3,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "cfg_rescale_factor": [
+              "FLOAT",
+              {
+                "default": 0.7,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "single_edit_guidance_weight": [
+              "FLOAT",
+              {
+                "default": 3.5,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "single_edit_guidance_weight_image": [
+              "FLOAT",
+              {
+                "default": 1.5,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "single_min_cfg_time": [
+              "FLOAT",
+              {
+                "default": 0.98,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "single_max_cfg_time": [
+              "FLOAT",
+              {
+                "default": 0.98,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "multi_edit_guidance_weight": [
+              "FLOAT",
+              {
+                "default": 3.5,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "multi_edit_guidance_weight_image": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "multi_min_cfg_time": [
+              "FLOAT",
+              {
+                "default": 0.6,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "multi_max_cfg_time": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "pipe_config": [
+              "SEED_PIPE_CONFIG"
+            ],
+            "embeddings": [
+              "EMBEDDINGS"
+            ],
+            "embedding_binary_var_name": [
+              "EMBEDDING_NAMES"
+            ],
+            "dit_model": [
+              "SEED_DIT_MODEL"
+            ],
+            "vae_model": [
+              "SEED_VAE_MODEL"
+            ],
+            "steps": [
+              "INT",
+              {
+                "default": 6,
+                "min": 6,
+                "max": 100
+              }
+            ],
+            "denoise_strength": [
+              "FLOAT",
+              {
+                "default": 0.5,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ]
+          },
+          "optional": {
+            "latents": [
+              "LATENTS"
+            ],
+            "latent_binary_var_name": [
+              "LATENT_NAMES"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "process_type",
+            "prompt",
+            "height",
+            "width",
+            "seed",
+            "max_shift",
+            "guidance_scale",
+            "cfg_rescale_factor",
+            "single_edit_guidance_weight",
+            "single_edit_guidance_weight_image",
+            "single_min_cfg_time",
+            "single_max_cfg_time",
+            "multi_edit_guidance_weight",
+            "multi_edit_guidance_weight_image",
+            "multi_min_cfg_time",
+            "multi_max_cfg_time",
+            "pipe_config",
+            "embeddings",
+            "embedding_binary_var_name",
+            "dit_model",
+            "vae_model",
+            "steps",
+            "denoise_strength"
+          ],
+          "optional": [
+            "latents",
+            "latent_binary_var_name"
+          ]
+        },
+        "output": [
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "images"
+        ],
+        "name": "Seed4Sampler",
+        "display_name": "Seed4 Sampler",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 Sampler"
+      },
+      "ImageStitch": {
+        "input": {
+          "required": {
+            "image1": [
+              "IMAGE"
+            ],
+            "direction": [
+              [
+                "right",
+                "down",
+                "left",
+                "up"
+              ],
+              {
+                "default": "right"
+              }
+            ],
+            "match_image_size": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "spacing_width": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 1024,
+                "step": 2
+              }
+            ],
+            "spacing_color": [
+              [
+                "white",
+                "black",
+                "red",
+                "green",
+                "blue"
+              ],
+              {
+                "default": "white"
+              }
+            ]
+          },
+          "optional": {
+            "image2": [
+              "IMAGE"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image1",
+            "direction",
+            "match_image_size",
+            "spacing_width",
+            "spacing_color"
+          ],
+          "optional": [
+            "image2"
+          ]
+        },
+        "output": [
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "IMAGE"
+        ],
+        "name": "ImageStitch",
+        "display_name": "Image Stitch",
+        "description": "\nStitches image2 to image1 in the specified direction.\nIf image2 is not provided, returns image1 unchanged.\nOptional spacing can be added between images.\n",
+        "python_module": "comfy_extras.nodes_images",
+        "category": "图像/变换",
+        "output_node": false,
+        "origin_display_name": "Image Stitch"
+      },
+      "Text Concatenate": {
+        "input": {
+          "required": {
+            "delimiter": [
+              "STRING",
+              {
+                "default": ", "
+              }
+            ],
+            "clean_whitespace": [
+              [
+                "true",
+                "false"
+              ]
+            ]
+          },
+          "optional": {
+            "text_a": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "text_b": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "text_c": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "text_d": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "delimiter",
+            "clean_whitespace"
+          ],
+          "optional": [
+            "text_a",
+            "text_b",
+            "text_c",
+            "text_d"
+          ]
+        },
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "Text Concatenate",
+        "display_name": "Text Concatenate",
+        "description": "",
+        "python_module": "custom_nodes.was-node-suite-comfyui",
+        "category": "WAS Suite/Text",
+        "output_node": false,
+        "origin_display_name": "Text Concatenate"
+      },
+      "SaveImage": {
+        "input": {
+          "required": {
+            "images": [
+              "IMAGE",
+              {
+                "tooltip": "The images to save."
+              }
+            ],
+            "filename_prefix": [
+              "STRING",
+              {
+                "default": "ComfyUI",
+                "tooltip": "The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."
+              }
+            ]
+          },
+          "hidden": {
+            "prompt": "PROMPT",
+            "extra_pnginfo": "EXTRA_PNGINFO"
+          }
+        },
+        "input_order": {
+          "required": [
+            "images",
+            "filename_prefix"
+          ],
+          "hidden": [
+            "prompt",
+            "extra_pnginfo"
+          ]
+        },
+        "output": [],
+        "output_is_list": [],
+        "output_name": [],
+        "name": "SaveImage",
+        "display_name": "保存图像",
+        "description": "将输入图像保存到您的ComfyUI输出目录。",
+        "python_module": "nodes",
+        "category": "图像",
+        "output_node": true,
+        "origin_display_name": "Save Image"
+      }
+    },
+    "custom_node_versions": [
+      {
+        "path": "custom_nodes/ComfyUI-Seed4",
+        "git_url": "https://code.byted.org/lab-cv/ComfyUI-Seed4.git",
+        "git_commit": "10c2592637e522806def0b755a494ba8659a5cae",
+        "node_types": [
+          "Seed4DITLoader",
+          "Seed4VAELoader",
+          "Seed4ApplyLora",
+          "Seed4RemoteT2ITextEncoder",
+          "Seed4RemoteVaeEncoder",
+          "Seed4RemoteEditTextEncoder",
+          "Seed4LoRALoader",
+          "Seed4Sampler"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Byteartist-Node",
+        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Byteartist-Node.git",
+        "git_commit": "ee2d07b98bd111cfad8ba60f13fc2c87eb8c4d06",
+        "node_types": [
+          "TextInput",
+          "BANodeLLMText"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Aip-Aigc",
+        "git_url": "https://code.byted.org/lab-cv/ComfyUI-Aip-Aigc.git",
+        "git_commit": "55ee9a4df814ca8ce7f7b59bf6533f2a43d5b3d6",
+        "node_types": [
+          "AIPStringInput",
+          "ImageMerge"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Custom-Scripts",
+        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Custom-Scripts.git",
+        "git_commit": "d49b6c569fb2fc4a220b81db14fd4daba46c959a",
+        "node_types": [
+          "ShowText|pysssss"
+        ]
+      },
+      {
+        "path": "custom_nodes/was-node-suite-comfyui",
+        "git_url": "https://github.com/WASasquatch/was-node-suite-comfyui.git",
+        "git_commit": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "node_types": [
+          "Text Concatenate"
+        ]
+      }
+    ],
+    "pip_freeze": [
+      "absl-py==2.3.1",
+      "accelerate==1.10.1",
+      "addict==2.4.0",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "albucore==0.0.24",
+      "albumentations==2.0.8",
+      "altgraph==0.17.4",
+      "annotated-doc==0.0.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "basicsr==1.4.2",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-pydev==0.0.20",
+      "byted-wandb==0.13.90",
+      "byted_automl_plugin==0.1.3",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_lighten_validator==0.2.14",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.uploader==0.4.0a15",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "click==8.1.7",
+      "cmake==4.1.0",
+      "coloredlogs==15.0.1",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui_frontend_package==1.21.7",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==39.0.2",
+      "cstr @ git+https://github.com/WASasquatch/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
+      "cuda-bindings==13.2.0",
+      "cuda-pathfinder==1.5.0",
+      "cuda-toolkit==13.0.2",
+      "cycler==0.12.1",
+      "Cython==3.2.1",
+      "dacite==1.9.2",
+      "dataclasses-json==0.6.7",
+      "decorator==5.2.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "easydict==1.13",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "et_xmlfile==2.0.0",
+      "fairscale==0.4.13",
+      "fastapi==0.117.1",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "filetype==1.2.0",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "future==1.0.0",
+      "fvcore==0.1.5.post20221221",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httpx==0.25.2",
+      "httpx-sse==0.4.3",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "imageio-ffmpeg==0.6.0",
+      "img2texture @ git+https://github.com/WASasquatch/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
+      "importlib_metadata==8.7.0",
+      "iniconfig==2.0.0",
+      "insightface==0.7.3",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "joblib==1.5.2",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "jsonpatch==1.33",
+      "jsonpointer==3.0.0",
+      "jsonschema==4.26.0",
+      "jsonschema-specifications==2025.9.1",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "langchain==0.3.25",
+      "langchain-community==0.3.24",
+      "langchain-core==0.3.64",
+      "langchain-ollama==0.3.3",
+      "langchain-openai==0.3.21",
+      "langchain-text-splitters==0.3.8",
+      "langsmith==0.3.45",
+      "lark==1.3.0",
+      "lazy_loader==0.4",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "lz4==3.1.10",
+      "Markdown==3.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "marshmallow==3.26.1",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "moviepy==1.0.3",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas==13.1.0.3",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cudnn-cu13==9.19.0.56",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-cusparselt-cu13==0.8.0",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nccl-cu13==2.28.9",
+      "nvidia-nvjitlink==13.0.88",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "nvidia-nvtx-cu12==12.6.77",
+      "objprint==0.3.0",
+      "ollama==0.6.0",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime-gpu==1.22.0",
+      "openai==1.109.1",
+      "opencv-python==4.11.0.86",
+      "opencv-python-headless==4.12.0.88",
+      "openpyxl==3.1.2",
+      "orjson==3.11.3",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "pathtools==0.1.2",
+      "peft==0.17.1",
+      "pilgram==2.0.0",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "pooch==1.9.0",
+      "portalocker==3.2.0",
+      "prettytable==3.16.0",
+      "proglog==0.1.12",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pycryptodomex==3.23.0",
+      "pydantic==2.11.9",
+      "pydantic-settings==2.12.0",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "PyMatting==1.1.15",
+      "pyope==0.2.2",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-dotenv==1.2.1",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "referencing==0.37.0",
+      "regex==2025.9.18",
+      "rembg==2.0.69",
+      "requests==2.31.0",
+      "requests-toolbelt==1.0.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rfc3986==1.5.0",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rpds-py==0.30.0",
+      "rsa==4.9.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "schedule==1.2.2",
+      "scikit-image==0.25.2",
+      "scikit-learn==1.7.2",
+      "scipy==1.16.2",
+      "semantic-version==2.10.0",
+      "sentencepiece==0.2.1",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "simsimd==6.5.3",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "soundfile==0.13.1",
+      "spandrel==0.4.1",
+      "SQLAlchemy==2.0.44",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "stringzilla==4.2.3",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tb-nightly==2.21.0a20251023",
+      "tenacity==8.5.0",
+      "tensorboard-data-server==0.7.2",
+      "termcolor==3.1.0",
+      "threadpoolctl==3.6.0",
+      "thriftpy2==0.4.20",
+      "tifffile==2025.10.16",
+      "tiktoken==0.12.0",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typing-inspect==0.9.0",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "viztracer==0.16.3",
+      "watchdog==6.0.0",
+      "wcwidth==0.2.14",
+      "websockets==15.0.1",
+      "Werkzeug==3.1.3",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "xlrd==2.0.1",
+      "yacs==0.1.8",
+      "yapf==0.43.0",
+      "yarl==1.11.1",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstandard==0.23.0",
+      "zstd==1.5.7.2"
+    ],
+    "preserve_pip_freeze": [
+      "accelerate==1.10.1",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "altgraph==0.17.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-pydev==0.0.20",
+      "byted-wandb==0.13.90",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "click==8.1.7",
+      "cmake==4.1.0",
+      "coloredlogs==15.0.1",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==39.0.2",
+      "cycler==0.12.1",
+      "decorator==5.2.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "fastapi==0.117.1",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "fvcore==0.1.5.post20221221",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httpx==0.25.2",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "importlib_metadata==8.7.0",
+      "iniconfig==2.0.0",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "lark==1.3.0",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "lz4==3.1.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvtx-cu12==12.6.77",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime-gpu==1.22.0",
+      "openai==1.109.1",
+      "opencv-python==4.11.0.86",
+      "orjson==3.11.3",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "peft==0.17.1",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "portalocker==3.2.0",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pydantic==2.11.9",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "pyope==0.2.2",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "regex==2025.9.18",
+      "requests==2.31.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rsa==4.9.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "schedule==1.2.2",
+      "scipy==1.16.2",
+      "semantic-version==2.10.0",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "spandrel==0.4.1",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tenacity==8.5.0",
+      "termcolor==3.1.0",
+      "thriftpy2==0.4.20",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "websockets==15.0.1",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "yacs==0.1.8",
+      "yarl==1.11.1",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstd==1.5.7.2"
+    ],
+    "device_info": {
+      "cudaVersion": "12.6",
+      "gpuName": "NVIDIA L20",
+      "system": "Linux",
+      "version": "#5.4.143.bsk.8 SMP Debian 5.4.143.bsk.8 Wed Jul 20 08:43:36 UTC ",
+      "cuda_version": "12.6",
+      "gpu_name": "NVIDIA L20",
+      "xpu_num": "1"
+    },
+    "base_image": "aip_image_factory/custom.image.combo_infer:nvidia_seed4_infer-20251006-215922",
+    "comfy_args": {
+      "--listen": "fd02::24:0:0:bf8",
+      "--port": "9001"
+    },
+    "comfyui_tag": "release_0.3.40",
+    "ba_combo": "588008921034165554",
+    "workflow_name": "w+人物生成",
+    "workflow_id": "616275814467530912:1",
+    "config_id": "616275814501085344",
+    "workflow_version_id": "616275814534639776",
+    "workflow_identity": "616275814467530912:1"
+  }
+}

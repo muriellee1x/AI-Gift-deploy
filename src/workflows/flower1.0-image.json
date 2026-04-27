@@ -1,0 +1,3221 @@
+{
+  "id": "b2a9c097-c7f2-432b-a2de-b5d468328e9f",
+  "revision": 0,
+  "last_node_id": 300,
+  "last_link_id": 644,
+  "nodes": [
+    {
+      "id": 211,
+      "type": "BANodeLLMText",
+      "pos": [
+        -5478.25390625,
+        -728.4024658203125
+      ],
+      "size": [
+        400,
+        282
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 427
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 428
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result/positive",
+          "type": "STRING",
+          "links": [
+            429
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BANodeLLMText"
+      },
+      "widgets_values": [
+        "灵感扩写",
+        "GPT-5.1",
+        2000,
+        0.7,
+        "",
+        "",
+        false
+      ]
+    },
+    {
+      "id": 213,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -4991.224609375,
+        -722.0426025390625
+      ],
+      "size": [
+        276.59759521484375,
+        145.01251220703125
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 429
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            511
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "无特效"
+      ]
+    },
+    {
+      "id": 214,
+      "type": "TextInput",
+      "pos": [
+        -4983.091796875,
+        -487.7359313964844
+      ],
+      "size": [
+        278.7918701171875,
+        193.4482421875
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            430
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "Florlyn-style"
+      ]
+    },
+    {
+      "id": 215,
+      "type": "Text Concatenate",
+      "pos": [
+        -4617.90283203125,
+        -510.26031494140625
+      ],
+      "size": [
+        270,
+        142
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "shape": 7,
+          "type": "STRING",
+          "link": 430
+        },
+        {
+          "name": "text_b",
+          "shape": 7,
+          "type": "STRING",
+          "link": 431
+        },
+        {
+          "name": "text_c",
+          "shape": 7,
+          "type": "STRING",
+          "link": 432
+        },
+        {
+          "name": "text_d",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            433
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true"
+      ]
+    },
+    {
+      "id": 217,
+      "type": "TextInput",
+      "pos": [
+        -4990.0390625,
+        -174.8472137451172
+      ],
+      "size": [
+        281.2489318847656,
+        210.6466064453125
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            432
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "构图在画面的正中央，带有叶子，纯黑色背景，均匀的光照效果，超高质量，master piece"
+      ]
+    },
+    {
+      "id": 218,
+      "type": "AIPStringInput",
+      "pos": [
+        -4186.54296875,
+        -748.776123046875
+      ],
+      "size": [
+        400,
+        256
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "widget": {
+            "name": "string"
+          },
+          "link": 434
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            437,
+            520
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AIPStringInput",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "Florlyn-style，山茶花，红色，构图在画面的正中央，带有局部枝叶，纯黑色背景，均匀的光照效果，超高质量，master piece，"
+      ]
+    },
+    {
+      "id": 219,
+      "type": "Seed4DITLoader",
+      "pos": [
+        -4180.1767578125,
+        -404.0695495605469
+      ],
+      "size": [
+        350,
+        206
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "slot_index": 0,
+          "links": [
+            435
+          ]
+        },
+        {
+          "name": "pipe_config",
+          "type": "SEED_PIPE_CONFIG",
+          "slot_index": 1,
+          "links": [
+            515
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4DITLoader",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{}"
+      },
+      "widgets_values": [
+        "v4.0_s_edit_6nfe",
+        "cuda:0"
+      ]
+    },
+    {
+      "id": 220,
+      "type": "Seed4VAELoader",
+      "pos": [
+        -4177.5283203125,
+        -130.18960571289062
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "vae_model",
+          "type": "SEED_VAE_MODEL",
+          "slot_index": 0,
+          "links": [
+            519
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4VAELoader",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{}"
+      },
+      "widgets_values": [
+        "v4.0_s_edit_6nfe",
+        "cuda:0"
+      ]
+    },
+    {
+      "id": 221,
+      "type": "Seed4LoRALoader",
+      "pos": [
+        -4185.330078125,
+        120.24054718017578
+      ],
+      "size": [
+        357.3836669921875,
+        129.859130859375
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ADAPTER",
+          "type": "ADAPTER",
+          "slot_index": 0,
+          "links": [
+            436
+          ]
+        }
+      ],
+      "title": "加载lora",
+      "properties": {
+        "Node name for S&R": "Seed4LoRALoader",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{}"
+      },
+      "widgets_values": [
+        "花花学家纯享版@v8.safetensors",
+        "",
+        "torch.bfloat16"
+      ]
+    },
+    {
+      "id": 222,
+      "type": "Seed4ApplyLora",
+      "pos": [
+        -3713.6572265625,
+        -115.35174560546875
+      ],
+      "size": [
+        386.05853271484375,
+        360.15087890625
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "dit_model",
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "link": 435
+        },
+        {
+          "label": "lora_info",
+          "name": "lora_info",
+          "type": "ADAPTER",
+          "link": 436
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "slot_index": 0,
+          "links": [
+            518
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4ApplyLora",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{}"
+      },
+      "widgets_values": [
+        true,
+        false,
+        1,
+        32,
+        "base_model.model"
+      ]
+    },
+    {
+      "id": 272,
+      "type": "Text Concatenate",
+      "pos": [
+        -4626.056640625,
+        -720.5479736328125
+      ],
+      "size": [
+        270,
+        142
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "shape": 7,
+          "type": "STRING",
+          "link": 510
+        },
+        {
+          "name": "text_b",
+          "shape": 7,
+          "type": "STRING",
+          "link": 511
+        },
+        {
+          "name": "text_c",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "text_d",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            431
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true"
+      ]
+    },
+    {
+      "id": 223,
+      "type": "Seed4RemoteT2ITextEncoder",
+      "pos": [
+        -3721.460693359375,
+        -735.5165405273438
+      ],
+      "size": [
+        400,
+        514
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 437
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embeddings",
+          "type": "EMBEDDINGS",
+          "slot_index": 0,
+          "links": [
+            516
+          ]
+        },
+        {
+          "name": "binary_var_names",
+          "type": "EMBEDDING_NAMES",
+          "slot_index": 1,
+          "links": [
+            517
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4RemoteT2ITextEncoder",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{}"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "vg_seed4_textencoder"
+      ]
+    },
+    {
+      "id": 216,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -4620.4970703125,
+        -297.8982238769531
+      ],
+      "size": [
+        265.2164306640625,
+        334.8155822753906
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 433
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            434
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "Florlyn-style, 粉色的洛神玫瑰花束, 无特效, 构图在画面的正中央，带有叶子，纯黑色背景，均匀的光照效果，超高质量，master piece"
+      ]
+    },
+    {
+      "id": 212,
+      "type": "TextInput",
+      "pos": [
+        -5468.47216796875,
+        -377.41424560546875
+      ],
+      "size": [
+        400.83868408203125,
+        420.58563232421875
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            428
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "# 花卉增益特效判断助手\n\n## 角色定义\n你是一个花卉视觉特效判断专家，根据用户输入的花卉品种，判断是否需要叠加与该花卉有强文化关联或自然关联的增益特效。\n\n## 可用增益特效\n- 雪花/积雪\n- 露珠/水珠\n- 霜/冰晶\n- 晨雾\n\n## 判断规则\n\n### 1. 强关联原则\n增益特效必须与该花卉有以下至少一种强关联：\n- **文化关联**：在诗词、绘画、传统意象中经常一起出现（如：梅花与雪）\n- **自然关联**：该花卉的生长环境、开花季节与特效自然吻合（如：荷花与水珠）\n- **审美关联**：特效能显著提升该花卉的视觉美感且符合大众审美认知\n\n### 2. 常见强关联参考\n| 花卉 | 增益特效 | 关联依据 |\n|------|----------|----------|\n| 梅花 | 雪花 | \"梅须逊雪三分白，雪却输梅一段香\" |\n| 荷花 | 水珠 | 荷叶天然疏水，水珠滚动是经典意象 |\n| 兰花 | 露珠 | \"兰叶春葳蕤\"，晨露兰草意境幽雅 |\n| 菊花 | 霜/露珠 | \"不是花中偏爱菊，此花开尽更无花\"，深秋霜菊 |\n| 腊梅 | 雪花 | 冬季开放，傲雪凌霜 |\n| 山茶花 | 露珠/雪花 | 冬春之交开放，可配雪或露 |\n| 水仙 | 露珠 | \"凌波仙子\"，清雅水润 |\n\n### 3. 无特效情况\n以下情况判定为\"无特效\"：\n- 花卉与任何增益特效无强关联（如：向日葵、玫瑰、郁金香）\n- 特效会破坏花卉本身的美感或意境\n- 生硬搭配，无文化或自然依据\n\n## 输出格式\n\n**如果存在强关联的增益特效：**\n表面有[具体特效名称]\n\n**如果不存在强关联的增益特效：**\n无特效\n\n\n## 示例输出\n\n输入：梅花\n输出：表面有雪花\n\n输入：荷花  \n输出：表面有水珠\n\n输入：向日葵\n输出：无特效\n\n输入：玫瑰\n输出：无特效\n\n输入：菊花\n输出：表面有露珠\n\n## 注意事项\n1. 只输出结果，不需要解释原因\n2. 每种花只输出一种最匹配的特效\n3. 宁缺毋滥，无明确强关联时一律输出\"无特效\"\n4. 优先考虑文化关联，其次考虑自然关联"
+      ]
+    },
+    {
+      "id": 298,
+      "type": "BAInputSlot",
+      "pos": [
+        -5561.16455078125,
+        -1117.726806640625
+      ],
+      "size": [
+        270,
+        122
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_in",
+          "shape": 7,
+          "type": "STRING",
+          "link": 643
+        },
+        {
+          "name": "image_in",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "video_in",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "BAInputSlot"
+      },
+      "widgets_values": [
+        "input_1",
+        "text"
+      ]
+    },
+    {
+      "id": 278,
+      "type": "TextInput",
+      "pos": [
+        -6177.392578125,
+        -802.9461669921875
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            427,
+            510,
+            643
+          ]
+        }
+      ],
+      "title": "提示词输入",
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "粉色的洛神玫瑰花束"
+      ]
+    },
+    {
+      "id": 299,
+      "type": "OCOut",
+      "pos": [
+        -2498.19775390625,
+        -1045.5587158203125
+      ],
+      "size": [
+        237.818115234375,
+        66
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 644
+        },
+        {
+          "name": "video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
+        },
+        {
+          "name": "text",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "videos",
+          "type": "VIDEO",
+          "links": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OCOut"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 297,
+      "type": "SaveImage",
+      "pos": [
+        -2578.287841796875,
+        -740.1233520507812
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 603
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "OCOut_"
+      ]
+    },
+    {
+      "id": 276,
+      "type": "Seed4Sampler",
+      "pos": [
+        -3266.243896484375,
+        -734.452392578125
+      ],
+      "size": [
+        435.94293212890625,
+        951.5264282226562
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "pipe_config",
+          "name": "pipe_config",
+          "type": "SEED_PIPE_CONFIG",
+          "link": 515
+        },
+        {
+          "label": "embeddings",
+          "name": "embeddings",
+          "type": "EMBEDDINGS",
+          "link": 516
+        },
+        {
+          "label": "embedding_binary_var_name",
+          "name": "embedding_binary_var_name",
+          "type": "EMBEDDING_NAMES",
+          "link": 517
+        },
+        {
+          "label": "dit_model",
+          "name": "dit_model",
+          "type": "SEED_DIT_MODEL",
+          "link": 518
+        },
+        {
+          "label": "vae_model",
+          "name": "vae_model",
+          "type": "SEED_VAE_MODEL",
+          "link": 519
+        },
+        {
+          "label": "latents",
+          "name": "latents",
+          "shape": 7,
+          "type": "LATENTS",
+          "link": null
+        },
+        {
+          "label": "latent_binary_var_name",
+          "name": "latent_binary_var_name",
+          "shape": 7,
+          "type": "LATENT_NAMES",
+          "link": null
+        },
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 520
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            603,
+            644
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed4Sampler",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "t2i",
+        "",
+        2048,
+        2048,
+        1024279439946779,
+        "randomize",
+        1.15,
+        3,
+        0.7,
+        3.5,
+        1.5,
+        0.98,
+        0.98,
+        3.5,
+        1,
+        0.6,
+        1,
+        6,
+        0.5
+      ]
+    }
+  ],
+  "links": [
+    [
+      427,
+      278,
+      0,
+      211,
+      1,
+      "STRING"
+    ],
+    [
+      428,
+      212,
+      0,
+      211,
+      2,
+      "STRING"
+    ],
+    [
+      429,
+      211,
+      0,
+      213,
+      0,
+      "STRING"
+    ],
+    [
+      430,
+      214,
+      0,
+      215,
+      0,
+      "STRING"
+    ],
+    [
+      431,
+      272,
+      0,
+      215,
+      1,
+      "STRING"
+    ],
+    [
+      432,
+      217,
+      0,
+      215,
+      2,
+      "STRING"
+    ],
+    [
+      433,
+      215,
+      0,
+      216,
+      0,
+      "STRING"
+    ],
+    [
+      434,
+      216,
+      0,
+      218,
+      0,
+      "STRING"
+    ],
+    [
+      435,
+      219,
+      0,
+      222,
+      0,
+      "SEED_DIT_MODEL"
+    ],
+    [
+      436,
+      221,
+      0,
+      222,
+      1,
+      "ADAPTER"
+    ],
+    [
+      437,
+      218,
+      0,
+      223,
+      0,
+      "STRING"
+    ],
+    [
+      510,
+      278,
+      0,
+      272,
+      0,
+      "STRING"
+    ],
+    [
+      511,
+      213,
+      0,
+      272,
+      1,
+      "STRING"
+    ],
+    [
+      515,
+      219,
+      1,
+      276,
+      0,
+      "SEED_PIPE_CONFIG"
+    ],
+    [
+      516,
+      223,
+      0,
+      276,
+      1,
+      "EMBEDDINGS"
+    ],
+    [
+      517,
+      223,
+      1,
+      276,
+      2,
+      "EMBEDDING_NAMES"
+    ],
+    [
+      518,
+      222,
+      0,
+      276,
+      3,
+      "SEED_DIT_MODEL"
+    ],
+    [
+      519,
+      220,
+      0,
+      276,
+      4,
+      "SEED_VAE_MODEL"
+    ],
+    [
+      520,
+      218,
+      0,
+      276,
+      7,
+      "STRING"
+    ],
+    [
+      603,
+      276,
+      0,
+      297,
+      0,
+      "IMAGE"
+    ],
+    [
+      643,
+      278,
+      0,
+      298,
+      0,
+      "STRING"
+    ],
+    [
+      644,
+      276,
+      0,
+      299,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 19,
+      "title": "花花图像提示词",
+      "bounding": [
+        -5543.20703125,
+        -865.0636596679688,
+        1273.7705078125,
+        1162.3712158203125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "_ba_id": "EshwFU7ZfpFIJigECUkUP"
+    },
+    {
+      "id": 20,
+      "title": "Seedream4.0生图",
+      "bounding": [
+        -4199.24560546875,
+        -865.4419555664062,
+        2311.295654296875,
+        1167.1348876953125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {},
+      "_ba_id": "bwNBwtCbPFanvRB7fHeVF"
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5054470284992966,
+      "offset": [
+        6352.698014590452,
+        1251.831974379727
+      ]
+    },
+    "frontendVersion": "1.26.13",
+    "workflowRendererVersion": "LG",
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4,
+  "ba_extra": {
+    "slot_info": {
+      "inputs": [],
+      "outputs": []
+    },
+    "slot_info_schema": {
+      "input": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "output": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    "ba_comfyui_version": "0.0.6",
+    "prompt": {
+      "211": {
+        "inputs": {
+          "feature": "灵感扩写",
+          "model": "GPT-5.1",
+          "max_tokens": 2000,
+          "temperature": 0.7,
+          "prompt": [
+            "278",
+            0
+          ],
+          "system_prompt": [
+            "212",
+            0
+          ],
+          "thinking": false
+        },
+        "class_type": "BANodeLLMText",
+        "_meta": {
+          "title": "BA LLM Text"
+        }
+      },
+      "212": {
+        "inputs": {
+          "text": "# 花卉增益特效判断助手\n\n## 角色定义\n你是一个花卉视觉特效判断专家，根据用户输入的花卉品种，判断是否需要叠加与该花卉有强文化关联或自然关联的增益特效。\n\n## 可用增益特效\n- 雪花/积雪\n- 露珠/水珠\n- 霜/冰晶\n- 晨雾\n\n## 判断规则\n\n### 1. 强关联原则\n增益特效必须与该花卉有以下至少一种强关联：\n- **文化关联**：在诗词、绘画、传统意象中经常一起出现（如：梅花与雪）\n- **自然关联**：该花卉的生长环境、开花季节与特效自然吻合（如：荷花与水珠）\n- **审美关联**：特效能显著提升该花卉的视觉美感且符合大众审美认知\n\n### 2. 常见强关联参考\n| 花卉 | 增益特效 | 关联依据 |\n|------|----------|----------|\n| 梅花 | 雪花 | \"梅须逊雪三分白，雪却输梅一段香\" |\n| 荷花 | 水珠 | 荷叶天然疏水，水珠滚动是经典意象 |\n| 兰花 | 露珠 | \"兰叶春葳蕤\"，晨露兰草意境幽雅 |\n| 菊花 | 霜/露珠 | \"不是花中偏爱菊，此花开尽更无花\"，深秋霜菊 |\n| 腊梅 | 雪花 | 冬季开放，傲雪凌霜 |\n| 山茶花 | 露珠/雪花 | 冬春之交开放，可配雪或露 |\n| 水仙 | 露珠 | \"凌波仙子\"，清雅水润 |\n\n### 3. 无特效情况\n以下情况判定为\"无特效\"：\n- 花卉与任何增益特效无强关联（如：向日葵、玫瑰、郁金香）\n- 特效会破坏花卉本身的美感或意境\n- 生硬搭配，无文化或自然依据\n\n## 输出格式\n\n**如果存在强关联的增益特效：**\n表面有[具体特效名称]\n\n**如果不存在强关联的增益特效：**\n无特效\n\n\n## 示例输出\n\n输入：梅花\n输出：表面有雪花\n\n输入：荷花  \n输出：表面有水珠\n\n输入：向日葵\n输出：无特效\n\n输入：玫瑰\n输出：无特效\n\n输入：菊花\n输出：表面有露珠\n\n## 注意事项\n1. 只输出结果，不需要解释原因\n2. 每种花只输出一种最匹配的特效\n3. 宁缺毋滥，无明确强关联时一律输出\"无特效\"\n4. 优先考虑文化关联，其次考虑自然关联"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "Text Input"
+        }
+      },
+      "213": {
+        "inputs": {
+          "text_0": "无特效",
+          "text": [
+            "211",
+            0
+          ]
+        },
+        "class_type": "ShowText|pysssss",
+        "_meta": {
+          "title": "Show Text 🐍"
+        }
+      },
+      "214": {
+        "inputs": {
+          "text": "Florlyn-style"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "Text Input"
+        }
+      },
+      "215": {
+        "inputs": {
+          "delimiter": ", ",
+          "clean_whitespace": "true",
+          "text_a": [
+            "214",
+            0
+          ],
+          "text_b": [
+            "272",
+            0
+          ],
+          "text_c": [
+            "217",
+            0
+          ]
+        },
+        "class_type": "Text Concatenate",
+        "_meta": {
+          "title": "Text Concatenate"
+        }
+      },
+      "216": {
+        "inputs": {
+          "text_0": "Florlyn-style, 粉色的洛神玫瑰花束, 无特效, 构图在画面的正中央，带有叶子，纯黑色背景，均匀的光照效果，超高质量，master piece",
+          "text": [
+            "215",
+            0
+          ]
+        },
+        "class_type": "ShowText|pysssss",
+        "_meta": {
+          "title": "Show Text 🐍"
+        }
+      },
+      "217": {
+        "inputs": {
+          "text": "构图在画面的正中央，带有叶子，纯黑色背景，均匀的光照效果，超高质量，master piece"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "Text Input"
+        }
+      },
+      "218": {
+        "inputs": {
+          "string": [
+            "216",
+            0
+          ]
+        },
+        "class_type": "AIPStringInput",
+        "_meta": {
+          "title": "AIPStringInput"
+        }
+      },
+      "219": {
+        "inputs": {
+          "model_config": "v4.0_s_edit_6nfe",
+          "device": "cuda:0"
+        },
+        "class_type": "Seed4DITLoader",
+        "_meta": {
+          "title": "Seed4 DiT Loader"
+        }
+      },
+      "220": {
+        "inputs": {
+          "model_config": "v4.0_s_edit_6nfe",
+          "device": "cuda:0"
+        },
+        "class_type": "Seed4VAELoader",
+        "_meta": {
+          "title": "Seed4 VAE Loader"
+        }
+      },
+      "221": {
+        "inputs": {
+          "local_lora_name": "花花学家纯享版@v8.safetensors",
+          "extra_lora_name": "",
+          "dtype": "torch.bfloat16"
+        },
+        "class_type": "Seed4LoRALoader",
+        "_meta": {
+          "title": "加载lora"
+        }
+      },
+      "222": {
+        "inputs": {
+          "use_lora": true,
+          "fuse_lora": false,
+          "lora_weight": 1,
+          "transformer_scale": 32,
+          "prefix": "base_model.model",
+          "dit_model": [
+            "219",
+            0
+          ],
+          "lora_info": [
+            "221",
+            0
+          ]
+        },
+        "class_type": "Seed4ApplyLora",
+        "_meta": {
+          "title": "Seed4 Apply Lora"
+        }
+      },
+      "223": {
+        "inputs": {
+          "prompt": [
+            "218",
+            0
+          ],
+          "negative_prompt": "",
+          "req_key": "vg_seed4_textencoder"
+        },
+        "class_type": "Seed4RemoteT2ITextEncoder",
+        "_meta": {
+          "title": "Seed4 T2I Text Encoder(Remote)"
+        }
+      },
+      "272": {
+        "inputs": {
+          "delimiter": ", ",
+          "clean_whitespace": "true",
+          "text_a": [
+            "278",
+            0
+          ],
+          "text_b": [
+            "213",
+            0
+          ]
+        },
+        "class_type": "Text Concatenate",
+        "_meta": {
+          "title": "Text Concatenate"
+        }
+      },
+      "276": {
+        "inputs": {
+          "process_type": "t2i",
+          "prompt": [
+            "218",
+            0
+          ],
+          "height": 2048,
+          "width": 2048,
+          "seed": 1024279439946779,
+          "max_shift": 1.15,
+          "guidance_scale": 3,
+          "cfg_rescale_factor": 0.7,
+          "single_edit_guidance_weight": 3.5,
+          "single_edit_guidance_weight_image": 1.5,
+          "single_min_cfg_time": 0.98,
+          "single_max_cfg_time": 0.98,
+          "multi_edit_guidance_weight": 3.5,
+          "multi_edit_guidance_weight_image": 1,
+          "multi_min_cfg_time": 0.6,
+          "multi_max_cfg_time": 1,
+          "steps": 6,
+          "denoise_strength": 0.5,
+          "pipe_config": [
+            "219",
+            1
+          ],
+          "embeddings": [
+            "223",
+            0
+          ],
+          "embedding_binary_var_name": [
+            "223",
+            1
+          ],
+          "dit_model": [
+            "222",
+            0
+          ],
+          "vae_model": [
+            "220",
+            0
+          ]
+        },
+        "class_type": "Seed4Sampler",
+        "_meta": {
+          "title": "Seed4 Sampler"
+        }
+      },
+      "278": {
+        "inputs": {
+          "text": "粉色的洛神玫瑰花束"
+        },
+        "class_type": "TextInput",
+        "_meta": {
+          "title": "提示词输入"
+        }
+      },
+      "297": {
+        "inputs": {
+          "filename_prefix": "OCOut_",
+          "images": [
+            "276",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "保存图像"
+        }
+      },
+      "298": {
+        "inputs": {
+          "variable_name": "input_1",
+          "input_type": "text",
+          "text_in": [
+            "278",
+            0
+          ]
+        },
+        "class_type": "BAInputSlot",
+        "_meta": {
+          "title": "BA Input Slot (Variable)"
+        }
+      },
+      "299": {
+        "inputs": {
+          "images": [
+            "276",
+            0
+          ]
+        },
+        "class_type": "OCOut",
+        "_meta": {
+          "title": "OC Out (Marker)"
+        }
+      }
+    },
+    "r2l": [],
+    "venv_comfyui": null,
+    "service_name": "byteartist_comfyui_online",
+    "comfyui_commit": "b8730510db30c8858e1e5d8e126ef19eac395560",
+    "ba_manager_commit": "c8fe4d07dfeace553a424d23833db73477d122e6",
+    "created_at": 1776078653129,
+    "node_info": {
+      "BANodeLLMText": {
+        "input": {
+          "required": {
+            "feature": [
+              [
+                "提示词反推",
+                "灵感扩写",
+                "正反提示词"
+              ],
+              {
+                "default": "提示词反推",
+                "tooltip": "功能名称"
+              }
+            ],
+            "model": [
+              [
+                "豆包2.0-pro",
+                "豆包1.8-251228",
+                "豆包1.8",
+                "豆包1.6-251015",
+                "豆包1.6",
+                "豆包1.6 Vision",
+                "豆包1.5 pro",
+                "step-3.5-flash",
+                "Qwen3",
+                "Qwen3-omni-flash",
+                "kimi-k2.5",
+                "kimi-k2-0905-preview",
+                "DeepSeek-V3",
+                "DeepSeek-R1",
+                "GPT-5.1",
+                "GPT-5.1-Chat",
+                "GPT-5-Chat",
+                "GPT-4o",
+                "GPT-4.1",
+                "GPT-4.1mini",
+                "gemini-2.5 pro(深度思考)",
+                "gemini-2.5 pro priority(深度思考)",
+                "gemini-2.5 flash(回复更快)",
+                "Gemini-3-flash(降至2.5)",
+                "Gemini-3(降至2.5)",
+                "Seedream-PE-250815"
+              ],
+              {
+                "default": "豆包2.0-pro",
+                "tooltip": "模型名称"
+              }
+            ],
+            "max_tokens": [
+              "INT",
+              {
+                "default": 2000,
+                "min": 1,
+                "max": 4096,
+                "step": 1
+              }
+            ],
+            "temperature": [
+              "FLOAT",
+              {
+                "default": 0.7,
+                "min": 0,
+                "max": 2,
+                "step": 0.01
+              }
+            ]
+          },
+          "optional": {
+            "images": [
+              "IMAGE",
+              {
+                "tooltip": "图片",
+                "forceInput": true
+              }
+            ],
+            "prompt": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "dynamicPrompts": true,
+                "tooltip": "提示词"
+              }
+            ],
+            "system_prompt": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "dynamicPrompts": true,
+                "tooltip": "系统指令"
+              }
+            ],
+            "thinking": [
+              "BOOLEAN",
+              {
+                "default": false,
+                "tooltip": "是否思考"
+              }
+            ]
+          },
+          "hidden": {
+            "node_id": "UNIQUE_ID"
+          }
+        },
+        "input_order": {
+          "required": [
+            "feature",
+            "model",
+            "max_tokens",
+            "temperature"
+          ],
+          "optional": [
+            "images",
+            "prompt",
+            "system_prompt",
+            "thinking"
+          ],
+          "hidden": [
+            "node_id"
+          ]
+        },
+        "output": [
+          "STRING",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "result/positive",
+          "negative"
+        ],
+        "name": "BANodeLLMText",
+        "display_name": "BA LLM Text",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Byteartist-Node",
+        "category": "byteartist/llm",
+        "output_node": true,
+        "origin_display_name": "BA LLM Text"
+      },
+      "ShowText|pysssss": {
+        "input": {
+          "required": {
+            "text": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ]
+          },
+          "hidden": {
+            "unique_id": "UNIQUE_ID",
+            "extra_pnginfo": "EXTRA_PNGINFO"
+          }
+        },
+        "input_order": {
+          "required": [
+            "text"
+          ],
+          "hidden": [
+            "unique_id",
+            "extra_pnginfo"
+          ]
+        },
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          true
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "ShowText|pysssss",
+        "display_name": "Show Text 🐍",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Custom-Scripts",
+        "category": "工具",
+        "output_node": true,
+        "origin_display_name": "Show Text 🐍"
+      },
+      "TextInput": {
+        "input": {
+          "required": {
+            "text": [
+              "STRING",
+              {
+                "multiline": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "text"
+          ]
+        },
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "TextInput",
+        "display_name": "Text Input",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Byteartist-Node",
+        "category": "byteartist/llm",
+        "output_node": true,
+        "origin_display_name": "Text Input"
+      },
+      "Text Concatenate": {
+        "input": {
+          "required": {
+            "delimiter": [
+              "STRING",
+              {
+                "default": ", "
+              }
+            ],
+            "clean_whitespace": [
+              [
+                "true",
+                "false"
+              ]
+            ]
+          },
+          "optional": {
+            "text_a": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "text_b": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "text_c": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "text_d": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "delimiter",
+            "clean_whitespace"
+          ],
+          "optional": [
+            "text_a",
+            "text_b",
+            "text_c",
+            "text_d"
+          ]
+        },
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "Text Concatenate",
+        "display_name": "Text Concatenate",
+        "description": "",
+        "python_module": "custom_nodes.was-node-suite-comfyui",
+        "category": "WAS Suite/Text",
+        "output_node": false,
+        "origin_display_name": "Text Concatenate"
+      },
+      "AIPStringInput": {
+        "input": {
+          "required": {
+            "string": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "string"
+          ]
+        },
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "STRING"
+        ],
+        "name": "AIPStringInput",
+        "display_name": "AIPStringInput",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Aip-Aigc",
+        "category": "IC-AIP-AIGC/DataTypeUtils",
+        "output_node": false,
+        "origin_display_name": "AIPStringInput"
+      },
+      "Seed4DITLoader": {
+        "input": {
+          "required": {
+            "model_config": [
+              [
+                "v4.0_s_edit_25nfe",
+                "v4.0_s_edit_6nfe"
+              ]
+            ],
+            "device": [
+              [
+                "cuda:0"
+              ]
+            ]
+          },
+          "optional": {}
+        },
+        "input_order": {
+          "required": [
+            "model_config",
+            "device"
+          ],
+          "optional": []
+        },
+        "output": [
+          "SEED_DIT_MODEL",
+          "SEED_PIPE_CONFIG"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "dit_model",
+          "pipe_config"
+        ],
+        "name": "Seed4DITLoader",
+        "display_name": "Seed4 DiT Loader",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 DiT Loader"
+      },
+      "Seed4VAELoader": {
+        "input": {
+          "required": {
+            "model_config": [
+              [
+                "v4.0_s_edit_25nfe",
+                "v4.0_s_edit_6nfe"
+              ]
+            ],
+            "device": [
+              [
+                "cuda:0"
+              ]
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "model_config",
+            "device"
+          ]
+        },
+        "output": [
+          "SEED_VAE_MODEL"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "vae_model"
+        ],
+        "name": "Seed4VAELoader",
+        "display_name": "Seed4 VAE Loader",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 VAE Loader"
+      },
+      "Seed4LoRALoader": {
+        "input": {
+          "required": {
+            "local_lora_name": [
+              [
+                "绿意盎然春色茶饮_v1.0.safetensors",
+                "像素乐高积木@V1.0.safetensors",
+                "敦煌场景风格_v4.safetensors",
+                "至尊宝4_0v8@v4.safetensors",
+                "sdxl_lightning_8step_lora.safetensors",
+                "AU@v3.safetensors",
+                "鞋拔子脸@v1.safetensors",
+                "ZlingH090802_style@v10.safetensors",
+                "3D美食大师@v8.safetensors",
+                "icon12@1.0.safetensors",
+                "toon2.safetensors",
+                "wlow03@v5.safetensors",
+                "第一视角与一键打标@v9.safetensors",
+                "zry0924_1@v10.safetensors",
+                "emproject@v5.safetensors",
+                "self_forcing_dmd.pt",
+                "add_detail.safetensors",
+                "鹊仙_女_v2.safetensors",
+                "finance_poster_23@v8.safetensors",
+                "em_project_style@v1.0.safetensors",
+                "model_SDXL.safetensors",
+                "w-plus_Wan22_14b_t2v_v2_000019000_high_noise.safetensors",
+                "111125@v1006.safetensors",
+                "dlrb0924_1@v9.safetensors",
+                "直播营收UI模型@v10.safetensors",
+                "mm_sd15_v3_adapter.safetensors",
+                "emproject@v2.safetensors",
+                "GIFT99_lora_v1_000010250_low_noise@1.0.safetensors",
+                "GFF_V01_000002500.safetensors",
+                "大话西游道具@v7.safetensors",
+                "edit去除人物@v8.safetensors",
+                "YunaV3.safetensors",
+                "怪奇_长触发@v10.safetensors",
+                "去除人物seed4@v9.safetensors",
+                "gongbipainting.safetensors",
+                "DY资料卡_F.1@v1.0.safetensors",
+                "动态海报@v10.pth",
+                "CCD摄影_1732671216372@v3.safetensors",
+                "Wan21_CausVid_bidirect2_T2V_1_3B_lora_rank32.safetensors",
+                "Q版美食大师@v9.safetensors",
+                "头像框测试F.1_4.7 V1@v1.0.safetensors",
+                "大话西游道具@v1.safetensors",
+                "w_lora_seedream@v9.safetensors",
+                "SeamlessTans_wan22_itv_v1_000003250_low_noise.safetensors",
+                "比心兔兔.safetensors",
+                "百变pose_edit@v10.safetensors",
+                "至尊宝v3@v7.safetensors",
+                "3.0L_idlora/zq.new_aug/h20-fa3-stable/H20-FA3-zjz/0/amei3.same/final/lora_model/pytorch_lora_weights.safetensors",
+                "edit43@v4.safetensors",
+                "mini首尾帧v1百变测试@v7.pth"
+              ]
+            ]
+          },
+          "optional": {
+            "extra_lora_name": [
+              "STRING",
+              {
+                "default": ""
+              }
+            ],
+            "dtype": [
+              [
+                "torch.bfloat16",
+                "torch.float16",
+                "torch.float32"
+              ],
+              {
+                "default": "torch.bfloat16"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "local_lora_name"
+          ],
+          "optional": [
+            "extra_lora_name",
+            "dtype"
+          ]
+        },
+        "output": [
+          "ADAPTER"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "ADAPTER"
+        ],
+        "name": "Seed4LoRALoader",
+        "display_name": "Seed4 Lora Loader",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 Lora Loader"
+      },
+      "Seed4ApplyLora": {
+        "input": {
+          "required": {
+            "dit_model": [
+              "SEED_DIT_MODEL"
+            ],
+            "use_lora": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "fuse_lora": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "lora_info": [
+              "ADAPTER"
+            ],
+            "lora_weight": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 100,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "transformer_scale": [
+              "FLOAT",
+              {
+                "default": 32,
+                "min": -100000,
+                "max": 100000,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "prefix": [
+              "STRING",
+              {
+                "default": "base_model.model"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "dit_model",
+            "use_lora",
+            "fuse_lora",
+            "lora_info",
+            "lora_weight",
+            "transformer_scale",
+            "prefix"
+          ]
+        },
+        "output": [
+          "SEED_DIT_MODEL"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "dit_model"
+        ],
+        "name": "Seed4ApplyLora",
+        "display_name": "Seed4 Apply Lora",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 Apply Lora"
+      },
+      "Seed4RemoteT2ITextEncoder": {
+        "input": {
+          "required": {
+            "prompt": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": true
+              }
+            ],
+            "negative_prompt": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": true
+              }
+            ],
+            "req_key": [
+              "STRING",
+              {
+                "default": "vg_seed4_textencoder"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "prompt",
+            "negative_prompt",
+            "req_key"
+          ]
+        },
+        "output": [
+          "EMBEDDINGS",
+          "EMBEDDING_NAMES"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "embeddings",
+          "binary_var_names"
+        ],
+        "name": "Seed4RemoteT2ITextEncoder",
+        "display_name": "Seed4 T2I Text Encoder(Remote)",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 T2I Text Encoder(Remote)"
+      },
+      "BAInputSlot": {
+        "input": {
+          "required": {
+            "variable_name": [
+              "STRING",
+              {
+                "default": "input_1",
+                "multiline": false
+              }
+            ],
+            "input_type": [
+              [
+                "text",
+                "image",
+                "video"
+              ],
+              {
+                "default": "text"
+              }
+            ]
+          },
+          "optional": {
+            "text_in": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ],
+            "image_in": [
+              "IMAGE"
+            ],
+            "video_in": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "variable_name",
+            "input_type"
+          ],
+          "optional": [
+            "text_in",
+            "image_in",
+            "video_in"
+          ]
+        },
+        "output": [],
+        "output_is_list": [],
+        "output_name": [],
+        "name": "BAInputSlot",
+        "display_name": "BA Input Slot (Variable)",
+        "description": "",
+        "python_module": "custom_nodes.comfyui-webhook-node-latest",
+        "category": "api-bridge",
+        "output_node": false,
+        "origin_display_name": "BA Input Slot (Variable)"
+      },
+      "OCOut": {
+        "input": {
+          "required": {},
+          "optional": {
+            "images": [
+              "IMAGE"
+            ],
+            "video": [
+              "VIDEO"
+            ],
+            "text": [
+              "STRING",
+              {
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [],
+          "optional": [
+            "images",
+            "video",
+            "text"
+          ]
+        },
+        "output": [
+          "IMAGE",
+          "VIDEO",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "images",
+          "videos",
+          "text"
+        ],
+        "name": "OCOut",
+        "display_name": "OC Out (Marker)",
+        "description": "",
+        "python_module": "custom_nodes.comfyui-webhook-node",
+        "category": "api-bridge",
+        "output_node": true,
+        "origin_display_name": "OC Out (Marker)"
+      },
+      "SaveImage": {
+        "input": {
+          "required": {
+            "images": [
+              "IMAGE",
+              {
+                "tooltip": "The images to save."
+              }
+            ],
+            "filename_prefix": [
+              "STRING",
+              {
+                "default": "ComfyUI",
+                "tooltip": "The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."
+              }
+            ]
+          },
+          "hidden": {
+            "prompt": "PROMPT",
+            "extra_pnginfo": "EXTRA_PNGINFO"
+          }
+        },
+        "input_order": {
+          "required": [
+            "images",
+            "filename_prefix"
+          ],
+          "hidden": [
+            "prompt",
+            "extra_pnginfo"
+          ]
+        },
+        "output": [],
+        "output_is_list": [],
+        "output_name": [],
+        "name": "SaveImage",
+        "display_name": "保存图像",
+        "description": "将输入图像保存到您的ComfyUI输出目录。",
+        "python_module": "nodes",
+        "category": "图像",
+        "output_node": true,
+        "origin_display_name": "Save Image"
+      },
+      "Seed4Sampler": {
+        "input": {
+          "required": {
+            "process_type": [
+              [
+                "edit",
+                "t2i"
+              ]
+            ],
+            "prompt": [
+              "STRING",
+              {
+                "multiline": true,
+                "dynamicPrompts": true
+              }
+            ],
+            "height": [
+              "INT",
+              {
+                "default": 2048,
+                "min": 1024,
+                "max": 4096,
+                "step": 8
+              }
+            ],
+            "width": [
+              "INT",
+              {
+                "default": 2048,
+                "min": 1024,
+                "max": 4096,
+                "step": 8
+              }
+            ],
+            "seed": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 18446744073709552000
+              }
+            ],
+            "max_shift": [
+              "FLOAT",
+              {
+                "default": 1.15,
+                "min": 0,
+                "max": 4,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "guidance_scale": [
+              "FLOAT",
+              {
+                "default": 3,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "cfg_rescale_factor": [
+              "FLOAT",
+              {
+                "default": 0.7,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "single_edit_guidance_weight": [
+              "FLOAT",
+              {
+                "default": 3.5,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "single_edit_guidance_weight_image": [
+              "FLOAT",
+              {
+                "default": 1.5,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "single_min_cfg_time": [
+              "FLOAT",
+              {
+                "default": 0.98,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "single_max_cfg_time": [
+              "FLOAT",
+              {
+                "default": 0.98,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "multi_edit_guidance_weight": [
+              "FLOAT",
+              {
+                "default": 3.5,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "multi_edit_guidance_weight_image": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 1,
+                "max": 10,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "multi_min_cfg_time": [
+              "FLOAT",
+              {
+                "default": 0.6,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "multi_max_cfg_time": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ],
+            "pipe_config": [
+              "SEED_PIPE_CONFIG"
+            ],
+            "embeddings": [
+              "EMBEDDINGS"
+            ],
+            "embedding_binary_var_name": [
+              "EMBEDDING_NAMES"
+            ],
+            "dit_model": [
+              "SEED_DIT_MODEL"
+            ],
+            "vae_model": [
+              "SEED_VAE_MODEL"
+            ],
+            "steps": [
+              "INT",
+              {
+                "default": 6,
+                "min": 6,
+                "max": 100
+              }
+            ],
+            "denoise_strength": [
+              "FLOAT",
+              {
+                "default": 0.5,
+                "min": 0,
+                "max": 1,
+                "step": 0.01,
+                "round": 0.01
+              }
+            ]
+          },
+          "optional": {
+            "latents": [
+              "LATENTS"
+            ],
+            "latent_binary_var_name": [
+              "LATENT_NAMES"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "process_type",
+            "prompt",
+            "height",
+            "width",
+            "seed",
+            "max_shift",
+            "guidance_scale",
+            "cfg_rescale_factor",
+            "single_edit_guidance_weight",
+            "single_edit_guidance_weight_image",
+            "single_min_cfg_time",
+            "single_max_cfg_time",
+            "multi_edit_guidance_weight",
+            "multi_edit_guidance_weight_image",
+            "multi_min_cfg_time",
+            "multi_max_cfg_time",
+            "pipe_config",
+            "embeddings",
+            "embedding_binary_var_name",
+            "dit_model",
+            "vae_model",
+            "steps",
+            "denoise_strength"
+          ],
+          "optional": [
+            "latents",
+            "latent_binary_var_name"
+          ]
+        },
+        "output": [
+          "IMAGE"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "images"
+        ],
+        "name": "Seed4Sampler",
+        "display_name": "Seed4 Sampler",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Seed4",
+        "category": "Seed4",
+        "output_node": false,
+        "origin_display_name": "Seed4 Sampler"
+      }
+    },
+    "custom_node_versions": [
+      {
+        "path": "custom_nodes/ComfyUI-Byteartist-Node",
+        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Byteartist-Node.git",
+        "git_commit": "8bb0b9b05d02ec9e536aeabf62d63c36357b363e",
+        "node_types": [
+          "BANodeLLMText",
+          "TextInput"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Custom-Scripts",
+        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Custom-Scripts.git",
+        "git_commit": "d49b6c569fb2fc4a220b81db14fd4daba46c959a",
+        "node_types": [
+          "ShowText|pysssss"
+        ]
+      },
+      {
+        "path": "custom_nodes/was-node-suite-comfyui",
+        "git_url": "https://github.com/WASasquatch/was-node-suite-comfyui.git",
+        "git_commit": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "node_types": [
+          "Text Concatenate"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Aip-Aigc",
+        "git_url": "https://code.byted.org/lab-cv/ComfyUI-Aip-Aigc.git",
+        "git_commit": "e21ba9343f9c9ebbf936d5c9dffbd889191191d8",
+        "node_types": [
+          "AIPStringInput"
+        ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-Seed4",
+        "git_url": "https://code.byted.org/lab-cv/ComfyUI-Seed4.git",
+        "git_commit": "10c2592637e522806def0b755a494ba8659a5cae",
+        "node_types": [
+          "Seed4DITLoader",
+          "Seed4VAELoader",
+          "Seed4LoRALoader",
+          "Seed4ApplyLora",
+          "Seed4RemoteT2ITextEncoder",
+          "Seed4Sampler"
+        ]
+      },
+      {
+        "path": "custom_nodes/comfyui-webhook-node-latest",
+        "git_url": "https://github.com/Doki21yy/comfyui-webhook-node-latest.git",
+        "git_commit": "ddcba27136952af6349913cf9c8b555233118782",
+        "node_types": [
+          "BAInputSlot"
+        ]
+      },
+      {
+        "path": "custom_nodes/comfyui-webhook-node",
+        "git_url": "https://github.com/Eden123321/comfyui-webhook-node.git",
+        "git_commit": "3c0fbea3e358bb66a41069622dbc9f88f8c5f8d6",
+        "node_types": [
+          "OCOut"
+        ]
+      }
+    ],
+    "pip_freeze": [
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/python_dotenv-1.2.1.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.2.6.dist-info due to invalid metadata entry 'name'",
+      "absl-py==2.3.1",
+      "accelerate==1.10.1",
+      "addict==2.4.0",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "albucore==0.0.24",
+      "albumentations==2.0.8",
+      "alembic==1.18.4",
+      "altgraph==0.17.4",
+      "annotated-doc==0.0.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "basicsr==1.4.2",
+      "beautifulsoup4==4.14.3",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "blend_modes==2.2.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-pydev==0.0.20",
+      "byted-wandb==0.13.90",
+      "byted_automl_plugin==0.1.3",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_lighten_validator==0.2.14",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.uploader==0.4.0a15",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "click==8.1.7",
+      "clip-interrogator==0.6.0",
+      "cmake==4.1.0",
+      "color-matcher==0.6.0",
+      "coloredlogs==15.0.1",
+      "colour-science==0.4.7",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui_frontend_package==1.26.13",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==39.0.2",
+      "cstr @ git+https://github.com/WASasquatch/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
+      "cupy-cuda12x==12.3.0",
+      "cupy-wheel==12.3.0",
+      "cycler==0.12.1",
+      "Cython==3.2.1",
+      "dataclasses-json==0.6.7",
+      "ddt==1.7.2",
+      "decorator==5.2.1",
+      "deepdiff==8.6.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "dill==0.4.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "docutils==0.22.3",
+      "easydict==1.13",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "et_xmlfile==2.0.0",
+      "fairscale==0.4.13",
+      "fastapi==0.117.1",
+      "fastrlock==0.8.3",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "filetype==1.2.0",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "ftfy==6.3.1",
+      "future==1.0.0",
+      "fvcore==0.1.5.post20221221",
+      "gdown==5.2.1",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "groundingdino-py==0.4.0",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httpx==0.25.2",
+      "httpx-sse==0.4.3",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "hydra-core==1.3.2",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "imageio-ffmpeg==0.6.0",
+      "img2texture @ git+https://github.com/WASasquatch/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
+      "importlib_metadata==8.7.0",
+      "iniconfig==2.0.0",
+      "insightface==0.7.3",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "joblib==1.5.2",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "jsonpatch==1.33",
+      "jsonpointer==3.0.0",
+      "jsonschema==4.26.0",
+      "jsonschema-specifications==2025.9.1",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "langchain==0.3.25",
+      "langchain-community==0.3.24",
+      "langchain-core==0.3.64",
+      "langchain-ollama==0.3.3",
+      "langchain-openai==0.3.21",
+      "langchain-text-splitters==0.3.8",
+      "langsmith==0.3.45",
+      "lark==1.3.0",
+      "lazy_loader==0.4",
+      "litelama==0.1.7",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "loguru==0.7.3",
+      "lz4==3.1.10",
+      "Mako==1.3.10",
+      "Markdown==3.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "marshmallow==3.26.1",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "moviepy==1.0.3",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "mss==10.1.0",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-ml-py==13.590.48",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvshmem-cu12==3.3.20",
+      "nvidia-nvtx-cu12==12.6.77",
+      "objprint==0.3.0",
+      "ollama==0.6.0",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime==1.23.2",
+      "onnxruntime-gpu==1.22.0",
+      "open_clip_torch==3.2.0",
+      "openai==1.109.1",
+      "opencv-contrib-python==4.12.0.88",
+      "opencv-python==4.11.0.86",
+      "opencv-python-headless==4.13.0.92",
+      "openpyxl==3.1.2",
+      "orderly-set==5.5.0",
+      "orjson==3.11.3",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "pathtools==0.1.2",
+      "peft==0.17.1",
+      "piexif==1.1.3",
+      "pilgram==2.0.0",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "pooch==1.9.0",
+      "portalocker==3.2.0",
+      "prettytable==3.16.0",
+      "proglog==0.1.12",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pycocotools==2.0.11",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pycryptodomex==3.23.0",
+      "pydantic==2.11.9",
+      "pydantic-settings==2.13.1",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "PyMatting==1.1.15",
+      "pynvml==13.0.1",
+      "pyope==0.2.2",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "PySocks==1.7.1",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-dotenv==1.2.2",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "referencing==0.37.0",
+      "regex==2025.9.18",
+      "rembg==2.0.69",
+      "requests==2.31.0",
+      "requests-toolbelt==1.0.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rfc3986==1.5.0",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rpds-py==0.30.0",
+      "rsa==4.9.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "SAM-2 @ git+https://github.com/facebookresearch/sam2@2b90b9f5ceec907a1c18123530e92e794ad901a4",
+      "schedule==1.2.2",
+      "scikit-image==0.26.0",
+      "scikit-learn==1.7.2",
+      "scipy==1.16.2",
+      "segment-anything==1.0",
+      "semantic-version==2.10.0",
+      "sentencepiece==0.2.1",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "simsimd==6.5.3",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "soundfile==0.13.1",
+      "soupsieve==2.8.3",
+      "spandrel==0.4.1",
+      "SQLAlchemy==2.0.48",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "stringzilla==4.2.3",
+      "supervision==0.6.0",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tb-nightly==2.21.0a20251023",
+      "tenacity==8.5.0",
+      "tensorboard-data-server==0.7.2",
+      "termcolor==3.1.0",
+      "threadpoolctl==3.6.0",
+      "thriftpy2==0.4.20",
+      "tifffile==2025.10.16",
+      "tiktoken==0.12.0",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "transparent-background==1.3.4",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typer-slim==0.24.0",
+      "typing-inspect==0.9.0",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "viztracer==0.16.3",
+      "watchdog==6.0.0",
+      "wcwidth==0.2.14",
+      "websockets==15.0.1",
+      "Werkzeug==3.1.3",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "xlrd==2.0.1",
+      "yacs==0.1.8",
+      "yapf==0.43.0",
+      "yarl==1.11.1",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstandard==0.23.0",
+      "zstd==1.5.7.2"
+    ],
+    "preserve_pip_freeze": [
+      "accelerate==1.10.1",
+      "aiofiles==23.2.1",
+      "aiohappyeyeballs==2.6.1",
+      "aiohttp==3.9.1",
+      "aiosignal==1.3.1",
+      "altgraph==0.17.4",
+      "annotated-types==0.7.0",
+      "antlr4-python3-runtime==4.9.3",
+      "anyio==4.4.0",
+      "asn1crypto==1.5.1",
+      "attrs==24.2.0",
+      "av==17.0.0",
+      "bitsandbytes==0.47.0",
+      "black==24.8.0",
+      "boto3==1.40.38",
+      "botocore==1.40.38",
+      "Brotli==1.1.0",
+      "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
+      "byted-cruise==0.7.0",
+      "byted-kms-encryption==0.0.7",
+      "byted-kmsv2inner==0.1.21",
+      "byted-pydev==0.0.20",
+      "byted-wandb==0.13.90",
+      "byted_encrypted_hdfs==0.7.2",
+      "byted_pypprof==0.0.5",
+      "bytedance-context==0.7.1",
+      "bytedance-ivory==1.1.3.post38",
+      "bytedance-metrics==0.5.1",
+      "bytedance.ba-download==0.6.7",
+      "bytedance.bach==19.9.0.3",
+      "bytedance.vcloud==2.0.17",
+      "bytedance.versioncollect==0.2.0",
+      "bytedbackgrounds==0.0.6",
+      "byteddatabus==1.0.8",
+      "byteddps==0.1.2",
+      "bytedenv==0.7.3",
+      "bytedeuler==2.7.4",
+      "bytedivory==0.0.11.post13",
+      "bytedkms==3.2.9",
+      "bytedkmsv2==0.10.60",
+      "bytedlogger==0.15.1",
+      "bytedlogid==0.2.1",
+      "bytedmeinheld==1.0.3",
+      "bytedmemfd==0.2",
+      "bytedmetrics==0.10.2",
+      "bytedoptimx==0.7.2",
+      "bytedpypolaris==3.0.49",
+      "bytedpyrocketmq==2.4.13",
+      "bytedservicediscovery==0.18.2",
+      "bytedsinfmetacenter==1.4.3",
+      "bytedtcc==1.4.4",
+      "bytedtos==1.1.22",
+      "bytedtrace==0.3.0",
+      "bytedturbox==0.22.0+cu12.6torch2.7.1",
+      "bytedunicorn==0.9.4",
+      "bytedurllibsec==0.4.1",
+      "bytedwsgimiddleware==0.9.0",
+      "bytedzti==1.0.15",
+      "bytedztijwthelper==0.0.21",
+      "bytedztispiffe==0.0.16",
+      "cacheout==0.16.0",
+      "cachetools==6.2.0",
+      "certifi==2024.8.30",
+      "cffi==2.0.0",
+      "chardet==5.2.0",
+      "charset-normalizer==3.3.2",
+      "click==8.1.7",
+      "cmake==4.1.0",
+      "coloredlogs==15.0.1",
+      "comfyui-embedded-docs==0.2.6",
+      "comfyui_workflow_templates==0.1.86",
+      "contourpy==1.3.3",
+      "cramjam==2.6.2",
+      "crcmod==1.7",
+      "cryptography==39.0.2",
+      "cycler==0.12.1",
+      "decorator==5.2.1",
+      "deepspeed==0.17.6",
+      "Deprecated==1.2.18",
+      "diffusers==0.35.1",
+      "distro==1.9.0",
+      "dnspython==2.8.0",
+      "docker-pycreds==0.4.0",
+      "docstring_parser==0.17.0",
+      "ecdsa==0.19.1",
+      "einops==0.8.1",
+      "fastapi==0.117.1",
+      "ffmpy==0.6.1",
+      "file-magic==0.4.0",
+      "filelock==3.19.1",
+      "flash_attn @ https://tosv.byted.org/obj/high-aes-depends/flash_attn-2.8.3%2Bcu12torch2.7cxx11abiFALSE-cp311-cp311-linux_x86_64.whl",
+      "flatbuffers==25.9.23",
+      "fonttools==4.60.0",
+      "frozenlist==1.4.1",
+      "fsspec==2023.6.0",
+      "fvcore==0.1.5.post20221221",
+      "gevent==24.11.1",
+      "gitdb==4.0.12",
+      "GitPython==3.1.42",
+      "GPUtil==1.4.0",
+      "gradio==5.47.0",
+      "gradio_client==1.13.2",
+      "greenlet==3.2.4",
+      "groovy==0.1.2",
+      "grpcio==1.75.0",
+      "gunicorn==20.1.0",
+      "h11==0.14.0",
+      "hf-xet==1.1.10",
+      "hjson==3.1.0",
+      "httpcore==1.0.5",
+      "httpx==0.25.2",
+      "huggingface-hub==0.35.1",
+      "humanfriendly==10.0",
+      "idna==3.10",
+      "imageio==2.37.0",
+      "importlib_metadata==8.7.0",
+      "iniconfig==2.0.0",
+      "iopath==0.1.10",
+      "ipaddress==1.0.23",
+      "Jinja2==3.1.6",
+      "jiter==0.11.0",
+      "jmespath==1.0.1",
+      "jsonargparse==4.14.1",
+      "jsonc-parser==1.1.5",
+      "kiwisolver==1.4.9",
+      "kornia==0.8.1",
+      "kornia_rs==0.1.9",
+      "lark==1.3.0",
+      "llvmlite==0.45.0",
+      "lmdb==1.7.3",
+      "lz4==3.1.10",
+      "markdown-it-py==4.0.0",
+      "MarkupSafe==3.0.2",
+      "matplotlib==3.10.6",
+      "mdurl==0.1.2",
+      "megablocks==0.5.1",
+      "miscreant==0.3.0",
+      "mpmath==1.3.0",
+      "mprofile==0.0.15",
+      "msgpack==1.0.8",
+      "multidict==6.0.5",
+      "mypy-extensions==1.0.0",
+      "networkx==3.5",
+      "ninja==1.13.0",
+      "numba==0.62.0",
+      "numpy==1.26.4",
+      "nvidia-cublas-cu12==12.6.4.1",
+      "nvidia-cuda-cupti-cu12==12.6.80",
+      "nvidia-cuda-nvrtc-cu12==12.6.77",
+      "nvidia-cuda-runtime-cu12==12.6.77",
+      "nvidia-cudnn-cu12==9.5.1.17",
+      "nvidia-cufft-cu12==11.3.0.4",
+      "nvidia-cufile-cu12==1.11.1.6",
+      "nvidia-curand-cu12==10.3.7.77",
+      "nvidia-cusolver-cu12==11.7.1.2",
+      "nvidia-cusparse-cu12==12.5.4.2",
+      "nvidia-cusparselt-cu12==0.6.3",
+      "nvidia-nccl-cu12==2.26.2",
+      "nvidia-nvjitlink-cu12==12.6.85",
+      "nvidia-nvtx-cu12==12.6.77",
+      "omegaconf==2.3.0",
+      "onnx==1.17.0",
+      "onnxruntime-gpu==1.22.0",
+      "openai==1.109.1",
+      "opencv-python==4.11.0.86",
+      "orjson==3.11.3",
+      "packaging==24.1",
+      "pandas==2.3.2",
+      "pathspec==0.12.1",
+      "peft==0.17.1",
+      "pillow==11.3.0",
+      "pip-autoremove==0.10.0",
+      "pipdeptree==2.14.0",
+      "platformdirs==4.2.1",
+      "pluggy==1.5.0",
+      "ply==3.11",
+      "polars==1.33.1",
+      "portalocker==3.2.0",
+      "promise==2.3",
+      "propcache==0.3.2",
+      "protobuf==3.20.3",
+      "psutil==6.0.0",
+      "py==1.11.0",
+      "py-cpuinfo==9.0.0",
+      "pyarrow==11.0.0",
+      "pyasn1==0.6.1",
+      "pycparser==2.23",
+      "pycryptodome==3.19.1",
+      "pydantic==2.11.9",
+      "pydantic_core==2.33.2",
+      "pydub==0.25.1",
+      "Pygments==2.19.2",
+      "PyJWT==2.10.1",
+      "pyope==0.2.2",
+      "pyOpenSSL==23.2.0",
+      "pyparsing==3.2.5",
+      "pytest==8.3.2",
+      "python-dateutil==2.9.0.post0",
+      "python-etcd==0.4.5",
+      "python-jose==3.5.0",
+      "python-magic==0.4.27",
+      "python-multipart==0.0.20",
+      "python-snappy==0.7.3",
+      "pytz==2023.3",
+      "PyYAML==6.0.2",
+      "regex==2025.9.18",
+      "requests==2.31.0",
+      "retry==0.9.2",
+      "retrying==1.4.2",
+      "rich==14.1.0",
+      "rotary-embedding-torch==0.8.9",
+      "rsa==4.9.1",
+      "ruff==0.13.1",
+      "s3transfer==0.14.0",
+      "safehttpx==0.1.6",
+      "safetensors==0.6.2",
+      "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "schedule==1.2.2",
+      "scipy==1.16.2",
+      "semantic-version==2.10.0",
+      "sentry-sdk==2.39.0",
+      "setproctitle==1.3.7",
+      "shellingham==1.5.4",
+      "shortuuid==1.0.13",
+      "six==1.16.0",
+      "smmap==5.0.2",
+      "sniffio==1.3.1",
+      "spandrel==0.4.1",
+      "stanford-stk==0.7.1",
+      "starlette==0.48.0",
+      "sympy==1.14.0",
+      "tabulate==0.9.0",
+      "tenacity==8.5.0",
+      "termcolor==3.1.0",
+      "thriftpy2==0.4.20",
+      "timm==1.0.20",
+      "tokenizers==0.22.1",
+      "toml==0.10.2",
+      "tomlkit==0.13.3",
+      "torch==2.7.1+cu126",
+      "torchao==0.9.0",
+      "torchaudio==2.7.1+cu126",
+      "torchsde==0.2.6",
+      "torchvision==0.22.1+cu126",
+      "tqdm==4.67.1",
+      "trampoline==0.1.2",
+      "transformers==4.56.2",
+      "triton==3.3.1",
+      "ttvcloud==0.0.39",
+      "typer==0.19.2",
+      "typing-inspection==0.4.1",
+      "typing_extensions==4.12.2",
+      "tzdata==2025.2",
+      "ultralytics==8.3.203",
+      "ultralytics-thop==2.0.17",
+      "urllib3==1.26.20",
+      "uv==0.8.12",
+      "uvicorn==0.37.0",
+      "websockets==15.0.1",
+      "wget==3.2",
+      "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
+      "wrapt==1.17.3",
+      "yacs==0.1.8",
+      "yarl==1.11.1",
+      "zipp==3.23.0",
+      "zope.event==6.0",
+      "zope.interface==8.0.1",
+      "zprofile==1.0.13",
+      "zstd==1.5.7.2"
+    ],
+    "device_info": {
+      "cudaVersion": "12.6",
+      "gpuName": "NVIDIA L20",
+      "system": "Linux",
+      "version": "#5.4.143.bsk.8 SMP Debian 5.4.143.bsk.8 Wed Jul 20 08:43:36 UTC ",
+      "cuda_version": "12.6",
+      "gpu_name": "NVIDIA L20",
+      "xpu_num": "1"
+    },
+    "base_image": "aip_image_factory/custom.image.combo_infer:nvidia_seed4_infer-20251006-215922",
+    "comfy_args": {
+      "--listen": "fd02::25:0:0:d61",
+      "--port": "9001"
+    },
+    "comfyui_tag": "v0.3.60",
+    "ba_combo": "588008921034165554",
+    "workflow_name": "啥都能跑",
+    "workflow_id": "597261691570414615:13",
+    "config_id": "614967264382319048",
+    "workflow_version_id": "614967264399096264",
+    "workflow_identity": "597261691570414615:13"
+  }
+}

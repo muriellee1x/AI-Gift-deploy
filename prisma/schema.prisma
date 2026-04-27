@@ -1,0 +1,209 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== Authentication ====================
+
+model Account {
+  id                String  @id @default(uuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+  @@map("account")
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique(map: "Session_sessionToken_key")
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("session")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String    @unique(map: "User_name_key")
+  email         String?
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now()) @updatedAt
+
+  accounts   Account[]
+  sessions   Session[]
+  projects   Project[]
+  apiConfigs ApiConfig[]
+  baConfigs  BaConfig[]
+  tasks      Task[]
+  taskEvents TaskEvent[]
+
+  @@map("user")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique(map: "VerificationToken_token_key")
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtoken")
+}
+
+// ==================== API Configuration ====================
+
+model ApiConfig {
+  id        String   @id @default(uuid())
+  userId    String
+  category  String   // "llm" | "image" | "video"
+  name      String
+  baseUrl   String
+  apiKey    String   @db.Text
+  modelName String
+  isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, category])
+  @@map("api_configs")
+}
+
+// ==================== BA Configuration ====================
+
+model BaConfig {
+  id               String    @id @default(uuid())
+  userId           String
+  name             String
+  roomUrl          String    @db.Text
+  benchBaseUrl     String?   @db.Text
+  cookieHeader     String?   @db.Text
+  cookieObtainedAt DateTime?
+  isDefault        Boolean   @default(false)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @default(now()) @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("ba_configs")
+}
+
+// ==================== Project (capability records) ====================
+
+model Project {
+  id            String   @id @default(uuid())
+  userId        String
+  name          String
+  kind          String   // "superpower" | "vertical" | "general" | "postprocess"
+  subKind       String   // "fission" | "flower" | "food" | "scene" ...
+  currentStep   String   @default("step1")
+  coverImageUrl String?  @db.Text
+  state         Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, kind])
+  @@index([userId, updatedAt])
+  @@map("projects")
+}
+
+// ==================== Media ====================
+
+model MediaObject {
+  id         String   @id @default(uuid())
+  publicId   String   @unique
+  storageKey String   @unique @db.VarChar(512)
+  sha256     String?
+  mimeType   String?
+  sizeBytes  BigInt?
+  width      Int?
+  height     Int?
+  durationMs Int?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+
+  @@index([createdAt])
+  @@map("media_objects")
+}
+
+// ==================== Task Queue ====================
+
+model Task {
+  id           String    @id @default(uuid())
+  userId       String
+  projectId    String
+  type         String
+  targetType   String
+  targetId     String
+  status       String    @default("queued")
+  progress     Int       @default(0)
+  attempt      Int       @default(0)
+  maxAttempts  Int       @default(5)
+  priority     Int       @default(0)
+  dedupeKey    String?   @unique
+  externalId   String?
+  payload      Json?
+  result       Json?
+  errorCode    String?
+  errorMessage String?   @db.Text
+  queuedAt     DateTime  @default(now())
+  startedAt    DateTime?
+  finishedAt   DateTime?
+  heartbeatAt  DateTime?
+  enqueuedAt   DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  user   User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  events TaskEvent[]
+
+  @@index([status])
+  @@index([type])
+  @@index([targetType, targetId])
+  @@index([projectId])
+  @@index([userId])
+  @@index([heartbeatAt])
+  @@map("tasks")
+}
+
+model TaskEvent {
+  id        Int      @id @default(autoincrement())
+  taskId    String
+  projectId String
+  userId    String
+  eventType String
+  payload   Json?
+  createdAt DateTime @default(now())
+
+  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([projectId, id])
+  @@index([taskId])
+  @@index([userId])
+  @@map("task_events")
+}
