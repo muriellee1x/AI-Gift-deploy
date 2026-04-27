@@ -132,7 +132,7 @@ export async function uploadImage(
   filename: string,
 ): Promise<Record<string, unknown>> {
   const formData = new FormData()
-  formData.append('image', new Blob([fileBuffer]), filename)
+  formData.append('image', new Blob([new Uint8Array(fileBuffer)]), filename)
 
   const res = await baFetch(benchBaseUrl, cookie, '/upload/image', {
     method: 'POST',
@@ -149,7 +149,7 @@ export async function uploadVideo(
   filename: string,
 ): Promise<Record<string, unknown>> {
   const formData = new FormData()
-  formData.append('image', new Blob([fileBuffer], { type: 'video/mp4' }), filename)
+  formData.append('image', new Blob([new Uint8Array(fileBuffer)], { type: 'video/mp4' }), filename)
 
   const res = await baFetch(benchBaseUrl, cookie, '/upload/image', {
     method: 'POST',
