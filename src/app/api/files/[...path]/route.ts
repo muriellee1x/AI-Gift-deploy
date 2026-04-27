@@ -5,9 +5,10 @@ export async function GET(
   _request: NextRequest,
   context: { params: Promise<{ path: string[] }> },
 ) {
+  let key = ''
   try {
     const { path: segments } = await context.params
-    const key = segments.map(decodeURIComponent).join('/')
+    key = segments.map(decodeURIComponent).join('/')
 
     if (!key) {
       return NextResponse.json({ error: 'Missing file path' }, { status: 400 })
