@@ -4,6 +4,22 @@ import { apiHandler, ApiError } from '@/lib/api-errors'
 import { isErrorResponse, requireUserAuth } from '@/lib/api-auth'
 import { resolveBenchBaseUrl } from '@/lib/ba-auth'
 
+type CookieAgeStatus = 'green' | 'yellow' | 'red-soft' | 'red-invalid' | 'none'
+
+function deriveCookieAgeStatus(
+  cookieObtainedAt: Date | null,
+  cookieValid: boolean,
+  hasCookie: boolean,
+): CookieAgeStatus {
+  if (!hasCookie) return 'none'
+  if (!cookieValid) return 'red-invalid'
+  if (!cookieObtainedAt) return 'green'
+  const daysAgo = (Date.now() - cookieObtainedAt.getTime()) / (1000 * 60 * 60 * 24)
+  if (daysAgo <= 3) return 'green'
+  if (daysAgo <= 7) return 'yellow'
+  return 'red-soft'
+}
+
 export const GET = apiHandler(async () => {
   const authResult = await requireUserAuth()
   if (isErrorResponse(authResult)) return authResult
@@ -14,16 +30,21 @@ export const GET = apiHandler(async () => {
     orderBy: { createdAt: 'desc' },
   })
 
-  const list = configs.map((c) => ({
-    id: c.id,
-    name: c.name,
-    roomUrl: c.roomUrl,
-    benchBaseUrl: c.benchBaseUrl,
-    hasCookie: !!c.cookieHeader,
-    cookieObtainedAt: c.cookieObtainedAt,
-    isDefault: c.isDefault,
-    createdAt: c.createdAt,
-  }))
+  const list = configs.map((c) => {
+    const hasCookie = !!c.cookieHeader
+    return {
+      id: c.id,
+      name: c.name,
+      roomUrl: c.roomUrl,
+      benchBaseUrl: c.benchBaseUrl,
+      hasCookie,
+      cookieObtainedAt: c.cookieObtainedAt,
+      cookieValid: c.cookieValid,
+      cookieAgeStatus: deriveCookieAgeStatus(c.cookieObtainedAt, c.cookieValid, hasCookie),
+      isDefault: c.isDefault,
+      createdAt: c.createdAt,
+    }
+  })
 
   return NextResponse.json({ configs: list })
 })

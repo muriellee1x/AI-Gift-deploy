@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { apiHandler, ApiError } from '@/lib/api-errors'
 import { isErrorResponse, requireUserAuth } from '@/lib/api-auth'
-import { acquireCookie, resolveBenchBaseUrl } from '@/lib/ba-auth'
+import { resolveBenchBaseUrl, validateCookieFormat } from '@/lib/ba-auth'
 import { encryptApiKey } from '@/lib/crypto-utils'
+import { testConnection } from '@/lib/ba-client'
 
 export const POST = apiHandler(async (
-  _request: NextRequest,
+  request: NextRequest,
   context: { params: Promise<{ id: string }> },
 ) => {
   const authResult = await requireUserAuth()
@@ -19,27 +20,36 @@ export const POST = apiHandler(async (
     throw new ApiError('NOT_FOUND')
   }
 
-  const benchBaseUrl = config.benchBaseUrl || resolveBenchBaseUrl(config.roomUrl)
+  const body = await request.json() as { cookieHeader?: unknown }
+  const { cookieHeader } = body
 
   try {
-    const cookieHeader = await acquireCookie(benchBaseUrl)
-
-    await prisma.baConfig.update({
-      where: { id },
-      data: {
-        benchBaseUrl,
-        cookieHeader: encryptApiKey(cookieHeader),
-        cookieObtainedAt: new Date(),
-      },
-    })
-
-    return NextResponse.json({
-      success: true,
-      message: 'Cookie 获取成功',
-      cookieObtainedAt: new Date().toISOString(),
-    })
+    validateCookieFormat(cookieHeader)
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err)
-    throw new ApiError('INTERNAL', `Cookie 获取失败: ${msg}`)
+    throw new ApiError('BAD_REQUEST', err instanceof Error ? err.message : 'Cookie 格式错误')
   }
+
+  const benchBaseUrl = config.benchBaseUrl || resolveBenchBaseUrl(config.roomUrl)
+
+  // 强制验证：保存前先 testConnection
+  const testResult = await testConnection(benchBaseUrl, cookieHeader as string)
+  if (!testResult.ok) {
+    throw new ApiError('BAD_REQUEST', `Cookie 验证失败: ${testResult.message}`)
+  }
+
+  await prisma.baConfig.update({
+    where: { id },
+    data: {
+      benchBaseUrl,
+      cookieHeader: encryptApiKey(cookieHeader as string),
+      cookieObtainedAt: new Date(),
+      cookieValid: true,
+    },
+  })
+
+  return NextResponse.json({
+    success: true,
+    message: 'Cookie 已保存并验证通过',
+    cookieObtainedAt: new Date().toISOString(),
+  })
 })

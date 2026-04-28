@@ -100,6 +100,7 @@ model BaConfig {
   benchBaseUrl     String?   @db.Text
   cookieHeader     String?   @db.Text
   cookieObtainedAt DateTime?
+  cookieValid      Boolean   @default(true)
   isDefault        Boolean   @default(false)
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @default(now()) @updatedAt

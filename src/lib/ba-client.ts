@@ -36,12 +36,26 @@ export interface SystemStats {
   [key: string]: unknown
 }
 
+export class BaCookieInvalidError extends Error {
+  constructor(message = 'Cookie 已失效，请到设置页刷新') {
+    super(message)
+    this.name = 'BaCookieInvalidError'
+  }
+}
+
+export function isCookieInvalidStatus(status: number): boolean {
+  return status === 401 || status === 403
+}
+
 export async function testConnection(
   benchBaseUrl: string,
   cookie: string,
 ): Promise<{ ok: boolean; message: string; data?: SystemStats }> {
   try {
     const res = await baFetch(benchBaseUrl, cookie, '/system_stats')
+    if (isCookieInvalidStatus(res.status)) {
+      return { ok: false, message: `HTTP ${res.status}: Cookie 无效或已过期，请刷新 Cookie` }
+    }
     if (!res.ok) {
       return { ok: false, message: `HTTP ${res.status}: ${res.statusText}` }
     }
@@ -57,6 +71,7 @@ export async function getQueue(
   cookie: string,
 ): Promise<Record<string, unknown>> {
   const res = await baFetch(benchBaseUrl, cookie, '/queue')
+  if (isCookieInvalidStatus(res.status)) throw new BaCookieInvalidError()
   if (!res.ok) throw new Error(`GET /queue failed: ${res.status}`)
   return res.json() as Promise<Record<string, unknown>>
 }
@@ -66,6 +81,7 @@ export async function getObjectInfo(
   cookie: string,
 ): Promise<Record<string, unknown>> {
   const res = await baFetch(benchBaseUrl, cookie, '/object_info')
+  if (isCookieInvalidStatus(res.status)) throw new BaCookieInvalidError()
   if (!res.ok) throw new Error(`GET /object_info failed: ${res.status}`)
   return res.json() as Promise<Record<string, unknown>>
 }
@@ -90,6 +106,7 @@ export async function submitPrompt(
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ prompt: workflow }),
   })
+  if (isCookieInvalidStatus(res.status)) throw new BaCookieInvalidError()
   if (!res.ok) {
     const text = await res.text()
     throw new Error(`POST /prompt failed (${res.status}): ${text.slice(0, 500)}`)
@@ -117,6 +134,7 @@ export async function getHistory(
   promptId: string,
 ): Promise<Record<string, HistoryEntry>> {
   const res = await baFetch(benchBaseUrl, cookie, `/history/${promptId}`)
+  if (isCookieInvalidStatus(res.status)) throw new BaCookieInvalidError()
   if (!res.ok) throw new Error(`GET /history/${promptId} failed: ${res.status}`)
   return res.json() as Promise<Record<string, HistoryEntry>>
 }
@@ -138,6 +156,7 @@ export async function uploadImage(
     method: 'POST',
     body: formData,
   })
+  if (isCookieInvalidStatus(res.status)) throw new BaCookieInvalidError()
   if (!res.ok) throw new Error(`POST /upload/image failed: ${res.status}`)
   return res.json() as Promise<Record<string, unknown>>
 }
@@ -155,6 +174,7 @@ export async function uploadVideo(
     method: 'POST',
     body: formData,
   })
+  if (isCookieInvalidStatus(res.status)) throw new BaCookieInvalidError()
   if (!res.ok) throw new Error(`POST /upload/image(video) failed: ${res.status}`)
   return res.json() as Promise<Record<string, unknown>>
 }
@@ -168,6 +188,7 @@ export async function downloadOutput(
 ): Promise<Buffer> {
   const params = new URLSearchParams({ filename, subfolder, type })
   const res = await baFetch(benchBaseUrl, cookie, `/view?${params}`)
+  if (isCookieInvalidStatus(res.status)) throw new BaCookieInvalidError()
   if (!res.ok) throw new Error(`GET /view failed: ${res.status}`)
   const arrayBuf = await res.arrayBuffer()
   return Buffer.from(arrayBuf)

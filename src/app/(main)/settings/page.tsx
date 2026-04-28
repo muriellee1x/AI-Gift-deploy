@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { DeleteIcon, EditIcon } from '@/components/ui/BrandIcons'
+import BaCookiePasteModal from '@/components/ui/BaCookiePasteModal'
 
 // ---------------------------------------------------------------------------
 // Types
@@ -33,6 +34,8 @@ type TestResult = {
   message: string
 }
 
+type CookieAgeStatus = 'green' | 'yellow' | 'red-soft' | 'red-invalid' | 'none'
+
 type BaConfigItem = {
   id: string
   name: string
@@ -40,6 +43,8 @@ type BaConfigItem = {
   benchBaseUrl: string | null
   hasCookie: boolean
   cookieObtainedAt: string | null
+  cookieValid: boolean
+  cookieAgeStatus: CookieAgeStatus
   isDefault: boolean
   createdAt: string
 }
@@ -315,6 +320,7 @@ export default function SettingsPage() {
   const [baActionStatus, setBaActionStatus] = useState<
     Record<string, { action: string; status: string; message: string }>
   >({})
+  const [baCookieModal, setBaCookieModal] = useState<{ configId: string; loginUrl: string } | null>(null)
 
   const fetchConfigs = useCallback(async () => {
     try {
@@ -521,23 +527,50 @@ export default function SettingsPage() {
   }
 
   async function handleBaAction(id: string, action: 'login' | 'cookie' | 'test') {
+    // login: 从 API 拿到 URL 后在新标签页打开，再弹 Cookie 粘贴 Modal
+    if (action === 'login') {
+      setBaActionStatus((prev) => ({ ...prev, [id]: { action, status: 'loading', message: '' } }))
+      try {
+        const res = await fetch(`/api/ba-config/${id}/login`, { method: 'POST' })
+        const data = await res.json() as { success?: boolean; loginUrl?: string; message?: string }
+        if (data.success && data.loginUrl) {
+          window.open(data.loginUrl, '_blank', 'noopener,noreferrer')
+          setBaCookieModal({ configId: id, loginUrl: data.loginUrl })
+          setBaActionStatus((prev) => ({ ...prev, [id]: { action, status: 'idle', message: '' } }))
+        } else {
+          setBaActionStatus((prev) => ({ ...prev, [id]: { action, status: 'fail', message: data.message || '获取登录地址失败' } }))
+        }
+      } catch {
+        setBaActionStatus((prev) => ({ ...prev, [id]: { action, status: 'fail', message: '请求失败，请检查网络' } }))
+      }
+      return
+    }
+
+    // cookie: 弹出粘贴 Modal
+    if (action === 'cookie') {
+      const item = baConfigs.find((c) => c.id === id)
+      const loginUrl = item?.benchBaseUrl ?? ''
+      setBaCookieModal({ configId: id, loginUrl })
+      return
+    }
+
+    // test: 原逻辑不变
     setBaActionStatus((prev) => ({
       ...prev,
       [id]: { action, status: 'loading', message: '' },
     }))
     try {
-      const res = await fetch(`/api/ba-config/${id}/${action}`, { method: 'POST' })
-      const data = await res.json()
+      const res = await fetch(`/api/ba-config/${id}/test`, { method: 'POST' })
+      const data = await res.json() as { success?: boolean; message?: string }
       if (data.success) {
         setBaActionStatus((prev) => ({
           ...prev,
-          [id]: { action, status: 'success', message: data.message || '操作成功' },
+          [id]: { action, status: 'success', message: data.message || '连接成功' },
         }))
-        if (action === 'cookie') await fetchBaConfigs()
       } else {
         setBaActionStatus((prev) => ({
           ...prev,
-          [id]: { action, status: 'fail', message: data.message || '操作失败' },
+          [id]: { action, status: 'fail', message: data.message || '连接失败' },
         }))
       }
     } catch {
@@ -706,6 +739,9 @@ export default function SettingsPage() {
               <div className="flex flex-col gap-4">
                 {sortedBaConfigs.map((item) => {
                   const actionState = baActionStatus[item.id]
+                  const daysAgo = item.cookieObtainedAt
+                    ? Math.floor((Date.now() - new Date(item.cookieObtainedAt).getTime()) / (1000 * 60 * 60 * 24))
+                    : null
                   return (
                     <div key={item.id} className="surface-card p-5">
                       <div className="flex items-start justify-between gap-4">
@@ -718,15 +754,30 @@ export default function SettingsPage() {
                           {item.benchBaseUrl && (
                             <p className="truncate text-caption">Bench: {item.benchBaseUrl}</p>
                           )}
-                          <p
-                            className={`mt-1 text-caption ${
-                              item.hasCookie ? 'text-[color:var(--color-brand-2)]' : 'text-amber-300'
-                            }`}
-                          >
-                            {item.hasCookie
-                              ? `Cookie 已获取 (${item.cookieObtainedAt ? new Date(item.cookieObtainedAt).toLocaleString() : ''})`
-                              : 'Cookie 未获取'}
-                          </p>
+                          {/* Cookie 状态三色显示 */}
+                          {item.cookieAgeStatus === 'none' && (
+                            <p className="mt-1 text-caption text-amber-300">Cookie 未获取，请粘贴 Cookie</p>
+                          )}
+                          {item.cookieAgeStatus === 'green' && (
+                            <p className="mt-1 text-caption text-[color:var(--color-brand-2)]">
+                              ✓ Cookie 有效{daysAgo !== null ? `（${daysAgo} 天前获取）` : ''}
+                            </p>
+                          )}
+                          {item.cookieAgeStatus === 'yellow' && (
+                            <p className="mt-1 text-caption text-amber-300">
+                              ⚠ Cookie 可能即将过期（{daysAgo} 天前获取，建议刷新）
+                            </p>
+                          )}
+                          {item.cookieAgeStatus === 'red-soft' && (
+                            <p className="mt-1 text-caption text-red-300">
+                              ⚠ Cookie 大概率已过期（{daysAgo} 天前获取，请刷新）
+                            </p>
+                          )}
+                          {item.cookieAgeStatus === 'red-invalid' && (
+                            <p className="mt-1 text-caption text-red-400">
+                              ✕ Cookie 已失效（API 返回 401），请刷新
+                            </p>
+                          )}
                         </div>
                         <div className="flex shrink-0 items-center gap-2">
                           {!item.isDefault && (
@@ -752,15 +803,14 @@ export default function SettingsPage() {
                           disabled={actionState?.action === 'login' && actionState.status === 'loading'}
                           className="sub-btn-tab"
                         >
-                          {actionState?.action === 'login' && actionState.status === 'loading' ? '打开中...' : '首次登录'}
+                          {actionState?.action === 'login' && actionState.status === 'loading' ? '打开中...' : '打开 ByteArtist'}
                         </button>
                         <button
                           type="button"
                           onClick={() => handleBaAction(item.id, 'cookie')}
-                          disabled={actionState?.action === 'cookie' && actionState.status === 'loading'}
                           className="sub-btn-tab"
                         >
-                          {actionState?.action === 'cookie' && actionState.status === 'loading' ? '获取中...' : '刷新 Cookie'}
+                          粘贴 Cookie
                         </button>
                         <button
                           type="button"
@@ -787,8 +837,7 @@ export default function SettingsPage() {
                         <div className="mt-3 rounded-xl border border-white/10 bg-white/5 p-3 text-caption">
                           <span className="flex items-center gap-2">
                             <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-white/20 border-t-fg" />
-                            {actionState.action === 'login' && '正在打开浏览器...'}
-                            {actionState.action === 'cookie' && '正在获取 Cookie，可能需要 10-30 秒...'}
+                            {actionState.action === 'login' && '正在获取登录地址...'}
                             {actionState.action === 'test' && '正在测试连接...'}
                           </span>
                         </div>
@@ -801,6 +850,19 @@ export default function SettingsPage() {
           </section>
         )}
       </div>
+
+      {/* BA Cookie 粘贴 Modal */}
+      {baCookieModal && (
+        <BaCookiePasteModal
+          configId={baCookieModal.configId}
+          loginUrl={baCookieModal.loginUrl}
+          onSuccess={async () => {
+            setBaCookieModal(null)
+            await fetchBaConfigs()
+          }}
+          onClose={() => setBaCookieModal(null)}
+        />
+      )}
     </div>
   )
 }
