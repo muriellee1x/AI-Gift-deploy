@@ -97,9 +97,21 @@ export default function Sidebar() {
       </nav>
 
       {/* Avatar */}
-      <div className={`mt-auto pt-4 anim-sidebar-avatar ${collapsed ? 'flex justify-center' : ''}`}>
-        <UserAvatar collapsed={collapsed} />
+      <div className={`mt-auto pb-4 anim-sidebar-avatar ${collapsed ? 'flex justify-center' : ''}`}>
+      <UserAvatar collapsed={collapsed} />
       </div>
+
+      {/* 用户手册 */}
+      {!collapsed && (
+        <a
+          href="https://bytedance.larkoffice.com/wiki/B3Tnwdi6NiCT3mkbRPccsjA9nFh"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mb-4 text-[12px] text-white/20 hover:text-white/50 transition-colors text-center w-full block"
+        >
+          阅读用户手册
+        </a>
+      )}
     </aside>
   )
 }
