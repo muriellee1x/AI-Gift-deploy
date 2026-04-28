@@ -22,8 +22,8 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Install tini for proper signal handling, ffmpeg for video frame extraction
-RUN apk add --no-cache tini ffmpeg
+# Install tini for proper signal handling, ffmpeg for video frame extraction, chromium for BA cookie auth
+RUN apk add --no-cache tini ffmpeg chromium
 
 # node_modules（含 devDeps，因为 npm run start 需要 concurrently + tsx）
 COPY --from=builder /app/node_modules ./node_modules

@@ -236,6 +236,7 @@ async function launchHeadless(benchHost: string, benchBaseUrl: string): Promise<
 
   console.log(`[ba-auth] Launching headless browser on port ${debugPort}`)
 
+  const isDocker = process.env.NODE_ENV === 'production' && process.platform === 'linux'
   const chrome = spawn(CHROME_BIN, [
     `--remote-debugging-port=${debugPort}`,
     '--headless=new',
@@ -244,6 +245,7 @@ async function launchHeadless(benchHost: string, benchBaseUrl: string): Promise<
     '--no-default-browser-check',
     `--user-data-dir=${PROFILE_DIR}`,
     '--profile-directory=Default',
+    ...(isDocker ? ['--no-sandbox', '--disable-dev-shm-usage', '--disable-setuid-sandbox'] : []),
     benchBaseUrl,
   ], { stdio: ['ignore', 'pipe', 'pipe'] })
 
