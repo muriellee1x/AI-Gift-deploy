@@ -6,6 +6,7 @@ import { withTaskLifecycle } from './shared'
 import { handlePipelineWorkflowTask } from './handlers/pipeline-workflow'
 import { handleFissionCharacterImageTask } from './handlers/fission-character-image'
 import { handleFissionEditImageTask } from './handlers/fission-edit-image'
+import { handleReskinGenerateImageTask } from './handlers/reskin-generate-image'
 
 async function processImageTask(job: Job<TaskJobData>) {
   switch (job.data.type) {
@@ -15,6 +16,8 @@ async function processImageTask(job: Job<TaskJobData>) {
       return await handleFissionCharacterImageTask(job)
     case TASK_TYPE.FISSION_EDIT_IMAGE:
       return await handleFissionEditImageTask(job)
+    case TASK_TYPE.RESKIN_GENERATE_IMAGE:
+      return await handleReskinGenerateImageTask(job)
     default:
       throw new Error(`Unsupported image task type: ${job.data.type}`)
   }

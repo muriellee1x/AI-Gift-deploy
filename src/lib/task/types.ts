@@ -22,6 +22,8 @@ export const TASK_TYPE = {
   PIPELINE_RUN_WORKFLOW: 'pipeline_run_workflow',
   FISSION_ANALYZE: 'fission_analyze',
   RESKIN_ANALYZE: 'reskin_analyze',
+  RESKIN_GENERATE_IMAGE_PROMPT: 'reskin_generate_image_prompt',
+  RESKIN_GENERATE_IMAGE: 'reskin_generate_image',
   FISSION_CHARACTER_PROMPTS: 'fission_character_prompts',
   FISSION_VIDEO_PROMPTS: 'fission_video_prompts',
   FISSION_GENERATE_VIDEO: 'fission_generate_video',

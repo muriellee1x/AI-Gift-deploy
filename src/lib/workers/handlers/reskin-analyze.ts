@@ -1,4 +1,7 @@
 import { type Job, UnrecoverableError } from 'bullmq'
+import path from 'path'
+import os from 'os'
+import fs from 'fs'
 import type { TaskJobData } from '@/lib/task/types'
 import { reportTaskProgress } from '../shared'
 import { buildPrompt, PROMPT_IDS } from '@/lib/prompt-i18n'
@@ -6,6 +9,7 @@ import { callUserLLM } from '@/lib/llm-call'
 import { callUserMultimodalLLM, type ContentPart } from '@/lib/llm-multimodal-call'
 import { getObjectBuffer, extractStorageKey } from '@/lib/storage'
 import { extractFrames } from '@/lib/video-frames'
+import { findGift } from '@/lib/reskin/gifts'
 
 function parseJsonBlock(text: string): unknown {
   let cleaned = text.trim()
@@ -18,23 +22,34 @@ function parseJsonBlock(text: string): unknown {
   return JSON.parse(cleaned.substring(first, last + 1))
 }
 
+async function fetchVideoBuffer(videoUrl: string): Promise<Buffer> {
+  const res = await fetch(videoUrl, { signal: AbortSignal.timeout(60000) })
+  if (!res.ok) throw new Error(`下载礼物视频失败: ${res.status} (${videoUrl})`)
+  const ab = await res.arrayBuffer()
+  return Buffer.from(ab)
+}
+
 export async function handleReskinAnalyzeTask(
   job: Job<TaskJobData>,
 ): Promise<Record<string, unknown>> {
   const { userId, payload } = job.data
-  const videoStorageKey = payload?.videoStorageKey as string | undefined
+  const giftKey = payload?.giftKey as string | undefined
   const imageStorageKey = payload?.imageStorageKey as string | undefined
 
-  if (!videoStorageKey || !imageStorageKey) {
-    throw new Error('videoStorageKey and imageStorageKey are required')
+  if (!giftKey || !imageStorageKey) {
+    throw new UnrecoverableError('giftKey and imageStorageKey are required')
   }
+
+  const gift = findGift(giftKey)
+  if (!gift) throw new UnrecoverableError(`未知礼物 key: ${giftKey}`)
 
   await reportTaskProgress(job, 5)
 
-  const videoKey = extractStorageKey(videoStorageKey) || videoStorageKey
   const imageKey = extractStorageKey(imageStorageKey) || imageStorageKey
-  const videoBuffer = await getObjectBuffer(videoKey)
-  const imageBuffer = await getObjectBuffer(imageKey)
+  const [videoBuffer, imageBuffer] = await Promise.all([
+    fetchVideoBuffer(gift.videoUrl),
+    getObjectBuffer(imageKey),
+  ])
 
   await reportTaskProgress(job, 15)
 
@@ -43,6 +58,14 @@ export async function handleReskinAnalyzeTask(
     .map((frame, index) => `帧${index + 1}: ${frame.timestampSec.toFixed(2)}s`)
     .join('\n')
   const imageDataUrl = `data:image/png;base64,${imageBuffer.toString('base64')}`
+
+  // Write video to a temp file so ffmpeg can access it (extractFrames may need it)
+  const tmpPath = path.join(os.tmpdir(), `reskin-${Date.now()}.mp4`)
+  try {
+    fs.writeFileSync(tmpPath, videoBuffer)
+  } catch {
+    // ignore if already written via extractFrames
+  }
 
   await reportTaskProgress(job, 25)
 
@@ -80,6 +103,8 @@ export async function handleReskinAnalyzeTask(
       throw new UnrecoverableError(msg)
     }
     throw err
+  } finally {
+    try { fs.unlinkSync(tmpPath) } catch { /* ignore */ }
   }
 
   await reportTaskProgress(job, 55)

@@ -26,4 +26,8 @@ export const PROMPT_CATALOG: Record<PromptId, PromptCatalogEntry> = {
     pathStem: 'reskin/reskin_video_prompt',
     variableKeys: ['reskin_analyze'],
   },
+  [PROMPT_IDS.RESKIN_IMAGE_PROMPT]: {
+    pathStem: 'reskin/reskin_image_prompt',
+    variableKeys: ['theme_keyword'],
+  },
 }

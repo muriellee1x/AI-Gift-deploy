@@ -11,22 +11,22 @@ export const POST = apiHandler(async (request: NextRequest) => {
   const { session } = authResult
 
   const body = await request.json()
-  const { giftKey, imageStorageKey } = body as {
+  const { giftKey, themeKeyword } = body as {
     giftKey?: string
-    imageStorageKey?: string
+    themeKeyword?: string
   }
 
   if (!giftKey) throw new ApiError('BAD_REQUEST', 'giftKey is required')
+  if (!themeKeyword?.trim()) throw new ApiError('BAD_REQUEST', 'themeKeyword is required')
   if (!findGift(giftKey)) throw new ApiError('BAD_REQUEST', `未知礼物 key: ${giftKey}`)
-  if (!imageStorageKey) throw new ApiError('BAD_REQUEST', 'imageStorageKey is required')
 
   const taskId = await createAndEnqueueTask({
     userId: session.user.id,
     projectId: 'reskin',
-    type: TASK_TYPE.RESKIN_ANALYZE,
+    type: TASK_TYPE.RESKIN_GENERATE_IMAGE_PROMPT,
     targetType: 'reskin',
-    targetId: 'analyze',
-    payload: { giftKey, imageStorageKey },
+    targetId: 'generate-image-prompt',
+    payload: { giftKey, themeKeyword: themeKeyword.trim() },
   })
 
   return NextResponse.json({ taskId })

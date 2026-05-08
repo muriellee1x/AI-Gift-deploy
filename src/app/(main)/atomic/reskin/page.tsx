@@ -10,18 +10,19 @@ import PostprocessComposeStep, {
 } from '@/components/ui/PostprocessComposeStep'
 import SubPageHeader from '@/components/ui/SubPageHeader'
 import PreviewableMedia from '@/components/ui/PreviewableMedia'
-import UploadBox from '@/components/ui/UploadBox'
+import ReskinGiftPicker from '@/components/ui/ReskinGiftPicker'
+import ReskinImageGenerateStep from '@/components/ui/ReskinImageGenerateStep'
 import { storageKeyFromFileUrl } from '@/lib/storage/utils'
+import { findGift } from '@/lib/reskin/gifts'
 
 type ReskinPersistedState = {
-  videoUrl?: string
-  videoStorageKey?: string
-  imageUrl?: string
-  imageStorageKey?: string
+  giftKey?: string
+  themeKeyword?: string
+  imagePromptText?: string
+  generatedImageUrl?: string
+  generatedImageStorageKey?: string
   videoPrompt?: string
   resultVideoUrl?: string
-  videoDuration?: number
-  videoRatio?: string
   composeOutputs?: ComposeOutput[]
   composeSelectedKeys?: string[]
   composePipeline?: ComposePipeline
@@ -29,60 +30,8 @@ type ReskinPersistedState = {
   maxReached?: number
 }
 
-const STEPS = ['礼物上传', '提示词生成', '换肤结果', '资产合成'] as const
-const STEP_KEYS = ['step1', 'step2', 'step3', 'step4'] as const
-const RATIO_OPTIONS = [
-  { label: '21:9', value: 21 / 9 },
-  { label: '16:9', value: 16 / 9 },
-  { label: '4:3', value: 4 / 3 },
-  { label: '1:1', value: 1 },
-  { label: '3:4', value: 3 / 4 },
-  { label: '9:16', value: 9 / 16 },
-] as const
-
-function clampDuration(duration: number) {
-  return Math.max(4, Math.min(15, Math.round(duration)))
-}
-
-function nearestRatio(width: number, height: number) {
-  const actual = width / height
-  return RATIO_OPTIONS.reduce((best, item) =>
-    Math.abs(item.value - actual) < Math.abs(best.value - actual) ? item : best,
-  ).label
-}
-
-async function probeVideoMetadata(file: File): Promise<{ duration: number; ratio: string }> {
-  return await new Promise((resolve) => {
-    const url = URL.createObjectURL(file)
-    const video = document.createElement('video')
-    video.preload = 'metadata'
-    video.src = url
-
-    const cleanup = () => {
-      URL.revokeObjectURL(url)
-      video.removeAttribute('src')
-      video.load()
-    }
-
-    const fallback = () => {
-      cleanup()
-      resolve({ duration: 10, ratio: '9:16' })
-    }
-
-    video.onloadedmetadata = () => {
-      const duration = Number.isFinite(video.duration) && video.duration > 0
-        ? clampDuration(video.duration)
-        : 10
-      const ratio = video.videoWidth > 0 && video.videoHeight > 0
-        ? nearestRatio(video.videoWidth, video.videoHeight)
-        : '9:16'
-      cleanup()
-      resolve({ duration, ratio })
-    }
-
-    video.onerror = fallback
-  })
-}
+const STEPS = ['礼物选择', '图像生成', '提示词生成', '换肤结果', '资产合成'] as const
+const STEP_KEYS = ['step1', 'step2', 'step3', 'step4', 'step5'] as const
 
 async function pollTask(
   taskId: string,
@@ -110,38 +59,46 @@ export default function ReskinPage() {
   const [step, setStep] = useState(0)
   const [maxReached, setMaxReached] = useState(0)
 
-  const [videoUrl, setVideoUrl] = useState('')
-  const [videoStorageKey, setVideoStorageKey] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
-  const [imageStorageKey, setImageStorageKey] = useState('')
+  // Step1 礼物选择
+  const [giftKey, setGiftKey] = useState('')
+  const [themeKeyword, setThemeKeyword] = useState('')
+
+  // Step2 图像生成
+  const [imagePromptText, setImagePromptText] = useState('')
+  const [generatedImageUrl, setGeneratedImageUrl] = useState('')
+  const [generatedImageStorageKey, setGeneratedImageStorageKey] = useState('')
+
+  // Step3 提示词生成
   const [videoPrompt, setVideoPrompt] = useState('')
+
+  // Step4 换肤结果
   const [resultVideoUrl, setResultVideoUrl] = useState('')
-  const [videoDuration, setVideoDuration] = useState<number | null>(null)
-  const [videoRatio, setVideoRatio] = useState<string | null>(null)
+
+  // Step5 资产合成
   const [baConfigs, setBaConfigs] = useState<ComposeBaConfigItem[]>([])
   const [composeOutputs, setComposeOutputs] = useState<ComposeOutput[]>([])
   const [composeSelectedKeys, setComposeSelectedKeys] = useState<string[]>([])
   const [composePipeline, setComposePipeline] = useState<ComposePipeline | null>(null)
   const [composeBaConfigId, setComposeBaConfigId] = useState('')
 
-  const [analyzing, setAnalyzing] = useState(false)
-  const [analyzeProgress, setAnalyzeProgress] = useState(0)
+  // Loading states
+  const [analyzingImagePrompt, setAnalyzingImagePrompt] = useState(false)
+  const [analyzeImagePromptProgress, setAnalyzeImagePromptProgress] = useState(0)
+  const [analyzingVideoPrompt, setAnalyzingVideoPrompt] = useState(false)
+  const [analyzeVideoPromptProgress, setAnalyzeVideoPromptProgress] = useState(0)
   const [generatingVideo, setGeneratingVideo] = useState(false)
-  const [generateProgress, setGenerateProgress] = useState(0)
-  const [uploadingVideo, setUploadingVideo] = useState(false)
-  const [uploadingImage, setUploadingImage] = useState(false)
+  const [generateVideoProgress, setGenerateVideoProgress] = useState(0)
 
   const latestStateRef = useRef<ReskinPersistedState>({})
   useEffect(() => {
     latestStateRef.current = {
-      videoUrl,
-      videoStorageKey,
-      imageUrl,
-      imageStorageKey,
-      videoPrompt,
-      resultVideoUrl,
-      videoDuration: videoDuration ?? undefined,
-      videoRatio: videoRatio ?? undefined,
+      giftKey: giftKey || undefined,
+      themeKeyword: themeKeyword || undefined,
+      imagePromptText: imagePromptText || undefined,
+      generatedImageUrl: generatedImageUrl || undefined,
+      generatedImageStorageKey: generatedImageStorageKey || undefined,
+      videoPrompt: videoPrompt || undefined,
+      resultVideoUrl: resultVideoUrl || undefined,
       composeOutputs,
       composeSelectedKeys,
       composePipeline: composePipeline ?? undefined,
@@ -149,14 +106,13 @@ export default function ReskinPage() {
       maxReached,
     }
   }, [
-    videoUrl,
-    videoStorageKey,
-    imageUrl,
-    imageStorageKey,
+    giftKey,
+    themeKeyword,
+    imagePromptText,
+    generatedImageUrl,
+    generatedImageStorageKey,
     videoPrompt,
     resultVideoUrl,
-    videoDuration,
-    videoRatio,
     composeOutputs,
     composeSelectedKeys,
     composePipeline,
@@ -181,9 +137,7 @@ export default function ReskinPage() {
         /* ignore */
       }
     })()
-    return () => {
-      cancelled = true
-    }
+    return () => { cancelled = true }
   }, [composeBaConfigId])
 
   useEffect(() => {
@@ -200,18 +154,25 @@ export default function ReskinPage() {
         const project = data.project
         const s = (project?.state || {}) as ReskinPersistedState
         if (cancelled) return
-        if (s.videoUrl) setVideoUrl(s.videoUrl)
-        if (s.videoStorageKey) setVideoStorageKey(s.videoStorageKey)
-        if (s.imageUrl) setImageUrl(s.imageUrl)
-        if (s.imageStorageKey) setImageStorageKey(s.imageStorageKey)
+
+        // v1 project compat: no giftKey means old 4-step format, reset silently
+        if (!s.giftKey) {
+          if (!cancelled) setProjectLoaded(true)
+          return
+        }
+
+        if (s.giftKey) setGiftKey(s.giftKey)
+        if (s.themeKeyword) setThemeKeyword(s.themeKeyword)
+        if (s.imagePromptText) setImagePromptText(s.imagePromptText)
+        if (s.generatedImageUrl) setGeneratedImageUrl(s.generatedImageUrl)
+        if (s.generatedImageStorageKey) setGeneratedImageStorageKey(s.generatedImageStorageKey)
         if (s.videoPrompt) setVideoPrompt(s.videoPrompt)
         if (s.resultVideoUrl) setResultVideoUrl(s.resultVideoUrl)
-        if (typeof s.videoDuration === 'number') setVideoDuration(s.videoDuration)
-        if (typeof s.videoRatio === 'string') setVideoRatio(s.videoRatio)
         if (s.composeOutputs) setComposeOutputs(s.composeOutputs)
         if (s.composeSelectedKeys) setComposeSelectedKeys(s.composeSelectedKeys)
         if (s.composePipeline) setComposePipeline(s.composePipeline)
         if (s.composeBaConfigId) setComposeBaConfigId(s.composeBaConfigId)
+
         const stepIdx = STEP_KEYS.indexOf((project?.currentStep || 'step1') as (typeof STEP_KEYS)[number])
         const reached = typeof s.maxReached === 'number' ? s.maxReached : Math.max(0, stepIdx)
         setMaxReached(reached)
@@ -222,18 +183,14 @@ export default function ReskinPage() {
         if (!cancelled) setProjectLoaded(true)
       }
     })()
-    return () => {
-      cancelled = true
-    }
+    return () => { cancelled = true }
   }, [initialProjectId])
 
   useEffect(() => {
     if (!resultVideoUrl) return
     if (composeSelectedKeys.length > 0) return
     const key = storageKeyFromFileUrl(resultVideoUrl)
-    if (key) {
-      setComposeSelectedKeys([key])
-    }
+    if (key) setComposeSelectedKeys([key])
   }, [composeSelectedKeys.length, resultVideoUrl])
 
   const ensureProject = useCallback(async (): Promise<string | null> => {
@@ -247,7 +204,7 @@ export default function ReskinPage() {
           subKind: 'reskin',
           name: 'Untitled',
           state: latestStateRef.current,
-          coverImageUrl: imageUrl || null,
+          coverImageUrl: generatedImageUrl || null,
           currentStep: 'step1',
         }),
       })
@@ -269,7 +226,7 @@ export default function ReskinPage() {
       /* ignore */
     }
     return null
-  }, [imageUrl])
+  }, [generatedImageUrl])
 
   const saveProject = useCallback(async (patch: { currentStep?: string; coverImageUrl?: string | null }) => {
     const id = projectIdRef.current
@@ -278,10 +235,7 @@ export default function ReskinPage() {
       await fetch(`/api/projects/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...patch,
-          state: latestStateRef.current,
-        }),
+        body: JSON.stringify({ ...patch, state: latestStateRef.current }),
       })
     } catch {
       /* ignore */
@@ -293,20 +247,19 @@ export default function ReskinPage() {
     const handle = setTimeout(() => {
       saveProject({
         currentStep: STEP_KEYS[Math.max(0, Math.min(STEP_KEYS.length - 1, step))],
-        ...(imageUrl ? { coverImageUrl: imageUrl } : {}),
+        ...(generatedImageUrl ? { coverImageUrl: generatedImageUrl } : {}),
       })
     }, 800)
     return () => clearTimeout(handle)
   }, [
     step,
-    imageUrl,
-    resultVideoUrl,
+    giftKey,
+    themeKeyword,
+    imagePromptText,
+    generatedImageUrl,
+    generatedImageStorageKey,
     videoPrompt,
-    videoUrl,
-    videoStorageKey,
-    imageStorageKey,
-    videoDuration,
-    videoRatio,
+    resultVideoUrl,
     composeOutputs,
     composeSelectedKeys,
     composePipeline,
@@ -324,119 +277,81 @@ export default function ReskinPage() {
     setMaxReached((prev) => Math.max(prev, idx))
   }, [])
 
-  const handleVideoFile = useCallback(async (file: File) => {
-    if (!file.type.includes('mp4') && !file.name.toLowerCase().endsWith('.mp4')) {
-      alert('仅支持 MP4 格式视频')
-      return
-    }
-    setUploadingVideo(true)
+  // Step1 → Step2：生成图像提示词
+  const handleGenerateImagePrompt = useCallback(async () => {
+    if (!giftKey || !themeKeyword.trim()) return
+    setAnalyzingImagePrompt(true)
+    setAnalyzeImagePromptProgress(0)
     try {
-      const fd = new FormData()
-      fd.append('file', file)
-      const res = await fetch('/api/upload/video', { method: 'POST', body: fd })
+      await ensureProject()
+      const res = await fetch('/api/reskin/generate-image-prompt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ giftKey, themeKeyword: themeKeyword.trim() }),
+      })
       if (!res.ok) {
         const err = await res.json().catch(() => ({}))
-        throw new Error(err.message || '视频上传失败')
+        throw new Error((err as { message?: string }).message || '图像提示词生成失败')
       }
-      const data = await res.json()
-      setVideoUrl(data.videoUrl)
-      setVideoStorageKey(data.storageKey)
-      const metadata = await probeVideoMetadata(file)
-      setVideoDuration(metadata.duration)
-      setVideoRatio(metadata.ratio)
-    } catch (err) {
-      alert(err instanceof Error ? err.message : '视频上传失败')
-    } finally {
-      setUploadingVideo(false)
-    }
-  }, [])
-
-  const handleImageFile = useCallback(async (file: File) => {
-    if (!file.type.startsWith('image/')) {
-      alert('仅支持图片文件')
-      return
-    }
-    setUploadingImage(true)
-    try {
-      const fd = new FormData()
-      fd.append('file', file)
-      const res = await fetch('/api/upload', { method: 'POST', body: fd })
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}))
-        throw new Error(err.message || '图片上传失败')
+      const { taskId } = await res.json()
+      const result = await pollTask(taskId, setAnalyzeImagePromptProgress)
+      const prompt = result.imagePrompt as string
+      setImagePromptText(prompt)
+      advanceTo(1)
+      latestStateRef.current = {
+        ...latestStateRef.current,
+        imagePromptText: prompt,
+        maxReached: Math.max(1, latestStateRef.current.maxReached ?? 0),
       }
-      const data = await res.json()
-      setImageUrl(data.imageUrl)
-      setImageStorageKey(data.storageKey)
+      saveProject({ currentStep: 'step2' })
     } catch (err) {
-      alert(err instanceof Error ? err.message : '图片上传失败')
+      alert(err instanceof Error ? err.message : '图像提示词生成失败')
     } finally {
-      setUploadingImage(false)
+      setAnalyzingImagePrompt(false)
     }
-  }, [])
+  }, [giftKey, themeKeyword, ensureProject, advanceTo, saveProject])
 
-  const handleRemoveVideo = useCallback(() => {
-    setVideoUrl('')
-    setVideoStorageKey('')
-    setVideoDuration(null)
-    setVideoRatio(null)
-    setVideoPrompt('')
-    setResultVideoUrl('')
-    setComposeOutputs([])
-    setComposeSelectedKeys([])
-    setComposePipeline(null)
-    setMaxReached(0)
-    setStep(0)
-  }, [])
-
-  const handleRemoveImage = useCallback(() => {
-    setImageUrl('')
-    setImageStorageKey('')
-    setVideoPrompt('')
-    setResultVideoUrl('')
-    setComposeOutputs([])
-    setComposeSelectedKeys([])
-    setComposePipeline(null)
-    setMaxReached(0)
-    setStep(0)
-  }, [])
-
-  const handleAnalyze = useCallback(async () => {
-    if (!videoStorageKey || !imageStorageKey) return
-    setAnalyzing(true)
-    setAnalyzeProgress(0)
+  // Step2 → Step3：分析视频提示词
+  const handleAnalyzeVideoPrompt = useCallback(async () => {
+    if (!giftKey || !generatedImageStorageKey) return
+    setAnalyzingVideoPrompt(true)
+    setAnalyzeVideoPromptProgress(0)
     try {
       await ensureProject()
       const res = await fetch('/api/reskin/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ videoStorageKey, imageStorageKey }),
+        body: JSON.stringify({ giftKey, imageStorageKey: generatedImageStorageKey }),
       })
       if (!res.ok) {
         const err = await res.json().catch(() => ({}))
-        throw new Error(err.message || '提示词生成提交失败')
+        throw new Error((err as { message?: string }).message || '提示词生成提交失败')
       }
       const { taskId } = await res.json()
-      const result = await pollTask(taskId, setAnalyzeProgress)
-      setVideoPrompt(result.video_prompt as string)
-      advanceTo(1)
+      const result = await pollTask(taskId, setAnalyzeVideoPromptProgress)
+      const vp = result.video_prompt as string
+      setVideoPrompt(vp)
+      advanceTo(2)
       latestStateRef.current = {
         ...latestStateRef.current,
-        videoPrompt: result.video_prompt as string,
-        maxReached: Math.max(1, latestStateRef.current.maxReached ?? 0),
+        videoPrompt: vp,
+        maxReached: Math.max(2, latestStateRef.current.maxReached ?? 0),
       }
-      saveProject({ currentStep: 'step2', coverImageUrl: imageUrl || null })
+      saveProject({ currentStep: 'step3', coverImageUrl: generatedImageUrl || null })
     } catch (err) {
       alert(err instanceof Error ? err.message : '提示词生成失败')
     } finally {
-      setAnalyzing(false)
+      setAnalyzingVideoPrompt(false)
     }
-  }, [videoStorageKey, imageStorageKey, ensureProject, advanceTo, saveProject, imageUrl])
+  }, [giftKey, generatedImageStorageKey, ensureProject, advanceTo, saveProject, generatedImageUrl])
 
+  // Step3 → Step4：换肤（生成视频）
   const handleGenerateVideo = useCallback(async () => {
-    if (!videoPrompt.trim() || !imageUrl) return
+    if (!videoPrompt.trim() || !generatedImageUrl || !giftKey) return
+    const gift = findGift(giftKey)
+    if (!gift) return
     setGeneratingVideo(true)
-    setGenerateProgress(0)
+    setGenerateVideoProgress(0)
     try {
       await ensureProject()
       const res = await fetch('/api/fission/generate-video', {
@@ -444,36 +359,39 @@ export default function ReskinPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           videoPrompt: videoPrompt.trim(),
-          referenceImageUrls: [imageUrl],
-          referenceVideoUrl: videoUrl,
-          ratio: videoRatio ?? '9:16',
-          duration: videoDuration ?? 10,
+          referenceImageUrls: [generatedImageUrl],
+          referenceVideoUrl: gift.videoUrl,
+          ratio: gift.ratio,
+          duration: gift.duration,
         }),
       })
       if (!res.ok) {
         const err = await res.json().catch(() => ({}))
-        throw new Error(err.message || '视频生成提交失败')
+        throw new Error((err as { message?: string }).message || '视频生成提交失败')
       }
       const { taskId } = await res.json()
-      const result = await pollTask(taskId, setGenerateProgress)
-      setResultVideoUrl(result.videoUrl as string)
-      advanceTo(2)
+      const result = await pollTask(taskId, setGenerateVideoProgress)
+      const vUrl = result.videoUrl as string
+      setResultVideoUrl(vUrl)
+      advanceTo(3)
       latestStateRef.current = {
         ...latestStateRef.current,
-        resultVideoUrl: result.videoUrl as string,
-        maxReached: Math.max(2, latestStateRef.current.maxReached ?? 0),
+        resultVideoUrl: vUrl,
+        maxReached: Math.max(3, latestStateRef.current.maxReached ?? 0),
       }
-      saveProject({ currentStep: 'step3', coverImageUrl: imageUrl || null })
+      saveProject({ currentStep: 'step4', coverImageUrl: generatedImageUrl || null })
     } catch (err) {
       alert(err instanceof Error ? err.message : '视频生成失败')
     } finally {
       setGeneratingVideo(false)
     }
-  }, [videoPrompt, imageUrl, videoUrl, videoRatio, videoDuration, ensureProject, advanceTo, saveProject])
+  }, [videoPrompt, generatedImageUrl, giftKey, ensureProject, advanceTo, saveProject])
 
   if (!projectLoaded) {
     return <div className="flex items-center justify-center py-24 text-body">正在加载项目...</div>
   }
+
+  const currentGift = giftKey ? findGift(giftKey) : null
 
   return (
     <>
@@ -486,61 +404,64 @@ export default function ReskinPage() {
           onStepClick={goToStep}
         />
 
+        {/* Step1：礼物选择 */}
         {step === 0 && (
           <div className="space-y-6">
             <div className="text-left">
-              <h2 className="text-h3">礼物上传</h2>
-              <p className="mt-2 text-14px text-fg3">上传一个参考视频和一张参考图片，用于生成换肤提示词。</p>
+              <h2 className="text-h3">礼物选择</h2>
+              <p className="mt-2 text-14px text-fg3">选择一个礼物，并输入换肤主题，系统将自动生成图像提示词。</p>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-              <UploadBox
-                title="参考视频"
-                description="支持拖拽或点击上传 MP4 视频"
-                active={!!videoUrl}
-                onSelect={handleVideoFile}
-                accept="video/mp4,.mp4"
-                kind="video"
-                hasFile={!!videoUrl}
-                uploading={uploadingVideo}
-                onRemove={handleRemoveVideo}
-                previewSrc={videoUrl}
-                previewAlt="参考视频"
-              >
-                {videoUrl && videoDuration && videoRatio && (
-                  <p className="text-caption">时长 {videoDuration}s · 画幅 {videoRatio}</p>
-                )}
-              </UploadBox>
-
-              <UploadBox
-                title="参考图片"
-                description="支持拖拽或点击上传图片"
-                active={!!imageUrl}
-                onSelect={handleImageFile}
-                accept="image/*"
-                kind="image"
-                hasFile={!!imageUrl}
-                uploading={uploadingImage}
-                onRemove={handleRemoveImage}
-                previewSrc={imageUrl}
-                previewAlt="参考图片"
-              />
-            </div>
+            <ReskinGiftPicker
+              selectedKey={giftKey}
+              onSelect={setGiftKey}
+              themeKeyword={themeKeyword}
+              onThemeChange={setThemeKeyword}
+              disabled={analyzingImagePrompt}
+            />
 
             <div className="flex justify-end">
               <button
                 type="button"
-                onClick={handleAnalyze}
-                disabled={analyzing || !videoStorageKey || !imageStorageKey}
+                onClick={handleGenerateImagePrompt}
+                disabled={analyzingImagePrompt || !giftKey || !themeKeyword.trim()}
                 className="btn-gradient"
               >
-                提示词生成
+                下一步
               </button>
             </div>
           </div>
         )}
 
+        {/* Step2：图像生成 */}
         {step === 1 && (
+          <div className="space-y-6">
+            <div className="text-left">
+              <h2 className="text-h3">图像生成</h2>
+              <p className="mt-2 text-14px text-fg3">
+                基于生成的提示词生成换肤图像，也可以上传或编辑图像后继续。
+              </p>
+            </div>
+
+            <ReskinImageGenerateStep
+              imageUrl={generatedImageUrl}
+              imageStorageKey={generatedImageStorageKey}
+              promptText={imagePromptText}
+              onPromptChange={setImagePromptText}
+              onImageChange={(url, key) => {
+                setGeneratedImageUrl(url)
+                setGeneratedImageStorageKey(key)
+              }}
+              greenImageUrl={currentGift?.greenImage ?? ''}
+              onSubmit={handleAnalyzeVideoPrompt}
+              submitting={analyzingVideoPrompt}
+              disabled={analyzingVideoPrompt}
+            />
+          </div>
+        )}
+
+        {/* Step3：提示词生成 */}
+        {step === 2 && (
           <div className="space-y-6">
             <div className="text-left">
               <h2 className="text-h3">提示词生成</h2>
@@ -555,9 +476,9 @@ export default function ReskinPage() {
                 placeholder="这里会展示上一步生成的 video_prompt"
                 disabled={generatingVideo}
               />
-              {videoDuration && videoRatio && (
+              {currentGift && (
                 <div className="pointer-events-none absolute inset-x-5 bottom-4 flex flex-wrap items-center gap-2 text-caption text-fg3">
-                  <span>将按 {videoRatio} · {videoDuration}s 进行生成</span>
+                  <span>将按 {currentGift.ratio} · {currentGift.duration}s 进行生成</span>
                 </div>
               )}
             </div>
@@ -566,7 +487,7 @@ export default function ReskinPage() {
               <button
                 type="button"
                 onClick={handleGenerateVideo}
-                disabled={generatingVideo || !videoPrompt.trim() || !imageUrl}
+                disabled={generatingVideo || !videoPrompt.trim() || !generatedImageUrl || !giftKey}
                 className="btn-gradient"
               >
                 开始换肤
@@ -575,7 +496,8 @@ export default function ReskinPage() {
           </div>
         )}
 
-        {step === 2 && (
+        {/* Step4：换肤结果 */}
+        {step === 3 && (
           <div className="space-y-6">
             <div className="text-left">
               <h2 className="text-h3">换肤结果</h2>
@@ -585,10 +507,10 @@ export default function ReskinPage() {
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <div className="content-card p-6">
                 <p className="mb-4 text-h4">原视频</p>
-                {videoUrl ? (
+                {currentGift?.videoUrl ? (
                   <PreviewableMedia
                     type="video"
-                    src={videoUrl}
+                    src={currentGift.videoUrl}
                     alt="原视频"
                     wrapperClassName="flex h-[500px] items-center justify-center"
                     className="h-[500px] w-auto max-w-full rounded-[var(--radius-card)] bg-black/40 object-contain"
@@ -623,7 +545,7 @@ export default function ReskinPage() {
                 type="button"
                 onClick={() => {
                   setComposeOutputs([])
-                  advanceTo(3)
+                  advanceTo(4)
                 }}
                 disabled={!resultVideoUrl}
                 className="btn-gradient"
@@ -634,7 +556,8 @@ export default function ReskinPage() {
           </div>
         )}
 
-        {step === 3 && (
+        {/* Step5：资产合成 */}
+        {step === 4 && (
           <PostprocessComposeStep
             videos={resultVideoUrl ? [{
               key: storageKeyFromFileUrl(resultVideoUrl),
@@ -655,14 +578,19 @@ export default function ReskinPage() {
       </div>
 
       <GenerateProgressModal
-        open={analyzing}
+        open={analyzingImagePrompt}
+        title="图像提示词生成中"
+        progress={analyzeImagePromptProgress}
+      />
+      <GenerateProgressModal
+        open={analyzingVideoPrompt}
         title="提示词生成中"
-        progress={analyzeProgress}
+        progress={analyzeVideoPromptProgress}
       />
       <GenerateProgressModal
         open={generatingVideo}
         title="视频生成中"
-        progress={generateProgress}
+        progress={generateVideoProgress}
       />
     </>
   )

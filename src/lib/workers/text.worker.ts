@@ -7,6 +7,7 @@ import { handleFissionAnalyzeTask } from './handlers/fission-analyze'
 import { handleFissionCharacterPromptsTask } from './handlers/fission-character-prompts'
 import { handleFissionVideoPromptsTask } from './handlers/fission-video-prompts'
 import { handleReskinAnalyzeTask } from './handlers/reskin-analyze'
+import { handleReskinGenerateImagePromptTask } from './handlers/reskin-generate-image-prompt'
 
 async function processTextTask(job: Job<TaskJobData>) {
   switch (job.data.type) {
@@ -14,6 +15,8 @@ async function processTextTask(job: Job<TaskJobData>) {
       return await handleFissionAnalyzeTask(job)
     case TASK_TYPE.RESKIN_ANALYZE:
       return await handleReskinAnalyzeTask(job)
+    case TASK_TYPE.RESKIN_GENERATE_IMAGE_PROMPT:
+      return await handleReskinGenerateImagePromptTask(job)
     case TASK_TYPE.FISSION_CHARACTER_PROMPTS:
       return await handleFissionCharacterPromptsTask(job)
     case TASK_TYPE.FISSION_VIDEO_PROMPTS:
