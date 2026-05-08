@@ -115,51 +115,42 @@ export default function ReskinImageGenerateStep({
 
   return (
     <>
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* 左：图像预览区 */}
-          <div className="content-card p-6">
-            <p className="mb-4 text-h4">生成图像</p>
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+        {/* 左：图像预览区 */}
+        <div>
+          <p className="mb-4 text-h4">生成图像</p>
+          <div className="flex h-[500px] items-center justify-center overflow-hidden rounded-[var(--radius-card)] border border-white/10 bg-black/25">
             {hasImage ? (
               <MediaFrame
                 type="image"
                 src={imageUrl}
                 alt="生成图像"
-                heightClassName="h-[420px]"
+                heightClassName="h-full"
               />
             ) : (
-              <div className="flex h-[420px] items-center justify-center rounded-[var(--radius-card)] border border-dashed border-white/20 bg-black/10">
-                <p className="text-center text-body text-fg3">
-                  点击下方「开始生成」<br />或上传一张图像
-                </p>
-              </div>
+              <p className="text-12px text-white/20">暂无生成图像</p>
             )}
-          </div>
-
-          {/* 右：提示词编辑区 */}
-          <div className="flex flex-col gap-4">
-            <p className="text-h4">图像提示词</p>
-            <div className="prompt-box flex-1 p-2 pr-2">
-              <textarea
-                className="scrollbar-prompt min-h-[380px] w-full resize-none rounded-[var(--radius-card)] border-0 bg-transparent p-5 text-body outline-none placeholder:text-fg3"
-                value={promptText}
-                onChange={(e) => onPromptChange(e.target.value)}
-                placeholder="这里会展示上一步生成的图像提示词，可以继续编辑"
-                disabled={isLoading}
-              />
-            </div>
           </div>
         </div>
 
-        {/* 底部按钮栏 */}
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex flex-wrap gap-3">
-            {/* 上传图像 */}
+        {/* 右：提示词编辑区 + 操作按钮 */}
+        <div>
+          <p className="mb-4 text-h4">图像提示词</p>
+          <div className="inbox-prompt-box relative p-0 pr-2">
+            <textarea
+              className="scrollbar-prompt min-h-[420px] w-full resize-none rounded-[var(--radius-card)] border-0 bg-transparent p-5 text-body outline-none placeholder:text-fg3"
+              value={promptText}
+              onChange={(e) => onPromptChange(e.target.value)}
+              placeholder="这里会展示上一步生成的图像提示词，可以继续编辑"
+              disabled={isLoading}
+            />
+          </div>
+          <div className="mt-4 flex flex-wrap justify-end gap-3">
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
               disabled={isLoading}
-              className="btn-alt"
+              className="btn-secondary-pill"
             >
               {uploading ? '上传中...' : '上传图像'}
             </button>
@@ -177,36 +168,33 @@ export default function ReskinImageGenerateStep({
               }}
             />
 
-            {/* 编辑图像 */}
             <button
               type="button"
               onClick={() => setEditOpen(true)}
               disabled={isLoading || !hasImage}
-              className="btn-alt"
+              className="btn-secondary-pill"
             >
               编辑图像
             </button>
 
-            {/* 开始生成 / 重新生成 */}
             <button
               type="button"
               onClick={handleGenerate}
               disabled={isLoading || !promptText.trim()}
-              className="btn-alt"
+              className="btn-secondary-pill"
             >
               {generating ? '生成中...' : hasImage ? '重新生成' : '开始生成'}
             </button>
-          </div>
 
-          {/* 右下提交按钮 */}
-          <button
-            type="button"
-            onClick={onSubmit}
-            disabled={isLoading || !hasImage || !imageStorageKey}
-            className="btn-gradient"
-          >
-            {submitting ? '生成中...' : '提示词生成'}
-          </button>
+            <button
+              type="button"
+              onClick={onSubmit}
+              disabled={isLoading || !hasImage || !imageStorageKey}
+              className="btn-gradient"
+            >
+              {submitting ? '生成中...' : '提示词生成'}
+            </button>
+          </div>
         </div>
       </div>
 

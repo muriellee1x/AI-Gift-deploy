@@ -9,7 +9,7 @@ import { callUserLLM } from '@/lib/llm-call'
 import { callUserMultimodalLLM, type ContentPart } from '@/lib/llm-multimodal-call'
 import { getObjectBuffer, extractStorageKey } from '@/lib/storage'
 import { extractFrames } from '@/lib/video-frames'
-import { findGift } from '@/lib/reskin/gifts'
+import { findGift, assertR2Configured } from '@/lib/reskin/gifts'
 
 function parseJsonBlock(text: string): unknown {
   let cleaned = text.trim()
@@ -39,6 +39,8 @@ export async function handleReskinAnalyzeTask(
   if (!giftKey || !imageStorageKey) {
     throw new UnrecoverableError('giftKey and imageStorageKey are required')
   }
+
+  assertR2Configured()
 
   const gift = findGift(giftKey)
   if (!gift) throw new UnrecoverableError(`未知礼物 key: ${giftKey}`)

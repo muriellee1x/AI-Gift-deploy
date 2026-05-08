@@ -3,7 +3,7 @@ import type { TaskJobData } from '@/lib/task/types'
 import { reportTaskProgress } from '../shared'
 import { buildPrompt, PROMPT_IDS } from '@/lib/prompt-i18n'
 import { callUserMultimodalLLM, type ContentPart } from '@/lib/llm-multimodal-call'
-import { findGift } from '@/lib/reskin/gifts'
+import { findGift, assertR2Configured } from '@/lib/reskin/gifts'
 
 async function fetchImageAsDataUrl(url: string): Promise<string> {
   const fullUrl = url.startsWith('http')
@@ -26,6 +26,8 @@ export async function handleReskinGenerateImagePromptTask(
 
   if (!giftKey) throw new UnrecoverableError('giftKey is required')
   if (!themeKeyword?.trim()) throw new UnrecoverableError('themeKeyword is required')
+
+  assertR2Configured()
 
   const gift = findGift(giftKey)
   if (!gift) throw new UnrecoverableError(`未知礼物 key: ${giftKey}`)

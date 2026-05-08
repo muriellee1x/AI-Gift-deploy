@@ -15,10 +15,23 @@ export type ReskinGift = {
 
 /**
  * 礼物视频 URL 从 Cloudflare R2 公开 Bucket 获取。
- * 上传后请将 PLACEHOLDER 替换为真实直链，例如：
- *   https://pub-xxxx.r2.dev/gifts/比心兔兔.mp4
+ * 上传后请在 .env 中设置：
+ *   NEXT_PUBLIC_R2_GIFT_BASE_URL=https://pub-xxxx.r2.dev/reskin-video-data
+ * 修改 .env 后必须重启 dev server（npm run dev）才能生效。
  */
 const R2_BASE = process.env.NEXT_PUBLIC_R2_GIFT_BASE_URL || 'PLACEHOLDER'
+
+/**
+ * 在 worker handler 入口调用此函数，确保 R2_BASE 已正确配置。
+ * 如果 worker 仍然报 PLACEHOLDER 错误，说明 .env 已写入但 dev server 未重启。
+ */
+export function assertR2Configured(): void {
+  if (!process.env.NEXT_PUBLIC_R2_GIFT_BASE_URL || process.env.NEXT_PUBLIC_R2_GIFT_BASE_URL === 'PLACEHOLDER') {
+    throw new Error(
+      '[reskin] 礼物视频 R2 地址未配置。请在 .env 中设置 NEXT_PUBLIC_R2_GIFT_BASE_URL，然后重启 npm run dev。',
+    )
+  }
+}
 
 export const RESKIN_GIFTS: ReskinGift[] = [
   {

@@ -19,7 +19,7 @@ export default function ReskinGiftPicker({
 }: Props) {
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-5">
+      <div className="flex flex-wrap gap-8">
         {RESKIN_GIFTS.map((gift) => {
           const active = selectedKey === gift.key
           return (
@@ -28,32 +28,31 @@ export default function ReskinGiftPicker({
               type="button"
               onClick={() => !disabled && onSelect(gift.key)}
               disabled={disabled}
-              className={`content-card flex flex-col items-center gap-3 p-4 text-left transition-[border-color,background-color] ${
-                active
-                  ? 'border-[color:var(--color-brand-2)] bg-[rgba(13,109,255,0.08)]'
-                  : 'hover:border-white/20'
-              } ${disabled ? 'cursor-not-allowed opacity-60' : 'cursor-pointer'}`}
+              className={`flex w-48 flex-col items-start gap-3 transition-opacity ${
+                disabled ? 'cursor-not-allowed opacity-60' : 'cursor-pointer'
+              }`}
             >
-              <div className="h-[120px] w-full overflow-hidden rounded-[var(--radius-card)] bg-black/20">
+              <div
+                className={`aspect-square w-full overflow-hidden rounded-[var(--radius-card)] border transition-colors ${
+                  active
+                    ? 'border-[color:var(--color-brand-2)]'
+                    : 'border-white/50 hover:border-white/20'
+                }`}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={gift.displayImage}
                   alt={gift.name}
-                  className="h-full w-full object-contain"
+                  className="h-full w-full object-cover"
                 />
               </div>
-              <div className="flex w-full items-center justify-between gap-2">
-                <span className="text-body">{gift.name}</span>
-                <span
-                  className={`chip shrink-0 ${
-                    active
-                      ? '!bg-[rgba(13,109,255,0.2)] !text-[color:var(--color-brand-2)]'
-                      : 'bg-white/10 text-fg3'
-                  }`}
-                >
-                  {active ? '已选' : gift.ratio}
-                </span>
-              </div>
+              <span
+                className={`w-full text-center text-14px font-medium transition-colors ${
+                  active ? 'text-[color:var(--color-brand-2)]' : 'text-fg'
+                }`}
+              >
+                {gift.name}
+              </span>
             </button>
           )
         })}
@@ -65,7 +64,7 @@ export default function ReskinGiftPicker({
           <input
             type="text"
             className="w-full bg-transparent text-body outline-none placeholder:text-fg3"
-            placeholder="输入一个主题，例如：森林风、莫兰迪、太空"
+            placeholder="简单输入主题关键词，例如：圣诞节主题"
             value={themeKeyword}
             onChange={(e) => onThemeChange(e.target.value)}
             disabled={disabled}
