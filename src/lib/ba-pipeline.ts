@@ -67,7 +67,7 @@ const PIPELINE_CONFIG: Record<PipelineKind, Partial<Record<PipelineStage, StageC
       workflowFile: 'flower2.0-post.json',
       output: 'video-pair',
       textNodes: [{ id: '765', field: 'text' }],
-      imageNodes: [{ id: '773', field: 'image' }],
+      imageNodes: [{ id: '764', field: 'image' }],
       videoNodes: [{ id: '763', field: 'file' }],
     },
   },
