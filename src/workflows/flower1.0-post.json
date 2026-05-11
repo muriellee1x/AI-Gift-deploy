@@ -1,8 +1,8 @@
 {
   "id": "cb95e097-a93f-4ea2-9e00-0c9c6627db84",
   "revision": 0,
-  "last_node_id": 627,
-  "last_link_id": 1113,
+  "last_node_id": 630,
+  "last_link_id": 1121,
   "nodes": [
     {
       "id": 507,
@@ -50,7 +50,7 @@
         569.0921630859375
       ],
       "size": [
-        387.3501892089844,
+        387.3501953125,
         130
       ],
       "flags": {},
@@ -93,7 +93,7 @@
         60.0733642578125
       ],
       "flags": {},
-      "order": 46,
+      "order": 43,
       "mode": 0,
       "inputs": [
         {
@@ -176,7 +176,7 @@
         -582.8291625976562
       ],
       "size": [
-        303.1997985839844,
+        303.1998046875,
         86.79613494873047
       ],
       "flags": {},
@@ -186,7 +186,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 850
+          "link": 1115
         },
         {
           "name": "input_mask",
@@ -229,79 +229,6 @@
       ]
     },
     {
-      "id": 512,
-      "type": "ImageResizeKJv2",
-      "pos": [
-        10637.994140625,
-        -608.3406372070312
-      ],
-      "size": [
-        270,
-        360
-      ],
-      "flags": {},
-      "order": 63,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 852
-        },
-        {
-          "name": "mask",
-          "shape": 7,
-          "type": "MASK",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            850
-          ]
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": []
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageResizeKJv2",
-        "cnr_id": "comfyui-kjnodes",
-        "ver": "1.2.6",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.5.2"
-        }
-      },
-      "widgets_values": [
-        720,
-        720,
-        "lanczos",
-        "resize",
-        "0, 0, 0",
-        "center",
-        2,
-        "cpu",
-        "<tr><td>Output: </td><td><b>90</b> x <b>720</b> x <b>720 | 533.94MB</b></td></tr>"
-      ]
-    },
-    {
       "id": 513,
       "type": "MaskComposite",
       "pos": [
@@ -313,7 +240,7 @@
         126
       ],
       "flags": {},
-      "order": 62,
+      "order": 63,
       "mode": 0,
       "inputs": [
         {
@@ -364,7 +291,7 @@
         126
       ],
       "flags": {},
-      "order": 54,
+      "order": 55,
       "mode": 0,
       "inputs": [
         {
@@ -429,7 +356,7 @@
           "name": "",
           "type": "IMAGE",
           "links": [
-            887
+            1116
           ]
         }
       ],
@@ -499,7 +426,7 @@
         126
       ],
       "flags": {},
-      "order": 51,
+      "order": 53,
       "mode": 0,
       "inputs": [
         {
@@ -550,7 +477,7 @@
         130
       ],
       "flags": {},
-      "order": 25,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -610,7 +537,7 @@
         126
       ],
       "flags": {},
-      "order": 56,
+      "order": 57,
       "mode": 0,
       "inputs": [
         {
@@ -661,7 +588,7 @@
         58
       ],
       "flags": {},
-      "order": 45,
+      "order": 42,
       "mode": 0,
       "inputs": [
         {
@@ -707,7 +634,7 @@
         126
       ],
       "flags": {},
-      "order": 58,
+      "order": 59,
       "mode": 0,
       "inputs": [
         {
@@ -758,7 +685,7 @@
         194
       ],
       "flags": {},
-      "order": 60,
+      "order": 61,
       "mode": 0,
       "inputs": [
         {
@@ -874,7 +801,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 39,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -922,13 +849,13 @@
         58
       ],
       "flags": {},
-      "order": 38,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 881
+          "link": 1121
         },
         {
           "name": "amount",
@@ -976,7 +903,7 @@
         106
       ],
       "flags": {},
-      "order": 40,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -1030,7 +957,7 @@
         {
           "name": "background_image",
           "type": "IMAGE",
-          "link": 884
+          "link": 1117
         },
         {
           "name": "layer_image",
@@ -1069,79 +996,6 @@
         100
       ],
       "color": "rgba(38, 73, 116, 0.7)"
-    },
-    {
-      "id": 531,
-      "type": "ImageResizeKJv2",
-      "pos": [
-        10600.740234375,
-        -13.144777297973633
-      ],
-      "size": [
-        270,
-        360
-      ],
-      "flags": {},
-      "order": 33,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 887
-        },
-        {
-          "name": "mask",
-          "shape": 7,
-          "type": "MASK",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            884
-          ]
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageResizeKJv2",
-        "cnr_id": "comfyui-kjnodes",
-        "ver": "1.2.6",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.5.2"
-        }
-      },
-      "widgets_values": [
-        720,
-        720,
-        "nearest-exact",
-        "stretch",
-        "0, 0, 0",
-        "center",
-        2,
-        "cpu",
-        "<tr><td>Output: </td><td><b>1</b> x <b>720</b> x <b>720 | 5.93MB</b></td></tr>"
-      ]
     },
     {
       "id": 532,
@@ -1199,7 +1053,7 @@
         146
       ],
       "flags": {},
-      "order": 61,
+      "order": 60,
       "mode": 0,
       "inputs": [
         {
@@ -1224,7 +1078,7 @@
           "name": "image",
           "type": "IMAGE",
           "links": [
-            852
+            1114
           ]
         }
       ],
@@ -1285,97 +1139,8 @@
         }
       },
       "widgets_values": [
-        "20260129-155729.jpg",
+        "mask.png",
         "image"
-      ]
-    },
-    {
-      "id": 561,
-      "type": "ImageResizeKJv2",
-      "pos": [
-        7908.8935546875,
-        -601.3984985351562
-      ],
-      "size": [
-        270,
-        360
-      ],
-      "flags": {},
-      "order": 29,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 922
-        },
-        {
-          "name": "mask",
-          "shape": 7,
-          "type": "MASK",
-          "link": null
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "widget": {
-            "name": "width"
-          },
-          "link": 923
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "widget": {
-            "name": "height"
-          },
-          "link": 924
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            881
-          ]
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageResizeKJv2",
-        "cnr_id": "comfyui-kjnodes",
-        "ver": "1.2.6",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "input_ue_unconnectable": {},
-          "version": "7.5.2"
-        }
-      },
-      "widgets_values": [
-        512,
-        512,
-        "nearest-exact",
-        "stretch",
-        "0, 0, 0",
-        "center",
-        2,
-        "cpu",
-        "<tr><td>Output: </td><td><b>1</b> x <b>960</b> x <b>960 | 10.55MB</b></td></tr>"
       ]
     },
     {
@@ -1390,7 +1155,7 @@
         218
       ],
       "flags": {},
-      "order": 16,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -1409,8 +1174,8 @@
           "name": "color_image",
           "type": "IMAGE",
           "links": [
-            922,
-            946
+            946,
+            1118
           ]
         },
         {
@@ -1435,7 +1200,10 @@
       "widgets_values": [
         0.08,
         0.08,
-        0.02
+        0.02,
+        0.15,
+        0.75,
+        0.95
       ]
     },
     {
@@ -1446,11 +1214,11 @@
         -372.2898864746094
       ],
       "size": [
-        255.8291015625,
-        593.8291015625
+        261.6533203125,
+        599.6533203125
       ],
       "flags": {},
-      "order": 31,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -1565,7 +1333,7 @@
         58
       ],
       "flags": {},
-      "order": 26,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -1582,10 +1350,10 @@
           "name": "value",
           "type": "INT",
           "links": [
-            924,
             941,
             944,
-            964
+            964,
+            1120
           ]
         }
       ],
@@ -1610,7 +1378,7 @@
         353.3809814453125
       ],
       "flags": {},
-      "order": 19,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -1644,7 +1412,7 @@
         246
       ],
       "flags": {},
-      "order": 34,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -1700,7 +1468,7 @@
         154
       ],
       "flags": {},
-      "order": 35,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -1749,7 +1517,7 @@
         326
       ],
       "flags": {},
-      "order": 22,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -1850,7 +1618,7 @@
         26
       ],
       "flags": {},
-      "order": 44,
+      "order": 47,
       "mode": 0,
       "inputs": [
         {
@@ -1892,7 +1660,7 @@
         246
       ],
       "flags": {},
-      "order": 37,
+      "order": 41,
       "mode": 0,
       "inputs": [
         {
@@ -1950,7 +1718,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 23,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -1997,7 +1765,7 @@
         82
       ],
       "flags": {},
-      "order": 20,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -2043,11 +1811,11 @@
         -370.9165954589844
       ],
       "size": [
-        255.8291015625,
-        593.8291015625
+        261.6533203125,
+        599.6533203125
       ],
       "flags": {},
-      "order": 32,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -2164,7 +1932,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 41,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -2212,7 +1980,7 @@
         58
       ],
       "flags": {},
-      "order": 47,
+      "order": 44,
       "mode": 0,
       "inputs": [
         {
@@ -2258,7 +2026,7 @@
         26
       ],
       "flags": {},
-      "order": 42,
+      "order": 45,
       "mode": 0,
       "inputs": [
         {
@@ -2300,7 +2068,7 @@
         126
       ],
       "flags": {},
-      "order": 52,
+      "order": 51,
       "mode": 0,
       "inputs": [
         {
@@ -2351,7 +2119,7 @@
         146
       ],
       "flags": {},
-      "order": 55,
+      "order": 54,
       "mode": 0,
       "inputs": [
         {
@@ -2409,7 +2177,7 @@
         122
       ],
       "flags": {},
-      "order": 53,
+      "order": 50,
       "mode": 0,
       "inputs": [
         {
@@ -2532,11 +2300,11 @@
         382.9793701171875
       ],
       "size": [
-        274.5367126464844,
+        274.53671875,
         186.98460388183594
       ],
       "flags": {},
-      "order": 18,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -2579,13 +2347,13 @@
         564.8695068359375
       ],
       "size": [
-        302.9195251464844,
+        302.91953125,
         198
       ],
       "flags": {
         "collapsed": false
       },
-      "order": 15,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -2651,11 +2419,11 @@
         373.8778076171875
       ],
       "size": [
-        207.74276733398438,
+        216.2876953125,
         66
       ],
       "flags": {},
-      "order": 11,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -2700,7 +2468,7 @@
         26
       ],
       "flags": {},
-      "order": 17,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -2737,7 +2505,7 @@
         26
       ],
       "flags": {},
-      "order": 8,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -2774,7 +2542,7 @@
         26
       ],
       "flags": {},
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -2811,7 +2579,7 @@
         294.9342956542969
       ],
       "flags": {},
-      "order": 14,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -2871,7 +2639,7 @@
         302
       ],
       "flags": {},
-      "order": 9,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -2918,46 +2686,6 @@
       "bgcolor": "#364254"
     },
     {
-      "id": 615,
-      "type": "LoadImage",
-      "pos": [
-        5550.16259765625,
-        -639.179443359375
-      ],
-      "size": [
-        487.5203857421875,
-        610.66162109375
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            1084,
-            1085,
-            1088,
-            1090
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "ComfyUI_00001_ (8).png",
-        "image"
-      ]
-    },
-    {
       "id": 618,
       "type": "BAInputSlot",
       "pos": [
@@ -2969,7 +2697,7 @@
         122
       ],
       "flags": {},
-      "order": 10,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -2987,7 +2715,7 @@
         {
           "name": "video_in",
           "shape": 7,
-          "type": "VIDEO",
+          "type": "STRING",
           "link": null
         }
       ],
@@ -3012,7 +2740,7 @@
         122
       ],
       "flags": {},
-      "order": 12,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -3030,7 +2758,7 @@
         {
           "name": "video_in",
           "shape": 7,
-          "type": "VIDEO",
+          "type": "STRING",
           "link": 1092
         }
       ],
@@ -3051,11 +2779,11 @@
         -399.0691833496094
       ],
       "size": [
-        255.8291015625,
-        593.8291015625
+        261.6533203125,
+        599.6533203125
       ],
       "flags": {},
-      "order": 30,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -3159,41 +2887,6 @@
       }
     },
     {
-      "id": 619,
-      "type": "BALoadVideo",
-      "pos": [
-        5543.9443359375,
-        -1247.570556640625
-      ],
-      "size": [
-        504,
-        628
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "video",
-          "type": "VIDEO",
-          "links": [
-            1091,
-            1092
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BALoadVideo"
-      },
-      "widgets_values": {
-        "video_path": "ComfyUI_00018_ (1).mp4",
-        "upload": "image",
-        "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
-        "video-preview": ""
-      }
-    },
-    {
       "id": 525,
       "type": "ImageBlender",
       "pos": [
@@ -3205,7 +2898,7 @@
         122
       ],
       "flags": {},
-      "order": 50,
+      "order": 49,
       "mode": 0,
       "inputs": [
         {
@@ -3263,7 +2956,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 57,
+      "order": 56,
       "mode": 0,
       "inputs": [
         {
@@ -3321,7 +3014,7 @@
         126
       ],
       "flags": {},
-      "order": 49,
+      "order": 52,
       "mode": 0,
       "inputs": [
         {
@@ -3373,7 +3066,7 @@
         26
       ],
       "flags": {},
-      "order": 43,
+      "order": 46,
       "mode": 0,
       "inputs": [
         {
@@ -3415,7 +3108,7 @@
         246
       ],
       "flags": {},
-      "order": 36,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
@@ -3471,7 +3164,7 @@
         338
       ],
       "flags": {},
-      "order": 28,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -3547,7 +3240,7 @@
         58
       ],
       "flags": {},
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -3564,10 +3257,10 @@
           "name": "value",
           "type": "INT",
           "links": [
-            923,
             940,
             943,
-            963
+            963,
+            1119
           ]
         }
       ],
@@ -3588,11 +3281,11 @@
         666.1585693359375
       ],
       "size": [
-        196.29940795898438,
+        196.2994140625,
         86
       ],
       "flags": {},
-      "order": 21,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -3611,7 +3304,7 @@
           ]
         },
         {
-          "label": "960 width",
+          "label": "1440 width",
           "name": "width",
           "type": "INT",
           "links": [
@@ -3620,7 +3313,7 @@
           ]
         },
         {
-          "label": "960 height",
+          "label": "1440 height",
           "name": "height",
           "type": "INT",
           "links": [
@@ -3661,7 +3354,7 @@
       ],
       "size": [
         319.81884765625,
-        995.9418334960938
+        995.9418429904514
       ],
       "flags": {},
       "order": 69,
@@ -3723,13 +3416,13 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "BGOutput___00002.mp4",
+            "filename": "BGOutput___00001.mp4",
             "subfolder": "",
             "type": "temp",
             "format": "video/h264-mp4",
             "frame_rate": 30,
-            "workflow": "BGOutput___00002.png",
-            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/temp/BGOutput___00002.mp4"
+            "workflow": "BGOutput___00001.png",
+            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/temp/BGOutput___00001.mp4"
           }
         }
       }
@@ -3902,9 +3595,7 @@
       "properties": {
         "Node name for S&R": "GetImageSize"
       },
-      "widgets_values": [
-        "width: 1440, height: 720\n batch size: 90"
-      ]
+      "widgets_values": []
     },
     {
       "id": 624,
@@ -3918,7 +3609,7 @@
         98
       ],
       "flags": {},
-      "order": 6,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3941,7 +3632,8 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "ttN int"
+        "Node name for S&R": "ttN int",
+        "ttNnodeVersion": "1.0.0"
       },
       "widgets_values": [
         1280
@@ -4011,7 +3703,7 @@
       ],
       "size": [
         962.2766723632812,
-        1185.5792236328125
+        1185.5792643229165
       ],
       "flags": {},
       "order": 73,
@@ -4073,13 +3765,13 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "OpenClawOutput___00005.mp4",
+            "filename": "OpenClawOutput___00001.mp4",
             "subfolder": "",
             "type": "temp",
             "format": "video/h264-mp4",
             "frame_rate": 30,
-            "workflow": "OpenClawOutput___00005.png",
-            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/temp/OpenClawOutput___00005.mp4"
+            "workflow": "OpenClawOutput___00001.png",
+            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/temp/OpenClawOutput___00001.mp4"
           }
         }
       }
@@ -4096,7 +3788,7 @@
         146
       ],
       "flags": {},
-      "order": 59,
+      "order": 58,
       "mode": 0,
       "inputs": [
         {
@@ -4141,6 +3833,295 @@
         70
       ],
       "color": "rgba(38, 73, 116, 0.7)"
+    },
+    {
+      "id": 619,
+      "type": "BALoadVideo",
+      "pos": [
+        5529.7984132292495,
+        -1284.7966205991943
+      ],
+      "size": [
+        504,
+        628
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            1091,
+            1092
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BALoadVideo"
+      },
+      "widgets_values": {
+        "video_path": "images_pipeline_flower_video-1778315215859-p0q211.mp4",
+        "upload": "image",
+        "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
+        "video-preview": ""
+      }
+    },
+    {
+      "id": 615,
+      "type": "LoadImage",
+      "pos": [
+        5550.907141429192,
+        -579.6177137604889
+      ],
+      "size": [
+        487.5203857421875,
+        610.66162109375
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1084,
+            1085,
+            1088,
+            1090
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "images_pipeline_flower_image-1778314732299-pmo7mv.png",
+        "image"
+      ]
+    },
+    {
+      "id": 628,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        10637.994140625,
+        -608.3406372070312
+      ],
+      "size": [
+        270,
+        360
+      ],
+      "flags": {},
+      "order": 62,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1114
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1115
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        720,
+        720,
+        "lanczos",
+        "resize",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu",
+        0
+      ]
+    },
+    {
+      "id": 629,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        10600.740234375,
+        -13.144777297973633
+      ],
+      "size": [
+        270,
+        360
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1116
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1117
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        720,
+        720,
+        "nearest-exact",
+        "stretch",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu",
+        0
+      ]
+    },
+    {
+      "id": 630,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        7908.8935546875,
+        -601.3984985351562
+      ],
+      "size": [
+        270,
+        360
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1118
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 1119
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 1120
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1121
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest-exact",
+        "stretch",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu",
+        0
+      ]
     }
   ],
   "links": [
@@ -4161,28 +4142,12 @@
       "MASK"
     ],
     [
-      850,
-      512,
-      0,
-      511,
-      0,
-      "IMAGE"
-    ],
-    [
       851,
       513,
       0,
       511,
       1,
       "MASK"
-    ],
-    [
-      852,
-      534,
-      0,
-      512,
-      0,
-      "IMAGE"
     ],
     [
       853,
@@ -4409,14 +4374,6 @@
       "IMAGE"
     ],
     [
-      881,
-      561,
-      0,
-      528,
-      0,
-      "IMAGE"
-    ],
-    [
       882,
       576,
       3,
@@ -4429,14 +4386,6 @@
       573,
       0,
       529,
-      0,
-      "IMAGE"
-    ],
-    [
-      884,
-      531,
-      0,
-      530,
       0,
       "IMAGE"
     ],
@@ -4455,14 +4404,6 @@
       530,
       2,
       "MASK"
-    ],
-    [
-      887,
-      516,
-      0,
-      531,
-      0,
-      "IMAGE"
     ],
     [
       888,
@@ -4511,30 +4452,6 @@
       534,
       2,
       "MASK"
-    ],
-    [
-      922,
-      566,
-      0,
-      561,
-      0,
-      "IMAGE"
-    ],
-    [
-      923,
-      562,
-      0,
-      561,
-      2,
-      "INT"
-    ],
-    [
-      924,
-      574,
-      0,
-      561,
-      3,
-      "INT"
     ],
     [
       931,
@@ -5047,6 +4964,70 @@
       623,
       4,
       "INT"
+    ],
+    [
+      1114,
+      534,
+      0,
+      628,
+      0,
+      "IMAGE"
+    ],
+    [
+      1115,
+      628,
+      0,
+      511,
+      0,
+      "IMAGE"
+    ],
+    [
+      1116,
+      516,
+      0,
+      629,
+      0,
+      "IMAGE"
+    ],
+    [
+      1117,
+      629,
+      0,
+      530,
+      0,
+      "IMAGE"
+    ],
+    [
+      1118,
+      566,
+      0,
+      630,
+      0,
+      "IMAGE"
+    ],
+    [
+      1119,
+      562,
+      0,
+      630,
+      2,
+      "INT"
+    ],
+    [
+      1120,
+      574,
+      0,
+      630,
+      3,
+      "INT"
+    ],
+    [
+      1121,
+      630,
+      0,
+      528,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -5180,13 +5161,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.37974983358327025,
+      "scale": 0.25937424601002074,
       "offset": [
-        -4183.007594735323,
-        2004.4057388559675
+        -3637.485554536027,
+        1993.311479225399
       ]
     },
-    "frontendVersion": "1.27.10",
+    "frontendVersion": "1.42.14",
     "VHS_KeepIntermediate": true,
     "links_added_by_ue": [],
     "VHS_MetadataImage": true,
@@ -5274,7 +5255,7 @@
         "inputs": {
           "transparent_frames": 10,
           "images": [
-            "512",
+            "628",
             0
           ],
           "input_mask": [
@@ -5285,26 +5266,6 @@
         "class_type": "MaskTransparentInOutNode",
         "_meta": {
           "title": "Mask Transparent In-Out (首尾透明过渡)"
-        }
-      },
-      "512": {
-        "inputs": {
-          "width": 720,
-          "height": 720,
-          "upscale_method": "lanczos",
-          "keep_proportion": "resize",
-          "pad_color": "0, 0, 0",
-          "crop_position": "center",
-          "divisible_by": 2,
-          "device": "cpu",
-          "image": [
-            "534",
-            0
-          ]
-        },
-        "class_type": "ImageResizeKJv2",
-        "_meta": {
-          "title": "Resize Image v2"
         }
       },
       "513": {
@@ -5571,7 +5532,7 @@
             3
           ],
           "image": [
-            "561",
+            "630",
             0
           ]
         },
@@ -5601,7 +5562,7 @@
           "blend_mode": "normal",
           "opacity": 100,
           "background_image": [
-            "531",
+            "629",
             0
           ],
           "layer_image": [
@@ -5616,26 +5577,6 @@
         "class_type": "LayerUtility: ImageBlend",
         "_meta": {
           "title": "图层工具：图像混合"
-        }
-      },
-      "531": {
-        "inputs": {
-          "width": 720,
-          "height": 720,
-          "upscale_method": "nearest-exact",
-          "keep_proportion": "stretch",
-          "pad_color": "0, 0, 0",
-          "crop_position": "center",
-          "divisible_by": 2,
-          "device": "cpu",
-          "image": [
-            "520",
-            0
-          ]
-        },
-        "class_type": "ImageResizeKJv2",
-        "_meta": {
-          "title": "Resize Image v2"
         }
       },
       "532": {
@@ -5713,37 +5654,11 @@
       },
       "553": {
         "inputs": {
-          "image": "20260129-155729.jpg"
+          "image": "mask.png"
         },
         "class_type": "LoadImage",
         "_meta": {
           "title": "加载图像"
-        }
-      },
-      "561": {
-        "inputs": {
-          "width": [
-            "562",
-            0
-          ],
-          "height": [
-            "574",
-            0
-          ],
-          "upscale_method": "nearest-exact",
-          "keep_proportion": "stretch",
-          "pad_color": "0, 0, 0",
-          "crop_position": "center",
-          "divisible_by": 2,
-          "device": "cpu",
-          "image": [
-            "566",
-            0
-          ]
-        },
-        "class_type": "ImageResizeKJv2",
-        "_meta": {
-          "title": "Resize Image v2"
         }
       },
       "562": {
@@ -5763,6 +5678,9 @@
           "saturation_threshold": 0.08,
           "value_threshold": 0.08,
           "non_flower_threshold": 0.02,
+          "white_saturation_max": 0.15,
+          "white_value_min": 0.75,
+          "output_value_boost": 0.95,
           "image": [
             "569",
             0
@@ -5983,7 +5901,7 @@
         },
         "class_type": "KeylightCoreHubV3",
         "_meta": {
-          "title": "Keylight Core"
+          "title": "Keylight Core (Hub V2.3.6fixE3_clean_final)"
         }
       },
       "580": {
@@ -6324,7 +6242,7 @@
       },
       "615": {
         "inputs": {
-          "image": "ComfyUI_00001_ (8).png"
+          "image": "images_pipeline_flower_image-1778314732299-pmo7mv.png"
         },
         "class_type": "LoadImage",
         "_meta": {
@@ -6393,7 +6311,7 @@
       },
       "619": {
         "inputs": {
-          "video_path": "ComfyUI_00018_ (1).mp4",
+          "video_path": "images_pipeline_flower_video-1778315215859-p0q211.mp4",
           "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
           "video-preview": ""
         },
@@ -6478,7 +6396,7 @@
         },
         "class_type": "GetImageSize",
         "_meta": {
-          "title": "Get Image Size"
+          "title": "获取图像尺寸"
         }
       },
       "627": {
@@ -6497,14 +6415,83 @@
         "_meta": {
           "title": "🔧 Simple Math"
         }
+      },
+      "628": {
+        "inputs": {
+          "width": 720,
+          "height": 720,
+          "upscale_method": "lanczos",
+          "keep_proportion": "resize",
+          "pad_color": "0, 0, 0",
+          "crop_position": "center",
+          "divisible_by": 2,
+          "device": "cpu",
+          "per_batch": 0,
+          "image": [
+            "534",
+            0
+          ]
+        },
+        "class_type": "ImageResizeKJv2",
+        "_meta": {
+          "title": "Resize Image v2"
+        }
+      },
+      "629": {
+        "inputs": {
+          "width": 720,
+          "height": 720,
+          "upscale_method": "nearest-exact",
+          "keep_proportion": "stretch",
+          "pad_color": "0, 0, 0",
+          "crop_position": "center",
+          "divisible_by": 2,
+          "device": "cpu",
+          "per_batch": 0,
+          "image": [
+            "520",
+            0
+          ]
+        },
+        "class_type": "ImageResizeKJv2",
+        "_meta": {
+          "title": "Resize Image v2"
+        }
+      },
+      "630": {
+        "inputs": {
+          "width": [
+            "562",
+            0
+          ],
+          "height": [
+            "574",
+            0
+          ],
+          "upscale_method": "nearest-exact",
+          "keep_proportion": "stretch",
+          "pad_color": "0, 0, 0",
+          "crop_position": "center",
+          "divisible_by": 2,
+          "device": "cpu",
+          "per_batch": 0,
+          "image": [
+            "566",
+            0
+          ]
+        },
+        "class_type": "ImageResizeKJv2",
+        "_meta": {
+          "title": "Resize Image v2"
+        }
       }
     },
     "r2l": [],
     "venv_comfyui": null,
     "service_name": "byteartist_comfyui_online",
-    "comfyui_commit": "51696e3fdcdfad657cb15854345fbcbbe70eef8d",
-    "ba_manager_commit": "3a95e3336d4067ea021e269661e0f22438e1c264",
-    "created_at": 1776842455717,
+    "comfyui_commit": "c88cf4414d39188e84dc6618c82104e7672fb227",
+    "ba_manager_commit": "701052de4f06149c80f4fcd37a26835be4207670",
+    "created_at": 1778315868841,
     "node_info": {
       "Key Edge Args (V2.3.6fixE2_clean)": {
         "input": {
@@ -6545,6 +6532,7 @@
             "defringe"
           ]
         },
+        "is_input_list": false,
         "output": [
           "KEY_EDGE_ARGS"
         ],
@@ -6557,9 +6545,11 @@
         "name": "Key Edge Args (V2.3.6fixE2_clean)",
         "display_name": "Key Edge Args (V2.3.6fixE3_clean_final)",
         "description": "",
-        "python_module": "custom_nodes.KeylightChromaKeyHub",
+        "python_module": "custom_nodes.ComfyUI-Mysterious-node2",
         "category": "KeylightChromaKeyHub",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "Key Protect Highlights Args (V2.3.6fixE2_clean)": {
         "input": {
@@ -6610,6 +6600,7 @@
             "gamma"
           ]
         },
+        "is_input_list": false,
         "output": [
           "KEY_PH_ARGS"
         ],
@@ -6622,23 +6613,30 @@
         "name": "Key Protect Highlights Args (V2.3.6fixE2_clean)",
         "display_name": "Key Protect Highlights Args (V2.3.6fixE3_clean_final)",
         "description": "",
-        "python_module": "custom_nodes.KeylightChromaKeyHub",
+        "python_module": "custom_nodes.ComfyUI-Mysterious-node2",
         "category": "KeylightChromaKeyHub",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "ImageToMask": {
         "input": {
           "required": {
             "image": [
-              "IMAGE"
+              "IMAGE",
+              {}
             ],
             "channel": [
-              [
-                "red",
-                "green",
-                "blue",
-                "alpha"
-              ]
+              "COMBO",
+              {
+                "multiselect": false,
+                "options": [
+                  "red",
+                  "green",
+                  "blue",
+                  "alpha"
+                ]
+              }
             ]
           }
         },
@@ -6648,6 +6646,7 @@
             "channel"
           ]
         },
+        "is_input_list": false,
         "output": [
           "MASK"
         ],
@@ -6657,18 +6656,34 @@
         "output_name": [
           "MASK"
         ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
         "name": "ImageToMask",
         "display_name": "图像转换为遮罩",
         "description": "",
         "python_module": "comfy_extras.nodes_mask",
         "category": "遮罩",
-        "output_node": false
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "extract channel",
+          "channel to mask"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false
       },
       "MaskToImage": {
         "input": {
           "required": {
             "mask": [
-              "MASK"
+              "MASK",
+              {}
             ]
           }
         },
@@ -6677,6 +6692,7 @@
             "mask"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -6686,12 +6702,26 @@
         "output_name": [
           "IMAGE"
         ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
         "name": "MaskToImage",
         "display_name": "遮罩转换为图像",
         "description": "",
         "python_module": "comfy_extras.nodes_mask",
         "category": "遮罩",
-        "output_node": false
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "convert mask"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false
       },
       "MaskTransparentInOutNode": {
         "input": {
@@ -6725,6 +6755,7 @@
             "input_mask"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "MASK"
@@ -6742,152 +6773,20 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI-mask-blend",
         "category": "遮罩/transitions",
-        "output_node": false
-      },
-      "ImageResizeKJv2": {
-        "input": {
-          "required": {
-            "image": [
-              "IMAGE"
-            ],
-            "width": [
-              "INT",
-              {
-                "default": 512,
-                "min": 0,
-                "max": 16384,
-                "step": 1
-              }
-            ],
-            "height": [
-              "INT",
-              {
-                "default": 512,
-                "min": 0,
-                "max": 16384,
-                "step": 1
-              }
-            ],
-            "upscale_method": [
-              [
-                "nearest-exact",
-                "bilinear",
-                "area",
-                "bicubic",
-                "lanczos"
-              ]
-            ],
-            "keep_proportion": [
-              [
-                "stretch",
-                "resize",
-                "pad",
-                "pad_edge",
-                "pad_edge_pixel",
-                "crop",
-                "pillarbox_blur",
-                "total_pixels"
-              ],
-              {
-                "default": false
-              }
-            ],
-            "pad_color": [
-              "STRING",
-              {
-                "default": "0, 0, 0",
-                "tooltip": "Color to use for padding."
-              }
-            ],
-            "crop_position": [
-              [
-                "center",
-                "top",
-                "bottom",
-                "left",
-                "right"
-              ],
-              {
-                "default": "center"
-              }
-            ],
-            "divisible_by": [
-              "INT",
-              {
-                "default": 2,
-                "min": 0,
-                "max": 512,
-                "step": 1
-              }
-            ]
-          },
-          "optional": {
-            "mask": [
-              "MASK"
-            ],
-            "device": [
-              [
-                "cpu",
-                "gpu"
-              ]
-            ]
-          },
-          "hidden": {
-            "unique_id": "UNIQUE_ID"
-          }
-        },
-        "input_order": {
-          "required": [
-            "image",
-            "width",
-            "height",
-            "upscale_method",
-            "keep_proportion",
-            "pad_color",
-            "crop_position",
-            "divisible_by"
-          ],
-          "optional": [
-            "mask",
-            "device"
-          ],
-          "hidden": [
-            "unique_id"
-          ]
-        },
-        "output": [
-          "IMAGE",
-          "INT",
-          "INT",
-          "MASK"
-        ],
-        "output_is_list": [
-          false,
-          false,
-          false,
-          false
-        ],
-        "output_name": [
-          "IMAGE",
-          "width",
-          "height",
-          "mask"
-        ],
-        "name": "ImageResizeKJv2",
-        "display_name": "Resize Image v2",
-        "description": "\nResizes the image to the specified width and height.  \nSize can be retrieved from the input.\n\nKeep proportions keeps the aspect ratio of the image, by  \nhighest dimension.  \n",
-        "python_module": "custom_nodes.ComfyUI-KJNodes",
-        "category": "KJNodes/图像",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "MaskComposite": {
         "input": {
           "required": {
             "destination": [
-              "MASK"
+              "MASK",
+              {}
             ],
             "source": [
-              "MASK"
+              "MASK",
+              {}
             ],
             "x": [
               "INT",
@@ -6908,14 +6807,18 @@
               }
             ],
             "operation": [
-              [
-                "multiply",
-                "add",
-                "subtract",
-                "and",
-                "or",
-                "xor"
-              ]
+              "COMBO",
+              {
+                "multiselect": false,
+                "options": [
+                  "multiply",
+                  "add",
+                  "subtract",
+                  "and",
+                  "or",
+                  "xor"
+                ]
+              }
             ]
           }
         },
@@ -6928,6 +6831,7 @@
             "operation"
           ]
         },
+        "is_input_list": false,
         "output": [
           "MASK"
         ],
@@ -6937,12 +6841,28 @@
         "output_name": [
           "MASK"
         ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
         "name": "MaskComposite",
         "display_name": "合成遮罩",
         "description": "",
         "python_module": "comfy_extras.nodes_mask",
         "category": "遮罩",
-        "output_node": false
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "combine masks",
+          "blend masks",
+          "layer masks"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false
       },
       "EmptyImage": {
         "input": {
@@ -6993,6 +6913,7 @@
             "color"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -7007,7 +6928,9 @@
         "description": "",
         "python_module": "nodes",
         "category": "图像",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "ResizeMask": {
         "input": {
@@ -7068,6 +6991,7 @@
             "crop"
           ]
         },
+        "is_input_list": false,
         "output": [
           "MASK",
           "INT",
@@ -7088,7 +7012,9 @@
         "description": "\nResizes the mask or batch of masks to the specified width and height.\n",
         "python_module": "custom_nodes.ComfyUI-KJNodes",
         "category": "KJNodes/masking",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "ImageBlender": {
         "input": {
@@ -7183,6 +7109,7 @@
             "mask"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -7197,7 +7124,9 @@
         "description": "",
         "python_module": "custom_nodes.comfyui-image-blender",
         "category": "ImageBlender",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "LayerColor: Brightness & Contrast": {
         "input": {
@@ -7244,6 +7173,7 @@
           ],
           "optional": []
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -7258,13 +7188,16 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI_LayerStyle",
         "category": "😺dzNodes/LayerColor",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "RepeatImageBatch": {
         "input": {
           "required": {
             "image": [
-              "IMAGE"
+              "IMAGE",
+              {}
             ],
             "amount": [
               "INT",
@@ -7282,6 +7215,7 @@
             "amount"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -7291,12 +7225,27 @@
         "output_name": [
           "IMAGE"
         ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
         "name": "RepeatImageBatch",
         "display_name": "复制图像批次",
         "description": "",
         "python_module": "comfy_extras.nodes_images",
         "category": "图像/批处理",
-        "output_node": false
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "duplicate image",
+          "clone image"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false
       },
       "LayerUtility: ImageBlend": {
         "input": {
@@ -7364,6 +7313,7 @@
             "layer_mask"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -7378,63 +7328,65 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI_LayerStyle",
         "category": "😺dzNodes/LayerUtility",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "LoadImage": {
         "input": {
           "required": {
             "image": [
               [
-                "032a4a20-32ac-4904-8798-bb40b176e1e6.jpeg",
-                "05eb2e92-a039-4975-a0cf-e55f29b48197.jpeg",
-                "0c9187c9-3ea6-443a-af21-01cf62aeb06f.jpeg",
-                "0d2a2c7b-837d-4a13-a1c8-64a639c34303.jpeg",
+                "1(1).jpeg",
                 "1.png",
-                "1084785a-2fdf-412a-9f28-c6e727aa1a01.jpeg",
+                "10.png",
                 "11.png",
-                "17c90877-5210-492e-b74c-a6b199b1a7a8.jpeg",
-                "1b3ca972-ed6e-420e-a1fd-6a2e205de495.jpeg",
+                "12.png",
+                "13.png",
+                "14.png",
+                "15.png",
+                "17.png",
+                "18.png",
+                "19.png",
                 "2.png",
-                "20260123-182236.png",
-                "20260123-182402.jpg",
-                "20260123-185903.png",
-                "20260123-185907.png",
-                "20260126-164622.jpg",
-                "20260129-155729.jpg",
-                "20260311181011893_15918.jpeg",
-                "20260408-125023.png",
-                "21ef0561-2ddc-4d09-ae7b-a346be452ad4.jpeg",
-                "235fd060-f71d-4d1d-bd46-470111188ee8.jpeg",
-                "27.png",
-                "29ef5df3-98d3-4859-a4d4-225d2106679c.jpeg",
-                "2bd8ccad-2aa6-484b-8cc2-da77e68fcfa5.jpeg",
-                "3 (1).png",
-                "3662f400-6880-4a17-a8bd-80fe33694275.jpeg",
-                "4 (1).png",
-                "4350db8e-9313-4116-a4be-dda1fcd97332.jpeg",
-                "45ef4bf2-92e6-4d48-ba80-f437b9a1efc7.jpeg",
-                "45f38028-7d89-489a-b4ae-c7f7c1d207c7.jpeg",
-                "4a480bdd-266a-4e19-b872-e155e02c2f77.jpeg",
-                "4d5df94c-8f7a-4e88-9157-c7a833df288c.jpeg",
-                "4e087e73-6772-4d7b-a8bc-7ff5c89facfd.jpeg",
-                "5 (1).png",
-                "55e14ab0-9310-4e9d-b088-4eec23ff1751.jpeg",
-                "560ff310-e2c3-496b-a301-056dcf2c66d2.jpeg",
-                "56f78a04-7d7a-4df6-9ef3-9aca184ce4f3.jpeg",
-                "5a8f7570-ac1d-491d-8f59-770dbf6602d4.jpeg",
-                "63f92f53-8f86-4f6f-8ddf-707954da0ac9.jpeg",
-                "6a3553a0-5481-4f20-9155-064ae29a9014.jpeg",
-                "6ca442d6-c49c-4296-adb7-bb8a94c0256f.jpeg",
-                "6d5a164e-dde8-4cd3-865a-649c42a28cba.jpeg",
-                "70b95cc7-8f86-43f9-bcad-708afc93f12a.jpeg",
-                "782fa43c-de4b-4a81-8529-e27f5b4ae40d.jpeg",
-                "7e427e99-be43-44be-bb3b-b63408f5b38d.jpeg",
-                "8.png",
-                "85d47248-49f5-4b46-af6f-7c81c4688528.jpeg",
-                "88b866c3-f96c-4ffd-89af-1f3cee7f98a6.jpeg",
-                "9061233b-4bf4-4f04-90ce-41bae5f64d36.jpeg",
-                "91d3b357-e222-4827-a5c9-e37154e68152.jpeg",
-                "93bc1613-0417-4456-9fab-36a11df43a74.jpeg"
+                "20260205-153424.jpg",
+                "20260205-153429.jpg",
+                "20260205-153433.jpg",
+                "20260205-153436.jpg",
+                "20260205-153440.jpg",
+                "20260205-153444.jpg",
+                "20260402-191813.jpeg",
+                "20260402-191817.jpeg",
+                "20260402-191820.jpeg",
+                "20260421-205911.png",
+                "3.png",
+                "4.png",
+                "5.png",
+                "605236742521411641-1-605236742521477177-605236504637275635.png",
+                "605236742521411641-1-605236742521477177-605236570471042362.png",
+                "605236742521411641-1-605236742521477177-605236577265843699.jpg",
+                "605236742521411641-1-605236742521477177-605236585788659769.jpg",
+                "605236742521411641-1-605236742521477177-605236595821444595.jpg",
+                "605236742521411641-1-605236742521477177-605236606089100787.jpg",
+                "605236742521411641-1-605236742521477177-605236620165185011.jpg",
+                "605236742521411641-1-605236742521477177-605236624275574074.png",
+                "605236742521411641-1-605236742521477177-605236641656789049.jpg",
+                "605236742521411641-1-605236742521477177-605236666101173562.png",
+                "605236742521411641-1-605236742521477177-605236724771097914.png",
+                "605236742521411641-1-605236742521477177-605236741967773171.png",
+                "7.png",
+                "9.png",
+                "BG.png",
+                "OpenClawOutput___00001_.png",
+                "example.png",
+                "icon mask1.png",
+                "icon mask2.png",
+                "image-1778314732299-pmo7mv-1778314739533.png",
+                "image-1778314732299-pmo7mv-1778315277070.png",
+                "image-1778314732299-pmo7mv-1778315289127.png",
+                "images_pipeline_flower2_image-1778303525424-xvraov.png",
+                "images_pipeline_flower_image-1778314732299-pmo7mv.png",
+                "img_v3_02st_1bacd0ea-264b-4035-94dd-0c273f02851g.png"
               ],
               {
                 "image_upload": true
@@ -7454,6 +7406,7 @@
             "image"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "MASK"
@@ -7471,7 +7424,18 @@
         "description": "",
         "python_module": "nodes",
         "category": "图像",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": [
+          "load image",
+          "open image",
+          "import image",
+          "image input",
+          "upload image",
+          "read image",
+          "image loader"
+        ],
+        "essentials_category": "Basics"
       },
       "FlowerDomainColor": {
         "input": {
@@ -7513,6 +7477,36 @@
                 "step": 0.001,
                 "tooltip": "非绿色颜色存在阈值，低于此占比的颜色视为不存在"
               }
+            ],
+            "white_saturation_max": [
+              "FLOAT",
+              {
+                "default": 0.15,
+                "min": 0.05,
+                "max": 0.4,
+                "step": 0.01,
+                "tooltip": "白色判断的最大饱和度阈值，低于此值且高亮度的像素视为白色"
+              }
+            ],
+            "white_value_min": [
+              "FLOAT",
+              {
+                "default": 0.75,
+                "min": 0.5,
+                "max": 0.95,
+                "step": 0.01,
+                "tooltip": "白色判断的最小亮度阈值，高于此值且低饱和度的像素视为白色"
+              }
+            ],
+            "output_value_boost": [
+              "FLOAT",
+              {
+                "default": 0.95,
+                "min": 0.5,
+                "max": 1,
+                "step": 0.01,
+                "tooltip": "输出颜色的亮度值，设置较高以确保颜色鲜明"
+              }
             ]
           }
         },
@@ -7524,9 +7518,13 @@
           "optional": [
             "saturation_threshold",
             "value_threshold",
-            "non_flower_threshold"
+            "non_flower_threshold",
+            "white_saturation_max",
+            "white_value_min",
+            "output_value_boost"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "STRING",
@@ -7545,47 +7543,28 @@
         "name": "FlowerDomainColor",
         "display_name": "Flower Domain Color (花朵主色)",
         "description": "",
-        "python_module": "custom_nodes.ComfyUI-Mysterious-node1",
+        "python_module": "custom_nodes.comfyui-flower-color-fix",
         "category": "auto_chroma_bg",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "VHS_LoadVideo": {
         "input": {
           "required": {
             "video": [
               [
-                "2026-03-23_18-13-47_ByteArtist (1).mp4",
-                "2026-04-01_20-38-32_ByteArtist.mp4",
-                "2026-04-14_14-33-29_ByteArtist_1.mp4",
-                "2026-04-14_18-16-18_ByteArtist_1.mp4",
-                "70eb54e6-e95d-41c8-abd5-bcd1ed23ef37.mp4",
-                "AnimateDiff_00009 (1).mp4",
-                "AnimateDiff_00017.mp4",
-                "AnimateDiff_00029 (1).mp4",
-                "AnimateDiff_01706.mp4",
-                "AnimateDiff_01713.mp4",
-                "ComfyUI_00007_ (4).mp4",
-                "ComfyUI_00008_ (5).mp4",
-                "ComfyUI_00011_ (4).mp4",
-                "ComfyUI_00013_ (5).mp4",
-                "ComfyUI_00015_ (4).mp4",
-                "ComfyUI_00018_ (1).mp4",
-                "ComfyUI_00019_.mp4",
                 "OpenClawOutput___00002_.mp4",
-                "OpenClawOutput___00051.mp4",
+                "_00737.mp4",
+                "images_pipeline_flower_video-1778315215859-p0q211.mp4",
                 "under layer.mp4",
                 "upper starglow tint.mp4",
-                "vfx1-mask.mp4",
-                "vfx1.mp4",
-                "vfx2-mask.mp4",
-                "vfx2.mp4",
-                "vfx3-mask.mp4",
-                "vfx3.mp4",
-                "video-1776781293797-xaucph.mp4",
-                "wan2.2_00003 (2).mp4",
-                "wan2.2_00006.mp4",
-                "wan2.2_00029.mp4",
-                "蓝色勿忘我.mp4",
+                "video-1777442982294-f1judq-1778216561198.mp4",
+                "video-1778309641653-7eb896-1778309776996.mp4",
+                "video-1778310999420-v7i94k-1778311265277.mp4",
+                "video-1778315215859-p0q211-1778315277639.mp4",
+                "video-1778315215859-p0q211-1778315289541.mp4",
+                "绿底 (1).mp4",
                 "顶层特效90.mp4"
               ],
               {
@@ -7786,6 +7765,7 @@
             "unique_id"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "INT",
@@ -7809,7 +7789,9 @@
         "description": "Loads a video from the input folder",
         "python_module": "custom_nodes.ComfyUI-VideoHelperSuite",
         "category": "Video Helper Suite 🎥🅥🅗🅢",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "INTConstant": {
         "input": {
@@ -7829,6 +7811,7 @@
             "value"
           ]
         },
+        "is_input_list": false,
         "output": [
           "INT"
         ],
@@ -7843,7 +7826,9 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI-KJNodes",
         "category": "KJNodes/constants",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "PreviewImage": {
         "input": {
@@ -7866,6 +7851,7 @@
             "extra_pnginfo"
           ]
         },
+        "is_input_list": false,
         "output": [],
         "output_is_list": [],
         "output_name": [],
@@ -7874,7 +7860,17 @@
         "description": "将输入图像保存到您的ComfyUI临时目录。",
         "python_module": "nodes",
         "category": "图像",
-        "output_node": true
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": [
+          "preview",
+          "preview image",
+          "show image",
+          "view image",
+          "display image",
+          "image viewer"
+        ],
+        "essentials_category": "Basics"
       },
       "GrowMaskWithBlur": {
         "input": {
@@ -7964,6 +7960,7 @@
             "fill_holes"
           ]
         },
+        "is_input_list": false,
         "output": [
           "MASK",
           "MASK"
@@ -7981,7 +7978,9 @@
         "description": "\n# GrowMaskWithBlur\n- mask: Input mask or mask batch\n- expand: Expand or contract mask or mask batch by a given amount\n- incremental_expandrate: increase expand rate by a given amount per frame\n- tapered_corners: use tapered corners\n- flip_input: flip input mask\n- blur_radius: value higher than 0 will blur the mask\n- lerp_alpha: alpha value for interpolation between frames\n- decay_factor: decay value for interpolation between frames\n- fill_holes: fill holes in the mask (slow)",
         "python_module": "custom_nodes.ComfyUI-KJNodes",
         "category": "KJNodes/masking",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "MaskFix+": {
         "input": {
@@ -8046,6 +8045,7 @@
             "blur"
           ]
         },
+        "is_input_list": false,
         "output": [
           "MASK"
         ],
@@ -8060,7 +8060,9 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI_essentials",
         "category": "essentials/遮罩",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "KeylightCoreHubV3": {
         "input": {
@@ -8164,6 +8166,7 @@
             "mm_args"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "MASK",
@@ -8183,17 +8186,20 @@
           "image_rgba"
         ],
         "name": "KeylightCoreHubV3",
-        "display_name": "Keylight Core",
+        "display_name": "Keylight Core (Hub V2.3.6fixE3_clean_final)",
         "description": "",
-        "python_module": "custom_nodes.KeylightChromaKeyHub",
+        "python_module": "custom_nodes.ComfyUI-Mysterious-node2",
         "category": "KeylightChromaKeyHub",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "InvertMask": {
         "input": {
           "required": {
             "mask": [
-              "MASK"
+              "MASK",
+              {}
             ]
           }
         },
@@ -8202,6 +8208,7 @@
             "mask"
           ]
         },
+        "is_input_list": false,
         "output": [
           "MASK"
         ],
@@ -8211,12 +8218,27 @@
         "output_name": [
           "MASK"
         ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
         "name": "InvertMask",
         "display_name": "反转遮罩",
         "description": "",
         "python_module": "comfy_extras.nodes_mask",
         "category": "遮罩",
-        "output_node": false
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "reverse mask",
+          "flip mask"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false
       },
       "AILab_ColorInput": {
         "input": {
@@ -8266,6 +8288,7 @@
             "color"
           ]
         },
+        "is_input_list": false,
         "output": [
           "COLORCODE"
         ],
@@ -8280,7 +8303,9 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI-RMBG",
         "category": "🧪AILab/🛠️UTIL/🔄IO",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "LayerUtility: ImageBlendAdvance V2": {
         "input": {
@@ -8438,6 +8463,7 @@
             "layer_mask"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "MASK"
@@ -8455,7 +8481,9 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI_LayerStyle",
         "category": "😺dzNodes/LayerUtility",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "VideoTimeRemapSpeedPresets": {
         "input": {
@@ -8540,6 +8568,7 @@
             "resample_mode"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -8554,7 +8583,9 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI-Mysterious-node3",
         "category": "视频/time",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "RIFE VFI": {
         "input": {
@@ -8640,6 +8671,7 @@
             "optional_interpolation_states"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -8652,9 +8684,11 @@
         "name": "RIFE VFI",
         "display_name": "RIFE VFI (recommend rife47 and rife49)",
         "description": "",
-        "python_module": "custom_nodes.ComfyUI-Frame-Interpolation",
+        "python_module": "custom_nodes.comfyui-frame-interpolation_cudafull",
         "category": "ComfyUI-Frame-Interpolation/VFI",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "BAGetVideoComponents": {
         "input": {
@@ -8672,6 +8706,7 @@
             "video"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "AUDIO",
@@ -8692,7 +8727,9 @@
         "description": "Extracts all components from a video: frames, audio, and framerate.",
         "python_module": "custom_nodes.ba-manager",
         "category": "图像/视频",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "BAReroute": {
         "input": {
@@ -8712,6 +8749,7 @@
             "input"
           ]
         },
+        "is_input_list": false,
         "output": [
           "*"
         ],
@@ -8726,7 +8764,9 @@
         "description": "",
         "python_module": "custom_nodes.ba-manager",
         "category": "byteartist/universal",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "AutoChromaSmartBackground": {
         "input": {
@@ -8833,6 +8873,7 @@
             "disable_blue_bg"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "STRING",
@@ -8851,9 +8892,11 @@
         "name": "AutoChromaSmartBackground",
         "display_name": "Auto Chroma Smart BG (智能背景色)",
         "description": "",
-        "python_module": "custom_nodes.ComfyUI-Mysterious-node1",
+        "python_module": "custom_nodes.comfyui-flower-color-fix",
         "category": "auto_chroma_bg",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "RMBG": {
         "input": {
@@ -8966,6 +9009,7 @@
             "background_color"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "MASK",
@@ -8986,7 +9030,9 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI-RMBG",
         "category": "🧪AILab/🧽RMBG",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "BAInputSlot": {
         "input": {
@@ -9020,7 +9066,7 @@
               "IMAGE"
             ],
             "video_in": [
-              "VIDEO",
+              "STRING",
               {
                 "forceInput": true
               }
@@ -9038,90 +9084,18 @@
             "video_in"
           ]
         },
+        "is_input_list": false,
         "output": [],
         "output_is_list": [],
         "output_name": [],
         "name": "BAInputSlot",
         "display_name": "BA Input Slot (Variable)",
         "description": "",
-        "python_module": "custom_nodes.comfyui-webhook-node",
+        "python_module": "custom_nodes.comfyui-webhook-node-latest",
         "category": "api-bridge",
-        "output_node": false
-      },
-      "BALoadVideo": {
-        "input": {
-          "required": {
-            "video_path": [
-              [
-                "2026-03-23_18-13-47_ByteArtist (1).mp4",
-                "2026-04-01_20-38-32_ByteArtist.mp4",
-                "2026-04-14_14-33-29_ByteArtist_1.mp4",
-                "2026-04-14_18-16-18_ByteArtist_1.mp4",
-                "70eb54e6-e95d-41c8-abd5-bcd1ed23ef37.mp4",
-                "AnimateDiff_00009 (1).mp4",
-                "AnimateDiff_00017.mp4",
-                "AnimateDiff_00029 (1).mp4",
-                "AnimateDiff_01706.mp4",
-                "AnimateDiff_01713.mp4",
-                "ComfyUI_00007_ (4).mp4",
-                "ComfyUI_00008_ (5).mp4",
-                "ComfyUI_00011_ (4).mp4",
-                "ComfyUI_00013_ (5).mp4",
-                "ComfyUI_00015_ (4).mp4",
-                "ComfyUI_00018_ (1).mp4",
-                "ComfyUI_00019_.mp4",
-                "OpenClawOutput___00002_.mp4",
-                "OpenClawOutput___00051.mp4",
-                "under layer.mp4",
-                "upper starglow tint.mp4",
-                "vfx1-mask.mp4",
-                "vfx1.mp4",
-                "vfx2-mask.mp4",
-                "vfx2.mp4",
-                "vfx3-mask.mp4",
-                "vfx3.mp4",
-                "video-1776781293797-xaucph.mp4",
-                "wan2.2_00003 (2).mp4",
-                "wan2.2_00006.mp4",
-                "wan2.2_00029.mp4",
-                "蓝色勿忘我.mp4",
-                "顶层特效90.mp4"
-              ],
-              {
-                "video_upload": true
-              }
-            ],
-            "upload": [
-              "IMAGEUPLOAD",
-              {
-                "video_upload": true,
-                "imageInputName": "video_path"
-              }
-            ]
-          },
-          "optional": {}
-        },
-        "input_order": {
-          "required": [
-            "video_path"
-          ],
-          "optional": []
-        },
-        "output": [
-          "VIDEO"
-        ],
-        "output_is_list": [
-          false
-        ],
-        "output_name": [
-          "video"
-        ],
-        "name": "BALoadVideo",
-        "display_name": "BA Load Video",
-        "description": "",
-        "python_module": "custom_nodes.ba-manager",
-        "category": "BA/视频",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "GetImageSizeAndCount": {
         "input": {
@@ -9136,6 +9110,7 @@
             "image"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "INT",
@@ -9159,7 +9134,9 @@
         "description": "\nReturns width, height and batch size of the image,  \nand passes it through unchanged.  \n\n",
         "python_module": "custom_nodes.ComfyUI-KJNodes",
         "category": "KJNodes/图像",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "VHS_VideoCombine": {
         "input": {
@@ -9649,6 +9626,7 @@
             "unique_id"
           ]
         },
+        "is_input_list": false,
         "output": [
           "VHS_FILENAMES"
         ],
@@ -9663,7 +9641,9 @@
         "description": "Combine an image sequence into a video",
         "python_module": "custom_nodes.ComfyUI-VideoHelperSuite",
         "category": "Video Helper Suite 🎥🅥🅗🅢",
-        "output_node": true
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "ImageConcanate": {
         "input": {
@@ -9701,6 +9681,7 @@
             "match_image_size"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -9715,7 +9696,9 @@
         "description": "\nConcatenates the image2 to image1 in the specified direction.\n",
         "python_module": "custom_nodes.ComfyUI-KJNodes",
         "category": "KJNodes/图像",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "ImagePadKJ": {
         "input": {
@@ -9780,7 +9763,7 @@
               "STRING",
               {
                 "default": "0, 0, 0",
-                "tooltip": "Color as RGB values in range 0-255 or 0.0-1.0, or color name or hex code"
+                "tooltip": "Color as RGB values in range 0-255, separated by commas."
               }
             ]
           },
@@ -9827,6 +9810,7 @@
             "target_height"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE",
           "MASK"
@@ -9844,17 +9828,22 @@
         "description": "Pad the input image and optionally mask with the specified padding.",
         "python_module": "custom_nodes.ComfyUI-KJNodes",
         "category": "KJNodes/图像",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "GetImageSize": {
         "input": {
           "required": {
             "image": [
-              "IMAGE"
+              "IMAGE",
+              {}
             ]
           },
           "hidden": {
-            "unique_id": "UNIQUE_ID"
+            "unique_id": [
+              "UNIQUE_ID"
+            ]
           }
         },
         "input_order": {
@@ -9865,6 +9854,7 @@
             "unique_id"
           ]
         },
+        "is_input_list": false,
         "output": [
           "INT",
           "INT",
@@ -9880,12 +9870,30 @@
           "height",
           "batch_size"
         ],
+        "output_tooltips": [
+          null,
+          null,
+          null
+        ],
+        "output_matchtypes": null,
         "name": "GetImageSize",
-        "display_name": "Get Image Size",
-        "description": "Returns width and height of the image, and passes it through unchanged.",
+        "display_name": "获取图像尺寸",
+        "description": "返回图像的宽度和高度，并原样传递图像。",
         "python_module": "comfy_extras.nodes_images",
         "category": "图像",
-        "output_node": false
+        "output_node": false,
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "dimensions",
+          "resolution",
+          "image info"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false
       },
       "ttN int": {
         "input": {
@@ -9911,6 +9919,7 @@
             "ttNnodeVersion"
           ]
         },
+        "is_input_list": false,
         "output": [
           "INT",
           "FLOAT",
@@ -9931,7 +9940,9 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI_tinyterraNodes",
         "category": "🌏 tinyterra/util",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "SimpleMath+": {
         "input": {
@@ -9975,6 +9986,7 @@
             "value"
           ]
         },
+        "is_input_list": false,
         "output": [
           "INT",
           "FLOAT"
@@ -9992,14 +10004,222 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI_essentials",
         "category": "essentials/utilities",
-        "output_node": false
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "BALoadVideo": {
+        "input": {
+          "required": {
+            "video_path": [
+              [
+                "OpenClawOutput___00002_.mp4",
+                "_00737.mp4",
+                "images_pipeline_flower_video-1778315215859-p0q211.mp4",
+                "under layer.mp4",
+                "upper starglow tint.mp4",
+                "video-1777442982294-f1judq-1778216561198.mp4",
+                "video-1778309641653-7eb896-1778309776996.mp4",
+                "video-1778310999420-v7i94k-1778311265277.mp4",
+                "video-1778315215859-p0q211-1778315277639.mp4",
+                "video-1778315215859-p0q211-1778315289541.mp4",
+                "绿底 (1).mp4",
+                "顶层特效90.mp4"
+              ],
+              {
+                "video_upload": true
+              }
+            ],
+            "upload": [
+              "IMAGEUPLOAD",
+              {
+                "video_upload": true,
+                "imageInputName": "video_path"
+              }
+            ]
+          },
+          "optional": {}
+        },
+        "input_order": {
+          "required": [
+            "video_path"
+          ],
+          "optional": []
+        },
+        "is_input_list": false,
+        "output": [
+          "VIDEO"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "video"
+        ],
+        "name": "BALoadVideo",
+        "display_name": "BA Load Video",
+        "description": "",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "BA/视频",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "ImageResizeKJv2": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "width": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "height": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "upscale_method": [
+              [
+                "nearest-exact",
+                "bilinear",
+                "area",
+                "bicubic",
+                "lanczos"
+              ]
+            ],
+            "keep_proportion": [
+              [
+                "stretch",
+                "resize",
+                "pad",
+                "pad_edge",
+                "pad_edge_pixel",
+                "crop",
+                "pillarbox_blur"
+              ],
+              {
+                "default": false
+              }
+            ],
+            "pad_color": [
+              "STRING",
+              {
+                "default": "0, 0, 0",
+                "tooltip": "Color to use for padding."
+              }
+            ],
+            "crop_position": [
+              [
+                "center",
+                "top",
+                "bottom",
+                "left",
+                "right"
+              ],
+              {
+                "default": "center"
+              }
+            ],
+            "divisible_by": [
+              "INT",
+              {
+                "default": 2,
+                "min": 0,
+                "max": 512,
+                "step": 1
+              }
+            ]
+          },
+          "optional": {
+            "mask": [
+              "MASK"
+            ],
+            "device": [
+              [
+                "cpu",
+                "gpu"
+              ]
+            ],
+            "per_batch": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "tooltip": "Process images in sub-batches to reduce memory usage. 0 disables sub-batching."
+              }
+            ]
+          },
+          "hidden": {
+            "unique_id": "UNIQUE_ID"
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "width",
+            "height",
+            "upscale_method",
+            "keep_proportion",
+            "pad_color",
+            "crop_position",
+            "divisible_by"
+          ],
+          "optional": [
+            "mask",
+            "device",
+            "per_batch"
+          ],
+          "hidden": [
+            "unique_id"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "INT",
+          "INT",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "IMAGE",
+          "width",
+          "height",
+          "mask"
+        ],
+        "name": "ImageResizeKJv2",
+        "display_name": "Resize Image v2",
+        "description": "\nResizes the image to the specified width and height.  \nSize can be retrieved from the input.\n\nKeep proportions keeps the aspect ratio of the image, by  \nhighest dimension.  \n",
+        "python_module": "custom_nodes.ComfyUI-KJNodes",
+        "category": "KJNodes/图像",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       }
     },
     "custom_node_versions": [
       {
-        "path": "custom_nodes/KeylightChromaKeyHub",
-        "git_url": "https://github.com/Eden123321/KeylightChromaKeyHub.git",
-        "git_commit": "f6aab32f0176495a144dff70f32ecba6c79648db",
+        "path": "custom_nodes/ComfyUI-Mysterious-node2",
+        "git_url": "https://github.com/muriellee1x/ComfyUI-Mysterious-node2.git",
+        "git_commit": "194e88d38f442a2e1606f87ed87329829a8dd305",
         "node_types": [
           "Key Edge Args (V2.3.6fixE2_clean)",
           "Key Protect Highlights Args (V2.3.6fixE2_clean)",
@@ -10017,15 +10237,15 @@
       {
         "path": "custom_nodes/ComfyUI-KJNodes",
         "git_url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-        "git_commit": "16a335c8c40b1b3eef8b770022276004d5bea66b",
+        "git_commit": "b1fffd33ba8b14cb4900e2c557f4a2ba0b340ff5",
         "node_types": [
-          "ImageResizeKJv2",
           "ResizeMask",
           "INTConstant",
           "GrowMaskWithBlur",
           "GetImageSizeAndCount",
           "ImageConcanate",
-          "ImagePadKJ"
+          "ImagePadKJ",
+          "ImageResizeKJv2"
         ]
       },
       {
@@ -10039,7 +10259,7 @@
       {
         "path": "custom_nodes/ComfyUI_LayerStyle",
         "git_url": "https://github.com/chflame163/ComfyUI_LayerStyle.git",
-        "git_commit": "d94bef1ee5ed3656f5ff1bb2830a4ffd94f40935",
+        "git_commit": "3bfe8e435d167b4a5bf08716729f89802dbbaa6f",
         "node_types": [
           "LayerColor: Brightness & Contrast",
           "LayerUtility: ImageBlend",
@@ -10047,9 +10267,9 @@
         ]
       },
       {
-        "path": "custom_nodes/ComfyUI-Mysterious-node1",
-        "git_url": "https://github.com/muriellee1x/ComfyUI-Mysterious-node1.git",
-        "git_commit": "a09e04e544b66682fbf1590be8010c06dd4ceb27",
+        "path": "custom_nodes/comfyui-flower-color-fix",
+        "git_url": "https://github.com/Eden123321/comfyui-flower-color-fix.git",
+        "git_commit": "02feb5d40cf00f8b13b6502d8f1799046a1a5ad3",
         "node_types": [
           "FlowerDomainColor",
           "AutoChromaSmartBackground"
@@ -10076,7 +10296,7 @@
       {
         "path": "custom_nodes/ComfyUI-RMBG",
         "git_url": "https://github.com/1038lab/ComfyUI-RMBG.git",
-        "git_commit": "a1ca256ce5ef3d2d990935415bad76c4269aa80d",
+        "git_commit": "d7402513f23f58db7d56754b02a4f51a148b4941",
         "node_types": [
           "AILab_ColorInput",
           "RMBG"
@@ -10091,17 +10311,17 @@
         ]
       },
       {
-        "path": "custom_nodes/ComfyUI-Frame-Interpolation",
-        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Frame-Interpolation.git",
-        "git_commit": "ffa6b0a03883b822a66139c60910cd85f0146ac4",
+        "path": "custom_nodes/comfyui-frame-interpolation_cudafull",
+        "git_url": "https://github.com/eddyhhlure1Eddy/comfyui-frame-interpolation_cudafull.git",
+        "git_commit": "795c28e79036f243a6818b3492907fa475a03882",
         "node_types": [
           "RIFE VFI"
         ]
       },
       {
-        "path": "custom_nodes/comfyui-webhook-node",
-        "git_url": "https://github.com/Eden123321/comfyui-webhook-node.git",
-        "git_commit": "3c0fbea3e358bb66a41069622dbc9f88f8c5f8d6",
+        "path": "custom_nodes/comfyui-webhook-node-latest",
+        "git_url": "https://github.com/Doki21yy/comfyui-webhook-node-latest.git",
+        "git_commit": "ddcba27136952af6349913cf9c8b555233118782",
         "node_types": [
           "BAInputSlot"
         ]
@@ -10116,9 +10336,9 @@
       }
     ],
     "pip_freeze": [
-      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.4.2.dist-info due to invalid metadata entry 'name'",
-      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.2.6.dist-info due to invalid metadata entry 'name'",
       "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/python_dotenv-1.2.1.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
       "absl-py==2.3.1",
       "accelerate==1.10.1",
       "addict==2.4.0",
@@ -10136,17 +10356,16 @@
       "anyio==4.4.0",
       "asn1crypto==1.5.1",
       "attrs==24.2.0",
-      "av==17.0.0",
+      "av==17.0.1",
       "basicsr==1.4.2",
-      "bcrypt==5.0.0",
       "beautifulsoup4==4.14.3",
       "bitsandbytes==0.47.0",
       "black==24.8.0",
+      "blake3==1.0.8",
       "blend_modes==2.2.0",
       "boto3==1.40.38",
       "botocore==1.40.38",
       "Brotli==1.1.0",
-      "build==1.4.1",
       "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
       "byted-cruise==0.7.0",
       "byted-kms-encryption==0.0.7",
@@ -10199,30 +10418,29 @@
       "cffi==2.0.0",
       "chardet==5.2.0",
       "charset-normalizer==3.3.2",
-      "chromadb==1.5.5",
       "click==8.1.7",
       "clip-interrogator==0.6.0",
       "cmake==4.1.0",
       "color-matcher==0.6.0",
       "coloredlogs==15.0.1",
       "colour-science==0.4.7",
-      "comfy-kitchen==0.2.7",
+      "comfy-aimdo==0.3.0",
+      "comfy-kitchen==0.2.8",
       "comfyui-embedded-docs==0.2.6",
-      "comfyui-workflow-templates-core==0.3.88",
-      "comfyui-workflow-templates-media-api==0.3.39",
-      "comfyui-workflow-templates-media-image==0.3.55",
-      "comfyui-workflow-templates-media-other==0.3.80",
-      "comfyui-workflow-templates-media-video==0.3.38",
-      "comfyui_frontend_package==1.27.10",
+      "comfyui-workflow-templates-core==0.3.214",
+      "comfyui-workflow-templates-media-api==0.3.70",
+      "comfyui-workflow-templates-media-image==0.3.131",
+      "comfyui-workflow-templates-media-other==0.3.180",
+      "comfyui-workflow-templates-media-video==0.3.80",
+      "comfyui_frontend_package==1.42.14",
       "comfyui_workflow_templates==0.1.86",
       "contourpy==1.3.3",
       "cramjam==2.6.2",
       "crcmod==1.7",
-      "cryptography==46.0.7",
-      "cstr @ git+https://github.com/ltdrdata/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
-      "cuda-bindings==12.9.4",
-      "cuda-pathfinder==1.3.3",
-      "cupy-cuda12x==13.6.0",
+      "cryptography==39.0.2",
+      "cstr @ git+https://github.com/WASasquatch/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
+      "cupy-cuda12x==12.3.0",
+      "cupy-wheel==12.3.0",
       "cycler==0.12.1",
       "Cython==3.2.1",
       "dataclasses-json==0.6.7",
@@ -10238,8 +10456,7 @@
       "dnspython==2.8.0",
       "docker-pycreds==0.4.0",
       "docstring_parser==0.17.0",
-      "docutils==0.22.4",
-      "durationpy==0.10",
+      "docutils==0.22.3",
       "easydict==1.13",
       "ecdsa==0.19.1",
       "einops==0.8.1",
@@ -10263,8 +10480,7 @@
       "gevent==24.11.1",
       "gitdb==4.0.12",
       "GitPython==3.1.42",
-      "google==3.0.0",
-      "googleapis-common-protos==1.73.0",
+      "glfw==2.10.0",
       "GPUtil==1.4.0",
       "gradio==5.47.0",
       "gradio_client==1.13.2",
@@ -10277,7 +10493,6 @@
       "hf-xet==1.1.10",
       "hjson==3.1.0",
       "httpcore==1.0.5",
-      "httptools==0.7.1",
       "httpx==0.25.2",
       "httpx-sse==0.4.3",
       "huggingface-hub==0.35.1",
@@ -10286,9 +10501,8 @@
       "idna==3.10",
       "imageio==2.37.0",
       "imageio-ffmpeg==0.6.0",
-      "img2texture @ git+https://github.com/ltdrdata/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
+      "img2texture @ git+https://github.com/WASasquatch/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
       "importlib_metadata==8.7.0",
-      "importlib_resources==6.5.2",
       "iniconfig==2.0.0",
       "insightface==0.7.3",
       "iopath==0.1.10",
@@ -10306,7 +10520,6 @@
       "kiwisolver==1.4.9",
       "kornia==0.8.1",
       "kornia_rs==0.1.9",
-      "kubernetes==35.0.0",
       "langchain==0.3.25",
       "langchain-community==0.3.24",
       "langchain-core==0.3.64",
@@ -10321,7 +10534,7 @@
       "lmdb==1.7.3",
       "loguru==0.7.3",
       "lz4==3.1.10",
-      "Mako==1.3.10",
+      "Mako==1.3.12",
       "Markdown==3.10",
       "markdown-it-py==4.0.0",
       "MarkupSafe==3.0.2",
@@ -10330,7 +10543,6 @@
       "mdurl==0.1.2",
       "megablocks==0.5.1",
       "miscreant==0.3.0",
-      "mmh3==5.2.1",
       "moviepy==1.0.3",
       "mpmath==1.3.0",
       "mprofile==0.0.15",
@@ -10356,9 +10568,8 @@
       "nvidia-ml-py==13.590.48",
       "nvidia-nccl-cu12==2.26.2",
       "nvidia-nvjitlink-cu12==12.6.85",
-      "nvidia-nvshmem-cu12==3.4.5",
+      "nvidia-nvshmem-cu12==3.3.20",
       "nvidia-nvtx-cu12==12.6.77",
-      "oauthlib==3.3.1",
       "objprint==0.3.0",
       "ollama==0.6.0",
       "omegaconf==2.3.0",
@@ -10367,21 +10578,15 @@
       "onnxruntime-gpu==1.22.0",
       "open_clip_torch==3.2.0",
       "openai==1.109.1",
-      "opencv-contrib-python==4.13.0.90",
+      "opencv-contrib-python==4.13.0.92",
       "opencv-python==4.11.0.86",
-      "opencv-python-headless==4.13.0.90",
+      "opencv-python-headless==4.13.0.92",
       "openpyxl==3.1.2",
-      "opentelemetry-api==1.40.0",
-      "opentelemetry-exporter-otlp-proto-common==1.40.0",
-      "opentelemetry-exporter-otlp-proto-grpc==1.40.0",
-      "opentelemetry-proto==1.40.0",
-      "opentelemetry-sdk==1.40.0",
-      "opentelemetry-semantic-conventions==0.61b0",
       "orderly-set==5.5.0",
       "orjson==3.11.3",
-      "overrides==7.7.0",
       "packaging==24.1",
       "pandas==2.3.2",
+      "partial-json-parser==0.2.1.1.post7",
       "pathspec==0.12.1",
       "pathtools==0.1.2",
       "peft==0.17.1",
@@ -10395,7 +10600,7 @@
       "pluggy==1.5.0",
       "ply==3.11",
       "polars==1.33.1",
-      "pooch==1.8.2",
+      "pooch==1.9.0",
       "portalocker==3.2.0",
       "prettytable==3.16.0",
       "proglog==0.1.12",
@@ -10407,7 +10612,6 @@
       "py-cpuinfo==9.0.0",
       "pyarrow==11.0.0",
       "pyasn1==0.6.1",
-      "pybase64==1.4.3",
       "pycocotools==2.0.11",
       "pycparser==2.23",
       "pycryptodome==3.19.1",
@@ -10418,13 +10622,12 @@
       "pydub==0.25.1",
       "Pygments==2.19.2",
       "PyJWT==2.10.1",
-      "PyMatting==1.1.14",
+      "PyMatting==1.1.15",
       "pynvml==13.0.1",
       "pyope==0.2.2",
+      "PyOpenGL==3.1.10",
       "pyOpenSSL==23.2.0",
       "pyparsing==3.2.5",
-      "PyPika==0.51.1",
-      "pyproject_hooks==1.2.0",
       "PySocks==1.7.1",
       "pytest==8.3.2",
       "python-dateutil==2.9.0.post0",
@@ -10440,7 +10643,6 @@
       "regex==2025.9.18",
       "rembg==2.0.69",
       "requests==2.31.0",
-      "requests-oauthlib==2.0.0",
       "requests-toolbelt==1.0.0",
       "retry==0.9.2",
       "retrying==1.4.2",
@@ -10456,17 +10658,17 @@
       "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
       "SAM-2 @ git+https://github.com/facebookresearch/sam2@2b90b9f5ceec907a1c18123530e92e794ad901a4",
       "schedule==1.2.2",
-      "scikit-image==0.25.2",
+      "scikit-image==0.26.0",
       "scikit-learn==1.7.2",
       "scipy==1.16.2",
       "segment-anything==1.0",
       "semantic-version==2.10.0",
-      "sentence-transformers==5.3.0",
       "sentencepiece==0.2.1",
       "sentry-sdk==2.39.0",
       "setproctitle==1.3.7",
       "shellingham==1.5.4",
       "shortuuid==1.0.13",
+      "simpleeval==1.0.7",
       "simsimd==6.5.3",
       "six==1.16.0",
       "smmap==5.0.2",
@@ -10474,7 +10676,7 @@
       "soundfile==0.13.1",
       "soupsieve==2.8.3",
       "spandrel==0.4.1",
-      "SQLAlchemy==2.0.48",
+      "SQLAlchemy==2.0.49",
       "stanford-stk==0.7.1",
       "starlette==0.48.0",
       "stringzilla==4.2.3",
@@ -10515,14 +10717,10 @@
       "urllib3==1.26.20",
       "uv==0.8.12",
       "uvicorn==0.37.0",
-      "uvloop==0.22.1",
       "viztracer==0.16.3",
-      "volcengine==1.0.218",
-      "volcengine-python-sdk==5.0.12",
+      "volcengine-python-sdk==5.0.25",
       "watchdog==6.0.0",
-      "watchfiles==1.1.1",
       "wcwidth==0.2.14",
-      "websocket-client==1.9.0",
       "websockets==15.0.1",
       "Werkzeug==3.1.3",
       "wget==3.2",
@@ -10552,7 +10750,7 @@
       "anyio==4.4.0",
       "asn1crypto==1.5.1",
       "attrs==24.2.0",
-      "av==17.0.0",
+      "av==17.0.1",
       "bitsandbytes==0.47.0",
       "black==24.8.0",
       "boto3==1.40.38",
@@ -10615,7 +10813,7 @@
       "contourpy==1.3.3",
       "cramjam==2.6.2",
       "crcmod==1.7",
-      "cryptography==46.0.7",
+      "cryptography==39.0.2",
       "cycler==0.12.1",
       "decorator==5.2.1",
       "deepspeed==0.17.6",
@@ -10799,7 +10997,6 @@
       "urllib3==1.26.20",
       "uv==0.8.12",
       "uvicorn==0.37.0",
-      "volcengine-python-sdk==5.0.12",
       "websockets==15.0.1",
       "wget==3.2",
       "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
@@ -10823,15 +11020,15 @@
     },
     "base_image": "aip_image_factory/custom.image.combo_infer:nvidia_seed4_infer-20251006-215922",
     "comfy_args": {
-      "--listen": "fd02::33:0:0:b78",
+      "--listen": "fd02::24:0:0:c25",
       "--port": "9001"
     },
-    "comfyui_tag": "release_0.3.65",
+    "comfyui_tag": "v0.19.5",
     "ba_combo": "588008921034165554",
-    "workflow_name": "花花-Dolly",
-    "workflow_id": "603344952671365803:85",
-    "config_id": "616248713928536224",
-    "workflow_version_id": "616248713962090656",
-    "workflow_identity": "603344952671365803:85"
+    "workflow_name": "啥都能跑",
+    "workflow_id": "597261691570414615:17",
+    "config_id": "618720689536371394",
+    "workflow_version_id": "618720689553148610",
+    "workflow_identity": "597261691570414615:17"
   }
 }

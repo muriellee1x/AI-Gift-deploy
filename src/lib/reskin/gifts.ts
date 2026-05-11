@@ -16,8 +16,13 @@ export type ReskinGift = {
 /**
  * 礼物视频托管在 Cloudflare R2 公开 Bucket。
  * 这是公共 CDN 地址，无需环境变量配置。
+ * videoUrl 中的文件名部分已 percent-encode，确保 Seedance API 等外部服务可正确拉取。
  */
 const R2_BASE = 'https://pub-02b8c66d372f4a218c4ab9587c3bb0ae.r2.dev/reskin-video-data'
+
+function r2Url(filename: string): string {
+  return `${R2_BASE}/${encodeURIComponent(filename)}`
+}
 
 /**
  * 在 worker handler 入口调用此函数，确保 R2_BASE 已正确配置。
@@ -33,7 +38,7 @@ export const RESKIN_GIFTS: ReskinGift[] = [
     name: '比心兔兔',
     displayImage: '/reskin/gifts/比心兔兔-display.png',
     greenImage: '/reskin/gifts/比心兔兔-image.png',
-    videoUrl: `${R2_BASE}/比心兔兔.mp4`,
+    videoUrl: r2Url('比心兔兔.mp4'),
     duration: 4,
     ratio: '1:1',
   },
@@ -42,7 +47,7 @@ export const RESKIN_GIFTS: ReskinGift[] = [
     name: '豪华邮轮',
     displayImage: '/reskin/gifts/豪华邮轮-display.png',
     greenImage: '/reskin/gifts/豪华邮轮-image.png',
-    videoUrl: `${R2_BASE}/豪华邮轮.mp4`,
+    videoUrl: r2Url('豪华邮轮.mp4'),
     duration: 6,
     ratio: '3:4',
   },
@@ -51,7 +56,7 @@ export const RESKIN_GIFTS: ReskinGift[] = [
     name: '私人飞机',
     displayImage: '/reskin/gifts/私人飞机-display.png',
     greenImage: '/reskin/gifts/私人飞机-image.png',
-    videoUrl: `${R2_BASE}/私人飞机.mp4`,
+    videoUrl: r2Url('私人飞机.mp4'),
     duration: 4,
     ratio: '3:4',
   },
@@ -60,7 +65,7 @@ export const RESKIN_GIFTS: ReskinGift[] = [
     name: '跑车',
     displayImage: '/reskin/gifts/跑车-display.png',
     greenImage: '/reskin/gifts/跑车-image.png',
-    videoUrl: `${R2_BASE}/跑车.mp4`,
+    videoUrl: r2Url('跑车.mp4'),
     duration: 3,
     ratio: '1:1',
   },
@@ -69,7 +74,7 @@ export const RESKIN_GIFTS: ReskinGift[] = [
     name: '热气球',
     displayImage: '/reskin/gifts/热气球-display.png',
     greenImage: '/reskin/gifts/热气球-image.png',
-    videoUrl: `${R2_BASE}/热气球.mp4`,
+    videoUrl: r2Url('热气球.mp4'),
     duration: 3,
     ratio: '3:4',
   },

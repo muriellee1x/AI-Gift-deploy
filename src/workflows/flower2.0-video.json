@@ -16,7 +16,7 @@
         78
       ],
       "flags": {},
-      "order": 26,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -66,7 +66,7 @@
         78
       ],
       "flags": {},
-      "order": 23,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -188,7 +188,7 @@
         146
       ],
       "flags": {},
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -376,7 +376,7 @@
         78
       ],
       "flags": {},
-      "order": 27,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -504,7 +504,7 @@
         122
       ],
       "flags": {},
-      "order": 11,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -522,7 +522,7 @@
         {
           "name": "video_in",
           "shape": 7,
-          "type": "VIDEO",
+          "type": "STRING",
           "link": null
         }
       ],
@@ -602,7 +602,7 @@
         200
       ],
       "flags": {},
-      "order": 18,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -645,7 +645,7 @@
         122
       ],
       "flags": {},
-      "order": 9,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -663,7 +663,7 @@
         {
           "name": "video_in",
           "shape": 7,
-          "type": "VIDEO",
+          "type": "STRING",
           "link": null
         }
       ],
@@ -688,7 +688,7 @@
         124
       ],
       "flags": {},
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -735,7 +735,7 @@
         130
       ],
       "flags": {},
-      "order": 21,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -775,42 +775,6 @@
       ]
     },
     {
-      "id": 744,
-      "type": "BAReroute",
-      "pos": [
-        1969.3277907851207,
-        3120.2831944747986
-      ],
-      "size": [
-        140,
-        26
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "shape": 7,
-          "type": "*",
-          "link": 1295
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output",
-          "type": "*",
-          "links": [
-            1305
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BAReroute"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 745,
       "type": "RMBG",
       "pos": [
@@ -822,7 +786,7 @@
         302
       ],
       "flags": {},
-      "order": 16,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -869,51 +833,6 @@
       "bgcolor": "#364254"
     },
     {
-      "id": 746,
-      "type": "RAGChatNode",
-      "pos": [
-        3806.928794441691,
-        2294.5049819838255
-      ],
-      "size": [
-        595.7629455445556,
-        193.15256507167987
-      ],
-      "flags": {},
-      "order": 17,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vlm_config",
-          "type": "VLM_CONFIG",
-          "link": 1297
-        },
-        {
-          "name": "query",
-          "type": "STRING",
-          "widget": {
-            "name": "query"
-          },
-          "link": 1298
-        }
-      ],
-      "outputs": [
-        {
-          "name": "result",
-          "type": "STRING",
-          "links": [
-            1310
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "RAGChatNode"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
       "id": 747,
       "type": "BANodeLLMText",
       "pos": [
@@ -925,7 +844,7 @@
         343.8611963263829
       ],
       "flags": {},
-      "order": 13,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -967,7 +886,8 @@
         2000,
         0.7,
         "false",
-        "false"
+        "false",
+        false
       ]
     },
     {
@@ -1002,37 +922,6 @@
       ]
     },
     {
-      "id": 751,
-      "type": "TextInput",
-      "pos": [
-        2312.096872320232,
-        3494.226132932169
-      ],
-      "size": [
-        441.44015172171294,
-        450.4420464435534
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            1306
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextInput"
-      },
-      "widgets_values": [
-        "你是“价效区间判断器”。\n\n你的任务是根据用户提供的文字和图片，进行分类判断。\n\n## 输出要求\n你必须且只能输出以下三者之一：\n\ntype1\ntype2\ntype3\n\n除这 3 个字符串外，禁止输出任何其他内容，包括但不限于：\n- 解释\n- 分析过程\n- 标点\n- 空格\n- 换行说明\n- 前后缀\n- 引号\n- Markdown\n- 代码块\n\n如果你原本想输出解释，也必须省略，最终只保留一个结果：\ntype1 或 type2 或 type3\n\n## 判定顺序\n1. 优先判断文字中是否存在明确价格 / 预算 / 价效信息\n2. 只有当文字中不存在明确价格 / 预算 / 价效信息时，才允许参考图片背景与场景\n3. 一旦文字中已有明确价格信息，图片只用于辅助判断“纯色背景 / 非纯色背景”，不得忽略价格规则\n\n## 纯色背景定义\n以下都视为“纯色背景”或“空背景”：\n- 白底\n- 黑底\n- 灰底\n- 米黄色底\n- 其他单一颜色背景\n- 棚拍纯底\n- 看不出环境层次的单色或近似单色背景\n\n注意：\n- 不区分纯色的具体颜色\n- 白底、黑底、灰底绝不能误判为有场景\n- 纯色背景绝不能输出 type1\n\n## 规则一：有明确价格信息时\n### 价格在 99-1000钻（含边界）\n- 如果图片是纯色背景，输出：type2\n- 如果图片不是纯色背景，输出：type1\n\n### 价格在 1000-3000钻（含边界）\n- 直接输出：type3\n\n## 规则二：没有明确价格信息时\n- 如果图片有明确场景、环境、空间层次、装饰元素，输出：type3\n- 如果图片是纯色背景、空背景、白底图、黑底图、蓝底图、绿底图、灰底图、棚拍底，输出：type2\n\n## 强制限制\n- 没有明确价格信息时，绝不能输出 type1\n- 纯色背景时，绝不能输出 type1\n- 白底、黑底、灰底，不得输出 type1\n- 如果在 type2 和 type3 之间犹豫：\n  - 有场景感 => type3\n  - 无场景感、像纯底 => type2\n\n## 冲突处理\n若出现理解冲突，按以下优先级执行：\n1. 输出必须只能是 type1 / type2 / type3 之一\n2. 没有明确价格信息时，禁止输出 type1\n3. 纯色背景时，禁止输出 type1\n4. 有场景感优先判为 type3\n5. 无场景感、像纯底，判为 type2\n\n## 最终要求\n最终回复时，不要复述规则，不要解释原因，不要添加任何文字。\n只输出一个结果：\ntype1 或 type2 或 type3"
-      ]
-    },
-    {
       "id": 753,
       "type": "StringCompare",
       "pos": [
@@ -1044,7 +933,7 @@
         200
       ],
       "flags": {},
-      "order": 20,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -1078,74 +967,6 @@
       ]
     },
     {
-      "id": 754,
-      "type": "BANodeLLMText",
-      "pos": [
-        2311.7016637729903,
-        3047.889654026957
-      ],
-      "size": [
-        443.0690018400205,
-        387.5550061351523
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 1304
-        },
-        {
-          "name": "prompt",
-          "shape": 7,
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": 1305
-        },
-        {
-          "name": "system_prompt",
-          "shape": 7,
-          "type": "STRING",
-          "widget": {
-            "name": "system_prompt"
-          },
-          "link": 1306
-        }
-      ],
-      "outputs": [
-        {
-          "name": "result/positive",
-          "type": "STRING",
-          "links": [
-            1288,
-            1289,
-            1303
-          ]
-        },
-        {
-          "name": "negative",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BANodeLLMText"
-      },
-      "widgets_values": [
-        "提示词反推",
-        "豆包2.0-pro",
-        2000,
-        0.7,
-        "",
-        "true"
-      ]
-    },
-    {
       "id": 756,
       "type": "VLMConfigNode",
       "pos": [
@@ -1157,7 +978,7 @@
         106
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1221,7 +1042,7 @@
         294.9342956542969
       ],
       "flags": {},
-      "order": 22,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -1269,47 +1090,6 @@
         true,
         false
       ]
-    },
-    {
-      "id": 743,
-      "type": "BAReroute",
-      "pos": [
-        3841.8561476136656,
-        3035.4198619681356
-      ],
-      "size": [
-        140,
-        26
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "shape": 7,
-          "type": "*",
-          "link": 1294
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output",
-          "type": "*",
-          "links": [
-            1273,
-            1282,
-            1291,
-            1296,
-            1313
-          ]
-        }
-      ],
-      "title": "image",
-      "properties": {
-        "Node name for S&R": "BAReroute"
-      },
-      "widgets_values": []
     },
     {
       "id": 757,
@@ -1423,7 +1203,7 @@
         "doubao-seedance-2-0-260128",
         "兔兔在开心的跳舞",
         true,
-        1158534434,
+        3461784845,
         "randomize",
         "1080p",
         "adaptive",
@@ -1438,38 +1218,6 @@
       ]
     },
     {
-      "id": 759,
-      "type": "TextInput",
-      "pos": [
-        2642.1265391249804,
-        1991.6150334065724
-      ],
-      "size": [
-        496.8110869489983,
-        192.5098114013672
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            1290,
-            1295
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextInput"
-      },
-      "widgets_values": [
-        "花海"
-      ]
-    },
-    {
       "id": 739,
       "type": "StringCompare",
       "pos": [
@@ -1481,7 +1229,7 @@
         200
       ],
       "flags": {},
-      "order": 19,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -1524,7 +1272,7 @@
         594.88330078125
       ],
       "flags": {},
-      "order": 8,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1554,8 +1302,262 @@
         "extra": "{\"output_preview_names\":[]}"
       },
       "widgets_values": [
-        "39-荷畔心愿.png",
+        "images_pipeline_flower2_image-1778303525424-xvraov.png",
         "image"
+      ]
+    },
+    {
+      "id": 759,
+      "type": "TextInput",
+      "pos": [
+        2642.1265391249804,
+        1991.6150334065724
+      ],
+      "size": [
+        496.8110869489983,
+        192.5098114013672
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1290,
+            1295
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "毛绒小熊抱着一束花"
+      ]
+    },
+    {
+      "id": 751,
+      "type": "TextInput",
+      "pos": [
+        2327.7592918084683,
+        3493.6667461756397
+      ],
+      "size": [
+        441.44015172171294,
+        450.4420464435534
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1306
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "你是“价效区间判断器”。\n\n你的任务是根据用户提供的文字和图片，进行分类判断。\n\n## 输出要求\n你必须且只能输出以下三者之一：\n\ntype1\ntype2\ntype3\n\n除这 3 个字符串外，禁止输出任何其他内容，包括但不限于：\n- 解释\n- 分析过程\n- 标点\n- 空格\n- 换行说明\n- 前后缀\n- 引号\n- Markdown\n- 代码块\n\n如果你原本想输出解释，也必须省略，最终只保留一个结果：\ntype1 或 type2 或 type3\n\n## 判定顺序\n1. 优先判断文字中是否存在明确价格 / 预算 / 价效信息\n2. 只有当文字中不存在明确价格 / 预算 / 价效信息时，才允许参考图片背景与场景\n3. 一旦文字中已有明确价格信息，图片只用于辅助判断“纯色背景 / 非纯色背景”，不得忽略价格规则\n\n## 纯色背景定义\n以下都视为“纯色背景”或“空背景”：\n- 白底\n- 黑底\n- 灰底\n- 米黄色底\n- 其他单一颜色背景\n- 棚拍纯底\n- 看不出环境层次的单色或近似单色背景\n\n注意：\n- 不区分纯色的具体颜色\n- 白底、黑底、灰底绝不能误判为有场景\n- 纯色背景绝不能输出 type1\n\n## 规则一：有明确价格信息时\n### 价格在 99-1000钻（含边界）\n- 如果图片是纯色背景，输出：type2\n- 如果图片不是纯色背景，输出：type1\n\n### 价格在 1000-3000钻（含边界）\n- 直接输出：type3\n\n## 规则二：没有明确价格信息时\n- 如果图片有明确场景、环境、空间层次、装饰元素，输出：type3\n- 如果图片是纯色背景、空背景、白底图、黑底图、蓝底图、绿底图、灰底图、棚拍底，输出：type2\n\n## 强制限制\n- 没有明确价格信息时，绝不能输出 type1\n- 纯色背景时，绝不能输出 type1\n- 白底、黑底、灰底，不得输出 type1\n- 如果在 type2 和 type3 之间犹豫：\n  - 有场景感 => type3\n  - 无场景感、像纯底 => type2\n\n## 冲突处理\n若出现理解冲突，按以下优先级执行：\n1. 输出必须只能是 type1 / type2 / type3 之一\n2. 没有明确价格信息时，禁止输出 type1\n3. 纯色背景时，禁止输出 type1\n4. 有场景感优先判为 type3\n5. 无场景感、像纯底，判为 type2\n\n## 最终要求\n最终回复时，不要复述规则，不要解释原因，不要添加任何文字。\n只输出一个结果：\ntype1 或 type2 或 type3"
+      ]
+    },
+    {
+      "id": 743,
+      "type": "BAReroute",
+      "pos": [
+        3820.264991664818,
+        3024.996555880183
+      ],
+      "size": [
+        140,
+        26
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "shape": 7,
+          "type": "*",
+          "link": 1294
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            1273,
+            1282,
+            1291,
+            1296,
+            1313
+          ]
+        }
+      ],
+      "title": "image",
+      "properties": {
+        "Node name for S&R": "BAReroute"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 744,
+      "type": "BAReroute",
+      "pos": [
+        2098.1523233908115,
+        3144.606697242386
+      ],
+      "size": [
+        140,
+        26
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "shape": 7,
+          "type": "*",
+          "link": 1295
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            1305
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BAReroute"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 746,
+      "type": "RAGChatNode",
+      "pos": [
+        3806.928794441691,
+        2294.5049819838255
+      ],
+      "size": [
+        595.7629455445556,
+        193.15256507167987
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vlm_config",
+          "type": "VLM_CONFIG",
+          "link": 1297
+        },
+        {
+          "name": "query",
+          "type": "STRING",
+          "widget": {
+            "name": "query"
+          },
+          "link": 1298
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            1310
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RAGChatNode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 754,
+      "type": "BANodeLLMText",
+      "pos": [
+        2323.0218177487473,
+        3026.449907363932
+      ],
+      "size": [
+        443.0690018400205,
+        387.5550061351523
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1304
+        },
+        {
+          "name": "prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 1305
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 1306
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result/positive",
+          "type": "STRING",
+          "links": [
+            1288,
+            1289,
+            1303
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BANodeLLMText"
+      },
+      "widgets_values": [
+        "提示词反推",
+        "豆包2.0-lite",
+        2000,
+        0.7,
+        "",
+        "true",
+        false
       ]
     }
   ],
@@ -2012,13 +2014,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5054470284993043,
+      "scale": 0.6115909044841618,
       "offset": [
-        -2015.1512726705082,
-        -1595.0899480223534
+        -1841.7751307740996,
+        -2039.298815896709
       ]
     },
-    "frontendVersion": "1.42.11",
+    "frontendVersion": "1.42.14",
     "VHS_KeepIntermediate": true,
     "links_added_by_ue": [],
     "VHS_MetadataImage": true,
@@ -2405,6 +2407,7 @@
             "749",
             0
           ],
+          "thinking": false,
           "images": [
             "752",
             0
@@ -2435,7 +2438,7 @@
       },
       "752": {
         "inputs": {
-          "image": "39-荷畔心愿.png"
+          "image": "images_pipeline_flower2_image-1778303525424-xvraov.png"
         },
         "class_type": "LoadImage",
         "_meta": {
@@ -2460,7 +2463,7 @@
       "754": {
         "inputs": {
           "feature": "提示词反推",
-          "model": "豆包2.0-pro",
+          "model": "豆包2.0-lite",
           "max_tokens": 2000,
           "temperature": 0.7,
           "prompt": [
@@ -2471,6 +2474,7 @@
             "751",
             0
           ],
+          "thinking": false,
           "images": [
             "752",
             0
@@ -2500,7 +2504,7 @@
             0
           ],
           "enable_random_seed": true,
-          "seed": 1158534434,
+          "seed": 3461784845,
           "resolution": "1080p",
           "aspect_ratio": "adaptive",
           "auto_duration": false,
@@ -2534,7 +2538,7 @@
       },
       "759": {
         "inputs": {
-          "text": "花海"
+          "text": "毛绒小熊抱着一束花"
         },
         "class_type": "TextInput",
         "_meta": {
@@ -2586,9 +2590,9 @@
     "r2l": [],
     "venv_comfyui": null,
     "service_name": "byteartist_comfyui_online",
-    "comfyui_commit": "8f374716ee98d378d403ebc61250e091ecd3a25c",
-    "ba_manager_commit": "20daea283079f773d65df7ef6b6c13694f2b5ba8",
-    "created_at": 1777446717586,
+    "comfyui_commit": "c88cf4414d39188e84dc6618c82104e7672fb227",
+    "ba_manager_commit": "701052de4f06149c80f4fcd37a26835be4207670",
+    "created_at": 1778314606123,
     "node_info": {
       "LazySwitchKJ": {
         "input": {
@@ -2949,7 +2953,7 @@
               "IMAGE"
             ],
             "video_in": [
-              "VIDEO",
+              "STRING",
               {
                 "forceInput": true
               }
@@ -2974,7 +2978,7 @@
         "name": "BAInputSlot",
         "display_name": "BA Input Slot (Variable)",
         "description": "",
-        "python_module": "custom_nodes.comfyui-webhook-node",
+        "python_module": "custom_nodes.comfyui-webhook-node-latest",
         "category": "api-bridge",
         "output_node": false,
         "has_intermediate_output": false,
@@ -3389,50 +3393,6 @@
         "has_intermediate_output": false,
         "search_aliases": []
       },
-      "RAGChatNode": {
-        "input": {
-          "required": {
-            "vlm_config": [
-              "VLM_CONFIG",
-              {
-                "label": "VLM配置"
-              }
-            ],
-            "query": [
-              "STRING",
-              {
-                "default": "",
-                "multiline": true,
-                "label": "Query/用户输入"
-              }
-            ]
-          }
-        },
-        "input_order": {
-          "required": [
-            "vlm_config",
-            "query"
-          ]
-        },
-        "is_input_list": false,
-        "output": [
-          "STRING"
-        ],
-        "output_is_list": [
-          false
-        ],
-        "output_name": [
-          "result"
-        ],
-        "name": "RAGChatNode",
-        "display_name": "RAG Chat Node",
-        "description": "",
-        "python_module": "custom_nodes.comfyui-rag-chat-node",
-        "category": "VLM/RAG",
-        "output_node": false,
-        "has_intermediate_output": false,
-        "search_aliases": []
-      },
       "BANodeLLMText": {
         "input": {
           "required": {
@@ -3527,6 +3487,13 @@
                 "dynamicPrompts": true,
                 "tooltip": "系统指令"
               }
+            ],
+            "thinking": [
+              "BOOLEAN",
+              {
+                "default": false,
+                "tooltip": "是否思考"
+              }
             ]
           },
           "hidden": {
@@ -3543,7 +3510,8 @@
           "optional": [
             "images",
             "prompt",
-            "system_prompt"
+            "system_prompt",
+            "thinking"
           ],
           "hidden": [
             "node_id"
@@ -4148,56 +4116,56 @@
           "required": {
             "image": [
               [
-                "085f45fb-4bbc-42bc-b7f4-bce720544e80.jpeg",
-                "0bc0c388-420b-4246-961b-bd8629b3b652.jpeg",
-                "0df92c56-aa5a-4463-a74a-e0fb639ba48e.jpeg",
-                "0f5dcc9a-41cf-4626-8633-819d9cdc40b8.jpeg",
-                "0fd427f9-6b08-4fe0-bbd5-21028787ff6e.jpeg",
-                "130f2705-9946-4a26-992e-e33997077f8f.jpeg",
-                "13d8f0ed-03fc-4c81-b298-62b27bb41957.jpeg",
-                "14ef109f-eba8-469b-b7bb-f3369d34084b.jpeg",
-                "16-繁花相赠.png",
-                "18bcb05b-eaab-4920-b81b-7e3209bd83e7.jpeg",
-                "1a8e109c-606c-4e77-9176-812c139c3cca.jpeg",
-                "1c8f479f-9850-483d-ae5a-2060387022fd.jpeg",
-                "1d8fb170-831c-4db0-959e-14059ed91dfa.jpeg",
-                "1e84c1ea-657e-4c86-b405-d1b8db0a1253.jpeg",
-                "1e85d863-6903-4ee4-9ffd-1141ae000078.jpeg",
-                "1f21cfb9-5787-4004-a013-e4fb29b7c6a9.jpeg",
-                "1fd5f6a4-c28f-4aa5-ad1d-1ee8b7ba89be.jpeg",
-                "20260212-204745.png",
-                "20260212-204755.png",
-                "21-爱的花束.png",
-                "21163d6e-8c2e-417a-8619-826385c51011.jpeg",
-                "23e0104e-b160-4339-acb0-805c54acd178.jpeg",
-                "24ebb08f-fc9e-4782-abf2-2725150f1fe8.jpeg",
-                "27-魔法玫瑰.png",
-                "271b4f12-2c29-4db8-a35c-18898135ad3a.jpeg",
-                "281608b2-a026-4f0a-9c7c-3e6c1f0abe50.jpeg",
-                "2dd572b4-01f2-48b1-9471-43b2d8582d2f.jpeg",
-                "30ff3737-cb7b-446a-9d50-5bce4c2606f4.jpeg",
-                "32-玫瑰之恋.png",
-                "32848940-f46d-4ac9-905f-a3db37ad84ee.jpeg",
-                "330bb0c9-d9ca-4b47-8ab7-4f255185b2b9.jpeg",
-                "332ff412-1f22-4098-a241-36a6821b1be6.jpeg",
-                "33d157f9-459c-408e-baae-f8f1583eb555.jpeg",
-                "35472ab1-8e12-457d-9ea8-55ceafee3a72.jpeg",
-                "35720811-b6c6-49b6-9fd6-ee17c101cc05.jpeg",
-                "37-玫瑰.png",
-                "37dae413-f765-4534-97dd-677ceac29576.jpeg",
-                "38-花火玫瑰.png",
-                "3882d71e-c3b8-4d88-8041-a3c25f8d9f12.jpeg",
-                "38878750-07cb-444c-9014-e54758079210.jpeg",
-                "39-荷畔心愿.png",
-                "3b200c98-66fb-4267-bdea-310a9a4aed2e.jpeg",
-                "3b4d3c56-5218-4db6-a878-f74e7178dfcc.jpeg",
-                "3d566e31-8d39-43ae-b00e-995e5972e443.jpeg",
-                "40835e61-3895-42f2-ae35-e8c4accabf76.jpeg",
-                "41982b6a-9313-45bc-8cca-299e318d3d50.jpeg",
-                "43cfad30-0c1d-44f8-a7b1-3bedf47eb9d7.jpeg",
-                "43da8954-5b3c-4c53-9c6e-9cff90a8b3ab.jpeg",
-                "46-玫瑰999.png",
-                "49883fd1-1e6c-4179-b585-f1ec302fdd02.jpeg"
+                "1(1).jpeg",
+                "1.png",
+                "10.png",
+                "11.png",
+                "12.png",
+                "13.png",
+                "14.png",
+                "15.png",
+                "17.png",
+                "18.png",
+                "19.png",
+                "2.png",
+                "20260205-153424.jpg",
+                "20260205-153429.jpg",
+                "20260205-153433.jpg",
+                "20260205-153436.jpg",
+                "20260205-153440.jpg",
+                "20260205-153444.jpg",
+                "20260402-191813.jpeg",
+                "20260402-191817.jpeg",
+                "20260402-191820.jpeg",
+                "20260421-205911.png",
+                "3.png",
+                "4.png",
+                "5.png",
+                "605236742521411641-1-605236742521477177-605236504637275635.png",
+                "605236742521411641-1-605236742521477177-605236570471042362.png",
+                "605236742521411641-1-605236742521477177-605236577265843699.jpg",
+                "605236742521411641-1-605236742521477177-605236585788659769.jpg",
+                "605236742521411641-1-605236742521477177-605236595821444595.jpg",
+                "605236742521411641-1-605236742521477177-605236606089100787.jpg",
+                "605236742521411641-1-605236742521477177-605236620165185011.jpg",
+                "605236742521411641-1-605236742521477177-605236624275574074.png",
+                "605236742521411641-1-605236742521477177-605236641656789049.jpg",
+                "605236742521411641-1-605236742521477177-605236666101173562.png",
+                "605236742521411641-1-605236742521477177-605236724771097914.png",
+                "605236742521411641-1-605236742521477177-605236741967773171.png",
+                "7.png",
+                "9.png",
+                "BG.png",
+                "OpenClawOutput___00001_.png",
+                "example.png",
+                "icon mask1.png",
+                "icon mask2.png",
+                "images_pipeline_flower2_image-1778303525424-xvraov.png",
+                "img_v3_02st_1bacd0ea-264b-4035-94dd-0c273f02851g.png",
+                "img_v3_02st_3016c861-a8cd-40e1-bb17-d060da0ebf6g.png",
+                "img_v3_02st_51e113ac-095b-47ce-ba34-4f8499141ecg.png",
+                "img_v3_02st_5411f09e-0c2e-403d-9202-5b341ba10e8g.png",
+                "img_v3_02t1_259a8200-354c-4232-ad4b-b8a1d5f74eag.jpg"
               ],
               {
                 "image_upload": true
@@ -4247,13 +4215,57 @@
           "image loader"
         ],
         "essentials_category": "Basics"
+      },
+      "RAGChatNode": {
+        "input": {
+          "required": {
+            "vlm_config": [
+              "VLM_CONFIG",
+              {
+                "label": "VLM配置"
+              }
+            ],
+            "query": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "label": "Query/用户输入"
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "vlm_config",
+            "query"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "result"
+        ],
+        "name": "RAGChatNode",
+        "display_name": "RAG Chat Node",
+        "description": "",
+        "python_module": "custom_nodes.comfyui-rag-chat-node",
+        "category": "VLM/RAG",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       }
     },
     "custom_node_versions": [
       {
         "path": "custom_nodes/ComfyUI-KJNodes",
         "git_url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-        "git_commit": "7533dbdd79de10997d25ef9b65e7126668fb8c1d",
+        "git_commit": "b1fffd33ba8b14cb4900e2c557f4a2ba0b340ff5",
         "node_types": [
           "LazySwitchKJ"
         ]
@@ -4261,7 +4273,7 @@
       {
         "path": "custom_nodes/ComfyUI-Aip-Aigc",
         "git_url": "https://code.byted.org/lab-cv/ComfyUI-Aip-Aigc.git",
-        "git_commit": "dd5e4ad026ff412280f4dec3beb71480f0570e57",
+        "git_commit": "e21ba9343f9c9ebbf936d5c9dffbd889191191d8",
         "node_types": [
           "AIPIntInput"
         ]
@@ -4269,7 +4281,7 @@
       {
         "path": "custom_nodes/ComfyUI_LayerStyle",
         "git_url": "https://github.com/chflame163/ComfyUI_LayerStyle.git",
-        "git_commit": "5840264d0d7cb47185acfed28c02848e94c6a894",
+        "git_commit": "3bfe8e435d167b4a5bf08716729f89802dbbaa6f",
         "node_types": [
           "LayerUtility: ImageBlend"
         ]
@@ -4292,17 +4304,17 @@
         ]
       },
       {
-        "path": "custom_nodes/comfyui-webhook-node",
-        "git_url": "https://github.com/Eden123321/comfyui-webhook-node.git",
-        "git_commit": "3c0fbea3e358bb66a41069622dbc9f88f8c5f8d6",
+        "path": "custom_nodes/comfyui-webhook-node-latest",
+        "git_url": "https://github.com/Doki21yy/comfyui-webhook-node-latest.git",
+        "git_commit": "ddcba27136952af6349913cf9c8b555233118782",
         "node_types": [
           "BAInputSlot"
         ]
       },
       {
         "path": "custom_nodes/ComfyUI_essentials",
-        "git_url": "https://github.com/cubiq/ComfyUI_essentials.git",
-        "git_commit": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+        "git_url": "https://code.byted.org/ies/ComfyUI_essentials.git",
+        "git_commit": "c7f432e7147c660abcff14d4e44e3076d4491f43",
         "node_types": [
           "SimpleMath+"
         ]
@@ -4316,21 +4328,21 @@
         ]
       },
       {
+        "path": "custom_nodes/ComfyUI-Byteartist-Node",
+        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Byteartist-Node.git",
+        "git_commit": "8bb0b9b05d02ec9e536aeabf62d63c36357b363e",
+        "node_types": [
+          "BANodeLLMText",
+          "TextInput"
+        ]
+      },
+      {
         "path": "custom_nodes/comfyui-rag-chat-node",
         "git_url": "https://github.com/Eden123321/comfyui-rag-chat-node.git",
         "git_commit": "3e164bcf44e6a222f0abc461b915051910eb99a9",
         "node_types": [
-          "RAGChatNode",
-          "VLMConfigNode"
-        ]
-      },
-      {
-        "path": "custom_nodes/ComfyUI-Byteartist-Node",
-        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Byteartist-Node.git",
-        "git_commit": "998c4b614179a01ae2dd6810aa51c1486d945291",
-        "node_types": [
-          "BANodeLLMText",
-          "TextInput"
+          "VLMConfigNode",
+          "RAGChatNode"
         ]
       },
       {
@@ -4343,11 +4355,9 @@
       }
     ],
     "pip_freeze": [
-      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/hf_xet-1.2.0.dist-info due to invalid metadata entry 'name'",
-      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
       "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.2.6.dist-info due to invalid metadata entry 'name'",
-      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/huggingface_hub-1.4.1.dist-info due to invalid metadata entry 'name'",
       "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/python_dotenv-1.2.1.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
       "absl-py==2.3.1",
       "accelerate==1.10.1",
       "addict==2.4.0",
@@ -4372,7 +4382,6 @@
       "black==24.8.0",
       "blake3==1.0.8",
       "blend_modes==2.2.0",
-      "blind-watermark==0.4.4",
       "boto3==1.40.38",
       "botocore==1.40.38",
       "Brotli==1.1.0",
@@ -4434,22 +4443,21 @@
       "color-matcher==0.6.0",
       "coloredlogs==15.0.1",
       "colour-science==0.4.7",
-      "comfy-aimdo==0.2.14",
+      "comfy-aimdo==0.3.0",
       "comfy-kitchen==0.2.8",
       "comfyui-embedded-docs==0.2.6",
-      "comfyui-workflow-templates-core==0.3.206",
-      "comfyui-workflow-templates-media-api==0.3.69",
-      "comfyui-workflow-templates-media-image==0.3.125",
-      "comfyui-workflow-templates-media-other==0.3.174",
-      "comfyui-workflow-templates-media-video==0.3.77",
-      "comfyui_frontend_package==1.42.11",
+      "comfyui-workflow-templates-core==0.3.214",
+      "comfyui-workflow-templates-media-api==0.3.70",
+      "comfyui-workflow-templates-media-image==0.3.131",
+      "comfyui-workflow-templates-media-other==0.3.180",
+      "comfyui-workflow-templates-media-video==0.3.80",
+      "comfyui_frontend_package==1.42.14",
       "comfyui_workflow_templates==0.1.86",
-      "configs==3.0.3",
       "contourpy==1.3.3",
       "cramjam==2.6.2",
       "crcmod==1.7",
       "cryptography==39.0.2",
-      "cstr @ git+https://github.com/ltdrdata/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
+      "cstr @ git+https://github.com/WASasquatch/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
       "cupy-cuda12x==12.3.0",
       "cupy-wheel==12.3.0",
       "cycler==0.12.1",
@@ -4462,7 +4470,7 @@
       "deepspeed==0.17.6",
       "Deprecated==1.2.18",
       "diffusers==0.35.1",
-      "dill==0.4.0",
+      "dill==0.4.1",
       "distro==1.9.0",
       "dnspython==2.8.0",
       "docker-pycreds==0.4.0",
@@ -4484,22 +4492,14 @@
       "fonttools==4.60.0",
       "frozenlist==1.4.1",
       "fsspec==2023.6.0",
-      "ftfy==6.1.1",
+      "ftfy==6.3.1",
       "future==1.0.0",
       "fvcore==0.1.5.post20221221",
-      "gdown==5.2.0",
+      "gdown==5.2.1",
       "gevent==24.11.1",
-      "gguf==0.17.1",
       "gitdb==4.0.12",
       "GitPython==3.1.42",
       "glfw==2.10.0",
-      "google-ai-generativelanguage==0.6.15",
-      "google-api-core==2.28.1",
-      "google-api-python-client==2.187.0",
-      "google-auth==2.46.0",
-      "google-auth-httplib2==0.3.0",
-      "google-generativeai==0.8.6",
-      "googleapis-common-protos==1.72.0",
       "GPUtil==1.4.0",
       "gradio==5.47.0",
       "gradio_client==1.13.2",
@@ -4507,13 +4507,11 @@
       "groovy==0.1.2",
       "groundingdino-py==0.4.0",
       "grpcio==1.75.0",
-      "grpcio-status==1.71.2",
       "gunicorn==20.1.0",
       "h11==0.14.0",
       "hf-xet==1.1.10",
       "hjson==3.1.0",
       "httpcore==1.0.5",
-      "httplib2==0.31.0",
       "httpx==0.25.2",
       "httpx-sse==0.4.3",
       "huggingface-hub==0.35.1",
@@ -4522,7 +4520,7 @@
       "idna==3.10",
       "imageio==2.37.0",
       "imageio-ffmpeg==0.6.0",
-      "img2texture @ git+https://github.com/ltdrdata/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
+      "img2texture @ git+https://github.com/WASasquatch/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
       "importlib_metadata==8.7.0",
       "iniconfig==2.0.0",
       "insightface==0.7.3",
@@ -4536,7 +4534,7 @@
       "jsonc-parser==1.1.5",
       "jsonpatch==1.33",
       "jsonpointer==3.0.0",
-      "jsonschema==4.25.1",
+      "jsonschema==4.26.0",
       "jsonschema-specifications==2025.9.1",
       "kiwisolver==1.4.9",
       "kornia==0.8.1",
@@ -4555,27 +4553,21 @@
       "lmdb==1.7.3",
       "loguru==0.7.3",
       "lz4==3.1.10",
-      "Mako==1.3.11",
+      "Mako==1.3.12",
       "Markdown==3.10",
       "markdown-it-py==4.0.0",
       "MarkupSafe==3.0.2",
       "marshmallow==3.26.1",
       "matplotlib==3.10.6",
       "mdurl==0.1.2",
-      "mediapipe==0.10.31",
       "megablocks==0.5.1",
       "miscreant==0.3.0",
-      "ml_dtypes==0.5.4",
-      "mmcv @ https://archive1.piwheels.org/simple/mmcv/mmcv-2.1.0-py2.py3-none-any.whl",
-      "mmdet==3.3.0",
-      "mmengine==0.10.7",
       "moviepy==1.0.3",
       "mpmath==1.3.0",
       "mprofile==0.0.15",
       "msgpack==1.0.8",
       "mss==10.1.0",
       "multidict==6.0.5",
-      "munkres==1.1.4",
       "mypy-extensions==1.0.0",
       "networkx==3.5",
       "ninja==1.13.0",
@@ -4603,7 +4595,7 @@
       "onnx==1.17.0",
       "onnxruntime==1.23.2",
       "onnxruntime-gpu==1.22.0",
-      "open_clip_torch==3.3.0",
+      "open_clip_torch==3.2.0",
       "openai==1.109.1",
       "opencv-contrib-python==4.13.0.92",
       "opencv-python==4.11.0.86",
@@ -4620,7 +4612,6 @@
       "piexif==1.1.3",
       "pilgram==2.0.0",
       "pillow==11.3.0",
-      "pillow_lut==1.1.0",
       "pip-autoremove==0.10.0",
       "pipdeptree==2.14.0",
       "pixeloe==0.1.4",
@@ -4628,21 +4619,18 @@
       "pluggy==1.5.0",
       "ply==3.11",
       "polars==1.33.1",
-      "polars-runtime-32==1.36.1",
-      "pooch==1.8.2",
+      "pooch==1.9.0",
       "portalocker==3.2.0",
       "prettytable==3.16.0",
       "proglog==0.1.12",
       "promise==2.3",
       "propcache==0.3.2",
-      "proto-plus==1.27.0",
       "protobuf==3.20.3",
       "psutil==6.0.0",
       "py==1.11.0",
       "py-cpuinfo==9.0.0",
       "pyarrow==11.0.0",
       "pyasn1==0.6.1",
-      "pyasn1_modules==0.4.2",
       "pycocotools==2.0.11",
       "pycparser==2.23",
       "pycryptodome==3.19.1",
@@ -4653,8 +4641,7 @@
       "pydub==0.25.1",
       "Pygments==2.19.2",
       "PyJWT==2.10.1",
-      "pyloudnorm==0.1.1",
-      "PyMatting==1.1.14",
+      "PyMatting==1.1.15",
       "pynvml==13.0.1",
       "pyope==0.2.2",
       "PyOpenGL==3.1.10",
@@ -4670,11 +4657,7 @@
       "python-multipart==0.0.20",
       "python-snappy==0.7.3",
       "pytz==2023.3",
-      "PyWavelets==1.9.0",
       "PyYAML==6.0.2",
-      "pyzbar==0.1.9",
-      "qrcode==8.2",
-      "qwen-vl-utils==0.0.14",
       "referencing==0.37.0",
       "regex==2025.9.18",
       "rembg==2.0.69",
@@ -4694,7 +4677,7 @@
       "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
       "SAM-2 @ git+https://github.com/facebookresearch/sam2@2b90b9f5ceec907a1c18123530e92e794ad901a4",
       "schedule==1.2.2",
-      "scikit-image==0.25.2",
+      "scikit-image==0.26.0",
       "scikit-learn==1.7.2",
       "scipy==1.16.2",
       "segment-anything==1.0",
@@ -4702,7 +4685,6 @@
       "sentencepiece==0.2.1",
       "sentry-sdk==2.39.0",
       "setproctitle==1.3.7",
-      "shapely==2.1.2",
       "shellingham==1.5.4",
       "shortuuid==1.0.13",
       "simpleeval==1.0.7",
@@ -4710,9 +4692,8 @@
       "six==1.16.0",
       "smmap==5.0.2",
       "sniffio==1.3.1",
-      "sounddevice==0.5.3",
       "soundfile==0.13.1",
-      "soupsieve==2.8.1",
+      "soupsieve==2.8.3",
       "spandrel==0.4.1",
       "SQLAlchemy==2.0.49",
       "stanford-stk==0.7.1",
@@ -4725,7 +4706,6 @@
       "tenacity==8.5.0",
       "tensorboard-data-server==0.7.2",
       "termcolor==3.1.0",
-      "terminaltables==3.1.10",
       "threadpoolctl==3.6.0",
       "thriftpy2==0.4.20",
       "tifffile==2025.10.16",
@@ -4746,7 +4726,6 @@
       "triton==3.3.1",
       "ttvcloud==0.0.39",
       "typer==0.19.2",
-      "typer-config==1.4.3",
       "typer-slim==0.24.0",
       "typing-inspect==0.9.0",
       "typing-inspection==0.4.1",
@@ -4754,12 +4733,11 @@
       "tzdata==2025.2",
       "ultralytics==8.3.203",
       "ultralytics-thop==2.0.17",
-      "uritemplate==4.2.0",
       "urllib3==1.26.20",
       "uv==0.8.12",
       "uvicorn==0.37.0",
       "viztracer==0.16.3",
-      "volcengine-python-sdk==5.0.24",
+      "volcengine-python-sdk==5.0.25",
       "watchdog==6.0.0",
       "wcwidth==0.2.14",
       "websockets==15.0.1",
@@ -5061,15 +5039,15 @@
     },
     "base_image": "aip_image_factory/custom.image.combo_infer:nvidia_seed4_infer-20251006-215922",
     "comfy_args": {
-      "--listen": "fd02::33:0:0:b99",
+      "--listen": "fd02::24:0:0:c25",
       "--port": "9001"
     },
-    "comfyui_tag": "v0.19.1",
+    "comfyui_tag": "v0.19.5",
     "ba_combo": "588008921034165554",
-    "workflow_name": "食物视频（wan系列房间）",
-    "workflow_id": "598165358444040694:50",
-    "config_id": "617262496096454312",
-    "workflow_version_id": "617262496113231528",
-    "workflow_identity": "598165358444040694:50"
+    "workflow_name": "啥都能跑",
+    "workflow_id": "597261691570414615:16",
+    "config_id": "618718571110880766",
+    "workflow_version_id": "618718571127657982",
+    "workflow_identity": "597261691570414615:16"
   }
 }

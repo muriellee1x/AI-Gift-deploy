@@ -269,81 +269,6 @@
       ]
     },
     {
-      "id": 107,
-      "type": "BANodeLLMText",
-      "pos": [
-        -2198.88818359375,
-        2223.4208984375
-      ],
-      "size": [
-        351.8016357421875,
-        723.067626953125
-      ],
-      "flags": {},
-      "order": 21,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "images",
-          "name": "images",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 190
-        },
-        {
-          "label": "prompt",
-          "name": "prompt",
-          "shape": 7,
-          "type": "STRING",
-          "widget": {
-            "name": "prompt"
-          },
-          "link": 184
-        },
-        {
-          "label": "system_prompt",
-          "name": "system_prompt",
-          "shape": 7,
-          "type": "STRING",
-          "widget": {
-            "name": "system_prompt"
-          },
-          "link": 174
-        }
-      ],
-      "outputs": [
-        {
-          "name": "result/positive",
-          "type": "STRING",
-          "slot_index": 0,
-          "links": [
-            186
-          ]
-        },
-        {
-          "name": "negative",
-          "type": "STRING",
-          "slot_index": 1,
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BANodeLLMText",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"result/positive\"],\"prompt\":114,\"system_prompt\":114,\"text-view-height-0-0\":82}"
-      },
-      "widgets_values": [
-        "提示词反推",
-        "豆包2.0-pro",
-        2000,
-        0.7,
-        "",
-        "",
-        false
-      ]
-    },
-    {
       "id": 105,
       "type": "ImageMerge",
       "pos": [
@@ -805,7 +730,7 @@
         2867.805908203125
       ],
       "size": [
-        409,
+        409.56015625,
         236
       ],
       "flags": {},
@@ -963,7 +888,7 @@
         "",
         2048,
         2048,
-        538633567267756,
+        1112378446973221,
         "randomize",
         1.15,
         3,
@@ -1117,7 +1042,7 @@
         "",
         3640,
         2048,
-        343483044552610,
+        616513418376815,
         "randomize",
         1.15,
         3,
@@ -1404,38 +1329,6 @@
       ]
     },
     {
-      "id": 18,
-      "type": "TextInput",
-      "pos": [
-        -2870.634033203125,
-        748.756591796875
-      ],
-      "size": [
-        381.01470947265625,
-        681.3328857421875
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            23
-          ]
-        }
-      ],
-      "title": "UserPrompt",
-      "properties": {
-        "Node name for S&R": "TextInput"
-      },
-      "widgets_values": [
-        "韩流虚拟顶级女团的主舞台 center，整体是高辨识度的都市未来感女偶像造型，脸部轮廓利落精致，额头、眼部、鼻梁与唇部结构保持清晰，适合近景与特写镜头读取。发型为高束感长发与局部散落碎发结合，发丝具有舞台风吹后的轻微分束感，发根利落，发尾带柔顺弧度，便于镜头推进时形成光泽切面。妆面偏冷调高定舞台妆，眼周带微金属与紫蓝偏光，睫毛清晰上扬，唇部是带玻璃感的冷玫瑰光泽。服装以 K/DA 式高级女团战斗舞台礼服为核心，上身为硬质切面感黑银结构胸甲与深紫镜面亮片抹胸拼接，胸口嵌有一枚巨大的心形能量核心，像舞台礼物的主触发装置；颈部是多层宝石 choker 与水晶坠链，肩颈线条完整露出，方便特写时读取呼吸与表情。腰部采用高收束金属腰封，向下延展为不对称高开衩长裙与半透明薄纱拖摆，外层纱片在动作时可形成明显跟随；腿部搭配高筒舞台长靴，鞋面有锋利金属线条和细碎水晶嵌饰。整体饰件控制在精致高密度路线：耳坠、锁骨链、肩部结构片、手背晶体链、腰侧悬垂流苏都具备明确的软硬材质反差，光下能形成利落高光，不遮挡五官，不削弱中心偶像识别度。porcelain smooth skin, full body standing pose, multi-layered costume with contrasting soft and hard materials, ornate surface detailing with embroidery and gemstone inlay, cinematic stylized lighting, 3D次世代卡通渲染，8K高分辨率，超精细细节，纯黑色背景。"
-      ]
-    },
-    {
       "id": 114,
       "type": "AIPStringInput",
       "pos": [
@@ -1447,7 +1340,7 @@
         698.7239379882812
       ],
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1502,6 +1395,113 @@
       },
       "widgets_values": [
         "ComfyUI"
+      ]
+    },
+    {
+      "id": 107,
+      "type": "BANodeLLMText",
+      "pos": [
+        -2199.70366301876,
+        2229.129086434109
+      ],
+      "size": [
+        351.8016357421875,
+        723.067626953125
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 190
+        },
+        {
+          "label": "prompt",
+          "name": "prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 184
+        },
+        {
+          "label": "system_prompt",
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 174
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result/positive",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            186
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BANodeLLMText",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"result/positive\"],\"prompt\":114,\"system_prompt\":114,\"text-view-height-0-0\":82}"
+      },
+      "widgets_values": [
+        "提示词反推",
+        "豆包2.0-lite",
+        2000,
+        0.7,
+        "",
+        "",
+        false
+      ]
+    },
+    {
+      "id": 18,
+      "type": "TextInput",
+      "pos": [
+        -2870.634033203125,
+        748.756591796875
+      ],
+      "size": [
+        381.01470947265625,
+        681.3328857421875
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "title": "UserPrompt",
+      "properties": {
+        "Node name for S&R": "TextInput"
+      },
+      "widgets_values": [
+        "韩流虚拟顶级女团的主舞台 center，整体是高辨识度的都市未来感女偶像造型，脸部轮廓利落精致，额头、眼部、鼻梁与唇部结构保持清晰，适合近景与特写镜头读取。发型为高束感长发与局部散落碎发结合，发丝具有舞台风吹后的轻微分束感，发根利落，发尾带柔顺弧度，便于镜头推进时形成光泽切面。妆面偏冷调高定舞台妆，眼周带微金属与紫蓝偏光，睫毛清晰上扬，唇部是带玻璃感的冷玫瑰光泽。服装以 K/DA 式高级女团战斗舞台礼服为核心，上身为硬质切面感黑银结构胸甲与深紫镜面亮片抹胸拼接，胸口嵌有一枚巨大的心形能量核心，像舞台礼物的主触发装置；颈部是多层宝石 choker 与水晶坠链，肩颈线条完整露出，方便特写时读取呼吸与表情。腰部采用高收束金属腰封，向下延展为不对称高开衩长裙与半透明薄纱拖摆，外层纱片在动作时可形成明显跟随；腿部搭配高筒舞台长靴，鞋面有锋利金属线条和细碎水晶嵌饰。整体饰件控制在精致高密度路线：耳坠、锁骨链、肩部结构片、手背晶体链、腰侧悬垂流苏都具备明确的软硬材质反差，光下能形成利落高光，不遮挡五官，不削弱中心偶像识别度。porcelain smooth skin, full body standing pose, multi-layered costume with contrasting soft and hard materials, ornate surface detailing with embroidery and gemstone inlay, cinematic stylized lighting, 3D次世代卡通渲染，8K高分辨率，超精细细节，纯黑色背景。"
       ]
     }
   ],
@@ -1880,13 +1880,17 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.18260271200151107,
+      "scale": 0.7627768444386479,
       "offset": [
-        8752.597631664468,
-        777.4416157109512
+        3198.2698960607795,
+        -323.5118455296649
       ]
     },
-    "frontendVersion": "1.21.7"
+    "frontendVersion": "1.42.14",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4,
   "ba_extra": {
@@ -1919,7 +1923,7 @@
           ],
           "height": 3640,
           "width": 2048,
-          "seed": 343483044552610,
+          "seed": 616513418376815,
           "max_shift": 1.15,
           "guidance_scale": 3,
           "cfg_rescale_factor": 0.7,
@@ -2148,7 +2152,7 @@
           ],
           "height": 2048,
           "width": 2048,
-          "seed": 538633567267756,
+          "seed": 1112378446973221,
           "max_shift": 1.15,
           "guidance_scale": 3,
           "cfg_rescale_factor": 0.7,
@@ -2226,7 +2230,7 @@
       "107": {
         "inputs": {
           "feature": "提示词反推",
-          "model": "豆包2.0-pro",
+          "model": "豆包2.0-lite",
           "max_tokens": 2000,
           "temperature": 0.7,
           "prompt": [
@@ -2377,7 +2381,7 @@
         },
         "class_type": "ImageStitch",
         "_meta": {
-          "title": "Image Stitch"
+          "title": "图像拼接"
         }
       },
       "135": {
@@ -2397,9 +2401,9 @@
     "r2l": [],
     "venv_comfyui": null,
     "service_name": "byteartist_comfyui_online",
-    "comfyui_commit": "866f6cdab4bd5de95ee6296d1b418c455f67f929",
-    "ba_manager_commit": "2574227cebe88123547312f66be00f2e154750d1",
-    "created_at": 1776858609776,
+    "comfyui_commit": "c88cf4414d39188e84dc6618c82104e7672fb227",
+    "ba_manager_commit": "701052de4f06149c80f4fcd37a26835be4207670",
+    "created_at": 1778321089028,
     "node_info": {
       "Seed4DITLoader": {
         "input": {
@@ -2425,6 +2429,7 @@
           ],
           "optional": []
         },
+        "is_input_list": false,
         "output": [
           "SEED_DIT_MODEL",
           "SEED_PIPE_CONFIG"
@@ -2443,7 +2448,8 @@
         "python_module": "custom_nodes.ComfyUI-Seed4",
         "category": "Seed4",
         "output_node": false,
-        "origin_display_name": "Seed4 DiT Loader"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "Seed4VAELoader": {
         "input": {
@@ -2467,6 +2473,7 @@
             "device"
           ]
         },
+        "is_input_list": false,
         "output": [
           "SEED_VAE_MODEL"
         ],
@@ -2482,7 +2489,8 @@
         "python_module": "custom_nodes.ComfyUI-Seed4",
         "category": "Seed4",
         "output_node": false,
-        "origin_display_name": "Seed4 VAE Loader"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "Seed4ApplyLora": {
         "input": {
@@ -2544,6 +2552,7 @@
             "prefix"
           ]
         },
+        "is_input_list": false,
         "output": [
           "SEED_DIT_MODEL"
         ],
@@ -2559,7 +2568,8 @@
         "python_module": "custom_nodes.ComfyUI-Seed4",
         "category": "Seed4",
         "output_node": false,
-        "origin_display_name": "Seed4 Apply Lora"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "TextInput": {
         "input": {
@@ -2577,6 +2587,7 @@
             "text"
           ]
         },
+        "is_input_list": false,
         "output": [
           "STRING"
         ],
@@ -2591,8 +2602,9 @@
         "description": "",
         "python_module": "custom_nodes.ComfyUI-Byteartist-Node",
         "category": "byteartist/llm",
-        "output_node": false,
-        "origin_display_name": "Text Input"
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "AIPStringInput": {
         "input": {
@@ -2611,6 +2623,7 @@
             "string"
           ]
         },
+        "is_input_list": false,
         "output": [
           "STRING"
         ],
@@ -2626,7 +2639,8 @@
         "python_module": "custom_nodes.ComfyUI-Aip-Aigc",
         "category": "IC-AIP-AIGC/DataTypeUtils",
         "output_node": false,
-        "origin_display_name": "AIPStringInput"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "Seed4RemoteT2ITextEncoder": {
         "input": {
@@ -2660,6 +2674,7 @@
             "req_key"
           ]
         },
+        "is_input_list": false,
         "output": [
           "EMBEDDINGS",
           "EMBEDDING_NAMES"
@@ -2678,151 +2693,8 @@
         "python_module": "custom_nodes.ComfyUI-Seed4",
         "category": "Seed4",
         "output_node": false,
-        "origin_display_name": "Seed4 T2I Text Encoder(Remote)"
-      },
-      "BANodeLLMText": {
-        "input": {
-          "required": {
-            "feature": [
-              [
-                "提示词反推",
-                "灵感扩写",
-                "正反提示词"
-              ],
-              {
-                "default": "提示词反推",
-                "tooltip": "功能名称"
-              }
-            ],
-            "model": [
-              [
-                "豆包2.0-pro",
-                "豆包2.0-lite",
-                "豆包1.8-251228",
-                "豆包1.8",
-                "豆包1.6-251015",
-                "豆包1.6",
-                "豆包1.6 Vision",
-                "豆包1.6-flash",
-                "豆包1.5 pro",
-                "step-3.5-flash",
-                "Qwen3",
-                "Qwen3-omni-flash",
-                "kimi-k2.5",
-                "kimi-k2-0905-preview",
-                "DeepSeek-V3",
-                "DeepSeek-R1",
-                "GPT-5.1",
-                "GPT-5.1-Chat",
-                "GPT-5-Chat",
-                "GPT-4o",
-                "GPT-4.1",
-                "GPT-4.1mini",
-                "gemini-2.5 pro(深度思考)",
-                "gemini-2.5 pro priority(深度思考)",
-                "gemini-2.5 flash(回复更快)",
-                "Gemini-3-flash(降至2.5)",
-                "Gemini-3(降至2.5)",
-                "Seedream-PE-250815"
-              ],
-              {
-                "default": "豆包2.0-pro",
-                "tooltip": "模型名称"
-              }
-            ],
-            "max_tokens": [
-              "INT",
-              {
-                "default": 2000,
-                "min": 1,
-                "max": 4096,
-                "step": 1
-              }
-            ],
-            "temperature": [
-              "FLOAT",
-              {
-                "default": 0.7,
-                "min": 0,
-                "max": 2,
-                "step": 0.01
-              }
-            ]
-          },
-          "optional": {
-            "images": [
-              "IMAGE",
-              {
-                "tooltip": "图片",
-                "forceInput": true
-              }
-            ],
-            "prompt": [
-              "STRING",
-              {
-                "default": "",
-                "multiline": true,
-                "dynamicPrompts": true,
-                "tooltip": "提示词"
-              }
-            ],
-            "system_prompt": [
-              "STRING",
-              {
-                "default": "",
-                "multiline": true,
-                "dynamicPrompts": true,
-                "tooltip": "系统指令"
-              }
-            ],
-            "thinking": [
-              "BOOLEAN",
-              {
-                "default": false,
-                "tooltip": "是否思考"
-              }
-            ]
-          },
-          "hidden": {
-            "node_id": "UNIQUE_ID"
-          }
-        },
-        "input_order": {
-          "required": [
-            "feature",
-            "model",
-            "max_tokens",
-            "temperature"
-          ],
-          "optional": [
-            "images",
-            "prompt",
-            "system_prompt",
-            "thinking"
-          ],
-          "hidden": [
-            "node_id"
-          ]
-        },
-        "output": [
-          "STRING",
-          "STRING"
-        ],
-        "output_is_list": [
-          false,
-          false
-        ],
-        "output_name": [
-          "result/positive",
-          "negative"
-        ],
-        "name": "BANodeLLMText",
-        "display_name": "BA LLM Text",
-        "description": "",
-        "python_module": "custom_nodes.ComfyUI-Byteartist-Node",
-        "category": "byteartist/llm",
-        "output_node": false,
-        "origin_display_name": "BA LLM Text"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "ImageMerge": {
         "input": {
@@ -2928,6 +2800,7 @@
             "image12"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -2943,7 +2816,8 @@
         "python_module": "custom_nodes.ComfyUI-Aip-Aigc",
         "category": "IC-AIP-AIGC/ImageUtils",
         "output_node": false,
-        "origin_display_name": "ImageMerge"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "Seed4RemoteVaeEncoder": {
         "input": {
@@ -2972,6 +2846,7 @@
             "req_key"
           ]
         },
+        "is_input_list": false,
         "output": [
           "LATENTS",
           "LATENT_NAMES"
@@ -2990,7 +2865,8 @@
         "python_module": "custom_nodes.ComfyUI-Seed4",
         "category": "Seed4",
         "output_node": false,
-        "origin_display_name": "Seed4 VAE Encoder(Remote)"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "ShowText|pysssss": {
         "input": {
@@ -3016,6 +2892,7 @@
             "extra_pnginfo"
           ]
         },
+        "is_input_list": true,
         "output": [
           "STRING"
         ],
@@ -3031,7 +2908,8 @@
         "python_module": "custom_nodes.ComfyUI-Custom-Scripts",
         "category": "工具",
         "output_node": true,
-        "origin_display_name": "Show Text 🐍"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "BAReroute": {
         "input": {
@@ -3051,6 +2929,7 @@
             "input"
           ]
         },
+        "is_input_list": false,
         "output": [
           "*"
         ],
@@ -3066,7 +2945,8 @@
         "python_module": "custom_nodes.ba-manager",
         "category": "byteartist/universal",
         "output_node": false,
-        "origin_display_name": "Reroute"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "Seed4RemoteEditTextEncoder": {
         "input": {
@@ -3132,6 +3012,7 @@
             "input6"
           ]
         },
+        "is_input_list": false,
         "output": [
           "EMBEDDINGS",
           "EMBEDDING_NAMES"
@@ -3150,63 +3031,64 @@
         "python_module": "custom_nodes.ComfyUI-Seed4",
         "category": "Seed4",
         "output_node": false,
-        "origin_display_name": "Seed4 Edit Text Encoder(Remote)"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "Seed4LoRALoader": {
         "input": {
           "required": {
             "local_lora_name": [
               [
-                "w_lora_seedream@v7.safetensors",
-                "Qwen-Image-Lightning-4steps-V1.0.safetensors",
-                "插画风格seed4测试@v1.0.safetensors",
-                "ultimateW8000@v10.safetensors",
-                "w_lora_seedream@v4.safetensors",
-                "古风面具2.safetensors",
-                "全网首发 | 龙贺新春_V_2.0.safetensors",
-                "WAN22万能运镜.safetensors",
-                "IDPhoto@V1.0 119.safetensors",
-                "OWT_V01_000000500_low_noise.safetensors",
-                "第一视角与一键打标@v10.safetensors",
-                "ultimateW@v6.safetensors",
-                "是毛团子啊！可爱化动物模型_SD 1.5_871.safetensors",
-                "FastWan_T2V_14B_480p_lora_rank_128_bf16@v1.0.safetensors",
-                "wlow02@v1.safetensors",
-                "w_lora2@v8.safetensors",
-                "curiousMerge25D.safetensors",
-                "wlow03@v2.safetensors",
-                "去除人物seed4@v10.safetensors",
-                "GIFT99_lora_v1_000010250_low_noise@1.0.safetensors",
-                "樱桃@v3.safetensors",
-                "emproject@v5.safetensors",
-                "BoomFirework_Wan22_14b_i2v_detailed_low_noise.safetensors",
-                "0616LU_Datacard_seedv1@v5.safetensors",
-                "3.0L_idlora/zq.new_aug/h20-fa3-stable/H20-FA3-zjz/0/amei3.same/final/lora_model/pytorch_lora_weights.safetensors",
-                "flashlight_lora_edit3.0.safetensors",
-                "老课本seed4ad豆包zh简@v5.safetensors",
-                "lora.pth",
-                "edit43@v10.safetensors",
+                "next-scene_lora-v2-3000@1.0.safetensors",
+                "垃圾兔兔.safetensors",
+                "Wan2.2-Lightning_I2V-A14B-4steps-lora_LOW_fp16@v1.0.safetensors",
+                "FaceEnhancement.safetensors",
+                "dlrb0924_1@v7.safetensors",
                 "emproject@v3.safetensors",
-                "ultimateW@v5.safetensors",
-                "YunaV3.safetensors",
-                "w_lora2@v10.safetensors",
-                "樱桃@v2.safetensors",
-                "shanzhagao128dim-epoch-000010.safetensors",
-                "w_lora2@v7.safetensors",
+                "第一视角与一键打标@v9.safetensors",
+                "w_lora_seedream@v6.safetensors",
+                "111125@v1006.safetensors",
+                "edit43@v7.safetensors",
+                "DY资料卡_F.1@v1.0.safetensors",
+                "MagicTrans_Wan22_14b_i2v_v3_000001000_low_noise@v3.0.safetensors",
+                "CCD摄影_1732671216372@v3.safetensors",
+                "crash zoom-high.safetensors",
+                "emproject@v9.safetensors",
+                "w_lora2_v10.safetensors",
+                "DYZBW@v10.safetensors",
+                "Qwen-潮流盲盒IP设计_Qwen@1.0.safetensors",
+                "动态海报@v10.pth",
+                "swl260401@v7.safetensors",
+                "blindbox_v1_mix.safetensors",
                 "ZlingH090302@v4.safetensors",
-                "JZCG022-Citywalker.safetensors",
-                "ym0924_1@v8.safetensors",
-                "FLUX-KR3D-01@V1.0.safetensors",
-                "Qwen-Rapid-AIO-SFW-v11.safetensors",
-                "wlow03@v5.safetensors",
-                "Qwen-盲盒手办设计_v2@1.0.safetensors",
-                "w_lora_seedream@v2.safetensors",
-                "sam_vit_b_01ec64.pth",
-                "百变pose_edit@v8.safetensors",
-                "w_lora_seedream@v10.safetensors",
-                "直播活动节点类按钮@v7.safetensors",
-                "456@v10.safetensors",
-                "紫霞仙子4_0v8@v1.safetensors"
+                "古风面具.safetensors",
+                "Wan21_PusaV1_LoRA_14B_rank512_bf16@v1.0.safetensors",
+                "public-V3.safetensors",
+                "头像框测试F.1_4.7 V1@v1.0.safetensors",
+                "至尊宝4_0v8@v4.safetensors",
+                "edit43@v4.safetensors",
+                "ultimateW8000@v6.safetensors",
+                "lcm-lora-sdv1-5@SDXL 1.0.safetensors",
+                "mini首尾帧v1百变测试@v8.pth",
+                "Wan2.1_T2V_1.3B_SelfForcing_DMD-FP16.safetensors",
+                "ZlingH090802_style@v6.safetensors",
+                "ultimateW@v1.safetensors",
+                "emproject@v10.safetensors",
+                "edit43@v5.safetensors",
+                "seedance_v1_mini_start_end_lora.pth",
+                "3.0L_idlora/zq.new_aug/h20-fa3-stable/H20-FA3/0/yanqi3/final/lora_model/pytorch_lora_weights.safetensors",
+                "大话西游道具@v8.safetensors",
+                "初始pose_edit@v8.safetensors",
+                "Wan2.1-T2V-1.3B-Self-Forcing-DMD-VACE-FP8_e4m3fn.safetensors",
+                "Qwen_F.1 光渍_Qwen@1.0.safetensors",
+                "DY_进场条_flux_2_2.safetensors",
+                "大话西游道具@v3.safetensors",
+                "Q版美食大师@v10.safetensors",
+                "场景-飘落的花_v1.0.safetensors",
+                "去除人物seed4@v9.safetensors",
+                "SeamlessTans_wan22_itv_v1_000003250_high_noise.safetensors",
+                "Minimalist abstract art.safetensors",
+                "场景】@v1.0.safetensors"
               ]
             ]
           },
@@ -3238,6 +3120,7 @@
             "dtype"
           ]
         },
+        "is_input_list": false,
         "output": [
           "ADAPTER"
         ],
@@ -3253,7 +3136,8 @@
         "python_module": "custom_nodes.ComfyUI-Seed4",
         "category": "Seed4",
         "output_node": false,
-        "origin_display_name": "Seed4 Lora Loader"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "Seed4Sampler": {
         "input": {
@@ -3481,6 +3365,7 @@
             "latent_binary_var_name"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -3496,23 +3381,27 @@
         "python_module": "custom_nodes.ComfyUI-Seed4",
         "category": "Seed4",
         "output_node": false,
-        "origin_display_name": "Seed4 Sampler"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "ImageStitch": {
         "input": {
           "required": {
             "image1": [
-              "IMAGE"
+              "IMAGE",
+              {}
             ],
             "direction": [
-              [
-                "right",
-                "down",
-                "left",
-                "up"
-              ],
+              "COMBO",
               {
-                "default": "right"
+                "default": "right",
+                "multiselect": false,
+                "options": [
+                  "right",
+                  "down",
+                  "left",
+                  "up"
+                ]
               }
             ],
             "match_image_size": [
@@ -3524,6 +3413,7 @@
             "spacing_width": [
               "INT",
               {
+                "advanced": true,
                 "default": 0,
                 "min": 0,
                 "max": 1024,
@@ -3531,21 +3421,25 @@
               }
             ],
             "spacing_color": [
-              [
-                "white",
-                "black",
-                "red",
-                "green",
-                "blue"
-              ],
+              "COMBO",
               {
-                "default": "white"
+                "advanced": true,
+                "default": "white",
+                "multiselect": false,
+                "options": [
+                  "white",
+                  "black",
+                  "red",
+                  "green",
+                  "blue"
+                ]
               }
             ]
           },
           "optional": {
             "image2": [
-              "IMAGE"
+              "IMAGE",
+              {}
             ]
           }
         },
@@ -3561,6 +3455,7 @@
             "image2"
           ]
         },
+        "is_input_list": false,
         "output": [
           "IMAGE"
         ],
@@ -3570,13 +3465,175 @@
         "output_name": [
           "IMAGE"
         ],
+        "output_tooltips": [
+          null
+        ],
+        "output_matchtypes": null,
         "name": "ImageStitch",
-        "display_name": "Image Stitch",
-        "description": "\nStitches image2 to image1 in the specified direction.\nIf image2 is not provided, returns image1 unchanged.\nOptional spacing can be added between images.\n",
+        "display_name": "图像拼接",
+        "description": "\n将 image2 按指定方向拼接到 image1 上。\n如果未提供 image2，则返回未更改的 image1。\n可以在图像之间添加可选间距。\n",
         "python_module": "comfy_extras.nodes_images",
         "category": "图像/变换",
         "output_node": false,
-        "origin_display_name": "Image Stitch"
+        "deprecated": false,
+        "experimental": false,
+        "dev_only": false,
+        "api_node": false,
+        "price_badge": null,
+        "search_aliases": [
+          "combine images",
+          "join images",
+          "concatenate images",
+          "side by side"
+        ],
+        "essentials_category": null,
+        "has_intermediate_output": false
+      },
+      "BANodeLLMText": {
+        "input": {
+          "required": {
+            "feature": [
+              [
+                "提示词反推",
+                "灵感扩写",
+                "正反提示词"
+              ],
+              {
+                "default": "提示词反推",
+                "tooltip": "功能名称"
+              }
+            ],
+            "model": [
+              [
+                "豆包2.0-pro",
+                "豆包2.0-lite",
+                "豆包1.8-251228",
+                "豆包1.8",
+                "豆包1.6-251015",
+                "豆包1.6",
+                "豆包1.6 Vision",
+                "豆包1.6-flash",
+                "豆包1.5 pro",
+                "step-3.5-flash",
+                "Qwen3",
+                "Qwen3-omni-flash",
+                "kimi-k2.5",
+                "kimi-k2-0905-preview",
+                "DeepSeek-V3",
+                "DeepSeek-R1",
+                "GPT-5.1",
+                "GPT-5.1-Chat",
+                "GPT-5-Chat",
+                "GPT-4o",
+                "GPT-4.1",
+                "GPT-4.1mini",
+                "gemini-2.5 pro(深度思考)",
+                "gemini-2.5 pro priority(深度思考)",
+                "gemini-2.5 flash(回复更快)",
+                "Gemini-3-flash(降至2.5)",
+                "Gemini-3(降至2.5)",
+                "Seedream-PE-250815"
+              ],
+              {
+                "default": "豆包2.0-pro",
+                "tooltip": "模型名称"
+              }
+            ],
+            "max_tokens": [
+              "INT",
+              {
+                "default": 2000,
+                "min": 1,
+                "max": 4096,
+                "step": 1
+              }
+            ],
+            "temperature": [
+              "FLOAT",
+              {
+                "default": 0.7,
+                "min": 0,
+                "max": 2,
+                "step": 0.01
+              }
+            ]
+          },
+          "optional": {
+            "images": [
+              "IMAGE",
+              {
+                "tooltip": "图片",
+                "forceInput": true
+              }
+            ],
+            "prompt": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "dynamicPrompts": true,
+                "tooltip": "提示词"
+              }
+            ],
+            "system_prompt": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "dynamicPrompts": true,
+                "tooltip": "系统指令"
+              }
+            ],
+            "thinking": [
+              "BOOLEAN",
+              {
+                "default": false,
+                "tooltip": "是否思考"
+              }
+            ]
+          },
+          "hidden": {
+            "node_id": "UNIQUE_ID"
+          }
+        },
+        "input_order": {
+          "required": [
+            "feature",
+            "model",
+            "max_tokens",
+            "temperature"
+          ],
+          "optional": [
+            "images",
+            "prompt",
+            "system_prompt",
+            "thinking"
+          ],
+          "hidden": [
+            "node_id"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "STRING",
+          "STRING"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "result/positive",
+          "negative"
+        ],
+        "name": "BANodeLLMText",
+        "display_name": "BA LLM Text",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI-Byteartist-Node",
+        "category": "byteartist/llm",
+        "output_node": true,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "Text Concatenate": {
         "input": {
@@ -3633,6 +3690,7 @@
             "text_d"
           ]
         },
+        "is_input_list": false,
         "output": [
           "STRING"
         ],
@@ -3648,7 +3706,8 @@
         "python_module": "custom_nodes.was-node-suite-comfyui",
         "category": "WAS Suite/Text",
         "output_node": false,
-        "origin_display_name": "Text Concatenate"
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "SaveImage": {
         "input": {
@@ -3682,6 +3741,7 @@
             "extra_pnginfo"
           ]
         },
+        "is_input_list": false,
         "output": [],
         "output_is_list": [],
         "output_name": [],
@@ -3691,7 +3751,16 @@
         "python_module": "nodes",
         "category": "图像",
         "output_node": true,
-        "origin_display_name": "Save Image"
+        "has_intermediate_output": false,
+        "search_aliases": [
+          "save",
+          "save image",
+          "export image",
+          "output image",
+          "write image",
+          "download"
+        ],
+        "essentials_category": "Basics"
       }
     },
     "custom_node_versions": [
@@ -3713,7 +3782,7 @@
       {
         "path": "custom_nodes/ComfyUI-Byteartist-Node",
         "git_url": "https://code.byted.org/aiplatform/ComfyUI-Byteartist-Node.git",
-        "git_commit": "ee2d07b98bd111cfad8ba60f13fc2c87eb8c4d06",
+        "git_commit": "8bb0b9b05d02ec9e536aeabf62d63c36357b363e",
         "node_types": [
           "TextInput",
           "BANodeLLMText"
@@ -3722,7 +3791,7 @@
       {
         "path": "custom_nodes/ComfyUI-Aip-Aigc",
         "git_url": "https://code.byted.org/lab-cv/ComfyUI-Aip-Aigc.git",
-        "git_commit": "55ee9a4df814ca8ce7f7b59bf6533f2a43d5b3d6",
+        "git_commit": "e21ba9343f9c9ebbf936d5c9dffbd889191191d8",
         "node_types": [
           "AIPStringInput",
           "ImageMerge"
@@ -3746,6 +3815,9 @@
       }
     ],
     "pip_freeze": [
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.2.6.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/python_dotenv-1.2.1.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
       "absl-py==2.3.1",
       "accelerate==1.10.1",
       "addict==2.4.0",
@@ -3755,6 +3827,7 @@
       "aiosignal==1.3.1",
       "albucore==0.0.24",
       "albumentations==2.0.8",
+      "alembic==1.18.4",
       "altgraph==0.17.4",
       "annotated-doc==0.0.4",
       "annotated-types==0.7.0",
@@ -3762,10 +3835,13 @@
       "anyio==4.4.0",
       "asn1crypto==1.5.1",
       "attrs==24.2.0",
-      "av==17.0.0",
+      "av==17.0.1",
       "basicsr==1.4.2",
+      "beautifulsoup4==4.14.3",
       "bitsandbytes==0.47.0",
       "black==24.8.0",
+      "blake3==1.0.8",
+      "blend_modes==2.2.0",
       "boto3==1.40.38",
       "botocore==1.40.38",
       "Brotli==1.1.0",
@@ -3822,37 +3898,51 @@
       "chardet==5.2.0",
       "charset-normalizer==3.3.2",
       "click==8.1.7",
+      "clip-interrogator==0.6.0",
       "cmake==4.1.0",
+      "color-matcher==0.6.0",
       "coloredlogs==15.0.1",
+      "colour-science==0.4.7",
+      "comfy-aimdo==0.3.0",
+      "comfy-kitchen==0.2.8",
       "comfyui-embedded-docs==0.2.6",
-      "comfyui_frontend_package==1.21.7",
+      "comfyui-workflow-templates-core==0.3.214",
+      "comfyui-workflow-templates-media-api==0.3.70",
+      "comfyui-workflow-templates-media-image==0.3.131",
+      "comfyui-workflow-templates-media-other==0.3.180",
+      "comfyui-workflow-templates-media-video==0.3.80",
+      "comfyui_frontend_package==1.42.14",
       "comfyui_workflow_templates==0.1.86",
       "contourpy==1.3.3",
       "cramjam==2.6.2",
       "crcmod==1.7",
       "cryptography==39.0.2",
       "cstr @ git+https://github.com/WASasquatch/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
-      "cuda-bindings==13.2.0",
-      "cuda-pathfinder==1.5.0",
-      "cuda-toolkit==13.0.2",
+      "cupy-cuda12x==12.3.0",
+      "cupy-wheel==12.3.0",
       "cycler==0.12.1",
       "Cython==3.2.1",
-      "dacite==1.9.2",
       "dataclasses-json==0.6.7",
+      "ddt==1.7.2",
       "decorator==5.2.1",
+      "decord==0.6.0",
+      "deepdiff==8.6.1",
       "deepspeed==0.17.6",
       "Deprecated==1.2.18",
       "diffusers==0.35.1",
+      "dill==0.4.1",
       "distro==1.9.0",
       "dnspython==2.8.0",
       "docker-pycreds==0.4.0",
       "docstring_parser==0.17.0",
+      "docutils==0.22.3",
       "easydict==1.13",
       "ecdsa==0.19.1",
       "einops==0.8.1",
       "et_xmlfile==2.0.0",
       "fairscale==0.4.13",
       "fastapi==0.117.1",
+      "fastrlock==0.8.3",
       "ffmpy==0.6.1",
       "file-magic==0.4.0",
       "filelock==3.19.1",
@@ -3862,16 +3952,20 @@
       "fonttools==4.60.0",
       "frozenlist==1.4.1",
       "fsspec==2023.6.0",
+      "ftfy==6.3.1",
       "future==1.0.0",
       "fvcore==0.1.5.post20221221",
+      "gdown==5.2.1",
       "gevent==24.11.1",
       "gitdb==4.0.12",
       "GitPython==3.1.42",
+      "glfw==2.10.0",
       "GPUtil==1.4.0",
       "gradio==5.47.0",
       "gradio_client==1.13.2",
       "greenlet==3.2.4",
       "groovy==0.1.2",
+      "groundingdino-py==0.4.0",
       "grpcio==1.75.0",
       "gunicorn==20.1.0",
       "h11==0.14.0",
@@ -3882,6 +3976,7 @@
       "httpx-sse==0.4.3",
       "huggingface-hub==0.35.1",
       "humanfriendly==10.0",
+      "hydra-core==1.3.2",
       "idna==3.10",
       "imageio==2.37.0",
       "imageio-ffmpeg==0.6.0",
@@ -3913,9 +4008,12 @@
       "langsmith==0.3.45",
       "lark==1.3.0",
       "lazy_loader==0.4",
+      "litelama==0.1.7",
       "llvmlite==0.45.0",
       "lmdb==1.7.3",
+      "loguru==0.7.3",
       "lz4==3.1.10",
+      "Mako==1.3.12",
       "Markdown==3.10",
       "markdown-it-py==4.0.0",
       "MarkupSafe==3.0.2",
@@ -3928,60 +4026,55 @@
       "mpmath==1.3.0",
       "mprofile==0.0.15",
       "msgpack==1.0.8",
+      "mss==10.1.0",
       "multidict==6.0.5",
       "mypy-extensions==1.0.0",
       "networkx==3.5",
       "ninja==1.13.0",
       "numba==0.62.0",
       "numpy==1.26.4",
-      "nvidia-cublas==13.1.0.3",
       "nvidia-cublas-cu12==12.6.4.1",
-      "nvidia-cuda-cupti==13.0.85",
       "nvidia-cuda-cupti-cu12==12.6.80",
-      "nvidia-cuda-nvrtc==13.0.88",
       "nvidia-cuda-nvrtc-cu12==12.6.77",
-      "nvidia-cuda-runtime==13.0.96",
       "nvidia-cuda-runtime-cu12==12.6.77",
       "nvidia-cudnn-cu12==9.5.1.17",
-      "nvidia-cudnn-cu13==9.19.0.56",
-      "nvidia-cufft==12.0.0.61",
       "nvidia-cufft-cu12==11.3.0.4",
-      "nvidia-cufile==1.15.1.6",
       "nvidia-cufile-cu12==1.11.1.6",
-      "nvidia-curand==10.4.0.35",
       "nvidia-curand-cu12==10.3.7.77",
-      "nvidia-cusolver==12.0.4.66",
       "nvidia-cusolver-cu12==11.7.1.2",
-      "nvidia-cusparse==12.6.3.3",
       "nvidia-cusparse-cu12==12.5.4.2",
       "nvidia-cusparselt-cu12==0.6.3",
-      "nvidia-cusparselt-cu13==0.8.0",
+      "nvidia-ml-py==13.590.48",
       "nvidia-nccl-cu12==2.26.2",
-      "nvidia-nccl-cu13==2.28.9",
-      "nvidia-nvjitlink==13.0.88",
       "nvidia-nvjitlink-cu12==12.6.85",
-      "nvidia-nvshmem-cu13==3.4.5",
-      "nvidia-nvtx==13.0.85",
+      "nvidia-nvshmem-cu12==3.3.20",
       "nvidia-nvtx-cu12==12.6.77",
       "objprint==0.3.0",
       "ollama==0.6.0",
       "omegaconf==2.3.0",
       "onnx==1.17.0",
+      "onnxruntime==1.23.2",
       "onnxruntime-gpu==1.22.0",
+      "open_clip_torch==3.2.0",
       "openai==1.109.1",
+      "opencv-contrib-python==4.13.0.92",
       "opencv-python==4.11.0.86",
-      "opencv-python-headless==4.12.0.88",
+      "opencv-python-headless==4.13.0.92",
       "openpyxl==3.1.2",
+      "orderly-set==5.5.0",
       "orjson==3.11.3",
       "packaging==24.1",
       "pandas==2.3.2",
+      "partial-json-parser==0.2.1.1.post7",
       "pathspec==0.12.1",
       "pathtools==0.1.2",
       "peft==0.17.1",
+      "piexif==1.1.3",
       "pilgram==2.0.0",
       "pillow==11.3.0",
       "pip-autoremove==0.10.0",
       "pipdeptree==2.14.0",
+      "pixeloe==0.1.4",
       "platformdirs==4.2.1",
       "pluggy==1.5.0",
       "ply==3.11",
@@ -3998,22 +4091,26 @@
       "py-cpuinfo==9.0.0",
       "pyarrow==11.0.0",
       "pyasn1==0.6.1",
+      "pycocotools==2.0.11",
       "pycparser==2.23",
       "pycryptodome==3.19.1",
       "pycryptodomex==3.23.0",
       "pydantic==2.11.9",
-      "pydantic-settings==2.12.0",
+      "pydantic-settings==2.14.0",
       "pydantic_core==2.33.2",
       "pydub==0.25.1",
       "Pygments==2.19.2",
       "PyJWT==2.10.1",
       "PyMatting==1.1.15",
+      "pynvml==13.0.1",
       "pyope==0.2.2",
+      "PyOpenGL==3.1.10",
       "pyOpenSSL==23.2.0",
       "pyparsing==3.2.5",
+      "PySocks==1.7.1",
       "pytest==8.3.2",
       "python-dateutil==2.9.0.post0",
-      "python-dotenv==1.2.1",
+      "python-dotenv==1.2.2",
       "python-etcd==0.4.5",
       "python-jose==3.5.0",
       "python-magic==0.4.27",
@@ -4038,26 +4135,31 @@
       "safehttpx==0.1.6",
       "safetensors==0.6.2",
       "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
+      "SAM-2 @ git+https://github.com/facebookresearch/sam2@2b90b9f5ceec907a1c18123530e92e794ad901a4",
       "schedule==1.2.2",
-      "scikit-image==0.25.2",
+      "scikit-image==0.26.0",
       "scikit-learn==1.7.2",
       "scipy==1.16.2",
+      "segment-anything==1.0",
       "semantic-version==2.10.0",
       "sentencepiece==0.2.1",
       "sentry-sdk==2.39.0",
       "setproctitle==1.3.7",
       "shellingham==1.5.4",
       "shortuuid==1.0.13",
+      "simpleeval==1.0.7",
       "simsimd==6.5.3",
       "six==1.16.0",
       "smmap==5.0.2",
       "sniffio==1.3.1",
       "soundfile==0.13.1",
+      "soupsieve==2.8.3",
       "spandrel==0.4.1",
-      "SQLAlchemy==2.0.44",
+      "SQLAlchemy==2.0.49",
       "stanford-stk==0.7.1",
       "starlette==0.48.0",
       "stringzilla==4.2.3",
+      "supervision==0.6.0",
       "sympy==1.14.0",
       "tabulate==0.9.0",
       "tb-nightly==2.21.0a20251023",
@@ -4080,9 +4182,11 @@
       "tqdm==4.67.1",
       "trampoline==0.1.2",
       "transformers==4.56.2",
+      "transparent-background==1.3.4",
       "triton==3.3.1",
       "ttvcloud==0.0.39",
       "typer==0.19.2",
+      "typer-slim==0.24.0",
       "typing-inspect==0.9.0",
       "typing-inspection==0.4.1",
       "typing_extensions==4.12.2",
@@ -4093,6 +4197,7 @@
       "uv==0.8.12",
       "uvicorn==0.37.0",
       "viztracer==0.16.3",
+      "volcengine-python-sdk==5.0.25",
       "watchdog==6.0.0",
       "wcwidth==0.2.14",
       "websockets==15.0.1",
@@ -4104,6 +4209,7 @@
       "yacs==0.1.8",
       "yapf==0.43.0",
       "yarl==1.11.1",
+      "yt-dlp==2026.3.17",
       "zipp==3.23.0",
       "zope.event==6.0",
       "zope.interface==8.0.1",
@@ -4123,7 +4229,7 @@
       "anyio==4.4.0",
       "asn1crypto==1.5.1",
       "attrs==24.2.0",
-      "av==17.0.0",
+      "av==17.0.1",
       "bitsandbytes==0.47.0",
       "black==24.8.0",
       "boto3==1.40.38",
@@ -4393,15 +4499,15 @@
     },
     "base_image": "aip_image_factory/custom.image.combo_infer:nvidia_seed4_infer-20251006-215922",
     "comfy_args": {
-      "--listen": "fd02::24:0:0:bf8",
+      "--listen": "fd02::24:0:0:c25",
       "--port": "9001"
     },
-    "comfyui_tag": "release_0.3.40",
+    "comfyui_tag": "v0.19.5",
     "ba_combo": "588008921034165554",
-    "workflow_name": "w+人物生成",
-    "workflow_id": "616275814467530912:1",
-    "config_id": "616275814501085344",
-    "workflow_version_id": "616275814534639776",
-    "workflow_identity": "616275814467530912:1"
+    "workflow_name": "啥都能跑",
+    "workflow_id": "597261691570414615:19",
+    "config_id": "618729447612238587",
+    "workflow_version_id": "618729447645793019",
+    "workflow_identity": "597261691570414615:19"
   }
 }

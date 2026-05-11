@@ -1,8 +1,8 @@
 {
   "id": "33769dee-8218-46db-bdef-cc888195d949",
   "revision": 0,
-  "last_node_id": 255,
-  "last_link_id": 363,
+  "last_node_id": 257,
+  "last_link_id": 371,
   "nodes": [
     {
       "id": 2,
@@ -266,7 +266,7 @@
         658
       ],
       "flags": {},
-      "order": 68,
+      "order": 62,
       "mode": 0,
       "inputs": [
         {
@@ -359,87 +359,6 @@
       ]
     },
     {
-      "id": 10,
-      "type": "ImpactImageBatchToImageList",
-      "pos": [
-        25574.81640625,
-        238.2834014892578
-      ],
-      "size": [
-        350,
-        436
-      ],
-      "flags": {},
-      "order": 49,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "link": 312
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "shape": 6,
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            112
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImpactImageBatchToImageList",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 11,
-      "type": "ImageListToImageBatch",
-      "pos": [
-        26494.06640625,
-        2.2996063232421875
-      ],
-      "size": [
-        350,
-        436
-      ],
-      "flags": {},
-      "order": 60,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "images",
-          "name": "images",
-          "type": "IMAGE",
-          "link": 28
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            29
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageListToImageBatch",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 12,
       "type": "AILab_MaskCombiner",
       "pos": [
@@ -451,7 +370,7 @@
         208
       ],
       "flags": {},
-      "order": 64,
+      "order": 58,
       "mode": 0,
       "inputs": [
         {
@@ -516,7 +435,7 @@
         208
       ],
       "flags": {},
-      "order": 66,
+      "order": 60,
       "mode": 0,
       "inputs": [
         {
@@ -581,7 +500,7 @@
         518
       ],
       "flags": {},
-      "order": 73,
+      "order": 67,
       "mode": 0,
       "inputs": [
         {
@@ -641,7 +560,7 @@
         436
       ],
       "flags": {},
-      "order": 76,
+      "order": 70,
       "mode": 0,
       "inputs": [
         {
@@ -681,7 +600,7 @@
         674
       ],
       "flags": {},
-      "order": 79,
+      "order": 73,
       "mode": 0,
       "inputs": [
         {
@@ -733,7 +652,7 @@
         1064
       ],
       "flags": {},
-      "order": 77,
+      "order": 71,
       "mode": 0,
       "inputs": [
         {
@@ -846,7 +765,7 @@
         130
       ],
       "flags": {},
-      "order": 56,
+      "order": 52,
       "mode": 0,
       "inputs": [
         {
@@ -888,7 +807,7 @@
         62
       ],
       "flags": {},
-      "order": 62,
+      "order": 56,
       "mode": 0,
       "inputs": [
         {
@@ -928,7 +847,7 @@
         1064
       ],
       "flags": {},
-      "order": 52,
+      "order": 50,
       "mode": 0,
       "inputs": [
         {
@@ -1065,7 +984,7 @@
         1050
       ],
       "flags": {},
-      "order": 59,
+      "order": 54,
       "mode": 0,
       "inputs": [
         {
@@ -1212,7 +1131,7 @@
         436
       ],
       "flags": {},
-      "order": 54,
+      "order": 51,
       "mode": 0,
       "inputs": [
         {
@@ -1252,7 +1171,7 @@
         436
       ],
       "flags": {},
-      "order": 58,
+      "order": 53,
       "mode": 0,
       "inputs": [
         {
@@ -1292,7 +1211,7 @@
         130
       ],
       "flags": {},
-      "order": 11,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -1334,7 +1253,7 @@
         130
       ],
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -1365,47 +1284,6 @@
       ]
     },
     {
-      "id": 32,
-      "type": "ImpactImageBatchToImageList",
-      "pos": [
-        25614.568359375,
-        1875.562255859375
-      ],
-      "size": [
-        350,
-        436
-      ],
-      "flags": {},
-      "order": 39,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "link": 318
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "shape": 6,
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            118
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImpactImageBatchToImageList",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 33,
       "type": "LayerUtility: ImageOpacity",
       "pos": [
@@ -1417,14 +1295,14 @@
         570
       ],
       "flags": {},
-      "order": 74,
+      "order": 68,
       "mode": 0,
       "inputs": [
         {
           "label": "image",
           "name": "image",
           "type": "IMAGE",
-          "link": 66
+          "link": 368
         },
         {
           "label": "mask",
@@ -1465,46 +1343,6 @@
       "color": "rgba(38, 73, 116, 0.7)"
     },
     {
-      "id": 34,
-      "type": "ImageListToImageBatch",
-      "pos": [
-        26019.203125,
-        234.5114288330078
-      ],
-      "size": [
-        350,
-        436
-      ],
-      "flags": {},
-      "order": 55,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "images",
-          "name": "images",
-          "type": "IMAGE",
-          "link": 68
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            66
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageListToImageBatch",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 35,
       "type": "MaskTransparentInOutNode",
       "pos": [
@@ -1516,7 +1354,7 @@
         520
       ],
       "flags": {},
-      "order": 78,
+      "order": 72,
       "mode": 0,
       "inputs": [
         {
@@ -1576,7 +1414,7 @@
         1064
       ],
       "flags": {},
-      "order": 80,
+      "order": 74,
       "mode": 0,
       "inputs": [
         {
@@ -1637,71 +1475,6 @@
       "color": "rgba(38, 73, 116, 0.7)"
     },
     {
-      "id": 37,
-      "type": "LayerUtility: ColorImage V2",
-      "pos": [
-        28322.49609375,
-        331.0999450683594
-      ],
-      "size": [
-        350,
-        648
-      ],
-      "flags": {},
-      "order": 40,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "size_as",
-          "name": "size_as",
-          "shape": 7,
-          "type": "*",
-          "link": null
-        },
-        {
-          "label": "custom_width",
-          "name": "custom_width",
-          "type": "INT",
-          "widget": {
-            "name": "custom_width"
-          },
-          "link": 319
-        },
-        {
-          "label": "custom_height",
-          "name": "custom_height",
-          "type": "INT",
-          "widget": {
-            "name": "custom_height"
-          },
-          "link": 320
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            82
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LayerUtility: ColorImage V2",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"image\"]}"
-      },
-      "widgets_values": [
-        "custom",
-        512,
-        512,
-        "#000000"
-      ],
-      "color": "rgba(38, 73, 116, 0.7)"
-    },
-    {
       "id": 38,
       "type": "AILab_MaskCombiner",
       "pos": [
@@ -1713,7 +1486,7 @@
         208
       ],
       "flags": {},
-      "order": 65,
+      "order": 59,
       "mode": 0,
       "inputs": [
         {
@@ -1778,7 +1551,7 @@
         208
       ],
       "flags": {},
-      "order": 67,
+      "order": 61,
       "mode": 0,
       "inputs": [
         {
@@ -1843,7 +1616,7 @@
         648
       ],
       "flags": {},
-      "order": 71,
+      "order": 65,
       "mode": 0,
       "inputs": [
         {
@@ -1908,7 +1681,7 @@
         1064
       ],
       "flags": {},
-      "order": 81,
+      "order": 75,
       "mode": 0,
       "inputs": [
         {
@@ -1980,7 +1753,7 @@
         674
       ],
       "flags": {},
-      "order": 84,
+      "order": 78,
       "mode": 0,
       "inputs": [
         {
@@ -2021,46 +1794,6 @@
       ]
     },
     {
-      "id": 43,
-      "type": "MaskToImage",
-      "pos": [
-        26848.197265625,
-        1893.572509765625
-      ],
-      "size": [
-        350,
-        436
-      ],
-      "flags": {},
-      "order": 82,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "mask",
-          "name": "mask",
-          "type": "MASK",
-          "link": 87
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            85
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MaskToImage",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 44,
       "type": "ImageToMask",
       "pos": [
@@ -2072,7 +1805,7 @@
         130
       ],
       "flags": {},
-      "order": 72,
+      "order": 66,
       "mode": 0,
       "inputs": [
         {
@@ -2114,7 +1847,7 @@
         436
       ],
       "flags": {},
-      "order": 69,
+      "order": 63,
       "mode": 0,
       "inputs": [
         {
@@ -2349,68 +2082,6 @@
       "widgets_values": []
     },
     {
-      "id": 53,
-      "type": "GetImageSizeAndCount",
-      "pos": [
-        24070.275390625,
-        925.6240844726562
-      ],
-      "size": [
-        350,
-        782
-      ],
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "link": 218
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            62,
-            317
-          ]
-        },
-        {
-          "label": "960 width",
-          "name": "width",
-          "type": "INT",
-          "slot_index": 1,
-          "links": null
-        },
-        {
-          "label": "960 height",
-          "name": "height",
-          "type": "INT",
-          "slot_index": 2,
-          "links": null
-        },
-        {
-          "label": "120 count",
-          "name": "count",
-          "type": "INT",
-          "slot_index": 3,
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "GetImageSizeAndCount",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"image\",\"width\"],\"uiHeightMap\":{\"text-view-height-0-0\":82,\"text-view-height-2-0\":82}}"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 55,
       "type": "ImageToMask",
       "pos": [
@@ -2422,7 +2093,7 @@
         130
       ],
       "flags": {},
-      "order": 63,
+      "order": 57,
       "mode": 0,
       "inputs": [
         {
@@ -2755,274 +2426,6 @@
       ]
     },
     {
-      "id": 62,
-      "type": "EsesImageLensEffects",
-      "pos": [
-        27960.4296875,
-        615.3908081054688
-      ],
-      "size": [
-        350,
-        1428
-      ],
-      "flags": {},
-      "order": 53,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "link": 112
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            113
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EsesImageLensEffects",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
-      },
-      "widgets_values": [
-        0,
-        -0.015,
-        0.005,
-        0.01,
-        2.5,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0.15,
-        0,
-        2,
-        "Off",
-        "Nearest-Neighbor",
-        "edge",
-        0
-      ]
-    },
-    {
-      "id": 63,
-      "type": "EsesImageEffectBloom",
-      "pos": [
-        27475.1953125,
-        1359.53173828125
-      ],
-      "size": [
-        350,
-        1296
-      ],
-      "flags": {},
-      "order": 57,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "link": 113
-        },
-        {
-          "label": "mask",
-          "name": "mask",
-          "shape": 7,
-          "type": "MASK",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "modified_image",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            28
-          ]
-        },
-        {
-          "name": "highlights_image",
-          "type": "IMAGE",
-          "slot_index": 1,
-          "links": null
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "slot_index": 2,
-          "links": null
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "slot_index": 3,
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EsesImageEffectBloom",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"modified_image\",\"highlights_image\"]}"
-      },
-      "widgets_values": [
-        0.85,
-        0.95,
-        "gaussian",
-        50,
-        1,
-        "screen",
-        1,
-        1024
-      ]
-    },
-    {
-      "id": 64,
-      "type": "EsesImageEffectBloom",
-      "pos": [
-        26410.767578125,
-        1375.716796875
-      ],
-      "size": [
-        350,
-        1296
-      ],
-      "flags": {},
-      "order": 51,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "link": 117
-        },
-        {
-          "label": "mask",
-          "name": "mask",
-          "shape": 7,
-          "type": "MASK",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "modified_image",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            68
-          ]
-        },
-        {
-          "name": "highlights_image",
-          "type": "IMAGE",
-          "slot_index": 1,
-          "links": null
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "slot_index": 2,
-          "links": null
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "slot_index": 3,
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EsesImageEffectBloom",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"modified_image\",\"highlights_image\"]}"
-      },
-      "widgets_values": [
-        0.85,
-        0.95,
-        "gaussian",
-        50,
-        1,
-        "screen",
-        1,
-        1024
-      ]
-    },
-    {
-      "id": 65,
-      "type": "EsesImageLensEffects",
-      "pos": [
-        26489.216796875,
-        2065.1025390625
-      ],
-      "size": [
-        350,
-        1428
-      ],
-      "flags": {},
-      "order": 47,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "link": 118
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            117
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EsesImageLensEffects",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
-      },
-      "widgets_values": [
-        0,
-        -0.015,
-        0.005,
-        0.01,
-        2.5,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0.15,
-        0,
-        2,
-        "Off",
-        "Nearest-Neighbor",
-        "edge",
-        0
-      ]
-    },
-    {
       "id": 66,
       "type": "Switch from any [Crystools]",
       "pos": [
@@ -3082,48 +2485,6 @@
       ]
     },
     {
-      "id": 70,
-      "type": "LoadImage",
-      "pos": [
-        24091.232421875,
-        1163.036865234375
-      ],
-      "size": [
-        350,
-        401
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            222
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "slot_index": 1,
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage",
-        "inputTipsMap": {},
-        "outputTipsMap": {},
-        "extra": "{\"output_preview_names\":[]}"
-      },
-      "widgets_values": [
-        "mask1 (2).png",
-        "image"
-      ]
-    },
-    {
       "id": 71,
       "type": "LoadImage",
       "pos": [
@@ -3135,7 +2496,7 @@
         401
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3161,7 +2522,7 @@
         "extra": "{\"output_preview_names\":[]}"
       },
       "widgets_values": [
-        "mask2 (1).png",
+        "mask2.png",
         "image"
       ]
     },
@@ -3177,7 +2538,7 @@
         470
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3219,7 +2580,7 @@
         470
       ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3261,7 +2622,7 @@
         986
       ],
       "flags": {},
-      "order": 50,
+      "order": 49,
       "mode": 0,
       "inputs": [
         {
@@ -3337,7 +2698,7 @@
         286
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3375,14 +2736,14 @@
         570
       ],
       "flags": {},
-      "order": 70,
+      "order": 64,
       "mode": 0,
       "inputs": [
         {
           "label": "image",
           "name": "image",
           "type": "IMAGE",
-          "link": 29
+          "link": 371
         },
         {
           "label": "mask",
@@ -3517,21 +2878,21 @@
           ]
         },
         {
-          "label": "960 width",
+          "label": "1664 width",
           "name": "width",
           "type": "INT",
           "slot_index": 1,
           "links": null
         },
         {
-          "label": "960 height",
+          "label": "1248 height",
           "name": "height",
           "type": "INT",
           "slot_index": 2,
           "links": null
         },
         {
-          "label": "120 count",
+          "label": "145 count",
           "name": "count",
           "type": "INT",
           "slot_index": 3,
@@ -3560,7 +2921,7 @@
         850
       ],
       "flags": {},
-      "order": 91,
+      "order": 85,
       "mode": 0,
       "inputs": [
         {
@@ -3625,7 +2986,7 @@
         518
       ],
       "flags": {},
-      "order": 89,
+      "order": 83,
       "mode": 0,
       "inputs": [
         {
@@ -3674,7 +3035,7 @@
         518
       ],
       "flags": {},
-      "order": 86,
+      "order": 80,
       "mode": 0,
       "inputs": [
         {
@@ -3789,7 +3150,8 @@
         "0, 0, 0",
         "center",
         2,
-        "cpu"
+        "cpu",
+        0
       ]
     },
     {
@@ -3870,7 +3232,8 @@
         "0, 0, 0",
         "center",
         2,
-        "cpu"
+        "cpu",
+        0
       ]
     },
     {
@@ -3905,7 +3268,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            312
+            369
           ]
         },
         {
@@ -3935,7 +3298,8 @@
         "0, 0, 0",
         "center",
         2,
-        "cpu"
+        "cpu",
+        0
       ]
     },
     {
@@ -3950,7 +3314,7 @@
         310
       ],
       "flags": {},
-      "order": 48,
+      "order": 47,
       "mode": 0,
       "inputs": [
         {
@@ -4016,7 +3380,8 @@
         "0, 0, 0",
         "center",
         2,
-        "cpu"
+        "cpu",
+        0
       ]
     },
     {
@@ -4051,7 +3416,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            318
+            367
           ]
         },
         {
@@ -4085,7 +3450,8 @@
         "0, 0, 0",
         "center",
         2,
-        "cpu"
+        "cpu",
+        0
       ]
     },
     {
@@ -4100,7 +3466,7 @@
         360
       ],
       "flags": {},
-      "order": 61,
+      "order": 55,
       "mode": 0,
       "inputs": [
         {
@@ -4150,7 +3516,8 @@
         "0, 0, 0",
         "center",
         2,
-        "cpu"
+        "cpu",
+        0
       ]
     },
     {
@@ -4165,7 +3532,7 @@
         850
       ],
       "flags": {},
-      "order": 88,
+      "order": 82,
       "mode": 0,
       "inputs": [
         {
@@ -4230,7 +3597,7 @@
         114
       ],
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -4301,7 +3668,7 @@
         {
           "name": "video_in",
           "shape": 7,
-          "type": "VIDEO",
+          "type": "STRING",
           "link": null
         }
       ],
@@ -4421,7 +3788,7 @@
         122
       ],
       "flags": {},
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -4439,7 +3806,7 @@
         {
           "name": "video_in",
           "shape": 7,
-          "type": "VIDEO",
+          "type": "STRING",
           "link": 329
         }
       ],
@@ -4464,7 +3831,7 @@
         786.5318603515625
       ],
       "flags": {},
-      "order": 75,
+      "order": 69,
       "mode": 0,
       "inputs": [
         {
@@ -4536,7 +3903,7 @@
         264
       ],
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4561,41 +3928,6 @@
       ]
     },
     {
-      "id": 243,
-      "type": "BALoadVideo",
-      "pos": [
-        20665.30859375,
-        -1616.86962890625
-      ],
-      "size": [
-        400,
-        524
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "video",
-          "type": "VIDEO",
-          "links": [
-            329,
-            330
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BALoadVideo"
-      },
-      "widgets_values": {
-        "video_path": "AnimateDiff_01706.mp4",
-        "upload": "image",
-        "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
-        "video-preview": ""
-      }
-    },
-    {
       "id": 114,
       "type": "LazySwitchKJ",
       "pos": [
@@ -4607,7 +3939,7 @@
         156
       ],
       "flags": {},
-      "order": 87,
+      "order": 81,
       "mode": 0,
       "inputs": [
         {
@@ -4666,7 +3998,7 @@
         86
       ],
       "flags": {},
-      "order": 90,
+      "order": 84,
       "mode": 0,
       "inputs": [
         {
@@ -4727,7 +4059,7 @@
         98
       ],
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4769,7 +4101,7 @@
         98
       ],
       "flags": {},
-      "order": 92,
+      "order": 86,
       "mode": 0,
       "inputs": [
         {
@@ -4824,7 +4156,7 @@
         156
       ],
       "flags": {},
-      "order": 83,
+      "order": 77,
       "mode": 0,
       "inputs": [
         {
@@ -4871,80 +4203,6 @@
       ]
     },
     {
-      "id": 250,
-      "type": "ImagePadKJ",
-      "pos": [
-        29934.4296875,
-        -979.7440185546875
-      ],
-      "size": [
-        270,
-        262
-      ],
-      "flags": {},
-      "order": 93,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 355
-        },
-        {
-          "name": "mask",
-          "shape": 7,
-          "type": "MASK",
-          "link": null
-        },
-        {
-          "name": "target_width",
-          "shape": 7,
-          "type": "INT",
-          "link": null
-        },
-        {
-          "name": "target_height",
-          "shape": 7,
-          "type": "INT",
-          "link": null
-        },
-        {
-          "name": "top",
-          "type": "INT",
-          "widget": {
-            "name": "top"
-          },
-          "link": 363
-        }
-      ],
-      "outputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "links": [
-            356
-          ]
-        },
-        {
-          "name": "masks",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImagePadKJ"
-      },
-      "widgets_values": [
-        0,
-        0,
-        560,
-        0,
-        0,
-        "color",
-        "0, 0, 0"
-      ]
-    },
-    {
       "id": 117,
       "type": "VHS_VideoCombine",
       "pos": [
@@ -4956,7 +4214,7 @@
         1316.1777777777777
       ],
       "flags": {},
-      "order": 85,
+      "order": 79,
       "mode": 0,
       "inputs": [
         {
@@ -5025,13 +4283,13 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "OpenClawOutput___00054.mp4",
+            "filename": "BGOutput___00013.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4",
             "frame_rate": 30,
-            "workflow": "OpenClawOutput___00054.png",
-            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/output/OpenClawOutput___00054.mp4"
+            "workflow": "BGOutput___00013.png",
+            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/output/BGOutput___00013.mp4"
           }
         }
       }
@@ -5048,7 +4306,7 @@
         908.2987738715278
       ],
       "flags": {},
-      "order": 94,
+      "order": 88,
       "mode": 0,
       "inputs": [
         {
@@ -5117,56 +4375,445 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "OpenClawOutput___00055.mp4",
+            "filename": "OpenClawOutput___00013.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4",
             "frame_rate": 30,
-            "workflow": "OpenClawOutput___00055.png",
-            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/output/OpenClawOutput___00055.mp4"
+            "workflow": "OpenClawOutput___00013.png",
+            "fullpath": "/opt/tiger/ComfyUI/ComfyUI/output/OpenClawOutput___00013.mp4"
           }
         }
       }
     },
     {
-      "id": 240,
-      "type": "ttN text",
+      "id": 43,
+      "type": "MaskToImage",
       "pos": [
-        20662.988099135637,
-        -965.6443451067486
+        27089.098905712992,
+        1579.6371673786368
       ],
       "size": [
-        400,
-        200
+        350,
+        436
       ],
       "flags": {},
-      "order": 10,
+      "order": 76,
       "mode": 0,
-      "inputs": [],
+      "inputs": [
+        {
+          "label": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "link": 87
+        }
+      ],
       "outputs": [
         {
-          "name": "text",
-          "type": "STRING",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
           "links": [
-            326,
-            328
+            85
           ]
         }
       ],
       "properties": {
-        "Node name for S&R": "ttN text",
-        "ttNnodeVersion": "1.0.0"
+        "Node name for S&R": "MaskToImage",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"IMAGE\"]}"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 37,
+      "type": "LayerUtility: ColorImage V2",
+      "pos": [
+        26489.30704849218,
+        2357.5919457062087
+      ],
+      "size": [
+        350,
+        648
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "size_as",
+          "name": "size_as",
+          "shape": 7,
+          "type": "*",
+          "link": null
+        },
+        {
+          "label": "custom_width",
+          "name": "custom_width",
+          "type": "INT",
+          "widget": {
+            "name": "custom_width"
+          },
+          "link": 319
+        },
+        {
+          "label": "custom_height",
+          "name": "custom_height",
+          "type": "INT",
+          "widget": {
+            "name": "custom_height"
+          },
+          "link": 320
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            82
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerUtility: ColorImage V2",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"image\"]}"
       },
       "widgets_values": [
-        ""
+        "custom",
+        512,
+        512,
+        "#000000"
+      ],
+      "color": "rgba(38, 73, 116, 0.7)"
+    },
+    {
+      "id": 256,
+      "type": "FastGiftPostFX",
+      "pos": [
+        26052.29761320179,
+        2127.2819580829287
+      ],
+      "size": [
+        276.69921875,
+        418
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 367
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            368
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FastGiftPostFX"
+      },
+      "widgets_values": [
+        true,
+        0.7,
+        0.35,
+        32,
+        4,
+        true,
+        2,
+        0,
+        true,
+        true,
+        0.2,
+        1,
+        0.25,
+        1.05,
+        1.05,
+        0.05
+      ]
+    },
+    {
+      "id": 257,
+      "type": "FastGiftPostFX",
+      "pos": [
+        27451.1070919705,
+        2131.8958151388797
+      ],
+      "size": [
+        276.69921875,
+        418
+      ],
+      "flags": {},
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 369
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            371
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FastGiftPostFX"
+      },
+      "widgets_values": [
+        true,
+        0.7,
+        0.35,
+        32,
+        4,
+        true,
+        2,
+        0,
+        true,
+        true,
+        0.2,
+        1,
+        0.25,
+        1.05,
+        1.05,
+        0.05
+      ]
+    },
+    {
+      "id": 243,
+      "type": "BALoadVideo",
+      "pos": [
+        20665.30859375,
+        -1616.86962890625
+      ],
+      "size": [
+        400,
+        524
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            329,
+            330
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BALoadVideo"
+      },
+      "widgets_values": {
+        "video_path": "OpenClawOutput___00009_.mp4",
+        "upload": "image",
+        "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
+        "video-preview": ""
+      }
+    },
+    {
+      "id": 53,
+      "type": "GetImageSizeAndCount",
+      "pos": [
+        24018.83567168591,
+        962.1732997507734
+      ],
+      "size": [
+        310.7434767528939,
+        102.45528944414104
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 218
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            62,
+            317
+          ]
+        },
+        {
+          "label": "1664 width",
+          "name": "width",
+          "type": "INT",
+          "slot_index": 1,
+          "links": null
+        },
+        {
+          "label": "1248 height",
+          "name": "height",
+          "type": "INT",
+          "slot_index": 2,
+          "links": null
+        },
+        {
+          "label": "120 count",
+          "name": "count",
+          "type": "INT",
+          "slot_index": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[\"image\",\"width\"],\"uiHeightMap\":{\"text-view-height-0-0\":82,\"text-view-height-2-0\":82}}"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 70,
+      "type": "LoadImage",
+      "pos": [
+        23587.66539385464,
+        1309.910522355935
+      ],
+      "size": [
+        350,
+        401
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            222
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "inputTipsMap": {},
+        "outputTipsMap": {},
+        "extra": "{\"output_preview_names\":[]}"
+      },
+      "widgets_values": [
+        "mask1 (2).png",
+        "image"
+      ]
+    },
+    {
+      "id": 250,
+      "type": "ImagePadKJ",
+      "pos": [
+        29942.06009367102,
+        -1023.3460829101971
+      ],
+      "size": [
+        270,
+        262
+      ],
+      "flags": {},
+      "order": 87,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 355
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "target_width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "name": "target_height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "name": "top",
+          "type": "INT",
+          "widget": {
+            "name": "top"
+          },
+          "link": 363
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            356
+          ]
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImagePadKJ"
+      },
+      "widgets_values": [
+        0,
+        0,
+        560,
+        0,
+        0,
+        "color",
+        "0, 0, 0"
       ]
     },
     {
       "id": 241,
       "type": "StringCompare",
       "pos": [
-        21694.87109375,
-        -654.99658203125
+        21563.19550723939,
+        -808.82320810435
       ],
       "size": [
         400,
@@ -5202,6 +4849,39 @@
         "true",
         "Equal",
         true
+      ]
+    },
+    {
+      "id": 240,
+      "type": "ttN text",
+      "pos": [
+        20662.08720117037,
+        -907.9886898276097
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            326,
+            328
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ttN text",
+        "ttNnodeVersion": "1.0.0"
+      },
+      "widgets_values": [
+        ""
       ]
     }
   ],
@@ -5269,22 +4949,6 @@
       8,
       0,
       "MASK"
-    ],
-    [
-      28,
-      63,
-      0,
-      11,
-      0,
-      "IMAGE"
-    ],
-    [
-      29,
-      11,
-      0,
-      80,
-      0,
-      "IMAGE"
     ],
     [
       30,
@@ -5519,28 +5183,12 @@
       "IMAGE"
     ],
     [
-      66,
-      34,
-      0,
-      33,
-      0,
-      "IMAGE"
-    ],
-    [
       67,
       44,
       0,
       33,
       1,
       "MASK"
-    ],
-    [
-      68,
-      64,
-      0,
-      34,
-      0,
-      "IMAGE"
     ],
     [
       69,
@@ -5799,22 +5447,6 @@
       "IMAGE"
     ],
     [
-      112,
-      10,
-      0,
-      62,
-      0,
-      "IMAGE"
-    ],
-    [
-      113,
-      62,
-      0,
-      63,
-      0,
-      "IMAGE"
-    ],
-    [
       114,
       75,
       0,
@@ -5837,22 +5469,6 @@
       74,
       3,
       "MASK"
-    ],
-    [
-      117,
-      65,
-      0,
-      64,
-      0,
-      "IMAGE"
-    ],
-    [
-      118,
-      32,
-      0,
-      65,
-      0,
-      "IMAGE"
     ],
     [
       119,
@@ -6047,14 +5663,6 @@
       "IMAGE"
     ],
     [
-      312,
-      231,
-      0,
-      10,
-      0,
-      "IMAGE"
-    ],
-    [
       313,
       61,
       0,
@@ -6091,14 +5699,6 @@
       53,
       0,
       233,
-      0,
-      "IMAGE"
-    ],
-    [
-      318,
-      233,
-      0,
-      32,
       0,
       "IMAGE"
     ],
@@ -6229,6 +5829,38 @@
       250,
       4,
       "INT"
+    ],
+    [
+      367,
+      233,
+      0,
+      256,
+      0,
+      "IMAGE"
+    ],
+    [
+      368,
+      256,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      369,
+      231,
+      0,
+      257,
+      0,
+      "IMAGE"
+    ],
+    [
+      371,
+      257,
+      0,
+      80,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -6316,13 +5948,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.45949729863572536,
+      "scale": 0.28531167061100526,
       "offset": [
-        -18877.1842024043,
-        1844.612899822561
+        -19093.100848873237,
+        2643.134623692342
       ]
     },
-    "frontendVersion": "1.42.11",
+    "frontendVersion": "1.42.14",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
@@ -6462,30 +6094,6 @@
         "class_type": "ImageToMask",
         "_meta": {
           "title": "图像转换为遮罩"
-        }
-      },
-      "10": {
-        "inputs": {
-          "image": [
-            "231",
-            0
-          ]
-        },
-        "class_type": "ImpactImageBatchToImageList",
-        "_meta": {
-          "title": "Image Batch to Image List"
-        }
-      },
-      "11": {
-        "inputs": {
-          "images": [
-            "63",
-            0
-          ]
-        },
-        "class_type": "ImageListToImageBatch",
-        "_meta": {
-          "title": "Image List to Image Batch"
         }
       },
       "12": {
@@ -6816,24 +6424,12 @@
           "title": "图像转换为遮罩"
         }
       },
-      "32": {
-        "inputs": {
-          "image": [
-            "233",
-            0
-          ]
-        },
-        "class_type": "ImpactImageBatchToImageList",
-        "_meta": {
-          "title": "Image Batch to Image List"
-        }
-      },
       "33": {
         "inputs": {
           "opacity": 100,
           "invert_mask": false,
           "image": [
-            "34",
+            "256",
             0
           ],
           "mask": [
@@ -6844,18 +6440,6 @@
         "class_type": "LayerUtility: ImageOpacity",
         "_meta": {
           "title": "图层工具：图像不透明度"
-        }
-      },
-      "34": {
-        "inputs": {
-          "images": [
-            "64",
-            0
-          ]
-        },
-        "class_type": "ImageListToImageBatch",
-        "_meta": {
-          "title": "Image List to Image Batch"
         }
       },
       "35": {
@@ -7243,108 +6827,6 @@
           "title": "Brightness Contrast Saturation"
         }
       },
-      "62": {
-        "inputs": {
-          "k1_master_distortion": 0,
-          "k1_red_aberration": -0.015,
-          "k1_green_aberration": 0.005,
-          "k1_blue_aberration": 0.01,
-          "radial_exponent": 2.5,
-          "offset_x_red": 0,
-          "offset_y_red": 0,
-          "offset_x_green": 0,
-          "offset_y_green": 0,
-          "offset_x_blue": 0,
-          "offset_y_blue": 0,
-          "post_process_scale": 1,
-          "vignette_amount": 0.15,
-          "vignette_size": 0,
-          "vignette_falloff": 2,
-          "fit_vignette_to_frame": "Off",
-          "interpolation_mode": "Nearest-Neighbor",
-          "fill_mode": "edge",
-          "channel_fill_color": 0,
-          "image": [
-            "10",
-            0
-          ]
-        },
-        "class_type": "EsesImageLensEffects",
-        "_meta": {
-          "title": "Eses Lens Effects"
-        }
-      },
-      "63": {
-        "inputs": {
-          "low_threshold": 0.85,
-          "high_threshold": 0.95,
-          "effect_type": "gaussian",
-          "blur_radius": 50,
-          "highlights_brightness": 1,
-          "blend_mode": "screen",
-          "fade": 1,
-          "blur_resolution_limit_px": 1024,
-          "image": [
-            "62",
-            0
-          ]
-        },
-        "class_type": "EsesImageEffectBloom",
-        "_meta": {
-          "title": "Eses Image Effect Bloom"
-        }
-      },
-      "64": {
-        "inputs": {
-          "low_threshold": 0.85,
-          "high_threshold": 0.95,
-          "effect_type": "gaussian",
-          "blur_radius": 50,
-          "highlights_brightness": 1,
-          "blend_mode": "screen",
-          "fade": 1,
-          "blur_resolution_limit_px": 1024,
-          "image": [
-            "65",
-            0
-          ]
-        },
-        "class_type": "EsesImageEffectBloom",
-        "_meta": {
-          "title": "Eses Image Effect Bloom"
-        }
-      },
-      "65": {
-        "inputs": {
-          "k1_master_distortion": 0,
-          "k1_red_aberration": -0.015,
-          "k1_green_aberration": 0.005,
-          "k1_blue_aberration": 0.01,
-          "radial_exponent": 2.5,
-          "offset_x_red": 0,
-          "offset_y_red": 0,
-          "offset_x_green": 0,
-          "offset_y_green": 0,
-          "offset_x_blue": 0,
-          "offset_y_blue": 0,
-          "post_process_scale": 1,
-          "vignette_amount": 0.15,
-          "vignette_size": 0,
-          "vignette_falloff": 2,
-          "fit_vignette_to_frame": "Off",
-          "interpolation_mode": "Nearest-Neighbor",
-          "fill_mode": "edge",
-          "channel_fill_color": 0,
-          "image": [
-            "32",
-            0
-          ]
-        },
-        "class_type": "EsesImageLensEffects",
-        "_meta": {
-          "title": "Eses Lens Effects"
-        }
-      },
       "66": {
         "inputs": {
           "boolean": [
@@ -7372,7 +6854,7 @@
       },
       "71": {
         "inputs": {
-          "image": "mask2 (1).png"
+          "image": "mask2.png"
         },
         "class_type": "LoadImage",
         "_meta": {
@@ -7460,7 +6942,7 @@
           "opacity": 100,
           "invert_mask": false,
           "image": [
-            "11",
+            "257",
             0
           ],
           "mask": [
@@ -7653,6 +7135,7 @@
           "crop_position": "center",
           "divisible_by": 2,
           "device": "cpu",
+          "per_batch": 0,
           "image": [
             "72",
             0
@@ -7679,6 +7162,7 @@
           "crop_position": "center",
           "divisible_by": 2,
           "device": "cpu",
+          "per_batch": 0,
           "image": [
             "73",
             0
@@ -7699,6 +7183,7 @@
           "crop_position": "center",
           "divisible_by": 2,
           "device": "cpu",
+          "per_batch": 0,
           "image": [
             "46",
             0
@@ -7725,6 +7210,7 @@
           "crop_position": "center",
           "divisible_by": 2,
           "device": "cpu",
+          "per_batch": 0,
           "image": [
             "61",
             0
@@ -7745,6 +7231,7 @@
           "crop_position": "center",
           "divisible_by": 2,
           "device": "cpu",
+          "per_batch": 0,
           "image": [
             "53",
             0
@@ -7765,6 +7252,7 @@
           "crop_position": "center",
           "divisible_by": 2,
           "device": "cpu",
+          "per_batch": 0,
           "image": [
             "29",
             0
@@ -7815,7 +7303,7 @@
       },
       "243": {
         "inputs": {
-          "video_path": "AnimateDiff_01706.mp4",
+          "video_path": "OpenClawOutput___00009_.mp4",
           "videoWidget": "https://bench-603344952855892603.byteartist-workbench.bytedance.net/?lang=zh&tool-status=%257B%2522menuLoad%2522%253Afalse%252C%2522menuSave%2522%253Afalse%252C%2522workflowLoad%2522%253A%2522asRoom%2522%252C%2522autoSaveWorkflow%2522%253Atrue%252C%2522managerWorkflowCenter%2522%253Afalse%252C%2522workflowId%2522%253A%2522603344952671365803%2522%252C%2522topAction%2522%253Afalse%252C%2522entranceSource%2522%253A%2522workflow_as_room%2522%257D",
           "video-preview": ""
         },
@@ -7922,14 +7410,70 @@
         "_meta": {
           "title": "🔧 Simple Math"
         }
+      },
+      "256": {
+        "inputs": {
+          "enable_bloom": true,
+          "bloom_threshold": 0.7,
+          "bloom_intensity": 0.35,
+          "bloom_radius": 32,
+          "bloom_downsample": 4,
+          "enable_ca": true,
+          "ca_amount": 2,
+          "ca_angle_deg": 0,
+          "ca_highlight_only": true,
+          "enable_sharpen": true,
+          "sharpen_amount": 0.2,
+          "sharpen_radius": 1,
+          "natural_saturation": 0.25,
+          "saturation": 1.05,
+          "contrast": 1.05,
+          "brightness": 0.05,
+          "image": [
+            "233",
+            0
+          ]
+        },
+        "class_type": "FastGiftPostFX",
+        "_meta": {
+          "title": "Fast Gift PostFX"
+        }
+      },
+      "257": {
+        "inputs": {
+          "enable_bloom": true,
+          "bloom_threshold": 0.7,
+          "bloom_intensity": 0.35,
+          "bloom_radius": 32,
+          "bloom_downsample": 4,
+          "enable_ca": true,
+          "ca_amount": 2,
+          "ca_angle_deg": 0,
+          "ca_highlight_only": true,
+          "enable_sharpen": true,
+          "sharpen_amount": 0.2,
+          "sharpen_radius": 1,
+          "natural_saturation": 0.25,
+          "saturation": 1.05,
+          "contrast": 1.05,
+          "brightness": 0.05,
+          "image": [
+            "231",
+            0
+          ]
+        },
+        "class_type": "FastGiftPostFX",
+        "_meta": {
+          "title": "Fast Gift PostFX"
+        }
       }
     },
     "r2l": [],
     "venv_comfyui": null,
     "service_name": "byteartist_comfyui_online",
-    "comfyui_commit": "8f374716ee98d378d403ebc61250e091ecd3a25c",
-    "ba_manager_commit": "3a95e3336d4067ea021e269661e0f22438e1c264",
-    "created_at": 1776853733347,
+    "comfyui_commit": "c88cf4414d39188e84dc6618c82104e7672fb227",
+    "ba_manager_commit": "701052de4f06149c80f4fcd37a26835be4207670",
+    "created_at": 1778326934728,
     "node_info": {
       "RIFE VFI": {
         "input": {
@@ -8028,12 +7572,11 @@
         "name": "RIFE VFI",
         "display_name": "RIFE VFI (recommend rife47 and rife49)",
         "description": "",
-        "python_module": "custom_nodes.ComfyUI-Frame-Interpolation",
+        "python_module": "custom_nodes.comfyui-frame-interpolation_cudafull",
         "category": "ComfyUI-Frame-Interpolation/VFI",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "RIFE VFI (recommend rife47 and rife49)"
+        "search_aliases": []
       },
       "VideoTimeRemapSpeedPresets": {
         "input": {
@@ -8135,64 +7678,63 @@
         "category": "视频/time",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Video Time Remap (Speed Presets)"
+        "search_aliases": []
       },
       "LoadImage": {
         "input": {
           "required": {
             "image": [
               [
-                "032a4a20-32ac-4904-8798-bb40b176e1e6.jpeg",
-                "05eb2e92-a039-4975-a0cf-e55f29b48197.jpeg",
-                "0c9187c9-3ea6-443a-af21-01cf62aeb06f.jpeg",
-                "0d2a2c7b-837d-4a13-a1c8-64a639c34303.jpeg",
+                "1(1).jpeg",
                 "1.png",
-                "1084785a-2fdf-412a-9f28-c6e727aa1a01.jpeg",
+                "10.png",
                 "11.png",
-                "17c90877-5210-492e-b74c-a6b199b1a7a8.jpeg",
-                "1b3ca972-ed6e-420e-a1fd-6a2e205de495.jpeg",
+                "12.png",
+                "13.png",
+                "14.png",
+                "15.png",
+                "17.png",
+                "18.png",
+                "19.png",
                 "2.png",
-                "20260123-182236.png",
-                "20260123-182402.jpg",
-                "20260123-185903.png",
-                "20260123-185907.png",
-                "20260126-164622.jpg",
-                "20260129-155729.jpg",
-                "20260311181011893_15918.jpeg",
-                "20260408-125023.png",
-                "21ef0561-2ddc-4d09-ae7b-a346be452ad4.jpeg",
-                "235fd060-f71d-4d1d-bd46-470111188ee8.jpeg",
-                "27.png",
-                "29ef5df3-98d3-4859-a4d4-225d2106679c.jpeg",
-                "2bd8ccad-2aa6-484b-8cc2-da77e68fcfa5.jpeg",
-                "3 (1).png",
-                "3662f400-6880-4a17-a8bd-80fe33694275.jpeg",
-                "4 (1).png",
-                "4350db8e-9313-4116-a4be-dda1fcd97332.jpeg",
-                "45ef4bf2-92e6-4d48-ba80-f437b9a1efc7.jpeg",
-                "45f38028-7d89-489a-b4ae-c7f7c1d207c7.jpeg",
-                "4a480bdd-266a-4e19-b872-e155e02c2f77.jpeg",
-                "4d5df94c-8f7a-4e88-9157-c7a833df288c.jpeg",
-                "4e087e73-6772-4d7b-a8bc-7ff5c89facfd.jpeg",
-                "5 (1).png",
-                "55e14ab0-9310-4e9d-b088-4eec23ff1751.jpeg",
-                "560ff310-e2c3-496b-a301-056dcf2c66d2.jpeg",
-                "56f78a04-7d7a-4df6-9ef3-9aca184ce4f3.jpeg",
-                "5a8f7570-ac1d-491d-8f59-770dbf6602d4.jpeg",
-                "63f92f53-8f86-4f6f-8ddf-707954da0ac9.jpeg",
-                "6a3553a0-5481-4f20-9155-064ae29a9014.jpeg",
-                "6ca442d6-c49c-4296-adb7-bb8a94c0256f.jpeg",
-                "6d5a164e-dde8-4cd3-865a-649c42a28cba.jpeg",
-                "70b95cc7-8f86-43f9-bcad-708afc93f12a.jpeg",
-                "782fa43c-de4b-4a81-8529-e27f5b4ae40d.jpeg",
-                "7e427e99-be43-44be-bb3b-b63408f5b38d.jpeg",
-                "8.png",
-                "85d47248-49f5-4b46-af6f-7c81c4688528.jpeg",
-                "88b866c3-f96c-4ffd-89af-1f3cee7f98a6.jpeg",
-                "9061233b-4bf4-4f04-90ce-41bae5f64d36.jpeg",
-                "91d3b357-e222-4827-a5c9-e37154e68152.jpeg",
-                "93bc1613-0417-4456-9fab-36a11df43a74.jpeg"
+                "20260205-153424.jpg",
+                "20260205-153429.jpg",
+                "20260205-153433.jpg",
+                "20260205-153436.jpg",
+                "20260205-153440.jpg",
+                "20260205-153444.jpg",
+                "20260402-191813.jpeg",
+                "20260402-191817.jpeg",
+                "20260402-191820.jpeg",
+                "20260421-205911.png",
+                "3.png",
+                "4.png",
+                "5.png",
+                "605236742521411641-1-605236742521477177-605236504637275635.png",
+                "605236742521411641-1-605236742521477177-605236570471042362.png",
+                "605236742521411641-1-605236742521477177-605236577265843699.jpg",
+                "605236742521411641-1-605236742521477177-605236585788659769.jpg",
+                "605236742521411641-1-605236742521477177-605236595821444595.jpg",
+                "605236742521411641-1-605236742521477177-605236606089100787.jpg",
+                "605236742521411641-1-605236742521477177-605236620165185011.jpg",
+                "605236742521411641-1-605236742521477177-605236624275574074.png",
+                "605236742521411641-1-605236742521477177-605236641656789049.jpg",
+                "605236742521411641-1-605236742521477177-605236666101173562.png",
+                "605236742521411641-1-605236742521477177-605236724771097914.png",
+                "605236742521411641-1-605236742521477177-605236741967773171.png",
+                "7.png",
+                "9.png",
+                "BG.png",
+                "ComfyUI_00011_.png",
+                "OpenClawOutput___00001_.png",
+                "example.png",
+                "icon mask1.png",
+                "icon mask2.png",
+                "image-1778314732299-pmo7mv-1778314739533.png",
+                "image-1778314732299-pmo7mv-1778315277070.png",
+                "image-1778314732299-pmo7mv-1778315289127.png",
+                "image-1778314732299-pmo7mv-1778318683804.png",
+                "images_pipeline_flower2_image-1778303525424-xvraov.png"
               ],
               {
                 "image_upload": true
@@ -8241,8 +7783,7 @@
           "read image",
           "image loader"
         ],
-        "essentials_category": "Basics",
-        "origin_display_name": "Load Image"
+        "essentials_category": "Basics"
       },
       "ImpactImageBatchToImageList": {
         "input": {
@@ -8274,8 +7815,7 @@
         "category": "ImpactPack/工具",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Image Batch to Image List"
+        "search_aliases": []
       },
       "LayerUtility: ColorImage V2": {
         "input": {
@@ -8354,8 +7894,7 @@
         "category": "😺dzNodes/LayerUtility",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "LayerUtility: ColorImage V2"
+        "search_aliases": []
       },
       "ResizeMask": {
         "input": {
@@ -8439,8 +7978,7 @@
         "category": "KJNodes/masking",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Resize Mask"
+        "search_aliases": []
       },
       "ImageToMask": {
         "input": {
@@ -8499,41 +8037,7 @@
           "channel to mask"
         ],
         "essentials_category": null,
-        "has_intermediate_output": false,
-        "origin_display_name": "Convert Image to Mask"
-      },
-      "ImageListToImageBatch": {
-        "input": {
-          "required": {
-            "images": [
-              "IMAGE"
-            ]
-          }
-        },
-        "input_order": {
-          "required": [
-            "images"
-          ]
-        },
-        "is_input_list": true,
-        "output": [
-          "IMAGE"
-        ],
-        "output_is_list": [
-          false
-        ],
-        "output_name": [
-          "IMAGE"
-        ],
-        "name": "ImageListToImageBatch",
-        "display_name": "Image List to Image Batch",
-        "description": "",
-        "python_module": "custom_nodes.ComfyUI-Impact-Pack",
-        "category": "ImpactPack/Operation",
-        "output_node": false,
-        "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Image List to Image Batch"
+        "has_intermediate_output": false
       },
       "AILab_MaskCombiner": {
         "input": {
@@ -8601,8 +8105,7 @@
         "category": "🧪AILab/🖼️IMAGE",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Mask Combiner (RMBG) 🎭"
+        "search_aliases": []
       },
       "MaskTransparentInOutNode": {
         "input": {
@@ -8656,8 +8159,7 @@
         "category": "遮罩/transitions",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Mask Transparent In-Out (首尾透明过渡)"
+        "search_aliases": []
       },
       "MaskToImage": {
         "input": {
@@ -8702,8 +8204,7 @@
           "convert mask"
         ],
         "essentials_category": null,
-        "has_intermediate_output": false,
-        "origin_display_name": "Convert Mask to Image"
+        "has_intermediate_output": false
       },
       "ImageStitch": {
         "input": {
@@ -8808,8 +8309,7 @@
           "side by side"
         ],
         "essentials_category": null,
-        "has_intermediate_output": false,
-        "origin_display_name": "Image Stitch"
+        "has_intermediate_output": false
       },
       "LayerUtility: ImageBlendAdvance V2": {
         "input": {
@@ -8987,8 +8487,7 @@
         "category": "😺dzNodes/LayerUtility",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "LayerUtility: ImageBlendAdvance V2"
+        "search_aliases": []
       },
       "MaskListToMaskBatch": {
         "input": {
@@ -9020,8 +8519,7 @@
         "category": "ImpactPack/Operation",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Mask List to Mask Batch"
+        "search_aliases": []
       },
       "LayerMask: MaskEdgeUltraDetail V2": {
         "input": {
@@ -9036,7 +8534,6 @@
               [
                 "VITMatte",
                 "VITMatte(local)",
-                "vitmatte-base-composition-1k",
                 "PyMatting",
                 "GuidedFilter"
               ]
@@ -9161,8 +8658,7 @@
         "category": "😺dzNodes/LayerMask",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "LayerMask: MaskEdgeUltraDetail V2"
+        "search_aliases": []
       },
       "ReverseImageBatch": {
         "input": {
@@ -9194,8 +8690,7 @@
         "category": "KJNodes/图像",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Reverse Image Batch"
+        "search_aliases": []
       },
       "LayerUtility: ImageOpacity": {
         "input": {
@@ -9255,8 +8750,7 @@
         "category": "😺dzNodes/LayerUtility",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "LayerUtility: ImageOpacity"
+        "search_aliases": []
       },
       "BAReroute": {
         "input": {
@@ -9293,50 +8787,7 @@
         "category": "byteartist/universal",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Reroute"
-      },
-      "GetImageSizeAndCount": {
-        "input": {
-          "required": {
-            "image": [
-              "IMAGE"
-            ]
-          }
-        },
-        "input_order": {
-          "required": [
-            "image"
-          ]
-        },
-        "is_input_list": false,
-        "output": [
-          "IMAGE",
-          "INT",
-          "INT",
-          "INT"
-        ],
-        "output_is_list": [
-          false,
-          false,
-          false,
-          false
-        ],
-        "output_name": [
-          "image",
-          "width",
-          "height",
-          "count"
-        ],
-        "name": "GetImageSizeAndCount",
-        "display_name": "Get Image Size & Count",
-        "description": "\nReturns width, height and batch size of the image,  \nand passes it through unchanged.  \n\n",
-        "python_module": "custom_nodes.ComfyUI-KJNodes",
-        "category": "KJNodes/图像",
-        "output_node": false,
-        "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Get Image Size & Count"
+        "search_aliases": []
       },
       "ImageFromBatch": {
         "input": {
@@ -9401,8 +8852,7 @@
           "extract image"
         ],
         "essentials_category": null,
-        "has_intermediate_output": false,
-        "origin_display_name": ""
+        "has_intermediate_output": false
       },
       "RMBG": {
         "input": {
@@ -9538,8 +8988,48 @@
         "category": "🧪AILab/🧽RMBG",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Remove Background (RMBG)"
+        "search_aliases": []
+      },
+      "GetImageSizeAndCount": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "INT",
+          "INT",
+          "INT"
+        ],
+        "output_is_list": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "output_name": [
+          "image",
+          "width",
+          "height",
+          "count"
+        ],
+        "name": "GetImageSizeAndCount",
+        "display_name": "Get Image Size & Count",
+        "description": "\nReturns width, height and batch size of the image,  \nand passes it through unchanged.  \n\n",
+        "python_module": "custom_nodes.ComfyUI-KJNodes",
+        "category": "KJNodes/图像",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "LoadVideoDepthAnythingModel": {
         "input": {
@@ -9577,8 +9067,7 @@
         "category": "VideoDepthAnything",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Load Video Depth Anything Model"
+        "search_aliases": []
       },
       "VideoDepthAnythingProcess": {
         "input": {
@@ -9648,8 +9137,7 @@
         "category": "VideoDepthAnything",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Video Depth Anything Process"
+        "search_aliases": []
       },
       "AdjustBrightnessContrastSaturationNode": {
         "input": {
@@ -9711,411 +9199,7 @@
         "category": "MingNodes/Image Process",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Brightness Contrast Saturation"
-      },
-      "EsesImageLensEffects": {
-        "input": {
-          "required": {
-            "image": [
-              "IMAGE"
-            ],
-            "k1_master_distortion": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -2,
-                "max": 0.5,
-                "step": 0.001,
-                "round": 0.001,
-                "display": "number"
-              }
-            ],
-            "k1_red_aberration": [
-              "FLOAT",
-              {
-                "default": -0.01,
-                "min": -0.1,
-                "max": 0.1,
-                "step": 0.001,
-                "round": 0.001,
-                "display": "number"
-              }
-            ],
-            "k1_green_aberration": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -0.1,
-                "max": 0.1,
-                "step": 0.001,
-                "round": 0.001,
-                "display": "number"
-              }
-            ],
-            "k1_blue_aberration": [
-              "FLOAT",
-              {
-                "default": 0.01,
-                "min": -0.1,
-                "max": 0.1,
-                "step": 0.001,
-                "round": 0.001,
-                "display": "number"
-              }
-            ],
-            "radial_exponent": [
-              "FLOAT",
-              {
-                "default": 2,
-                "min": 0.5,
-                "max": 4,
-                "step": 0.01,
-                "round": 0.01,
-                "display": "number"
-              }
-            ],
-            "offset_x_red": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -100,
-                "max": 100,
-                "step": 0.1,
-                "round": 0.1,
-                "display": "number"
-              }
-            ],
-            "offset_y_red": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -100,
-                "max": 100,
-                "step": 0.1,
-                "round": 0.1,
-                "display": "number"
-              }
-            ],
-            "offset_x_green": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -100,
-                "max": 100,
-                "step": 0.1,
-                "round": 0.1,
-                "display": "number"
-              }
-            ],
-            "offset_y_green": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -100,
-                "max": 100,
-                "step": 0.1,
-                "round": 0.1,
-                "display": "number"
-              }
-            ],
-            "offset_x_blue": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -100,
-                "max": 100,
-                "step": 0.1,
-                "round": 0.1,
-                "display": "number"
-              }
-            ],
-            "offset_y_blue": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -100,
-                "max": 100,
-                "step": 0.1,
-                "round": 0.1,
-                "display": "number"
-              }
-            ],
-            "post_process_scale": [
-              "FLOAT",
-              {
-                "default": 1,
-                "min": 1,
-                "max": 3,
-                "step": 0.001,
-                "round": 0.001,
-                "display": "number"
-              }
-            ],
-            "vignette_amount": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -1,
-                "max": 1,
-                "step": 0.001,
-                "round": 0.001,
-                "display": "number"
-              }
-            ],
-            "vignette_size": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": -1,
-                "max": 1,
-                "step": 0.001,
-                "round": 0.001,
-                "display": "number"
-              }
-            ],
-            "vignette_falloff": [
-              "FLOAT",
-              {
-                "default": 2,
-                "min": 0.5,
-                "max": 8,
-                "step": 0.01,
-                "round": 0.01,
-                "display": "number"
-              }
-            ],
-            "fit_vignette_to_frame": [
-              [
-                "Off",
-                "On"
-              ],
-              {
-                "default": "Off"
-              }
-            ],
-            "interpolation_mode": [
-              [
-                "Nearest-Neighbor",
-                "Bilinear",
-                "Bicubic",
-                "Biquartic",
-                "Biquintic"
-              ],
-              {
-                "default": "Bilinear"
-              }
-            ],
-            "fill_mode": [
-              [
-                "constant",
-                "edge",
-                "symmetric",
-                "reflect",
-                "wrap"
-              ],
-              {
-                "default": "constant"
-              }
-            ],
-            "channel_fill_color": [
-              "FLOAT",
-              {
-                "default": 0,
-                "min": 0,
-                "max": 1,
-                "step": 0.01,
-                "round": 0.01,
-                "display": "number"
-              }
-            ]
-          }
-        },
-        "input_order": {
-          "required": [
-            "image",
-            "k1_master_distortion",
-            "k1_red_aberration",
-            "k1_green_aberration",
-            "k1_blue_aberration",
-            "radial_exponent",
-            "offset_x_red",
-            "offset_y_red",
-            "offset_x_green",
-            "offset_y_green",
-            "offset_x_blue",
-            "offset_y_blue",
-            "post_process_scale",
-            "vignette_amount",
-            "vignette_size",
-            "vignette_falloff",
-            "fit_vignette_to_frame",
-            "interpolation_mode",
-            "fill_mode",
-            "channel_fill_color"
-          ]
-        },
-        "is_input_list": false,
-        "output": [
-          "IMAGE"
-        ],
-        "output_is_list": [
-          false
-        ],
-        "output_name": [
-          "IMAGE"
-        ],
-        "name": "EsesImageLensEffects",
-        "display_name": "Eses Lens Effects",
-        "description": "",
-        "python_module": "custom_nodes.ComfyUI-EsesImageLensEffects",
-        "category": "Eses Nodes/Image Adjustments",
-        "output_node": false,
-        "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Eses Lens Effects"
-      },
-      "EsesImageEffectBloom": {
-        "input": {
-          "required": {
-            "image": [
-              "IMAGE"
-            ],
-            "low_threshold": [
-              "FLOAT",
-              {
-                "default": 0.7,
-                "min": 0,
-                "max": 1,
-                "step": 0.001,
-                "tooltip": "Pixels darker than this value will not glow."
-              }
-            ],
-            "high_threshold": [
-              "FLOAT",
-              {
-                "default": 0.95,
-                "min": 0,
-                "max": 1,
-                "step": 0.001,
-                "tooltip": "Sets the white point for the highlights, controlling the range of pixels that glow."
-              }
-            ],
-            "effect_type": [
-              [
-                "gaussian",
-                "box",
-                "light_streaks"
-              ],
-              {
-                "default": "gaussian",
-                "tooltip": "'gaussian' is high-quality, 'box' is fast, 'light_streaks' creates a cross-like glow."
-              }
-            ],
-            "blur_radius": [
-              "FLOAT",
-              {
-                "default": 30,
-                "min": 0,
-                "max": 512,
-                "step": 0.1,
-                "tooltip": "Controls the size and softness of the glow in pixels."
-              }
-            ],
-            "highlights_brightness": [
-              "FLOAT",
-              {
-                "default": 1,
-                "min": 1,
-                "max": 100,
-                "step": 0.01,
-                "tooltip": "A multiplier for the glow's intensity before it's blended with the image."
-              }
-            ],
-            "blend_mode": [
-              [
-                "screen",
-                "add",
-                "multiply",
-                "overlay",
-                "soft_light",
-                "hard_light"
-              ],
-              {
-                "tooltip": "The blend mode used to composite the glow onto the original image."
-              }
-            ],
-            "fade": [
-              "FLOAT",
-              {
-                "default": 1,
-                "min": 0,
-                "max": 1,
-                "step": 0.01,
-                "tooltip": "Adjusts the final overall intensity of the bloom effect. 0.0 is no effect, 1.0 is full effect."
-              }
-            ],
-            "blur_resolution_limit_px": [
-              "INT",
-              {
-                "default": 2048,
-                "min": 512,
-                "max": 4096,
-                "step": 64,
-                "tooltip": "Sets the max resolution for the blur calculation to manage performance. Lower values (e.g., 512) are much faster but may reduce quality for small blurs."
-              }
-            ]
-          },
-          "optional": {
-            "mask": [
-              "MASK"
-            ]
-          }
-        },
-        "input_order": {
-          "required": [
-            "image",
-            "low_threshold",
-            "high_threshold",
-            "effect_type",
-            "blur_radius",
-            "highlights_brightness",
-            "blend_mode",
-            "fade",
-            "blur_resolution_limit_px"
-          ],
-          "optional": [
-            "mask"
-          ]
-        },
-        "is_input_list": false,
-        "output": [
-          "IMAGE",
-          "IMAGE",
-          "IMAGE",
-          "MASK"
-        ],
-        "output_is_list": [
-          false,
-          false,
-          false,
-          false
-        ],
-        "output_name": [
-          "modified_image",
-          "highlights_image",
-          "image",
-          "mask"
-        ],
-        "name": "EsesImageEffectBloom",
-        "display_name": "Eses Image Effect Bloom",
-        "description": "",
-        "python_module": "custom_nodes.ComfyUI-EsesImageEffectBloom",
-        "category": "Eses Nodes/Image Adjustments",
-        "output_node": false,
-        "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Eses Image Effect Bloom"
+        "search_aliases": []
       },
       "Switch from any [Crystools]": {
         "input": {
@@ -10157,8 +9241,7 @@
         "category": "crystools 🪛/开关",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "🪛 Switch from any"
+        "search_aliases": []
       },
       "SeCVideoSegmentation": {
         "input": {
@@ -10302,8 +9385,7 @@
         "category": "SeC",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "SeC Video Segmentation"
+        "search_aliases": []
       },
       "SeCModelLoader": {
         "input": {
@@ -10374,8 +9456,7 @@
         "category": "SeC",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "SeC Model Loader"
+        "search_aliases": []
       },
       "MathExpression|pysssss": {
         "input": {
@@ -10513,8 +9594,7 @@
         "category": "工具",
         "output_node": true,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Math Expression 🐍"
+        "search_aliases": []
       },
       "OCOut": {
         "input": {
@@ -10565,8 +9645,7 @@
         "category": "api-bridge",
         "output_node": true,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "OC Out (Marker)"
+        "search_aliases": []
       },
       "BACreateVideo": {
         "input": {
@@ -10622,8 +9701,7 @@
         "category": "ba/视频",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "BA Create Video"
+        "search_aliases": []
       },
       "ImageResizeKJv2": {
         "input": {
@@ -10666,8 +9744,7 @@
                 "pad_edge",
                 "pad_edge_pixel",
                 "crop",
-                "pillarbox_blur",
-                "total_pixels"
+                "pillarbox_blur"
               ],
               {
                 "default": false
@@ -10711,6 +9788,16 @@
                 "cpu",
                 "gpu"
               ]
+            ],
+            "per_batch": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "tooltip": "Process images in sub-batches to reduce memory usage. 0 disables sub-batching."
+              }
             ]
           },
           "hidden": {
@@ -10730,7 +9817,8 @@
           ],
           "optional": [
             "mask",
-            "device"
+            "device",
+            "per_batch"
           ],
           "hidden": [
             "unique_id"
@@ -10762,8 +9850,7 @@
         "category": "KJNodes/图像",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Resize Image v2"
+        "search_aliases": []
       },
       "GetVideoComponents": {
         "input": {
@@ -10821,8 +9908,7 @@
           "demux"
         ],
         "essentials_category": null,
-        "has_intermediate_output": false,
-        "origin_display_name": "Get Video Components"
+        "has_intermediate_output": false
       },
       "BAInputSlot": {
         "input": {
@@ -10856,7 +9942,7 @@
               "IMAGE"
             ],
             "video_in": [
-              "VIDEO",
+              "STRING",
               {
                 "forceInput": true
               }
@@ -10881,12 +9967,11 @@
         "name": "BAInputSlot",
         "display_name": "BA Input Slot (Variable)",
         "description": "",
-        "python_module": "custom_nodes.comfyui-webhook-node",
+        "python_module": "custom_nodes.comfyui-webhook-node-latest",
         "category": "api-bridge",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "BA Input Slot (Variable)"
+        "search_aliases": []
       },
       "FrameSliceNode": {
         "input": {
@@ -10940,8 +10025,7 @@
         "category": "图像/sequence",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Frame Slice (帧切片)"
+        "search_aliases": []
       },
       "ImpactFloat": {
         "input": {
@@ -10978,87 +10062,7 @@
         "category": "ImpactPack/逻辑",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "ImpactFloat"
-      },
-      "BALoadVideo": {
-        "input": {
-          "required": {
-            "video_path": [
-              [
-                "2026-03-23_18-13-47_ByteArtist (1).mp4",
-                "2026-04-01_20-38-32_ByteArtist.mp4",
-                "2026-04-14_14-33-29_ByteArtist_1.mp4",
-                "2026-04-14_18-16-18_ByteArtist_1.mp4",
-                "70eb54e6-e95d-41c8-abd5-bcd1ed23ef37.mp4",
-                "AnimateDiff_00009 (1).mp4",
-                "AnimateDiff_00017.mp4",
-                "AnimateDiff_00029 (1).mp4",
-                "AnimateDiff_01706.mp4",
-                "AnimateDiff_01713.mp4",
-                "ComfyUI_00007_ (4).mp4",
-                "ComfyUI_00008_ (5).mp4",
-                "ComfyUI_00011_ (4).mp4",
-                "ComfyUI_00013_ (5).mp4",
-                "ComfyUI_00015_ (4).mp4",
-                "ComfyUI_00018_ (1).mp4",
-                "ComfyUI_00019_.mp4",
-                "OpenClawOutput___00002_.mp4",
-                "OpenClawOutput___00051.mp4",
-                "under layer.mp4",
-                "upper starglow tint.mp4",
-                "vfx1-mask.mp4",
-                "vfx1.mp4",
-                "vfx2-mask.mp4",
-                "vfx2.mp4",
-                "vfx3-mask.mp4",
-                "vfx3.mp4",
-                "video-1776781293797-xaucph.mp4",
-                "wan2.2_00003 (2).mp4",
-                "wan2.2_00006.mp4",
-                "wan2.2_00029.mp4",
-                "蓝色勿忘我.mp4",
-                "顶层特效90.mp4"
-              ],
-              {
-                "video_upload": true
-              }
-            ],
-            "upload": [
-              "IMAGEUPLOAD",
-              {
-                "video_upload": true,
-                "imageInputName": "video_path"
-              }
-            ]
-          },
-          "optional": {}
-        },
-        "input_order": {
-          "required": [
-            "video_path"
-          ],
-          "optional": []
-        },
-        "is_input_list": false,
-        "output": [
-          "VIDEO"
-        ],
-        "output_is_list": [
-          false
-        ],
-        "output_name": [
-          "video"
-        ],
-        "name": "BALoadVideo",
-        "display_name": "BA Load Video",
-        "description": "",
-        "python_module": "custom_nodes.ba-manager",
-        "category": "BA/视频",
-        "output_node": false,
-        "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "BA Load Video"
+        "search_aliases": []
       },
       "LazySwitchKJ": {
         "input": {
@@ -11104,8 +10108,7 @@
         "category": "KJNodes/misc",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Lazy Switch KJ"
+        "search_aliases": []
       },
       "ttN int": {
         "input": {
@@ -11154,8 +10157,7 @@
         "category": "🌏 tinyterra/util",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "int"
+        "search_aliases": []
       },
       "SimpleMath+": {
         "input": {
@@ -11219,141 +10221,7 @@
         "category": "essentials/utilities",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "🔧 Simple Math"
-      },
-      "ImagePadKJ": {
-        "input": {
-          "required": {
-            "image": [
-              "IMAGE"
-            ],
-            "left": [
-              "INT",
-              {
-                "default": 0,
-                "min": 0,
-                "max": 16384,
-                "step": 1
-              }
-            ],
-            "right": [
-              "INT",
-              {
-                "default": 0,
-                "min": 0,
-                "max": 16384,
-                "step": 1
-              }
-            ],
-            "top": [
-              "INT",
-              {
-                "default": 0,
-                "min": 0,
-                "max": 16384,
-                "step": 1
-              }
-            ],
-            "bottom": [
-              "INT",
-              {
-                "default": 0,
-                "min": 0,
-                "max": 16384,
-                "step": 1
-              }
-            ],
-            "extra_padding": [
-              "INT",
-              {
-                "default": 0,
-                "min": 0,
-                "max": 16384,
-                "step": 1
-              }
-            ],
-            "pad_mode": [
-              [
-                "edge",
-                "edge_pixel",
-                "color",
-                "pillarbox_blur"
-              ]
-            ],
-            "color": [
-              "STRING",
-              {
-                "default": "0, 0, 0",
-                "tooltip": "Color as RGB values in range 0-255 or 0.0-1.0, or color name or hex code"
-              }
-            ]
-          },
-          "optional": {
-            "mask": [
-              "MASK"
-            ],
-            "target_width": [
-              "INT",
-              {
-                "default": 512,
-                "min": 0,
-                "max": 16384,
-                "step": 1,
-                "forceInput": true
-              }
-            ],
-            "target_height": [
-              "INT",
-              {
-                "default": 512,
-                "min": 0,
-                "max": 16384,
-                "step": 1,
-                "forceInput": true
-              }
-            ]
-          }
-        },
-        "input_order": {
-          "required": [
-            "image",
-            "left",
-            "right",
-            "top",
-            "bottom",
-            "extra_padding",
-            "pad_mode",
-            "color"
-          ],
-          "optional": [
-            "mask",
-            "target_width",
-            "target_height"
-          ]
-        },
-        "is_input_list": false,
-        "output": [
-          "IMAGE",
-          "MASK"
-        ],
-        "output_is_list": [
-          false,
-          false
-        ],
-        "output_name": [
-          "images",
-          "masks"
-        ],
-        "name": "ImagePadKJ",
-        "display_name": "ImagePad KJ",
-        "description": "Pad the input image and optionally mask with the specified padding.",
-        "python_module": "custom_nodes.ComfyUI-KJNodes",
-        "category": "KJNodes/图像",
-        "output_node": false,
-        "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "ImagePad KJ"
+        "search_aliases": []
       },
       "VHS_VideoCombine": {
         "input": {
@@ -11860,52 +10728,387 @@
         "category": "Video Helper Suite 🎥🅥🅗🅢",
         "output_node": true,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "Video Combine 🎥🅥🅗🅢"
+        "search_aliases": []
       },
-      "ttN text": {
+      "FastGiftPostFX": {
         "input": {
           "required": {
-            "text": [
-              "STRING",
+            "image": [
+              "IMAGE"
+            ],
+            "enable_bloom": [
+              "BOOLEAN",
               {
-                "default": "",
-                "multiline": true,
-                "dynamicPrompts": true
+                "default": true
+              }
+            ],
+            "bloom_threshold": [
+              "FLOAT",
+              {
+                "default": 0.65,
+                "min": 0,
+                "max": 1,
+                "step": 0.01
+              }
+            ],
+            "bloom_intensity": [
+              "FLOAT",
+              {
+                "default": 0.35,
+                "min": 0,
+                "max": 3,
+                "step": 0.01
+              }
+            ],
+            "bloom_radius": [
+              "INT",
+              {
+                "default": 8,
+                "min": 0,
+                "max": 64,
+                "step": 1
+              }
+            ],
+            "bloom_downsample": [
+              "INT",
+              {
+                "default": 4,
+                "min": 1,
+                "max": 8,
+                "step": 1
+              }
+            ],
+            "enable_ca": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "ca_amount": [
+              "FLOAT",
+              {
+                "default": 2,
+                "min": 0,
+                "max": 20,
+                "step": 0.1
+              }
+            ],
+            "ca_angle_deg": [
+              "FLOAT",
+              {
+                "default": 0,
+                "min": -180,
+                "max": 180,
+                "step": 1
+              }
+            ],
+            "ca_highlight_only": [
+              "BOOLEAN",
+              {
+                "default": false
+              }
+            ],
+            "enable_sharpen": [
+              "BOOLEAN",
+              {
+                "default": true
+              }
+            ],
+            "sharpen_amount": [
+              "FLOAT",
+              {
+                "default": 0.2,
+                "min": 0,
+                "max": 2,
+                "step": 0.01
+              }
+            ],
+            "sharpen_radius": [
+              "INT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 8,
+                "step": 1
+              }
+            ],
+            "natural_saturation": [
+              "FLOAT",
+              {
+                "default": 0,
+                "min": -1,
+                "max": 2,
+                "step": 0.01
+              }
+            ],
+            "saturation": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 3,
+                "step": 0.01
+              }
+            ],
+            "contrast": [
+              "FLOAT",
+              {
+                "default": 1,
+                "min": 0,
+                "max": 3,
+                "step": 0.01
+              }
+            ],
+            "brightness": [
+              "FLOAT",
+              {
+                "default": 0,
+                "min": -1,
+                "max": 1,
+                "step": 0.01
               }
             ]
-          },
-          "hidden": {
-            "ttNnodeVersion": "1.0.0"
           }
         },
         "input_order": {
           "required": [
-            "text"
-          ],
-          "hidden": [
-            "ttNnodeVersion"
+            "image",
+            "enable_bloom",
+            "bloom_threshold",
+            "bloom_intensity",
+            "bloom_radius",
+            "bloom_downsample",
+            "enable_ca",
+            "ca_amount",
+            "ca_angle_deg",
+            "ca_highlight_only",
+            "enable_sharpen",
+            "sharpen_amount",
+            "sharpen_radius",
+            "natural_saturation",
+            "saturation",
+            "contrast",
+            "brightness"
           ]
         },
         "is_input_list": false,
         "output": [
-          "STRING"
+          "IMAGE"
         ],
         "output_is_list": [
           false
         ],
         "output_name": [
-          "text"
+          "IMAGE"
         ],
-        "name": "ttN text",
-        "display_name": "text",
+        "name": "FastGiftPostFX",
+        "display_name": "Fast Gift PostFX",
         "description": "",
-        "python_module": "custom_nodes.ComfyUI_tinyterraNodes",
-        "category": "🌏 tinyterra/文本",
+        "python_module": "custom_nodes.ComfyUI-GiftHelperSuite",
+        "category": "图像/后处理",
         "output_node": false,
         "has_intermediate_output": false,
-        "search_aliases": [],
-        "origin_display_name": "text"
+        "search_aliases": []
+      },
+      "BALoadVideo": {
+        "input": {
+          "required": {
+            "video_path": [
+              [
+                "OpenClawOutput___00002_.mp4",
+                "OpenClawOutput___00008_.mp4",
+                "OpenClawOutput___00009_.mp4",
+                "_00737.mp4",
+                "images_pipeline_flower_video-1778315215859-p0q211.mp4",
+                "under layer.mp4",
+                "upper starglow tint.mp4",
+                "vfx1-mask.mp4",
+                "vfx1.mp4",
+                "vfx2-mask.mp4",
+                "vfx2.mp4",
+                "vfx3-mask.mp4",
+                "vfx3.mp4",
+                "video-1777442982294-f1judq-1778216561198.mp4",
+                "video-1778309641653-7eb896-1778309776996.mp4",
+                "video-1778310999420-v7i94k-1778311265277.mp4",
+                "video-1778315215859-p0q211-1778315277639.mp4",
+                "video-1778315215859-p0q211-1778315289541.mp4",
+                "video-1778315215859-p0q211-1778318684279.mp4",
+                "video-1778318757182-eb51nr-1778318760365.mp4",
+                "video-1778318860343-qa8dsx-1778318864063.mp4",
+                "绿底 (1).mp4",
+                "顶层特效90.mp4"
+              ],
+              {
+                "video_upload": true
+              }
+            ],
+            "upload": [
+              "IMAGEUPLOAD",
+              {
+                "video_upload": true,
+                "imageInputName": "video_path"
+              }
+            ]
+          },
+          "optional": {}
+        },
+        "input_order": {
+          "required": [
+            "video_path"
+          ],
+          "optional": []
+        },
+        "is_input_list": false,
+        "output": [
+          "VIDEO"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "video"
+        ],
+        "name": "BALoadVideo",
+        "display_name": "BA Load Video",
+        "description": "",
+        "python_module": "custom_nodes.ba-manager",
+        "category": "BA/视频",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
+      },
+      "ImagePadKJ": {
+        "input": {
+          "required": {
+            "image": [
+              "IMAGE"
+            ],
+            "left": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "right": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "top": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "bottom": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "extra_padding": [
+              "INT",
+              {
+                "default": 0,
+                "min": 0,
+                "max": 16384,
+                "step": 1
+              }
+            ],
+            "pad_mode": [
+              [
+                "edge",
+                "edge_pixel",
+                "color",
+                "pillarbox_blur"
+              ]
+            ],
+            "color": [
+              "STRING",
+              {
+                "default": "0, 0, 0",
+                "tooltip": "Color as RGB values in range 0-255, separated by commas."
+              }
+            ]
+          },
+          "optional": {
+            "mask": [
+              "MASK"
+            ],
+            "target_width": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "forceInput": true
+              }
+            ],
+            "target_height": [
+              "INT",
+              {
+                "default": 512,
+                "min": 0,
+                "max": 16384,
+                "step": 1,
+                "forceInput": true
+              }
+            ]
+          }
+        },
+        "input_order": {
+          "required": [
+            "image",
+            "left",
+            "right",
+            "top",
+            "bottom",
+            "extra_padding",
+            "pad_mode",
+            "color"
+          ],
+          "optional": [
+            "mask",
+            "target_width",
+            "target_height"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "IMAGE",
+          "MASK"
+        ],
+        "output_is_list": [
+          false,
+          false
+        ],
+        "output_name": [
+          "images",
+          "masks"
+        ],
+        "name": "ImagePadKJ",
+        "display_name": "ImagePad KJ",
+        "description": "Pad the input image and optionally mask with the specified padding.",
+        "python_module": "custom_nodes.ComfyUI-KJNodes",
+        "category": "KJNodes/图像",
+        "output_node": false,
+        "has_intermediate_output": false,
+        "search_aliases": []
       },
       "StringCompare": {
         "input": {
@@ -11983,15 +11186,57 @@
           "ends with"
         ],
         "essentials_category": null,
+        "has_intermediate_output": false
+      },
+      "ttN text": {
+        "input": {
+          "required": {
+            "text": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true,
+                "dynamicPrompts": true
+              }
+            ]
+          },
+          "hidden": {
+            "ttNnodeVersion": "1.0.0"
+          }
+        },
+        "input_order": {
+          "required": [
+            "text"
+          ],
+          "hidden": [
+            "ttNnodeVersion"
+          ]
+        },
+        "is_input_list": false,
+        "output": [
+          "STRING"
+        ],
+        "output_is_list": [
+          false
+        ],
+        "output_name": [
+          "text"
+        ],
+        "name": "ttN text",
+        "display_name": "text",
+        "description": "",
+        "python_module": "custom_nodes.ComfyUI_tinyterraNodes",
+        "category": "🌏 tinyterra/文本",
+        "output_node": false,
         "has_intermediate_output": false,
-        "origin_display_name": "Text Compare"
+        "search_aliases": []
       }
     },
     "custom_node_versions": [
       {
-        "path": "custom_nodes/ComfyUI-Frame-Interpolation",
-        "git_url": "https://code.byted.org/aiplatform/ComfyUI-Frame-Interpolation.git",
-        "git_commit": "ffa6b0a03883b822a66139c60910cd85f0146ac4",
+        "path": "custom_nodes/comfyui-frame-interpolation_cudafull",
+        "git_url": "https://github.com/eddyhhlure1Eddy/comfyui-frame-interpolation_cudafull.git",
+        "git_commit": "795c28e79036f243a6818b3492907fa475a03882",
         "node_types": [
           "RIFE VFI"
         ]
@@ -12010,7 +11255,6 @@
         "git_commit": "6a517ebe06fea2b74fc41b3bd089c0d7173eeced",
         "node_types": [
           "ImpactImageBatchToImageList",
-          "ImageListToImageBatch",
           "MaskListToMaskBatch",
           "ImpactFloat"
         ]
@@ -12018,7 +11262,7 @@
       {
         "path": "custom_nodes/ComfyUI_LayerStyle",
         "git_url": "https://github.com/chflame163/ComfyUI_LayerStyle.git",
-        "git_commit": "d94bef1ee5ed3656f5ff1bb2830a4ffd94f40935",
+        "git_commit": "3bfe8e435d167b4a5bf08716729f89802dbbaa6f",
         "node_types": [
           "LayerUtility: ColorImage V2",
           "LayerUtility: ImageBlendAdvance V2",
@@ -12029,7 +11273,7 @@
       {
         "path": "custom_nodes/ComfyUI-KJNodes",
         "git_url": "https://github.com/kijai/ComfyUI-KJNodes.git",
-        "git_commit": "16a335c8c40b1b3eef8b770022276004d5bea66b",
+        "git_commit": "b1fffd33ba8b14cb4900e2c557f4a2ba0b340ff5",
         "node_types": [
           "ResizeMask",
           "ReverseImageBatch",
@@ -12042,7 +11286,7 @@
       {
         "path": "custom_nodes/ComfyUI-RMBG",
         "git_url": "https://github.com/1038lab/ComfyUI-RMBG.git",
-        "git_commit": "a1ca256ce5ef3d2d990935415bad76c4269aa80d",
+        "git_commit": "d7402513f23f58db7d56754b02a4f51a148b4941",
         "node_types": [
           "AILab_MaskCombiner",
           "RMBG"
@@ -12075,22 +11319,6 @@
         ]
       },
       {
-        "path": "custom_nodes/ComfyUI-EsesImageLensEffects",
-        "git_url": "https://github.com/quasiblob/ComfyUI-EsesImageLensEffects.git",
-        "git_commit": "48267fdaf925a8e17f600ba9acdc1d8589c67f2c",
-        "node_types": [
-          "EsesImageLensEffects"
-        ]
-      },
-      {
-        "path": "custom_nodes/ComfyUI-EsesImageEffectBloom",
-        "git_url": "https://github.com/quasiblob/ComfyUI-EsesImageEffectBloom.git",
-        "git_commit": "33eac71647312f464f6bd30e1ee5eacbc760ddd7",
-        "node_types": [
-          "EsesImageEffectBloom"
-        ]
-      },
-      {
         "path": "custom_nodes/ComfyUI-Crystools",
         "git_url": "https://github.com/crystian/ComfyUI-Crystools.git",
         "git_commit": "2af9ccf0a29c6910e6fcbdd7d2fe96f9bde44eed",
@@ -12120,7 +11348,14 @@
         "git_url": "https://github.com/Eden123321/comfyui-webhook-node.git",
         "git_commit": "3c0fbea3e358bb66a41069622dbc9f88f8c5f8d6",
         "node_types": [
-          "OCOut",
+          "OCOut"
+        ]
+      },
+      {
+        "path": "custom_nodes/comfyui-webhook-node-latest",
+        "git_url": "https://github.com/Doki21yy/comfyui-webhook-node-latest.git",
+        "git_commit": "ddcba27136952af6349913cf9c8b555233118782",
+        "node_types": [
           "BAInputSlot"
         ]
       },
@@ -12148,12 +11383,20 @@
         "node_types": [
           "VHS_VideoCombine"
         ]
+      },
+      {
+        "path": "custom_nodes/ComfyUI-GiftHelperSuite",
+        "git_url": "https://github.com/lingziwyh/ComfyUI-GiftHelperSuite.git",
+        "git_commit": "6952ea612ed9e16660dd1c73fd67078948c8634e",
+        "node_types": [
+          "FastGiftPostFX"
+        ]
       }
     ],
     "pip_freeze": [
-      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.4.2.dist-info due to invalid metadata entry 'name'",
-      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/numpy-2.2.6.dist-info due to invalid metadata entry 'name'",
       "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/python_dotenv-1.2.1.dist-info due to invalid metadata entry 'name'",
+      "WARNING: Skipping /opt/tiger/ComfyUI/tmps/venv_root/comfyui/lib/python3.11/site-packages/pydantic_settings-2.12.0.dist-info due to invalid metadata entry 'name'",
       "absl-py==2.3.1",
       "accelerate==1.10.1",
       "addict==2.4.0",
@@ -12171,9 +11414,8 @@
       "anyio==4.4.0",
       "asn1crypto==1.5.1",
       "attrs==24.2.0",
-      "av==17.0.0",
+      "av==17.0.1",
       "basicsr==1.4.2",
-      "bcrypt==5.0.0",
       "beautifulsoup4==4.14.3",
       "bitsandbytes==0.47.0",
       "black==24.8.0",
@@ -12182,7 +11424,6 @@
       "boto3==1.40.38",
       "botocore==1.40.38",
       "Brotli==1.1.0",
-      "build==1.4.1",
       "byte-nvjpeg @ https://tosv.byted.org/obj/high-aes-depends/byte_nvjpeg-1.0.0-cp311-cp311-linux_x86_64.whl",
       "byted-cruise==0.7.0",
       "byted-kms-encryption==0.0.7",
@@ -12235,31 +11476,29 @@
       "cffi==2.0.0",
       "chardet==5.2.0",
       "charset-normalizer==3.3.2",
-      "chromadb==1.5.5",
       "click==8.1.7",
       "clip-interrogator==0.6.0",
       "cmake==4.1.0",
       "color-matcher==0.6.0",
       "coloredlogs==15.0.1",
       "colour-science==0.4.7",
-      "comfy-aimdo==0.2.12",
+      "comfy-aimdo==0.3.0",
       "comfy-kitchen==0.2.8",
       "comfyui-embedded-docs==0.2.6",
-      "comfyui-workflow-templates-core==0.3.206",
-      "comfyui-workflow-templates-media-api==0.3.69",
-      "comfyui-workflow-templates-media-image==0.3.125",
-      "comfyui-workflow-templates-media-other==0.3.174",
-      "comfyui-workflow-templates-media-video==0.3.77",
-      "comfyui_frontend_package==1.42.11",
+      "comfyui-workflow-templates-core==0.3.214",
+      "comfyui-workflow-templates-media-api==0.3.70",
+      "comfyui-workflow-templates-media-image==0.3.131",
+      "comfyui-workflow-templates-media-other==0.3.180",
+      "comfyui-workflow-templates-media-video==0.3.80",
+      "comfyui_frontend_package==1.42.14",
       "comfyui_workflow_templates==0.1.86",
       "contourpy==1.3.3",
       "cramjam==2.6.2",
       "crcmod==1.7",
-      "cryptography==46.0.7",
-      "cstr @ git+https://github.com/ltdrdata/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
-      "cuda-bindings==12.9.4",
-      "cuda-pathfinder==1.3.3",
-      "cupy-cuda12x==13.6.0",
+      "cryptography==39.0.2",
+      "cstr @ git+https://github.com/WASasquatch/cstr@0520c29a18a7a869a6e5983861d6f7a4c86f8e9b",
+      "cupy-cuda12x==12.3.0",
+      "cupy-wheel==12.3.0",
       "cycler==0.12.1",
       "Cython==3.2.1",
       "dataclasses-json==0.6.7",
@@ -12275,8 +11514,7 @@
       "dnspython==2.8.0",
       "docker-pycreds==0.4.0",
       "docstring_parser==0.17.0",
-      "docutils==0.22.4",
-      "durationpy==0.10",
+      "docutils==0.22.3",
       "easydict==1.13",
       "ecdsa==0.19.1",
       "einops==0.8.1",
@@ -12301,8 +11539,6 @@
       "gitdb==4.0.12",
       "GitPython==3.1.42",
       "glfw==2.10.0",
-      "google==3.0.0",
-      "googleapis-common-protos==1.73.0",
       "GPUtil==1.4.0",
       "gradio==5.47.0",
       "gradio_client==1.13.2",
@@ -12315,7 +11551,6 @@
       "hf-xet==1.1.10",
       "hjson==3.1.0",
       "httpcore==1.0.5",
-      "httptools==0.7.1",
       "httpx==0.25.2",
       "httpx-sse==0.4.3",
       "huggingface-hub==0.35.1",
@@ -12324,9 +11559,8 @@
       "idna==3.10",
       "imageio==2.37.0",
       "imageio-ffmpeg==0.6.0",
-      "img2texture @ git+https://github.com/ltdrdata/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
+      "img2texture @ git+https://github.com/WASasquatch/img2texture.git@d6159abea44a0b2cf77454d3d46962c8b21eb9d3",
       "importlib_metadata==8.7.0",
-      "importlib_resources==6.5.2",
       "iniconfig==2.0.0",
       "insightface==0.7.3",
       "iopath==0.1.10",
@@ -12344,7 +11578,6 @@
       "kiwisolver==1.4.9",
       "kornia==0.8.1",
       "kornia_rs==0.1.9",
-      "kubernetes==35.0.0",
       "langchain==0.3.25",
       "langchain-community==0.3.24",
       "langchain-core==0.3.64",
@@ -12359,7 +11592,7 @@
       "lmdb==1.7.3",
       "loguru==0.7.3",
       "lz4==3.1.10",
-      "Mako==1.3.10",
+      "Mako==1.3.12",
       "Markdown==3.10",
       "markdown-it-py==4.0.0",
       "MarkupSafe==3.0.2",
@@ -12368,7 +11601,6 @@
       "mdurl==0.1.2",
       "megablocks==0.5.1",
       "miscreant==0.3.0",
-      "mmh3==5.2.1",
       "moviepy==1.0.3",
       "mpmath==1.3.0",
       "mprofile==0.0.15",
@@ -12394,9 +11626,8 @@
       "nvidia-ml-py==13.590.48",
       "nvidia-nccl-cu12==2.26.2",
       "nvidia-nvjitlink-cu12==12.6.85",
-      "nvidia-nvshmem-cu12==3.4.5",
+      "nvidia-nvshmem-cu12==3.3.20",
       "nvidia-nvtx-cu12==12.6.77",
-      "oauthlib==3.3.1",
       "objprint==0.3.0",
       "ollama==0.6.0",
       "omegaconf==2.3.0",
@@ -12405,21 +11636,15 @@
       "onnxruntime-gpu==1.22.0",
       "open_clip_torch==3.2.0",
       "openai==1.109.1",
-      "opencv-contrib-python==4.13.0.90",
+      "opencv-contrib-python==4.13.0.92",
       "opencv-python==4.11.0.86",
-      "opencv-python-headless==4.13.0.90",
+      "opencv-python-headless==4.13.0.92",
       "openpyxl==3.1.2",
-      "opentelemetry-api==1.40.0",
-      "opentelemetry-exporter-otlp-proto-common==1.40.0",
-      "opentelemetry-exporter-otlp-proto-grpc==1.40.0",
-      "opentelemetry-proto==1.40.0",
-      "opentelemetry-sdk==1.40.0",
-      "opentelemetry-semantic-conventions==0.61b0",
       "orderly-set==5.5.0",
       "orjson==3.11.3",
-      "overrides==7.7.0",
       "packaging==24.1",
       "pandas==2.3.2",
+      "partial-json-parser==0.2.1.1.post7",
       "pathspec==0.12.1",
       "pathtools==0.1.2",
       "peft==0.17.1",
@@ -12433,7 +11658,7 @@
       "pluggy==1.5.0",
       "ply==3.11",
       "polars==1.33.1",
-      "pooch==1.8.2",
+      "pooch==1.9.0",
       "portalocker==3.2.0",
       "prettytable==3.16.0",
       "proglog==0.1.12",
@@ -12445,7 +11670,6 @@
       "py-cpuinfo==9.0.0",
       "pyarrow==11.0.0",
       "pyasn1==0.6.1",
-      "pybase64==1.4.3",
       "pycocotools==2.0.11",
       "pycparser==2.23",
       "pycryptodome==3.19.1",
@@ -12456,14 +11680,12 @@
       "pydub==0.25.1",
       "Pygments==2.19.2",
       "PyJWT==2.10.1",
-      "PyMatting==1.1.14",
+      "PyMatting==1.1.15",
       "pynvml==13.0.1",
       "pyope==0.2.2",
       "PyOpenGL==3.1.10",
       "pyOpenSSL==23.2.0",
       "pyparsing==3.2.5",
-      "PyPika==0.51.1",
-      "pyproject_hooks==1.2.0",
       "PySocks==1.7.1",
       "pytest==8.3.2",
       "python-dateutil==2.9.0.post0",
@@ -12479,7 +11701,6 @@
       "regex==2025.9.18",
       "rembg==2.0.69",
       "requests==2.31.0",
-      "requests-oauthlib==2.0.0",
       "requests-toolbelt==1.0.0",
       "retry==0.9.2",
       "retrying==1.4.2",
@@ -12495,12 +11716,11 @@
       "sageattention @ https://tosv.byted.org/obj/byteartist-middle/sageattention-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=cbb61901acb08288a72e55d460f6acee226616b26a8a05061efc148a8c5ebb78",
       "SAM-2 @ git+https://github.com/facebookresearch/sam2@2b90b9f5ceec907a1c18123530e92e794ad901a4",
       "schedule==1.2.2",
-      "scikit-image==0.25.2",
+      "scikit-image==0.26.0",
       "scikit-learn==1.7.2",
       "scipy==1.16.2",
       "segment-anything==1.0",
       "semantic-version==2.10.0",
-      "sentence-transformers==5.3.0",
       "sentencepiece==0.2.1",
       "sentry-sdk==2.39.0",
       "setproctitle==1.3.7",
@@ -12514,7 +11734,7 @@
       "soundfile==0.13.1",
       "soupsieve==2.8.3",
       "spandrel==0.4.1",
-      "SQLAlchemy==2.0.48",
+      "SQLAlchemy==2.0.49",
       "stanford-stk==0.7.1",
       "starlette==0.48.0",
       "stringzilla==4.2.3",
@@ -12555,14 +11775,10 @@
       "urllib3==1.26.20",
       "uv==0.8.12",
       "uvicorn==0.37.0",
-      "uvloop==0.22.1",
       "viztracer==0.16.3",
-      "volcengine==1.0.218",
-      "volcengine-python-sdk==5.0.12",
+      "volcengine-python-sdk==5.0.25",
       "watchdog==6.0.0",
-      "watchfiles==1.1.1",
       "wcwidth==0.2.14",
-      "websocket-client==1.9.0",
       "websockets==15.0.1",
       "Werkzeug==3.1.3",
       "wget==3.2",
@@ -12592,7 +11808,7 @@
       "anyio==4.4.0",
       "asn1crypto==1.5.1",
       "attrs==24.2.0",
-      "av==17.0.0",
+      "av==17.0.1",
       "bitsandbytes==0.47.0",
       "black==24.8.0",
       "boto3==1.40.38",
@@ -12655,7 +11871,7 @@
       "contourpy==1.3.3",
       "cramjam==2.6.2",
       "crcmod==1.7",
-      "cryptography==46.0.7",
+      "cryptography==39.0.2",
       "cycler==0.12.1",
       "decorator==5.2.1",
       "deepspeed==0.17.6",
@@ -12839,7 +12055,6 @@
       "urllib3==1.26.20",
       "uv==0.8.12",
       "uvicorn==0.37.0",
-      "volcengine-python-sdk==5.0.12",
       "websockets==15.0.1",
       "wget==3.2",
       "whatimage @ http://voffline.byted.org/download/tos/schedule/labcv.ftp/whatimage-0.0.3-py3-none-any.whl",
@@ -12863,15 +12078,15 @@
     },
     "base_image": "aip_image_factory/custom.image.combo_infer:nvidia_seed4_infer-20251006-215922",
     "comfy_args": {
-      "--listen": "fd02::33:0:0:b78",
+      "--listen": "fd02::24:0:0:c25",
       "--port": "9001"
     },
-    "comfyui_tag": "v0.19.1",
+    "comfyui_tag": "v0.19.5",
     "ba_combo": "588008921034165554",
-    "workflow_name": "花花-Dolly",
-    "workflow_id": "603344952671365803:92",
-    "config_id": "616267634685551307",
-    "workflow_version_id": "616267634719105739",
-    "workflow_identity": "603344952671365803:92"
+    "workflow_name": "啥都能跑",
+    "workflow_id": "597261691570414615:20",
+    "config_id": "618739255136540410",
+    "workflow_version_id": "618739255186872058",
+    "workflow_identity": "597261691570414615:20"
   }
 }

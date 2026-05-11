@@ -60,15 +60,15 @@ const PIPELINE_CONFIG: Record<PipelineKind, Partial<Record<PipelineStage, StageC
     video: {
       workflowFile: 'flower2.0-video.json',
       output: 'video',
-      textNodes: [{ id: '317', field: 'text' }],
-      imageNodes: [{ id: '300', field: 'image' }],
+      textNodes: [{ id: '759', field: 'text' }],
+      imageNodes: [{ id: '752', field: 'image' }],
     },
     post: {
       workflowFile: 'flower2.0-post.json',
       output: 'video-pair',
-      textNodes: [{ id: '514', field: 'text' }],
-      imageNodes: [{ id: '523', field: 'image' }],
-      videoNodes: [{ id: '512', field: 'video_path' }],
+      textNodes: [{ id: '765', field: 'text' }],
+      imageNodes: [{ id: '773', field: 'image' }],
+      videoNodes: [{ id: '763', field: 'file' }],
     },
   },
   flower: {
