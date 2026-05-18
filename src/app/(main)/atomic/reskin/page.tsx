@@ -427,7 +427,7 @@ export default function ReskinPage() {
                 disabled={analyzingImagePrompt || !giftKey || !themeKeyword.trim()}
                 className="btn-gradient"
               >
-                下一步
+                图像生成
               </button>
             </div>
           </div>
