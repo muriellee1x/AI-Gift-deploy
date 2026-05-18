@@ -512,7 +512,7 @@ async function waitForHistory(
 
     const statusStr = entry.status?.status_str ?? ''
     if (statusStr === 'error' || statusStr === 'failed') {
-      const messages = (entry.status?.messages || []) as Array<[string, Record<string, unknown>]>
+      const messages = (entry.status?.messages || []) as unknown as Array<[string, Record<string, unknown>]>
       const execError = messages.find(([type]) => type === 'execution_error')
       const execDetail = execError
         ? `node ${execError[1].node_id} (${execError[1].node_type}): ${String(execError[1].exception_message || '').slice(0, 300)}`
