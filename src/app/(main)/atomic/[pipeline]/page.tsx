@@ -592,8 +592,8 @@ export default function PipelinePage({
       if (!openClawRes.ok || !configRes.ok) {
         throw new Error('打包下载文件失败')
       }
-      zip.file('output.mp4', await openClawRes.blob())
       zip.file('config.json', await configRes.text())
+      zip.file('output.mp4', await openClawRes.blob())
       const content = await zip.generateAsync({ type: 'blob' })
       saveAs(content, `${config.name}-assets.zip`)
     } catch (err) {

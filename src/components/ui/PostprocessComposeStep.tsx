@@ -176,8 +176,8 @@ export default function PostprocessComposeStep({
           fetchAsBlob(output.openClaw.videoUrl),
           fetchAsBlob(output.configUrl),
         ])
-        folder.file('output.mp4', openClawBlob)
         folder.file('config.json', configBlob)
+        folder.file('output.mp4', openClawBlob)
       }
       const content = await zip.generateAsync({ type: 'blob' })
       saveAs(content, '资产合成-results.zip')

@@ -435,8 +435,8 @@ export default function PostprocessPage({
           fetchAsBlob(videoPair.openClaw.videoUrl),
           fetchAsBlob(videoPair.configUrl),
         ])
-        zip.file('output.mp4', openClawBlob)
         zip.file('config.json', configBlob)
+        zip.file('output.mp4', openClawBlob)
         const content = await zip.generateAsync({ type: 'blob' })
         saveAs(content, `${config.name}-assets.zip`)
       }
